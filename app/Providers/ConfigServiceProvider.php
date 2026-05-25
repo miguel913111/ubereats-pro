@@ -30,6 +30,12 @@ class ConfigServiceProvider extends ServiceProvider
     {
         $mode = env('APP_MODE');
         try {
+            // Skip DB-dependent config during build when no DB is available
+            try {
+                \Illuminate\Support\Facades\DB::connection()->getPdo();
+            } catch (\Exception $e) {
+                return;
+            }
             Translator::get(config('app.locale'))->setTranslations([
                 'first_day_of_week' => CarbonImmutable::MONDAY,
                 'weekend' => [CarbonImmutable::SUNDAY],
