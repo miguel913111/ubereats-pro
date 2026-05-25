@@ -208,7 +208,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
         Route::group(['prefix' => 'store', 'as' => 'store.'], function () {
             Route::get('get-stores-data/{store}', 'VendorController@get_store_data')->name('get-stores-data');
             Route::get('store-filter/{id}', 'VendorController@store_filter')->name('store-filter');
-            Route::get('get-account-data/{store}', 'VendorController@get_account_data')->name('store-filter');
+            Route::get('get-account-data/{store}', 'VendorController@get_account_data')->name('get-account-data');
             Route::get('get-stores', 'VendorController@get_stores')->name('get-stores');
             Route::get('get-providers', 'VendorController@get_providers')->name('get-providers');
             Route::get('get-addons', 'VendorController@get_addons')->name('get_addons');
@@ -298,7 +298,7 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.'], function () {
             Route::post('add-payment-ref-code/{id}', 'OrderController@add_payment_ref_code')->name('add-payment-ref-code');
             Route::post('add-order-proof/{id}', 'OrderController@add_order_proof')->name('add-order-proof');
             Route::get('remove-proof-image', 'OrderController@remove_proof_image')->name('remove-proof-image');
-            Route::get('store-filter/{store_id}', 'OrderController@restaurnt_filter')->name('store-filter');
+            Route::get('store-filter/{store_id}', 'OrderController@restaurnt_filter')->name('order-store-filter');
             Route::get('filter/reset', 'OrderController@filter_reset');
             Route::post('filter', 'OrderController@filter')->name('filter');
             Route::get('search', 'OrderController@search')->name('search');
