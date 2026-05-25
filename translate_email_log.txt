@@ -1,0 +1,16 @@
+Email templates to translate: 30
+Email progress: 5/30
+Email progress: 10/30
+Email progress: 15/30
+Email progress: 20/30
+Email progress: 25/30
+Email progress: 30/30
+Emails translated: 30
+Notification messages to translate: 51
+Notif progress: 10/51
+Notif progress: 20/51
+Notif progress: 30/51
+Notif progress: 40/51
+Notif progress: 50/51
+Notifications translated: 51
+=== ALL DONE ===

@@ -1,0 +1,784 @@
+[Fri May 22 17:49:17 2026] PHP 8.2.12 Development Server (http://localhost:8000) started
+[Fri May 22 17:49:20 2026] [::1]:63318 Accepted
+[Fri May 22 17:49:21 2026] [::1]:63318 [200]: GET /login/admin
+[Fri May 22 17:49:21 2026] [::1]:63318 Closing
+[Fri May 22 17:49:54 2026] [::1]:59385 Accepted
+[Fri May 22 17:49:54 2026] [::1]:59385 [200]: GET /login/admin
+[Fri May 22 17:49:54 2026] [::1]:59385 Closing
+[Fri May 22 17:50:01 2026] [::1]:59398 Accepted
+[Fri May 22 17:50:02 2026] [::1]:59398 [200]: GET /login/admin
+[Fri May 22 17:50:02 2026] [::1]:59398 Closing
+[Fri May 22 17:50:36 2026] [::1]:49947 Accepted
+[Fri May 22 17:50:39 2026] [::1]:49947 [200]: GET /login/admin
+[Fri May 22 17:50:39 2026] [::1]:49947 Closing
+[Fri May 22 17:50:39 2026] [::1]:58792 Accepted
+[Fri May 22 17:50:41 2026] [::1]:58792 [200]: GET /login/admin
+[Fri May 22 17:50:41 2026] [::1]:58792 Closing
+[Fri May 22 17:50:43 2026] [::1]:54534 Accepted
+[Fri May 22 17:50:43 2026] [::1]:56736 Accepted
+[Fri May 22 17:50:43 2026] [::1]:59024 Accepted
+[Fri May 22 17:50:43 2026] [::1]:50672 Accepted
+[Fri May 22 17:50:43 2026] [::1]:54534 [404]: GET /public/assets/admin/css/vendor.min.css - No such file or directory
+[Fri May 22 17:50:43 2026] [::1]:56736 [404]: GET /public/assets/admin/vendor/icon-set/style.css - No such file or directory
+[Fri May 22 17:50:43 2026] [::1]:59024 [404]: GET /public/assets/admin/css/bootstrap.min.css - No such file or directory
+[Fri May 22 17:50:43 2026] [::1]:50672 [404]: GET /public/assets/admin/css/theme.minc619.css?v=1.0 - No such file or directory
+[Fri May 22 17:50:43 2026] [::1]:54534 Closing
+[Fri May 22 17:50:43 2026] [::1]:65269 Accepted
+[Fri May 22 17:50:43 2026] [::1]:56736 Closing
+[Fri May 22 17:50:43 2026] [::1]:59024 Closing
+[Fri May 22 17:50:43 2026] [::1]:50672 Closing
+[Fri May 22 17:50:43 2026] [::1]:53730 Accepted
+[Fri May 22 17:50:43 2026] [::1]:65269 [404]: GET /public/assets/admin/css/style.css - No such file or directory
+[Fri May 22 17:50:43 2026] [::1]:53730 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 17:50:43 2026] [::1]:65269 Closing
+[Fri May 22 17:50:43 2026] [::1]:59335 Accepted
+[Fri May 22 17:50:43 2026] [::1]:53730 Closing
+[Fri May 22 17:50:43 2026] [::1]:57341 Accepted
+[Fri May 22 17:50:44 2026] [::1]:59335 [200]: GET /_debugbar/assets/stylesheets?v=1769195002
+[Fri May 22 17:50:44 2026] [::1]:59335 Closing
+[Fri May 22 17:50:44 2026] [::1]:56791 Accepted
+[Fri May 22 17:50:45 2026] [::1]:57341 [200]: GET /_debugbar/assets/javascript?v=1769195002
+[Fri May 22 17:50:45 2026] [::1]:57341 Closing
+[Fri May 22 17:50:45 2026] [::1]:64112 Accepted
+[Fri May 22 17:50:45 2026] [::1]:56791 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:64112 [404]: GET /public/assets/admin/img/send-mail.svg - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:56791 Closing
+[Fri May 22 17:50:45 2026] [::1]:64112 Closing
+[Fri May 22 17:50:45 2026] [::1]:51886 Accepted
+[Fri May 22 17:50:45 2026] [::1]:49666 Accepted
+[Fri May 22 17:50:45 2026] [::1]:51886 [404]: GET /public/assets/admin/img/sent-mail.svg - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:49666 [404]: GET /public/assets/admin/js/vendor.min.js - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:51886 Closing
+[Fri May 22 17:50:45 2026] [::1]:49666 Closing
+[Fri May 22 17:50:45 2026] [::1]:52086 Accepted
+[Fri May 22 17:50:45 2026] [::1]:50583 Accepted
+[Fri May 22 17:50:45 2026] [::1]:52086 [404]: GET /public/assets/admin/js/theme.min.js - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:50583 [404]: GET /public/assets/admin/js/toastr.js - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:52086 Closing
+[Fri May 22 17:50:45 2026] [::1]:53301 Accepted
+[Fri May 22 17:50:45 2026] [::1]:50583 Closing
+[Fri May 22 17:50:45 2026] [::1]:51271 Accepted
+[Fri May 22 17:50:45 2026] [::1]:53301 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:51271 [404]: GET /public/assets/admin/img/send-mail.svg - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:53301 Closing
+[Fri May 22 17:50:45 2026] [::1]:51271 Closing
+[Fri May 22 17:50:45 2026] [::1]:51149 Accepted
+[Fri May 22 17:50:45 2026] [::1]:51149 [404]: GET /public/favicon.ico - No such file or directory
+[Fri May 22 17:50:45 2026] [::1]:51149 Closing
+[Fri May 22 17:50:55 2026] [::1]:55765 Accepted
+[Fri May 22 17:50:55 2026] [::1]:63913 Accepted
+[Fri May 22 17:50:55 2026] [::1]:55765 [404]: GET /public/assets/admin/css/vendor.min.css - No such file or directory
+[Fri May 22 17:50:55 2026] [::1]:62954 Accepted
+[Fri May 22 17:50:55 2026] [::1]:63913 [404]: GET /public/assets/admin/vendor/icon-set/style.css - No such file or directory
+[Fri May 22 17:50:55 2026] [::1]:55765 Closing
+[Fri May 22 17:50:55 2026] [::1]:58033 Accepted
+[Fri May 22 17:50:55 2026] [::1]:62954 [404]: GET /public/assets/admin/css/bootstrap.min.css - No such file or directory
+[Fri May 22 17:50:55 2026] [::1]:63913 Closing
+[Fri May 22 17:50:55 2026] [::1]:58808 Accepted
+[Fri May 22 17:50:55 2026] [::1]:58033 [404]: GET /public/assets/admin/css/theme.minc619.css?v=1.0 - No such file or directory
+[Fri May 22 17:50:55 2026] [::1]:62954 Closing
+[Fri May 22 17:50:55 2026] [::1]:62746 Accepted
+[Fri May 22 17:50:55 2026] [::1]:58808 [404]: GET /public/assets/admin/css/style.css - No such file or directory
+[Fri May 22 17:50:55 2026] [::1]:58033 Closing
+[Fri May 22 17:50:55 2026] [::1]:62746 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 17:50:55 2026] [::1]:58808 Closing
+[Fri May 22 17:50:55 2026] [::1]:62746 Closing
+[Fri May 22 17:50:55 2026] [::1]:50257 Accepted
+[Fri May 22 17:50:55 2026] [::1]:50257 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
+[Fri May 22 17:50:55 2026] [::1]:50257 Closing
+[Fri May 22 17:51:08 2026] [::1]:62681 Accepted
+[Fri May 22 17:51:09 2026] [::1]:62681 [200]: GET /login/admin
+[Fri May 22 17:51:09 2026] [::1]:62681 Closing
+[Fri May 22 17:51:09 2026] [::1]:56656 Accepted
+[Fri May 22 17:51:09 2026] [::1]:56656 [404]: GET /public/assets/admin/css/vendor.min.css - No such file or directory
+[Fri May 22 17:51:09 2026] [::1]:60826 Accepted
+[Fri May 22 17:51:09 2026] [::1]:56656 Closing
+[Fri May 22 17:51:09 2026] [::1]:60076 Accepted
+[Fri May 22 17:51:09 2026] [::1]:56332 Accepted
+[Fri May 22 17:51:09 2026] [::1]:51075 Accepted
+[Fri May 22 17:51:09 2026] [::1]:60826 [404]: GET /public/assets/admin/vendor/icon-set/style.css - No such file or directory
+[Fri May 22 17:51:09 2026] [::1]:55784 Accepted
+[Fri May 22 17:51:09 2026] [::1]:60076 [404]: GET /public/assets/admin/css/bootstrap.min.css - No such file or directory
+[Fri May 22 17:51:09 2026] [::1]:56332 [404]: GET /public/assets/admin/css/theme.minc619.css?v=1.0 - No such file or directory
+[Fri May 22 17:51:09 2026] [::1]:51075 [404]: GET /public/assets/admin/css/style.css - No such file or directory
+[Fri May 22 17:51:09 2026] [::1]:60826 Closing
+[Fri May 22 17:51:09 2026] [::1]:56161 Accepted
+[Fri May 22 17:51:09 2026] [::1]:55784 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 17:51:09 2026] [::1]:60076 Closing
+[Fri May 22 17:51:09 2026] [::1]:56332 Closing
+[Fri May 22 17:51:09 2026] [::1]:51075 Closing
+[Fri May 22 17:51:09 2026] [::1]:61305 Accepted
+[Fri May 22 17:51:09 2026] [::1]:56161 [200]: GET /_debugbar/assets/stylesheets?v=1769195002
+[Fri May 22 17:51:09 2026] [::1]:56161 Closing
+[Fri May 22 17:51:09 2026] [::1]:55784 Closing
+[Fri May 22 17:51:09 2026] [::1]:52363 Accepted
+[Fri May 22 17:51:10 2026] [::1]:61305 [200]: GET /_debugbar/assets/javascript?v=1769195002
+[Fri May 22 17:51:10 2026] [::1]:61305 Closing
+[Fri May 22 17:51:10 2026] [::1]:59573 Accepted
+[Fri May 22 17:51:10 2026] [::1]:52363 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:59573 [404]: GET /public/assets/admin/img/send-mail.svg - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:52363 Closing
+[Fri May 22 17:51:10 2026] [::1]:59573 Closing
+[Fri May 22 17:51:10 2026] [::1]:51201 Accepted
+[Fri May 22 17:51:10 2026] [::1]:51201 [404]: GET /public/assets/admin/img/sent-mail.svg - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:51201 Closing
+[Fri May 22 17:51:10 2026] [::1]:60861 Accepted
+[Fri May 22 17:51:10 2026] [::1]:64848 Accepted
+[Fri May 22 17:51:10 2026] [::1]:60861 [404]: GET /public/assets/admin/js/vendor.min.js - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:61173 Accepted
+[Fri May 22 17:51:10 2026] [::1]:64848 [404]: GET /public/assets/admin/js/theme.min.js - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:60861 Closing
+[Fri May 22 17:51:10 2026] [::1]:63819 Accepted
+[Fri May 22 17:51:10 2026] [::1]:61173 [404]: GET /public/assets/admin/js/toastr.js - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:64848 Closing
+[Fri May 22 17:51:10 2026] [::1]:53220 Accepted
+[Fri May 22 17:51:10 2026] [::1]:63819 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:61173 Closing
+[Fri May 22 17:51:10 2026] [::1]:53220 [404]: GET /public/assets/admin/img/send-mail.svg - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:63819 Closing
+[Fri May 22 17:51:10 2026] [::1]:53220 Closing
+[Fri May 22 17:51:10 2026] [::1]:65514 Accepted
+[Fri May 22 17:51:10 2026] [::1]:65514 [404]: GET /public/favicon.ico - No such file or directory
+[Fri May 22 17:51:10 2026] [::1]:65514 Closing
+[Fri May 22 17:51:14 2026] [::1]:58693 Accepted
+[Fri May 22 17:51:14 2026] [::1]:62044 Accepted
+[Fri May 22 17:51:14 2026] [::1]:58693 [404]: GET /public/assets/admin/css/vendor.min.css - No such file or directory
+[Fri May 22 17:51:14 2026] [::1]:63376 Accepted
+[Fri May 22 17:51:14 2026] [::1]:62044 [404]: GET /public/assets/admin/vendor/icon-set/style.css - No such file or directory
+[Fri May 22 17:51:14 2026] [::1]:58693 Closing
+[Fri May 22 17:51:14 2026] [::1]:60303 Accepted
+[Fri May 22 17:51:14 2026] [::1]:63376 [404]: GET /public/assets/admin/css/bootstrap.min.css - No such file or directory
+[Fri May 22 17:51:14 2026] [::1]:62044 Closing
+[Fri May 22 17:51:14 2026] [::1]:64788 Accepted
+[Fri May 22 17:51:14 2026] [::1]:60303 [404]: GET /public/assets/admin/css/theme.minc619.css?v=1.0 - No such file or directory
+[Fri May 22 17:51:14 2026] [::1]:63376 Closing
+[Fri May 22 17:51:14 2026] [::1]:65357 Accepted
+[Fri May 22 17:51:14 2026] [::1]:64788 [404]: GET /public/assets/admin/css/style.css - No such file or directory
+[Fri May 22 17:51:14 2026] [::1]:60303 Closing
+[Fri May 22 17:51:14 2026] [::1]:65357 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 17:51:14 2026] [::1]:64788 Closing
+[Fri May 22 17:51:14 2026] [::1]:65357 Closing
+[Fri May 22 17:51:14 2026] [::1]:59352 Accepted
+[Fri May 22 17:51:14 2026] [::1]:59352 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
+[Fri May 22 17:51:14 2026] [::1]:59352 Closing
+[Fri May 22 20:03:23 2026] [::1]:60253 Accepted
+[Fri May 22 20:03:26 2026] [::1]:60253 [404]: GET /admin/auth/login
+[Fri May 22 20:03:26 2026] [::1]:60253 Closing
+[Fri May 22 20:03:30 2026] [::1]:49898 Accepted
+[Fri May 22 20:03:34 2026] [::1]:49898 [200]: GET /
+[Fri May 22 20:03:34 2026] [::1]:49898 Closing
+[Fri May 22 20:03:38 2026] [::1]:49674 Accepted
+[Fri May 22 20:03:39 2026] [::1]:49674 [404]: GET /admin/login
+[Fri May 22 20:03:39 2026] [::1]:49674 Closing
+[Fri May 22 20:04:02 2026] [::1]:55301 Accepted
+[Fri May 22 20:04:03 2026] [::1]:55301 [302]: GET /admin
+[Fri May 22 20:04:03 2026] [::1]:55301 Closing
+[Fri May 22 20:05:33 2026] [::1]:51532 Accepted
+[Fri May 22 20:05:34 2026] [::1]:51532 [200]: GET /
+[Fri May 22 20:05:34 2026] [::1]:51532 Closing
+[Fri May 22 20:30:56 2026] [::1]:55998 Accepted
+[Fri May 22 20:30:57 2026] [::1]:55998 [302]: GET /api/v1/customer/dine-in/stores
+[Fri May 22 20:30:57 2026] [::1]:55998 Closing
+[Fri May 22 20:30:57 2026] [::1]:56002 Accepted
+[Fri May 22 20:30:58 2026] [::1]:56002 [302]: GET /api/v1/customer/gift-card/list
+[Fri May 22 20:30:58 2026] [::1]:56002 Closing
+[Fri May 22 20:31:05 2026] [::1]:59252 Accepted
+[Fri May 22 20:31:05 2026] [::1]:59252 [302]: GET /admin
+[Fri May 22 20:31:05 2026] [::1]:59252 Closing
+[Fri May 22 21:10:18 2026] [::1]:52838 Accepted
+[Fri May 22 21:10:19 2026] [::1]:52838 [200]: GET /
+[Fri May 22 21:10:19 2026] [::1]:52838 Closing
+[Fri May 22 21:10:19 2026] [::1]:52330 Accepted
+[Fri May 22 21:10:19 2026] [::1]:52330 [404]: GET /public/assets/landing/css/bootstrap.min.css - No such file or directory
+[Fri May 22 21:10:19 2026] [::1]:63235 Accepted
+[Fri May 22 21:10:19 2026] [::1]:52330 Closing
+[Fri May 22 21:10:19 2026] [::1]:55471 Accepted
+[Fri May 22 21:10:19 2026] [::1]:63235 [404]: GET /public/assets/landing/css/customize-animate.css - No such file or directory
+[Fri May 22 21:10:19 2026] [::1]:62949 Accepted
+[Fri May 22 21:10:19 2026] [::1]:55471 [404]: GET /public/assets/landing/css/odometer.css - No such file or directory
+[Fri May 22 21:10:19 2026] [::1]:63235 Closing
+[Fri May 22 21:10:19 2026] [::1]:59997 Accepted
+[Fri May 22 21:10:19 2026] [::1]:62949 [404]: GET /public/assets/landing/css/owl.min.css - No such file or directory
+[Fri May 22 21:10:19 2026] [::1]:55471 Closing
+[Fri May 22 21:10:19 2026] [::1]:61956 Accepted
+[Fri May 22 21:10:19 2026] [::1]:59997 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 21:10:19 2026] [::1]:62949 Closing
+[Fri May 22 21:10:19 2026] [::1]:61234 Accepted
+[Fri May 22 21:10:19 2026] [::1]:61956 [404]: GET /public/assets/landing/css/main.css - No such file or directory
+[Fri May 22 21:10:19 2026] [::1]:59997 Closing
+[Fri May 22 21:10:19 2026] [::1]:61007 Accepted
+[Fri May 22 21:10:19 2026] [::1]:61234 [404]: GET /public/assets/admin/intltelinput/css/intlTelInput.css - No such file or directory
+[Fri May 22 21:10:19 2026] [::1]:61956 Closing
+[Fri May 22 21:10:19 2026] [::1]:64322 Accepted
+[Fri May 22 21:10:20 2026] [::1]:61007 [200]: GET /_debugbar/assets/stylesheets?v=1769195002
+[Fri May 22 21:10:20 2026] [::1]:61007 Closing
+[Fri May 22 21:10:20 2026] [::1]:61234 Closing
+[Fri May 22 21:10:20 2026] [::1]:65349 Accepted
+[Fri May 22 21:10:21 2026] [::1]:64322 [200]: GET /_debugbar/assets/javascript?v=1769195002
+[Fri May 22 21:10:21 2026] [::1]:64322 Closing
+[Fri May 22 21:10:21 2026] [::1]:51979 Accepted
+[Fri May 22 21:10:21 2026] [::1]:65349 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:51979 [404]: GET /public/assets/landing/img/main-banner.svg - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:65349 Closing
+[Fri May 22 21:10:21 2026] [::1]:51979 Closing
+[Fri May 22 21:10:21 2026] [::1]:58377 Accepted
+[Fri May 22 21:10:21 2026] [::1]:62193 Accepted
+[Fri May 22 21:10:21 2026] [::1]:58377 [404]: GET /storage/app/public/module/2024-04-20-662398cb7f2e7.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:62193 [404]: GET /storage/app/public/module/2024-11-19-673c37a92984b.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:58377 Closing
+[Fri May 22 21:10:21 2026] [::1]:58419 Accepted
+[Fri May 22 21:10:21 2026] [::1]:62193 Closing
+[Fri May 22 21:10:21 2026] [::1]:55470 Accepted
+[Fri May 22 21:10:21 2026] [::1]:58419 [404]: GET /public/assets/landing/js/jquery-3.6.0.min.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:53560 Accepted
+[Fri May 22 21:10:21 2026] [::1]:55470 [404]: GET /public/assets/landing/js/bootstrap.min.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:58419 Closing
+[Fri May 22 21:10:21 2026] [::1]:54179 Accepted
+[Fri May 22 21:10:21 2026] [::1]:53560 [404]: GET /public/assets/landing/js/viewport.jquery.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:55470 Closing
+[Fri May 22 21:10:21 2026] [::1]:50698 Accepted
+[Fri May 22 21:10:21 2026] [::1]:54179 [404]: GET /public/assets/landing/js/wow.min.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:53560 Closing
+[Fri May 22 21:10:21 2026] [::1]:64055 Accepted
+[Fri May 22 21:10:21 2026] [::1]:50698 [404]: GET /public/assets/landing/js/odometer.min.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:54179 Closing
+[Fri May 22 21:10:21 2026] [::1]:56395 Accepted
+[Fri May 22 21:10:21 2026] [::1]:64055 [404]: GET /public/assets/landing/js/owl.min.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:50698 Closing
+[Fri May 22 21:10:21 2026] [::1]:51484 Accepted
+[Fri May 22 21:10:21 2026] [::1]:56395 [404]: GET /public/assets/landing/js/main.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:64055 Closing
+[Fri May 22 21:10:21 2026] [::1]:50531 Accepted
+[Fri May 22 21:10:21 2026] [::1]:51484 [404]: GET /public/assets/admin/js/toastr.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:56395 Closing
+[Fri May 22 21:10:21 2026] [::1]:61795 Accepted
+[Fri May 22 21:10:21 2026] [::1]:50531 [404]: GET /public/assets/admin/intltelinput/js/intlTelInput.min.js - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:51484 Closing
+[Fri May 22 21:10:21 2026] [::1]:60737 Accepted
+[Fri May 22 21:10:21 2026] [::1]:61795 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c34d94d61b.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:50531 Closing
+[Fri May 22 21:10:21 2026] [::1]:60411 Accepted
+[Fri May 22 21:10:21 2026] [::1]:60737 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32af3d693.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:61795 Closing
+[Fri May 22 21:10:21 2026] [::1]:59733 Accepted
+[Fri May 22 21:10:21 2026] [::1]:60411 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32cb48c85.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:60737 Closing
+[Fri May 22 21:10:21 2026] [::1]:54121 Accepted
+[Fri May 22 21:10:21 2026] [::1]:59733 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32e23150b.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:60411 Closing
+[Fri May 22 21:10:21 2026] [::1]:55739 Accepted
+[Fri May 22 21:10:21 2026] [::1]:54121 [404]: GET /public/assets/landing/img/google-play.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:59733 Closing
+[Fri May 22 21:10:21 2026] [::1]:51158 Accepted
+[Fri May 22 21:10:21 2026] [::1]:55739 [404]: GET /public/assets/landing/img/apple-store.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:54121 Closing
+[Fri May 22 21:10:21 2026] [::1]:63462 Accepted
+[Fri May 22 21:10:21 2026] [::1]:51158 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c361aca20a.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:55739 Closing
+[Fri May 22 21:10:21 2026] [::1]:61286 Accepted
+[Fri May 22 21:10:21 2026] [::1]:63462 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c3634952a9.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:51158 Closing
+[Fri May 22 21:10:21 2026] [::1]:49973 Accepted
+[Fri May 22 21:10:21 2026] [::1]:61286 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c364d7fcc5.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:63462 Closing
+[Fri May 22 21:10:21 2026] [::1]:60946 Accepted
+[Fri May 22 21:10:21 2026] [::1]:49973 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c36662d201.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:61286 Closing
+[Fri May 22 21:10:21 2026] [::1]:59286 Accepted
+[Fri May 22 21:10:21 2026] [::1]:60946 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c367fb9d1f.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:49973 Closing
+[Fri May 22 21:10:21 2026] [::1]:51891 Accepted
+[Fri May 22 21:10:21 2026] [::1]:59286 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c36d78cfda.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:60946 Closing
+[Fri May 22 21:10:21 2026] [::1]:59147 Accepted
+[Fri May 22 21:10:21 2026] [::1]:51891 [404]: GET /storage/app/public/business/2024-11-19-673c3141ec163.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:59286 Closing
+[Fri May 22 21:10:21 2026] [::1]:52687 Accepted
+[Fri May 22 21:10:21 2026] [::1]:59147 [404]: GET /storage/app/public/download_user_app_image/2024-11-19-673c31bdc98e1.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:51891 Closing
+[Fri May 22 21:10:21 2026] [::1]:59809 Accepted
+[Fri May 22 21:10:21 2026] [::1]:52687 [404]: GET /storage/app/public/reviewer_image/2024-04-20-662399c21315a.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:59147 Closing
+[Fri May 22 21:10:21 2026] [::1]:62639 Accepted
+[Fri May 22 21:10:21 2026] [::1]:59809 [404]: GET /storage/app/public/reviewer_company_image/2024-04-20-662399c213676.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:52687 Closing
+[Fri May 22 21:10:21 2026] [::1]:56407 Accepted
+[Fri May 22 21:10:21 2026] [::1]:62639 [404]: GET /public/assets/landing/img/google.svg - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:59809 Closing
+[Fri May 22 21:10:21 2026] [::1]:60532 Accepted
+[Fri May 22 21:10:21 2026] [::1]:56407 [404]: GET /public/assets/landing/img/apple.svg - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:62639 Closing
+[Fri May 22 21:10:21 2026] [::1]:59126 Accepted
+[Fri May 22 21:10:21 2026] [::1]:60532 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:56407 Closing
+[Fri May 22 21:10:21 2026] [::1]:55396 Accepted
+[Fri May 22 21:10:21 2026] [::1]:59126 [404]: GET /storage/app/public/promotional_banner/2024-11-19-673c35a459d2a.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:60532 Closing
+[Fri May 22 21:10:21 2026] [::1]:49926 Accepted
+[Fri May 22 21:10:21 2026] [::1]:55396 [404]: GET /public/assets/landing/img/learn-feature-bg.svg - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:59126 Closing
+[Fri May 22 21:10:21 2026] [::1]:53158 Accepted
+[Fri May 22 21:10:21 2026] [::1]:49926 [404]: GET /storage/app/public/earning/2024-11-19-673c331e66d9e.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:55396 Closing
+[Fri May 22 21:10:21 2026] [::1]:53158 [404]: GET /storage/app/public/earning/2024-11-19-673c332b98b86.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:49926 Closing
+[Fri May 22 21:10:21 2026] [::1]:53158 Closing
+[Fri May 22 21:10:21 2026] [::1]:61013 Accepted
+[Fri May 22 21:10:21 2026] [::1]:61013 [404]: GET /storage/app/public/business/2024-11-19-673c3141ec163.png - No such file or directory
+[Fri May 22 21:10:21 2026] [::1]:61013 Closing
+[Fri May 22 21:11:14 2026] [::1]:56946 Accepted
+[Fri May 22 21:11:14 2026] [::1]:57966 Accepted
+[Fri May 22 21:11:14 2026] [::1]:56946 [404]: GET /public/assets/landing/css/bootstrap.min.css - No such file or directory
+[Fri May 22 21:11:14 2026] [::1]:59560 Accepted
+[Fri May 22 21:11:14 2026] [::1]:57966 [404]: GET /public/assets/landing/css/customize-animate.css - No such file or directory
+[Fri May 22 21:11:14 2026] [::1]:56946 Closing
+[Fri May 22 21:11:14 2026] [::1]:50712 Accepted
+[Fri May 22 21:11:14 2026] [::1]:59560 [404]: GET /public/assets/landing/css/odometer.css - No such file or directory
+[Fri May 22 21:11:14 2026] [::1]:57966 Closing
+[Fri May 22 21:11:14 2026] [::1]:62574 Accepted
+[Fri May 22 21:11:14 2026] [::1]:50712 [404]: GET /public/assets/landing/css/owl.min.css - No such file or directory
+[Fri May 22 21:11:14 2026] [::1]:59560 Closing
+[Fri May 22 21:11:14 2026] [::1]:49342 Accepted
+[Fri May 22 21:11:14 2026] [::1]:62574 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 21:11:14 2026] [::1]:50712 Closing
+[Fri May 22 21:11:14 2026] [::1]:60680 Accepted
+[Fri May 22 21:11:14 2026] [::1]:49342 [404]: GET /public/assets/landing/css/main.css - No such file or directory
+[Fri May 22 21:11:14 2026] [::1]:62574 Closing
+[Fri May 22 21:11:14 2026] [::1]:60680 [404]: GET /public/assets/admin/intltelinput/css/intlTelInput.css - No such file or directory
+[Fri May 22 21:11:14 2026] [::1]:49342 Closing
+[Fri May 22 21:11:14 2026] [::1]:60680 Closing
+[Fri May 22 21:11:14 2026] [::1]:61724 Accepted
+[Fri May 22 21:11:14 2026] [::1]:61724 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
+[Fri May 22 21:11:14 2026] [::1]:61724 Closing
+[Fri May 22 21:11:21 2026] [::1]:57943 Accepted
+[Fri May 22 21:11:23 2026] [::1]:57943 [200]: GET /login/admin
+[Fri May 22 21:11:23 2026] [::1]:57943 Closing
+[Fri May 22 21:11:23 2026] [::1]:63065 Accepted
+[Fri May 22 21:11:23 2026] [::1]:63065 [404]: GET /public/assets/admin/css/vendor.min.css - No such file or directory
+[Fri May 22 21:11:23 2026] [::1]:64888 Accepted
+[Fri May 22 21:11:23 2026] [::1]:63065 Closing
+[Fri May 22 21:11:23 2026] [::1]:64888 [404]: GET /public/assets/admin/vendor/icon-set/style.css - No such file or directory
+[Fri May 22 21:11:23 2026] [::1]:62698 Accepted
+[Fri May 22 21:11:23 2026] [::1]:64888 Closing
+[Fri May 22 21:11:23 2026] [::1]:65467 Accepted
+[Fri May 22 21:11:23 2026] [::1]:62698 [404]: GET /public/assets/admin/css/bootstrap.min.css - No such file or directory
+[Fri May 22 21:11:23 2026] [::1]:65467 [404]: GET /public/assets/admin/css/theme.minc619.css?v=1.0 - No such file or directory
+[Fri May 22 21:11:23 2026] [::1]:62698 Closing
+[Fri May 22 21:11:23 2026] [::1]:63845 Accepted
+[Fri May 22 21:11:23 2026] [::1]:65467 Closing
+[Fri May 22 21:11:23 2026] [::1]:64013 Accepted
+[Fri May 22 21:11:23 2026] [::1]:56776 Accepted
+[Fri May 22 21:11:23 2026] [::1]:63845 [404]: GET /public/assets/admin/css/style.css - No such file or directory
+[Fri May 22 21:11:23 2026] [::1]:59073 Accepted
+[Fri May 22 21:11:23 2026] [::1]:64013 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 21:11:23 2026] [::1]:63845 Closing
+[Fri May 22 21:11:23 2026] [::1]:56776 [200]: GET /_debugbar/assets/stylesheets?v=1769195002
+[Fri May 22 21:11:23 2026] [::1]:56776 Closing
+[Fri May 22 21:11:23 2026] [::1]:64013 Closing
+[Fri May 22 21:11:23 2026] [::1]:52903 Accepted
+[Fri May 22 21:11:24 2026] [::1]:59073 [200]: GET /_debugbar/assets/javascript?v=1769195002
+[Fri May 22 21:11:24 2026] [::1]:59073 Closing
+[Fri May 22 21:11:24 2026] [::1]:58197 Accepted
+[Fri May 22 21:11:24 2026] [::1]:52903 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:53185 Accepted
+[Fri May 22 21:11:24 2026] [::1]:58197 [404]: GET /public/assets/admin/img/send-mail.svg - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:52903 Closing
+[Fri May 22 21:11:24 2026] [::1]:53185 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:58197 Closing
+[Fri May 22 21:11:24 2026] [::1]:53185 Closing
+[Fri May 22 21:11:24 2026] [::1]:53329 Accepted
+[Fri May 22 21:11:24 2026] [::1]:64933 Accepted
+[Fri May 22 21:11:24 2026] [::1]:53329 [404]: GET /public/assets/admin/img/sent-mail.svg - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:64933 [404]: GET /public/assets/admin/js/vendor.min.js - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:53329 Closing
+[Fri May 22 21:11:24 2026] [::1]:64933 Closing
+[Fri May 22 21:11:24 2026] [::1]:56303 Accepted
+[Fri May 22 21:11:24 2026] [::1]:50827 Accepted
+[Fri May 22 21:11:24 2026] [::1]:56303 [404]: GET /public/assets/admin/js/theme.min.js - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:50827 [404]: GET /public/assets/admin/js/toastr.js - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:56303 Closing
+[Fri May 22 21:11:24 2026] [::1]:50827 Closing
+[Fri May 22 21:11:24 2026] [::1]:53948 Accepted
+[Fri May 22 21:11:24 2026] [::1]:53948 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:59648 Accepted
+[Fri May 22 21:11:24 2026] [::1]:53948 Closing
+[Fri May 22 21:11:24 2026] [::1]:59648 [404]: GET /public/assets/admin/img/send-mail.svg - No such file or directory
+[Fri May 22 21:11:24 2026] [::1]:59648 Closing
+[Fri May 22 21:11:59 2026] [::1]:55700 Accepted
+[Fri May 22 21:11:59 2026] [::1]:56387 Accepted
+[Fri May 22 21:11:59 2026] [::1]:55700 [200]: GET /login/admin
+[Fri May 22 21:11:59 2026] [::1]:55700 Closing
+[Fri May 22 21:11:59 2026] [::1]:56387 [404]: GET /public/assets/admin/css/vendor.min.css - No such file or directory
+[Fri May 22 21:11:59 2026] [::1]:57708 Accepted
+[Fri May 22 21:11:59 2026] [::1]:56387 Closing
+[Fri May 22 21:11:59 2026] [::1]:56946 Accepted
+[Fri May 22 21:11:59 2026] [::1]:62535 Accepted
+[Fri May 22 21:11:59 2026] [::1]:58926 Accepted
+[Fri May 22 21:11:59 2026] [::1]:50523 Accepted
+[Fri May 22 21:11:59 2026] [::1]:57708 [404]: GET /public/assets/admin/vendor/icon-set/style.css - No such file or directory
+[Fri May 22 21:11:59 2026] [::1]:56946 [404]: GET /public/assets/admin/css/bootstrap.min.css - No such file or directory
+[Fri May 22 21:11:59 2026] [::1]:62535 [404]: GET /public/assets/admin/css/theme.minc619.css?v=1.0 - No such file or directory
+[Fri May 22 21:11:59 2026] [::1]:58926 [404]: GET /public/assets/admin/css/style.css - No such file or directory
+[Fri May 22 21:11:59 2026] [::1]:50523 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 21:11:59 2026] [::1]:57708 Closing
+[Fri May 22 21:11:59 2026] [::1]:52597 Accepted
+[Fri May 22 21:11:59 2026] [::1]:56946 Closing
+[Fri May 22 21:11:59 2026] [::1]:62535 Closing
+[Fri May 22 21:11:59 2026] [::1]:58926 Closing
+[Fri May 22 21:11:59 2026] [::1]:50523 Closing
+[Fri May 22 21:12:00 2026] [::1]:52597 [200]: GET /_debugbar/assets/stylesheets?v=1769195002
+[Fri May 22 21:12:00 2026] [::1]:52597 Closing
+[Fri May 22 21:12:00 2026] [::1]:49667 Accepted
+[Fri May 22 21:12:00 2026] [::1]:57476 Accepted
+[Fri May 22 21:12:00 2026] [::1]:49667 [200]: GET /_debugbar/assets/javascript?v=1769195002
+[Fri May 22 21:12:00 2026] [::1]:49667 Closing
+[Fri May 22 21:12:00 2026] [::1]:51720 Accepted
+[Fri May 22 21:12:00 2026] [::1]:57476 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:52881 Accepted
+[Fri May 22 21:12:00 2026] [::1]:51720 [404]: GET /public/assets/admin/img/send-mail.svg - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:57476 Closing
+[Fri May 22 21:12:00 2026] [::1]:52881 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:51720 Closing
+[Fri May 22 21:12:00 2026] [::1]:52881 Closing
+[Fri May 22 21:12:00 2026] [::1]:59659 Accepted
+[Fri May 22 21:12:00 2026] [::1]:64095 Accepted
+[Fri May 22 21:12:00 2026] [::1]:59659 [404]: GET /public/assets/admin/img/sent-mail.svg - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:52603 Accepted
+[Fri May 22 21:12:00 2026] [::1]:64095 [404]: GET /public/assets/admin/js/vendor.min.js - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:59659 Closing
+[Fri May 22 21:12:00 2026] [::1]:49674 Accepted
+[Fri May 22 21:12:00 2026] [::1]:52603 [404]: GET /public/assets/admin/js/theme.min.js - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:64095 Closing
+[Fri May 22 21:12:00 2026] [::1]:59061 Accepted
+[Fri May 22 21:12:00 2026] [::1]:49674 [404]: GET /public/assets/admin/js/toastr.js - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:52603 Closing
+[Fri May 22 21:12:00 2026] [::1]:55523 Accepted
+[Fri May 22 21:12:00 2026] [::1]:59061 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:49674 Closing
+[Fri May 22 21:12:00 2026] [::1]:55523 [404]: GET /public/assets/admin/img/send-mail.svg - No such file or directory
+[Fri May 22 21:12:00 2026] [::1]:59061 Closing
+[Fri May 22 21:12:00 2026] [::1]:55523 Closing
+[Fri May 22 21:12:39 2026] [::1]:64453 Accepted
+[Fri May 22 21:12:40 2026] [::1]:64453 [404]: GET /login
+[Fri May 22 21:12:40 2026] [::1]:64453 Closing
+[Fri May 22 21:12:40 2026] [::1]:57967 Accepted
+[Fri May 22 21:12:40 2026] [::1]:57967 [404]: GET /public/assets/admin/vendor/icon-set/style.css - No such file or directory
+[Fri May 22 21:12:40 2026] [::1]:60269 Accepted
+[Fri May 22 21:12:40 2026] [::1]:57967 Closing
+[Fri May 22 21:12:40 2026] [::1]:62560 Accepted
+[Fri May 22 21:12:40 2026] [::1]:63920 Accepted
+[Fri May 22 21:12:40 2026] [::1]:60269 [404]: GET /public/assets/admin/css/vendor.min.css - No such file or directory
+[Fri May 22 21:12:40 2026] [::1]:50656 Accepted
+[Fri May 22 21:12:40 2026] [::1]:62560 [404]: GET /public/assets/admin/css/style.css - No such file or directory
+[Fri May 22 21:12:40 2026] [::1]:63920 [404]: GET /public/assets/admin/css/theme.minc619.css?v=1.0 - No such file or directory
+[Fri May 22 21:12:40 2026] [::1]:60269 Closing
+[Fri May 22 21:12:40 2026] [::1]:58852 Accepted
+[Fri May 22 21:12:40 2026] [::1]:50656 [404]: GET /public/assets/admin/css/bootstrap.min.css - No such file or directory
+[Fri May 22 21:12:40 2026] [::1]:62560 Closing
+[Fri May 22 21:12:40 2026] [::1]:63920 Closing
+[Fri May 22 21:12:40 2026] [::1]:58852 [404]: GET /public/assets/admin/svg/illustrations/think.svg - No such file or directory
+[Fri May 22 21:12:40 2026] [::1]:50656 Closing
+[Fri May 22 21:12:40 2026] [::1]:58852 Closing
+[Fri May 22 21:12:40 2026] [::1]:52438 Accepted
+[Fri May 22 21:12:40 2026] [::1]:52438 [404]: GET /public/assets/admin/js/theme.min.js - No such file or directory
+[Fri May 22 21:12:40 2026] [::1]:52438 Closing
+[Fri May 22 21:12:40 2026] [::1]:54984 Accepted
+[Fri May 22 21:12:40 2026] [::1]:54984 [200]: GET /favicon.ico
+[Fri May 22 21:12:40 2026] [::1]:54984 Closing
+[Fri May 22 21:12:44 2026] [::1]:52349 Accepted
+[Fri May 22 21:12:45 2026] [::1]:52349 [200]: GET /
+[Fri May 22 21:12:45 2026] [::1]:52349 Closing
+[Fri May 22 21:12:45 2026] [::1]:60192 Accepted
+[Fri May 22 21:12:45 2026] [::1]:60192 [404]: GET /public/assets/landing/css/bootstrap.min.css - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:55675 Accepted
+[Fri May 22 21:12:45 2026] [::1]:60192 Closing
+[Fri May 22 21:12:45 2026] [::1]:59887 Accepted
+[Fri May 22 21:12:45 2026] [::1]:62964 Accepted
+[Fri May 22 21:12:45 2026] [::1]:55248 Accepted
+[Fri May 22 21:12:45 2026] [::1]:55675 [404]: GET /public/assets/landing/css/customize-animate.css - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:59887 [404]: GET /public/assets/landing/css/odometer.css - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:53389 Accepted
+[Fri May 22 21:12:45 2026] [::1]:62964 [404]: GET /public/assets/landing/css/owl.min.css - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:55248 [404]: GET /public/assets/landing/css/main.css - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:55675 Closing
+[Fri May 22 21:12:45 2026] [::1]:59887 Closing
+[Fri May 22 21:12:45 2026] [::1]:53389 [404]: GET /public/assets/admin/intltelinput/css/intlTelInput.css - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:62964 Closing
+[Fri May 22 21:12:45 2026] [::1]:55248 Closing
+[Fri May 22 21:12:45 2026] [::1]:51576 Accepted
+[Fri May 22 21:12:45 2026] [::1]:53389 Closing
+[Fri May 22 21:12:45 2026] [::1]:51576 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:51576 Closing
+[Fri May 22 21:12:45 2026] [::1]:49382 Accepted
+[Fri May 22 21:12:45 2026] [::1]:65018 Accepted
+[Fri May 22 21:12:45 2026] [::1]:49382 [404]: GET /public/assets/landing/img/main-banner.svg - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:65018 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:49382 Closing
+[Fri May 22 21:12:45 2026] [::1]:65018 Closing
+[Fri May 22 21:12:45 2026] [::1]:56126 Accepted
+[Fri May 22 21:12:45 2026] [::1]:63914 Accepted
+[Fri May 22 21:12:45 2026] [::1]:56126 [404]: GET /storage/app/public/module/2024-04-20-662398cb7f2e7.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:63914 [404]: GET /storage/app/public/module/2024-11-19-673c37a92984b.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:56126 Closing
+[Fri May 22 21:12:45 2026] [::1]:62718 Accepted
+[Fri May 22 21:12:45 2026] [::1]:63914 Closing
+[Fri May 22 21:12:45 2026] [::1]:65352 Accepted
+[Fri May 22 21:12:45 2026] [::1]:62718 [404]: GET /public/assets/landing/js/jquery-3.6.0.min.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:56135 Accepted
+[Fri May 22 21:12:45 2026] [::1]:65352 [404]: GET /public/assets/landing/js/bootstrap.min.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:62718 Closing
+[Fri May 22 21:12:45 2026] [::1]:62912 Accepted
+[Fri May 22 21:12:45 2026] [::1]:56135 [404]: GET /public/assets/landing/js/viewport.jquery.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:65352 Closing
+[Fri May 22 21:12:45 2026] [::1]:50243 Accepted
+[Fri May 22 21:12:45 2026] [::1]:62912 [404]: GET /public/assets/landing/js/wow.min.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:56135 Closing
+[Fri May 22 21:12:45 2026] [::1]:63989 Accepted
+[Fri May 22 21:12:45 2026] [::1]:50243 [404]: GET /public/assets/landing/js/odometer.min.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:62912 Closing
+[Fri May 22 21:12:45 2026] [::1]:59715 Accepted
+[Fri May 22 21:12:45 2026] [::1]:63989 [404]: GET /public/assets/landing/js/owl.min.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:50243 Closing
+[Fri May 22 21:12:45 2026] [::1]:56334 Accepted
+[Fri May 22 21:12:45 2026] [::1]:59715 [404]: GET /public/assets/landing/js/main.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:63989 Closing
+[Fri May 22 21:12:45 2026] [::1]:53716 Accepted
+[Fri May 22 21:12:45 2026] [::1]:56334 [404]: GET /public/assets/admin/js/toastr.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:59715 Closing
+[Fri May 22 21:12:45 2026] [::1]:54025 Accepted
+[Fri May 22 21:12:45 2026] [::1]:53716 [404]: GET /public/assets/admin/intltelinput/js/intlTelInput.min.js - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:56334 Closing
+[Fri May 22 21:12:45 2026] [::1]:64198 Accepted
+[Fri May 22 21:12:45 2026] [::1]:54025 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c34d94d61b.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:53716 Closing
+[Fri May 22 21:12:45 2026] [::1]:57406 Accepted
+[Fri May 22 21:12:45 2026] [::1]:64198 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32af3d693.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:54025 Closing
+[Fri May 22 21:12:45 2026] [::1]:65419 Accepted
+[Fri May 22 21:12:45 2026] [::1]:57406 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32cb48c85.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:64198 Closing
+[Fri May 22 21:12:45 2026] [::1]:64466 Accepted
+[Fri May 22 21:12:45 2026] [::1]:65419 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32e23150b.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:57406 Closing
+[Fri May 22 21:12:45 2026] [::1]:60389 Accepted
+[Fri May 22 21:12:45 2026] [::1]:64466 [404]: GET /public/assets/landing/img/google-play.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:65419 Closing
+[Fri May 22 21:12:45 2026] [::1]:59635 Accepted
+[Fri May 22 21:12:45 2026] [::1]:60389 [404]: GET /public/assets/landing/img/apple-store.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:64466 Closing
+[Fri May 22 21:12:45 2026] [::1]:64748 Accepted
+[Fri May 22 21:12:45 2026] [::1]:59635 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c361aca20a.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:60389 Closing
+[Fri May 22 21:12:45 2026] [::1]:53181 Accepted
+[Fri May 22 21:12:45 2026] [::1]:64748 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c3634952a9.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:59635 Closing
+[Fri May 22 21:12:45 2026] [::1]:57275 Accepted
+[Fri May 22 21:12:45 2026] [::1]:53181 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c364d7fcc5.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:64748 Closing
+[Fri May 22 21:12:45 2026] [::1]:49249 Accepted
+[Fri May 22 21:12:45 2026] [::1]:57275 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c36662d201.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:53181 Closing
+[Fri May 22 21:12:45 2026] [::1]:56304 Accepted
+[Fri May 22 21:12:45 2026] [::1]:49249 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c367fb9d1f.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:57275 Closing
+[Fri May 22 21:12:45 2026] [::1]:50577 Accepted
+[Fri May 22 21:12:45 2026] [::1]:56304 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c36d78cfda.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:49249 Closing
+[Fri May 22 21:12:45 2026] [::1]:52971 Accepted
+[Fri May 22 21:12:45 2026] [::1]:50577 [404]: GET /storage/app/public/business/2024-11-19-673c3141ec163.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:56304 Closing
+[Fri May 22 21:12:45 2026] [::1]:58861 Accepted
+[Fri May 22 21:12:45 2026] [::1]:52971 [404]: GET /storage/app/public/download_user_app_image/2024-11-19-673c31bdc98e1.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:50577 Closing
+[Fri May 22 21:12:45 2026] [::1]:50995 Accepted
+[Fri May 22 21:12:45 2026] [::1]:58861 [404]: GET /storage/app/public/reviewer_image/2024-04-20-662399c21315a.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:52971 Closing
+[Fri May 22 21:12:45 2026] [::1]:49871 Accepted
+[Fri May 22 21:12:45 2026] [::1]:50995 [404]: GET /storage/app/public/reviewer_company_image/2024-04-20-662399c213676.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:58861 Closing
+[Fri May 22 21:12:45 2026] [::1]:51131 Accepted
+[Fri May 22 21:12:45 2026] [::1]:49871 [404]: GET /public/assets/landing/img/google.svg - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:50995 Closing
+[Fri May 22 21:12:45 2026] [::1]:62471 Accepted
+[Fri May 22 21:12:45 2026] [::1]:51131 [404]: GET /public/assets/landing/img/apple.svg - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:49871 Closing
+[Fri May 22 21:12:45 2026] [::1]:54014 Accepted
+[Fri May 22 21:12:45 2026] [::1]:62471 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:51131 Closing
+[Fri May 22 21:12:45 2026] [::1]:51739 Accepted
+[Fri May 22 21:12:45 2026] [::1]:54014 [404]: GET /storage/app/public/promotional_banner/2024-11-19-673c35a459d2a.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:62471 Closing
+[Fri May 22 21:12:45 2026] [::1]:55788 Accepted
+[Fri May 22 21:12:45 2026] [::1]:51739 [404]: GET /public/assets/landing/img/learn-feature-bg.svg - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:54014 Closing
+[Fri May 22 21:12:45 2026] [::1]:51967 Accepted
+[Fri May 22 21:12:45 2026] [::1]:55788 [404]: GET /storage/app/public/earning/2024-11-19-673c331e66d9e.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:51739 Closing
+[Fri May 22 21:12:45 2026] [::1]:51967 [404]: GET /storage/app/public/earning/2024-11-19-673c332b98b86.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:55788 Closing
+[Fri May 22 21:12:45 2026] [::1]:51967 Closing
+[Fri May 22 21:12:45 2026] [::1]:56676 Accepted
+[Fri May 22 21:12:45 2026] [::1]:56676 [404]: GET /storage/app/public/business/2024-11-19-673c3141ec163.png - No such file or directory
+[Fri May 22 21:12:45 2026] [::1]:56676 Closing
+[Fri May 22 21:12:53 2026] [::1]:64795 Accepted
+[Fri May 22 21:12:54 2026] [::1]:64795 [200]: GET /
+[Fri May 22 21:12:54 2026] [::1]:64795 Closing
+[Fri May 22 21:12:54 2026] [::1]:53572 Accepted
+[Fri May 22 21:12:54 2026] [::1]:53572 [404]: GET /public/assets/landing/css/bootstrap.min.css - No such file or directory
+[Fri May 22 21:12:54 2026] [::1]:51857 Accepted
+[Fri May 22 21:12:54 2026] [::1]:53572 Closing
+[Fri May 22 21:12:54 2026] [::1]:57654 Accepted
+[Fri May 22 21:12:54 2026] [::1]:51857 [404]: GET /public/assets/landing/css/customize-animate.css - No such file or directory
+[Fri May 22 21:12:54 2026] [::1]:56728 Accepted
+[Fri May 22 21:12:54 2026] [::1]:57654 [404]: GET /public/assets/landing/css/odometer.css - No such file or directory
+[Fri May 22 21:12:54 2026] [::1]:51857 Closing
+[Fri May 22 21:12:54 2026] [::1]:64978 Accepted
+[Fri May 22 21:12:54 2026] [::1]:56728 [404]: GET /public/assets/landing/css/owl.min.css - No such file or directory
+[Fri May 22 21:12:54 2026] [::1]:57654 Closing
+[Fri May 22 21:12:54 2026] [::1]:64978 [404]: GET /public/assets/admin/css/toastr.css - No such file or directory
+[Fri May 22 21:12:54 2026] [::1]:56728 Closing
+[Fri May 22 21:12:54 2026] [::1]:64978 Closing
+[Fri May 22 21:12:54 2026] [::1]:54928 Accepted
+[Fri May 22 21:12:54 2026] [::1]:59320 Accepted
+[Fri May 22 21:12:54 2026] [::1]:54928 [404]: GET /public/assets/landing/css/main.css - No such file or directory
+[Fri May 22 21:12:54 2026] [::1]:60089 Accepted
+[Fri May 22 21:12:54 2026] [::1]:59320 [404]: GET /public/assets/admin/intltelinput/css/intlTelInput.css - No such file or directory
+[Fri May 22 21:12:54 2026] [::1]:54928 Closing
+[Fri May 22 21:12:54 2026] [::1]:60112 Accepted
+[Fri May 22 21:12:54 2026] [::1]:60089 [200]: GET /_debugbar/assets/stylesheets?v=1769195002
+[Fri May 22 21:12:54 2026] [::1]:60089 Closing
+[Fri May 22 21:12:54 2026] [::1]:59320 Closing
+[Fri May 22 21:12:54 2026] [::1]:52081 Accepted
+[Fri May 22 21:12:55 2026] [::1]:60112 [200]: GET /_debugbar/assets/javascript?v=1769195002
+[Fri May 22 21:12:55 2026] [::1]:60112 Closing
+[Fri May 22 21:12:55 2026] [::1]:62745 Accepted
+[Fri May 22 21:12:55 2026] [::1]:52081 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:62152 Accepted
+[Fri May 22 21:12:55 2026] [::1]:62745 [404]: GET /public/assets/landing/img/main-banner.svg - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:52081 Closing
+[Fri May 22 21:12:55 2026] [::1]:62152 [404]: GET /.well-known/appspecific/com.chrome.devtools.json - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:62745 Closing
+[Fri May 22 21:12:55 2026] [::1]:62152 Closing
+[Fri May 22 21:12:55 2026] [::1]:53500 Accepted
+[Fri May 22 21:12:55 2026] [::1]:64534 Accepted
+[Fri May 22 21:12:55 2026] [::1]:53500 [404]: GET /storage/app/public/module/2024-04-20-662398cb7f2e7.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:64534 [404]: GET /storage/app/public/module/2024-11-19-673c37a92984b.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:53500 Closing
+[Fri May 22 21:12:55 2026] [::1]:64534 Closing
+[Fri May 22 21:12:55 2026] [::1]:58219 Accepted
+[Fri May 22 21:12:55 2026] [::1]:63923 Accepted
+[Fri May 22 21:12:55 2026] [::1]:56279 Accepted
+[Fri May 22 21:12:55 2026] [::1]:55003 Accepted
+[Fri May 22 21:12:55 2026] [::1]:58219 [404]: GET /public/assets/landing/js/jquery-3.6.0.min.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:63923 [404]: GET /public/assets/landing/js/bootstrap.min.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:56279 [404]: GET /public/assets/landing/js/viewport.jquery.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:55003 [404]: GET /public/assets/landing/js/wow.min.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:58219 Closing
+[Fri May 22 21:12:55 2026] [::1]:50417 Accepted
+[Fri May 22 21:12:55 2026] [::1]:63923 Closing
+[Fri May 22 21:12:55 2026] [::1]:56279 Closing
+[Fri May 22 21:12:55 2026] [::1]:55003 Closing
+[Fri May 22 21:12:55 2026] [::1]:64750 Accepted
+[Fri May 22 21:12:55 2026] [::1]:50417 [404]: GET /public/assets/landing/js/odometer.min.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:64750 [404]: GET /public/assets/landing/js/owl.min.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:50417 Closing
+[Fri May 22 21:12:55 2026] [::1]:64750 Closing
+[Fri May 22 21:12:55 2026] [::1]:62346 Accepted
+[Fri May 22 21:12:55 2026] [::1]:62346 [404]: GET /public/assets/landing/js/main.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:62346 Closing
+[Fri May 22 21:12:55 2026] [::1]:50497 Accepted
+[Fri May 22 21:12:55 2026] [::1]:61406 Accepted
+[Fri May 22 21:12:55 2026] [::1]:50492 Accepted
+[Fri May 22 21:12:55 2026] [::1]:50497 [404]: GET /public/assets/admin/js/toastr.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:61406 [404]: GET /public/assets/admin/intltelinput/js/intlTelInput.min.js - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:50492 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c34d94d61b.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:50497 Closing
+[Fri May 22 21:12:55 2026] [::1]:49674 Accepted
+[Fri May 22 21:12:55 2026] [::1]:61406 Closing
+[Fri May 22 21:12:55 2026] [::1]:50492 Closing
+[Fri May 22 21:12:55 2026] [::1]:62491 Accepted
+[Fri May 22 21:12:55 2026] [::1]:55721 Accepted
+[Fri May 22 21:12:55 2026] [::1]:49674 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32af3d693.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:62491 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32cb48c85.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:49674 Closing
+[Fri May 22 21:12:55 2026] [::1]:55721 [404]: GET /storage/app/public/admin_feature/2024-11-19-673c32e23150b.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:62491 Closing
+[Fri May 22 21:12:55 2026] [::1]:55721 Closing
+[Fri May 22 21:12:55 2026] [::1]:56629 Accepted
+[Fri May 22 21:12:55 2026] [::1]:64616 Accepted
+[Fri May 22 21:12:55 2026] [::1]:55646 Accepted
+[Fri May 22 21:12:55 2026] [::1]:56629 [404]: GET /public/assets/landing/img/google-play.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:64616 [404]: GET /public/assets/landing/img/apple-store.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:55646 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c361aca20a.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:56629 Closing
+[Fri May 22 21:12:55 2026] [::1]:56502 Accepted
+[Fri May 22 21:12:55 2026] [::1]:64616 Closing
+[Fri May 22 21:12:55 2026] [::1]:55646 Closing
+[Fri May 22 21:12:55 2026] [::1]:60659 Accepted
+[Fri May 22 21:12:55 2026] [::1]:56502 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c3634952a9.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:52466 Accepted
+[Fri May 22 21:12:55 2026] [::1]:60659 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c364d7fcc5.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:56502 Closing
+[Fri May 22 21:12:55 2026] [::1]:52466 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c36662d201.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:60659 Closing
+[Fri May 22 21:12:55 2026] [::1]:56670 Accepted
+[Fri May 22 21:12:55 2026] [::1]:52466 Closing
+[Fri May 22 21:12:55 2026] [::1]:49674 Accepted
+[Fri May 22 21:12:55 2026] [::1]:56670 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c367fb9d1f.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:63004 Accepted
+[Fri May 22 21:12:55 2026] [::1]:49674 [404]: GET /storage/app/public/special_criteria/2024-11-19-673c36d78cfda.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:56670 Closing
+[Fri May 22 21:12:55 2026] [::1]:63004 [404]: GET /storage/app/public/business/2024-11-19-673c3141ec163.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:49674 Closing
+[Fri May 22 21:12:55 2026] [::1]:51703 Accepted
+[Fri May 22 21:12:55 2026] [::1]:63004 Closing
+[Fri May 22 21:12:55 2026] [::1]:64811 Accepted
+[Fri May 22 21:12:55 2026] [::1]:51703 [404]: GET /storage/app/public/download_user_app_image/2024-11-19-673c31bdc98e1.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:61768 Accepted
+[Fri May 22 21:12:55 2026] [::1]:51703 Closing
+[Fri May 22 21:12:55 2026] [::1]:64811 [404]: GET /storage/app/public/reviewer_image/2024-04-20-662399c21315a.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:61768 [404]: GET /storage/app/public/reviewer_company_image/2024-04-20-662399c213676.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:64811 Closing
+[Fri May 22 21:12:55 2026] [::1]:60822 Accepted
+[Fri May 22 21:12:55 2026] [::1]:61768 Closing
+[Fri May 22 21:12:55 2026] [::1]:52886 Accepted
+[Fri May 22 21:12:55 2026] [::1]:60822 [404]: GET /public/assets/landing/img/google.svg - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:60473 Accepted
+[Fri May 22 21:12:55 2026] [::1]:52886 [404]: GET /public/assets/landing/img/apple.svg - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:60822 Closing
+[Fri May 22 21:12:55 2026] [::1]:59215 Accepted
+[Fri May 22 21:12:55 2026] [::1]:60473 [404]: GET /storage/app/public/business/2024-11-19-673c3141e4e1c.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:52886 Closing
+[Fri May 22 21:12:55 2026] [::1]:51765 Accepted
+[Fri May 22 21:12:55 2026] [::1]:59215 [404]: GET /storage/app/public/promotional_banner/2024-11-19-673c35a459d2a.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:60473 Closing
+[Fri May 22 21:12:55 2026] [::1]:52555 Accepted
+[Fri May 22 21:12:55 2026] [::1]:51765 [404]: GET /public/assets/landing/img/learn-feature-bg.svg - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:59215 Closing
+[Fri May 22 21:12:55 2026] [::1]:61146 Accepted
+[Fri May 22 21:12:55 2026] [::1]:52555 [404]: GET /storage/app/public/earning/2024-11-19-673c331e66d9e.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:51765 Closing
+[Fri May 22 21:12:55 2026] [::1]:61146 [404]: GET /storage/app/public/earning/2024-11-19-673c332b98b86.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:52555 Closing
+[Fri May 22 21:12:55 2026] [::1]:61146 Closing
+[Fri May 22 21:12:55 2026] [::1]:65160 Accepted
+[Fri May 22 21:12:55 2026] [::1]:65160 [404]: GET /storage/app/public/business/2024-11-19-673c3141ec163.png - No such file or directory
+[Fri May 22 21:12:55 2026] [::1]:65160 Closing
+[Sat May 23 11:48:17 2026] [::1]:51722 Accepted
+[Sat May 23 11:48:17 2026] [::1]:61858 Accepted
+[Sat May 23 11:48:41 2026] [::1]:51722 [500]: GET /
+[Sat May 23 11:48:41 2026] [::1]:51722 Closing
+[Sat May 23 12:13:02 2026] [::1]:61858 Closed without sending a request; it was probably just an unused speculative preconnection
+[Sat May 23 12:13:02 2026] [::1]:61858 Closing
+[Sat May 23 12:56:51 2026] [::1]:53002 Accepted
+[Sat May 23 12:56:51 2026] [::1]:56094 Accepted
+[Sat May 23 12:57:03 2026] [::1]:53002 [500]: GET /
+[Sat May 23 12:57:03 2026] [::1]:53002 Closing
+[Sat May 23 13:13:01 2026] [::1]:56094 Closed without sending a request; it was probably just an unused speculative preconnection
+[Sat May 23 13:13:01 2026] [::1]:56094 Closing
+[Sat May 23 13:18:30 2026] [::1]:55203 Accepted
+[Sat May 23 13:18:30 2026] [::1]:52995 Accepted
+[Sat May 23 13:18:30 2026] [::1]:55203 [200]: GET /favicon.ico
+[Sat May 23 13:18:30 2026] [::1]:55203 Closing
+[Sat May 23 13:26:22 2026] [::1]:52995 Closed without sending a request; it was probably just an unused speculative preconnection
+[Sat May 23 13:26:22 2026] [::1]:52995 Closing
