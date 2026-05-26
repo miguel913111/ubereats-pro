@@ -10,7 +10,6 @@ use App\CentralLogics\Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -45,14 +44,10 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // If the database has no migrations table or it is empty, the schema is missing.
-            // Run migrate:fresh to create all required tables.
-            // This only runs once on a fresh DB.
-            $needsFresh = !Schema::hasTable('migrations');
-            if (!$needsFresh) {
-                $needsFresh = DB::table('migrations')->count() === 0;
-            }
-            if ($needsFresh && !defined('MIGRATION_FRESH_RUNNING')) {
+            // If the database schema is incomplete (e.g., users table missing),
+            // run migrate:fresh to create all required tables.
+            // This handles fresh deployments where the DB exists but is incomplete.
+            if (!Schema::hasTable('users') && !defined('MIGRATION_FRESH_RUNNING')) {
                 define('MIGRATION_FRESH_RUNNING', true);
                 Artisan::call('migrate:fresh', ['--force' => true]);
             }
