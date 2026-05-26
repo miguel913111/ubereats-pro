@@ -41,7 +41,7 @@ class ConfigServiceProvider extends ServiceProvider
                 'weekend' => [CarbonImmutable::SUNDAY],
             ]);
             $data = BusinessSetting::where(['key' => 'mail_config'])->first();
-            $emailServices = json_decode($data['value'], true);
+            $emailServices = $data ? json_decode($data['value'], true) : null;
             if ($emailServices) {
                 $config = [
                     'status' => (bool) (isset($emailServices['status']) ? $emailServices['status'] : 1),
@@ -261,3 +261,4 @@ class ConfigServiceProvider extends ServiceProvider
         }
     }
 }
+
