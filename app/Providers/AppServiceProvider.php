@@ -44,16 +44,18 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            if (!defined('MIGRATION_FRESH_RUNNING')) {
-                define('MIGRATION_FRESH_RUNNING', true);
-                info('Running migrate:fresh from AppServiceProvider');
+            // If the schema is incomplete (users table missing), reset migrations
+            // and run migrate:fresh to create all required tables.
+            if (!Schema::hasTable('users')) {
+                if (Schema::hasTable('migrations')) {
+                    Schema::drop('migrations');
+                }
                 Artisan::call('migrate:fresh', ['--force' => true]);
-                info('migrate:fresh completed successfully');
             }
         }
         catch(\Exception $e)
         {
-            info('migrate:fresh failed: ' . $e->getMessage());
+            info('Auto migrate:fresh error: ' . $e->getMessage());
         }
 
         try
