@@ -45,29 +45,21 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // If migrations table exists but is empty, populate it with all existing migrations.
-            // This prevents duplicate column errors when DB was seeded from SQL dump.
+            // Ensure migrations table exists and is populated.
+            // This prevents duplicate column errors when DB was seeded from SQL dump
+            // without migration records, or when migrations table is missing entirely.
             if (Schema::hasTable('migrations')) {
                 $count = DB::table('migrations')->count();
                 if ($count === 0) {
-                    $migrationPath = database_path('migrations');
-                    if (is_dir($migrationPath)) {
-                        $files = File::files($migrationPath);
-                        $inserts = [];
-                        foreach ($files as $file) {
-                            $filename = $file->getFilename();
-                            if (pathinfo($filename, PATHINFO_EXTENSION) === 'php') {
-                                $inserts[] = [
-                                    'migration' => pathinfo($filename, PATHINFO_FILENAME),
-                                    'batch' => 1,
-                                ];
-                            }
-                        }
-                        if (!empty($inserts)) {
-                            DB::table('migrations')->insert($inserts);
-                        }
-                    }
+                    $this->populateMigrationsTable();
                 }
+            } else {
+                Schema::create('migrations', function ($table) {
+                    $table->increments('id');
+                    $table->string('migration');
+                    $table->integer('batch');
+                });
+                $this->populateMigrationsTable();
             }
         }
         catch(\Exception $e)
@@ -95,6 +87,29 @@ class AppServiceProvider extends ServiceProvider
         }
 
     }
+
+    /**
+     * Populate the migrations table with all existing migration files.
+     *
+     * @return void
+     */
+    private function populateMigrationsTable()
+    {
+        $migrationPath = database_path('migrations');
+        if (!is_dir($migrationPath)) return;
+        $files = File::files($migrationPath);
+        $inserts = [];
+        foreach ($files as $file) {
+            $filename = $file->getFilename();
+            if (pathinfo($filename, PATHINFO_EXTENSION) === 'php') {
+                $inserts[] = [
+                    'migration' => pathinfo($filename, PATHINFO_FILENAME),
+                    'batch' => 1,
+                ];
+            }
+        }
+        if (!empty($inserts)) {
+            DB::table('migrations')->insert($inserts);
+        }
+    }
 }
-
-
