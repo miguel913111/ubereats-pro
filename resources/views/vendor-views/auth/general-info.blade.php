@@ -7,8 +7,11 @@
 
 
     <link rel="stylesheet" href="{{ asset('assets/admin/vendor/icon-set/style.css') }}">
-
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
+        #map { height: 280px; width: 100%; z-index: 1; }
+        #pac-input { position: absolute; top: 10px; left: 50px; z-index: 1000; width: 250px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; }
+
         .password-feedback {
             display: none;
             width: 100%;
@@ -808,11 +811,127 @@
     <script src="{{ asset('assets/admin/js/file-preview/pdf.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/file-preview/pdf-worker.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/file-preview/store-join-us.js') }}"></script>
-    <script src="{{ asset('assets/admin/js/view-pages/map-functionality.js') }}"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        (function() {
+            const cfg = window.mapConfig || {};
+            const defaultLoc = cfg.defaultLocation || {lat: 23.757989, lng: 90.360587};
+            const oldLat = parseFloat(cfg.oldLat) || defaultLoc.lat;
+            const oldLng = parseFloat(cfg.oldLng) || defaultLoc.lng;
+            const hasOld = !isNaN(parseFloat(cfg.oldLat)) && !isNaN(parseFloat(cfg.oldLng));
 
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key={{ \App\CentralLogics\Helpers::get_business_settings('map_api_key') }}&libraries=drawing,places,marker,geometry&v=3.61&language={{ str_replace('_', '-', app()->getLocale()) }}&callback=initMap"
-        async defer>
+            const map = L.map('map').setView([oldLat, oldLng], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            let zonePolygon = null;
+            let currentMarker = null;
+
+            function setAddressFromLatLng(lat, lng) {
+                fetch('https://nominatim.openstreetmap.org/reverse?lat=' + lat + '&lon=' + lng + '&format=json', {
+                    headers: {'User-Agent': 'NexoFood/1.0'}
+                })
+                .then(r => r.json())
+                .then(data => {
+                    const addr = data.display_name || '';
+                    const visibleAddress = document.querySelector('.lang_form:not(.d-none) textarea[name="address[]"]');
+                    if (visibleAddress) visibleAddress.value = addr;
+                    else { const a = document.getElementById('address'); if (a) a.value = addr; }
+                    const pac = document.getElementById('pac-input');
+                    if (pac) pac.value = addr;
+                }).catch(() => {});
+            }
+
+            function checkZone(lat, lng) {
+                if (!zonePolygon) {
+                    document.getElementById('outOfZone').style.setProperty('display', 'none', 'important');
+                    return;
+                }
+                const pt = L.latLng(lat, lng);
+                if (zonePolygon.getBounds().contains(pt) && zonePolygon.getLatLngs()[0].some(p => p.distanceTo(pt) < 5000)) {
+                    document.getElementById('outOfZone').style.setProperty('display', 'none', 'important');
+                } else {
+                    document.getElementById('outOfZone').style.setProperty('display', 'block', 'important');
+                }
+            }
+
+            function placeMarker(lat, lng) {
+                document.getElementById('latitude').value = lat;
+                document.getElementById('longitude').value = lng;
+                document.getElementById('outOfZone').style.setProperty('display', 'none', 'important');
+                if (currentMarker) map.removeLayer(currentMarker);
+                currentMarker = L.marker([lat, lng]).addTo(map);
+                setAddressFromLatLng(lat, lng);
+                checkZone(lat, lng);
+            }
+
+            map.on('click', function(e) {
+                placeMarker(e.latlng.lat, e.latlng.lng);
+            });
+
+            if (hasOld) {
+                placeMarker(oldLat, oldLng);
+            } else if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(pos) {
+                    map.setView([pos.coords.latitude, pos.coords.longitude], 13);
+                }, function(){});
+            }
+
+            // Search
+            const searchInput = document.getElementById('pac-input');
+            if (searchInput) {
+                let searchTimeout;
+                searchInput.addEventListener('input', function() {
+                    clearTimeout(searchTimeout);
+                    const query = this.value;
+                    if (query.length < 3) return;
+                    searchTimeout = setTimeout(function() {
+                        fetch('https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(query) + '&format=json&limit=1', {
+                            headers: {'User-Agent': 'NexoFood/1.0'}
+                        })
+                        .then(r => r.json())
+                        .then(data => {
+                            if (data && data.length > 0) {
+                                const first = data[0];
+                                const lat = parseFloat(first.lat);
+                                const lng = parseFloat(first.lon);
+                                map.setView([lat, lng], 15);
+                                placeMarker(lat, lng);
+                            }
+                        }).catch(() => {});
+                    }, 500);
+                });
+            }
+
+            // Zone selection
+            $('#choice_zones').on('change', function() {
+                const id = $(this).val();
+                document.getElementById('latlng').style.setProperty('display', 'flex', 'important');
+                document.getElementById('outOfZone').style.setProperty('display', 'block', 'important');
+                if (!id) {
+                    if (zonePolygon) { map.removeLayer(zonePolygon); zonePolygon = null; }
+                    return;
+                }
+                const url = (cfg.urls && cfg.urls.zoneCoordinates) ? cfg.urls.zoneCoordinates.replace(':coordinatesZoneId', id) : '/admin/zone/get-coordinates/' + id;
+                $.get({url: url, dataType: 'json', success: function(data) {
+                    if (zonePolygon) map.removeLayer(zonePolygon);
+                    const coords = data.coordinates.map(function(p) { return [p.lat, p.lng]; });
+                    zonePolygon = L.polygon(coords, {color: '#FF0000', weight: 2, fillOpacity: 0}).addTo(map);
+                    map.fitBounds(zonePolygon.getBounds());
+
+                    const prevLat = document.getElementById('latitude').value;
+                    const prevLng = document.getElementById('longitude').value;
+                    if (prevLat && prevLng) {
+                        checkZone(prevLat, prevLng);
+                    }
+                }});
+            });
+
+            if (cfg.oldZoneId) {
+                $('#choice_zones').trigger('change');
+            }
+        })();
     </script>
 
 
