@@ -20,6 +20,3 @@ docker-local/
 .vscode/
 .ddev/
 installation/backup/database.sql
-public/public/assets/admin/js/theme.min.js
-
-public/assets/admin/js/theme.min.js
