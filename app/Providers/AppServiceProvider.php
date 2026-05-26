@@ -8,9 +8,8 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Config;
 use App\CentralLogics\Helpers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Artisan;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -45,21 +44,12 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // Ensure migrations table exists and is populated.
-            // This prevents duplicate column errors when DB was seeded from SQL dump
-            // without migration records, or when migrations table is missing entirely.
-            if (Schema::hasTable('migrations')) {
-                $count = DB::table('migrations')->count();
-                if ($count === 0) {
-                    $this->populateMigrationsTable();
-                }
-            } else {
-                Schema::create('migrations', function ($table) {
-                    $table->increments('id');
-                    $table->string('migration');
-                    $table->integer('batch');
-                });
-                $this->populateMigrationsTable();
+            // If the database is empty (no migrations table), run migrate:fresh
+            // to create all required tables. This handles fresh deployments where
+            // the DB exists but has no schema.
+            if (!Schema::hasTable('migrations') && !defined('MIGRATION_FRESH_RUNNING')) {
+                define('MIGRATION_FRESH_RUNNING', true);
+                Artisan::call('migrate:fresh', ['--force' => true]);
             }
         }
         catch(\Exception $e)
@@ -86,30 +76,5 @@ class AppServiceProvider extends ServiceProvider
 
         }
 
-    }
-
-    /**
-     * Populate the migrations table with all existing migration files.
-     *
-     * @return void
-     */
-    private function populateMigrationsTable()
-    {
-        $migrationPath = database_path('migrations');
-        if (!is_dir($migrationPath)) return;
-        $files = File::files($migrationPath);
-        $inserts = [];
-        foreach ($files as $file) {
-            $filename = $file->getFilename();
-            if (pathinfo($filename, PATHINFO_EXTENSION) === 'php') {
-                $inserts[] = [
-                    'migration' => pathinfo($filename, PATHINFO_FILENAME),
-                    'batch' => 1,
-                ];
-            }
-        }
-        if (!empty($inserts)) {
-            DB::table('migrations')->insert($inserts);
-        }
     }
 }
