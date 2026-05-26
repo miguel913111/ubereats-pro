@@ -10,6 +10,7 @@ use App\CentralLogics\Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -48,15 +49,18 @@ class AppServiceProvider extends ServiceProvider
             if (isset($_SERVER['argv'][1]) && in_array($_SERVER['argv'][1], ['migrate:fresh', 'migrate', 'migrate:rollback', 'migrate:reset'])) {
                 // skip
             } elseif (!Schema::hasTable('addon_settings')) {
-                if (Schema::hasTable('migrations')) {
-                    Schema::drop('migrations');
+                // Drop all existing tables to ensure clean state
+                $tables = DB::select('SHOW TABLES');
+                foreach ($tables as $table) {
+                    $tableName = array_values((array)$table)[0];
+                    Schema::dropIfExists($tableName);
                 }
-                Artisan::call('migrate:fresh', ['--force' => true]);
+                Artisan::call('migrate', ['--force' => true]);
             }
         }
         catch(\Exception $e)
         {
-            info('Auto migrate:fresh error: ' . $e->getMessage());
+            info('Auto migrate error: ' . $e->getMessage());
         }
 
         try
