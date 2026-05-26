@@ -13,11 +13,11 @@ class AddSlugToItemsTable extends Migration
      */
     public function up()
     {
-        Schema::table('items', function (Blueprint $table) {
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'slug')) {
-                $table->string('slug')->nullable();
-            }
-        });
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
+            $table->string('slug')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddSlugToItemsTable extends Migration
      */
     public function down()
     {
-        Schema::table('items', function (Blueprint $table) {
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
             $table->dropColumn('slug');
-        });
+            });
+        }
     }
 }

@@ -11,23 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('order_details', function (Blueprint $table) {
-           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'category_id')) {
-               $table->foreignId('category_id')->nullable();
-           }
-           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'discount_on_product_by')) {
-               $table->string('discount_on_product_by')->nullable();
-           }
-           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'tax_status')) {
-               $table->string('tax_status')->nullable();
-           }
-           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'discount_percentage')) {
-               $table->double('discount_percentage',23, 8)->default(0)->nullable();
-           }
-           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'addon_discount')) {
-               $table->double('addon_discount',23, 8)->default(0)->nullable();
-           }
-        });
+        if (Schema::hasTable('order_details')) {
+            Schema::table('order_details', function (Blueprint $table) {
+            $table->foreignId('category_id')->nullable();
+            $table->string('discount_on_product_by')->nullable();
+            $table->string('tax_status')->nullable();
+            $table->double('discount_percentage',23, 8)->default(0)->nullable();
+            $table->double('addon_discount',23, 8)->default(0)->nullable();
+            });
+        }
     }
 
     /**
@@ -35,12 +27,14 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('order_details', function (Blueprint $table) {
+        if (Schema::hasTable('order_details')) {
+            Schema::table('order_details', function (Blueprint $table) {
             $table->dropColumn('category_id');
             $table->dropColumn('discount_on_product_by');
             $table->dropColumn('tax_status');
             $table->dropColumn('discount_percentage');
             $table->dropColumn('addon_discount');
-        });
+            });
+        }
     }
 };

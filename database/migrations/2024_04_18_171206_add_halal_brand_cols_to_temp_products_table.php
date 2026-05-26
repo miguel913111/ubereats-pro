@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('temp_products', function (Blueprint $table) {
-            if (Schema::hasTable('temp_products') && !Schema::hasColumn('temp_products', 'is_halal')) {
-                $table->boolean('is_halal')->default(0);
-            }
-            if (Schema::hasTable('temp_products') && !Schema::hasColumn('temp_products', 'brand_id')) {
-                $table->boolean('brand_id')->default(0);
-            }
-            if (Schema::hasTable('temp_products') && !Schema::hasColumn('temp_products', 'is_prescription_required')) {
-                $table->boolean('is_prescription_required')->default(0);
-            }
-        });
+        if (Schema::hasTable('temp_products')) {
+            Schema::table('temp_products', function (Blueprint $table) {
+            $table->boolean('is_halal')->default(0);
+            $table->boolean('brand_id')->default(0);
+            $table->boolean('is_prescription_required')->default(0);
+            });
+        }
     }
 
     /**
@@ -29,10 +25,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('temp_products', function (Blueprint $table) {
+        if (Schema::hasTable('temp_products')) {
+            Schema::table('temp_products', function (Blueprint $table) {
             $table->dropColumn('is_halal');
             $table->dropColumn('brand_id');
             $table->dropColumn('is_prescription_required');
-        });
+            });
+        }
     }
 };

@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('password_resets', function (Blueprint $table) {
-            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'phone')) {
-                $table->string('phone',50)->nullable();
-            }
-            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'email')) {
-                $table->string('email')->nullable()->change();
-            }
-        });
+        if (Schema::hasTable('password_resets')) {
+            Schema::table('password_resets', function (Blueprint $table) {
+            $table->string('phone',50)->nullable();
+            $table->string('email')->nullable()->change();
+            });
+        }
     }
 
     /**
@@ -26,11 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('password_resets', function (Blueprint $table) {
+        if (Schema::hasTable('password_resets')) {
+            Schema::table('password_resets', function (Blueprint $table) {
             $table->dropColumn('phone');
-            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'email')) {
-                $table->string('email')->nullable(false)->change();
-            }
-        });
+            $table->string('email')->nullable(false)->change();
+            });
+        }
     }
 };

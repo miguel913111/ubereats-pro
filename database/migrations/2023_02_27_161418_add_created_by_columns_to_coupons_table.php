@@ -13,20 +13,14 @@ class AddCreatedByColumnsToCouponsTable extends Migration
      */
     public function up()
     {
-        Schema::table('coupons', function (Blueprint $table) {
-            if (Schema::hasTable('coupons') && !Schema::hasColumn('coupons', 'created_by')) {
-                $table->string('created_by',50)->default('admin')->nullable();
-            }
-            if (Schema::hasTable('coupons') && !Schema::hasColumn('coupons', 'customer_id')) {
-                $table->string('customer_id')->default(json_encode(['all']))->nullable();
-            }
-            if (Schema::hasTable('coupons') && !Schema::hasColumn('coupons', 'slug')) {
-                $table->string('slug',255)->nullable();
-            }
-            if (Schema::hasTable('coupons') && !Schema::hasColumn('coupons', 'store_id')) {
-                $table->foreignId('store_id')->nullable();
-            }
-        });
+        if (Schema::hasTable('coupons')) {
+            Schema::table('coupons', function (Blueprint $table) {
+            $table->string('created_by',50)->default('admin')->nullable();
+            $table->string('customer_id')->default(json_encode(['all']))->nullable();
+            $table->string('slug',255)->nullable();
+            $table->foreignId('store_id')->nullable();
+            });
+        }
     }
 
     /**
@@ -36,11 +30,13 @@ class AddCreatedByColumnsToCouponsTable extends Migration
      */
     public function down()
     {
-        Schema::table('coupons', function (Blueprint $table) {
+        if (Schema::hasTable('coupons')) {
+            Schema::table('coupons', function (Blueprint $table) {
             $table->dropColumn('created_by');
             $table->dropColumn('slug');
             $table->dropColumn('customer_id');
             $table->dropColumn('store_id');
-        });
+            });
+        }
     }
 }

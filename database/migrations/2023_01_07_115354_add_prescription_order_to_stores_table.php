@@ -13,11 +13,11 @@ class AddPrescriptionOrderToStoresTable extends Migration
      */
     public function up()
     {
-        Schema::table('stores', function (Blueprint $table) {
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'prescription_order')) {
-                $table->boolean('prescription_order')->default(false);
-            }
-        });
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
+            $table->boolean('prescription_order')->default(false);
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddPrescriptionOrderToStoresTable extends Migration
      */
     public function down()
     {
-        Schema::table('stores', function (Blueprint $table) {
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
             $table->dropColumn('prescription_order');
-        });
+            });
+        }
     }
 }

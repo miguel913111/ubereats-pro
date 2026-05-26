@@ -8,20 +8,20 @@ class AddQrCodeToTableReservations extends Migration
 {
     public function up()
     {
-        Schema::table('table_reservations', function (Blueprint $table) {
-            if (Schema::hasTable('table_reservations') && !Schema::hasColumn('table_reservations', 'qr_code')) {
-                $table->string('qr_code', 191)->nullable()->after('status');
-            }
-            if (Schema::hasTable('table_reservations') && !Schema::hasColumn('table_reservations', 'checked_in_at')) {
-                $table->timestamp('checked_in_at')->nullable()->after('qr_code');
-            }
-        });
+        if (Schema::hasTable('table_reservations')) {
+            Schema::table('table_reservations', function (Blueprint $table) {
+            $table->string('qr_code', 191)->nullable()->after('status');
+            $table->timestamp('checked_in_at')->nullable()->after('qr_code');
+            });
+        }
     }
 
     public function down()
     {
-        Schema::table('table_reservations', function (Blueprint $table) {
+        if (Schema::hasTable('table_reservations')) {
+            Schema::table('table_reservations', function (Blueprint $table) {
             $table->dropColumn(['qr_code', 'checked_in_at']);
-        });
+            });
+        }
     }
 }

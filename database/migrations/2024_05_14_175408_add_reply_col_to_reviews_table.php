@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            if (Schema::hasTable('reviews') && !Schema::hasColumn('reviews', 'store_id')) {
-                $table->foreignId('store_id')->nullable();
-            }
-            if (Schema::hasTable('reviews') && !Schema::hasColumn('reviews', 'reply')) {
-                $table->text('reply')->nullable();
-            }
-            if (Schema::hasTable('reviews') && !Schema::hasColumn('reviews', 'review_id')) {
-                $table->string('review_id',100)->nullable();
-            }
-        });
+        if (Schema::hasTable('reviews')) {
+            Schema::table('reviews', function (Blueprint $table) {
+            $table->foreignId('store_id')->nullable();
+            $table->text('reply')->nullable();
+            $table->string('review_id',100)->nullable();
+            });
+        }
     }
 
     /**
@@ -29,10 +25,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('reviews', function (Blueprint $table) {
+        if (Schema::hasTable('reviews')) {
+            Schema::table('reviews', function (Blueprint $table) {
             $table->dropColumn('store_id');
             $table->dropColumn('reply');
             $table->dropColumn('review_id');
-        });
+            });
+        }
     }
 };

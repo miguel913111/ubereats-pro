@@ -13,14 +13,12 @@ class AddDescriptionToExpensesTable extends Migration
      */
     public function up()
     {
-        Schema::table('expenses', function (Blueprint $table) {
-            if (Schema::hasTable('expenses') && !Schema::hasColumn('expenses', 'description')) {
-                $table->text('description')->nullable();
-            }
-            if (Schema::hasTable('expenses') && !Schema::hasColumn('expenses', 'order_id')) {
-                $table->foreignId('order_id')->nullable()->change();
-            }
-        });
+        if (Schema::hasTable('expenses')) {
+            Schema::table('expenses', function (Blueprint $table) {
+            $table->text('description')->nullable();
+            $table->foreignId('order_id')->nullable()->change();
+            });
+        }
     }
 
     /**
@@ -30,11 +28,11 @@ class AddDescriptionToExpensesTable extends Migration
      */
     public function down()
     {
-        Schema::table('expenses', function (Blueprint $table) {
+        if (Schema::hasTable('expenses')) {
+            Schema::table('expenses', function (Blueprint $table) {
             $table->dropColumn('description');
-            if (Schema::hasTable('expenses') && !Schema::hasColumn('expenses', 'order_id')) {
-                $table->text('order_id')->nullable()->change();
-            }
-        });
+            $table->text('order_id')->nullable()->change();
+            });
+        }
     }
 }

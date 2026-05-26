@@ -11,13 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('delivery_men', function (Blueprint $table) {
+        if (Schema::hasTable('delivery_men')) {
+            Schema::table('delivery_men', function (Blueprint $table) {
             $table->text('identity_image')->change();
             $table->double('loyalty_point',23, 8)->default(0)->nullable();
             $table->string('ref_code')->nullable();
             $table->foreignId('ref_by')->nullable();
 
-        });
+            });
+        }
     }
 
     /**
@@ -25,11 +27,13 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('delivery_men', function (Blueprint $table) {
+        if (Schema::hasTable('delivery_men')) {
+            Schema::table('delivery_men', function (Blueprint $table) {
             $table->string('identity_image')->change();
             $table->dropColumn('loyalty_point');
             $table->dropColumn('ref_code');
             $table->dropColumn('ref_by');
-        });
+            });
+        }
     }
 };

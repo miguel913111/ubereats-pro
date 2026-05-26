@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('automated_messages', function (Blueprint $table) {
-            if (Schema::hasTable('automated_messages') && !Schema::hasColumn('automated_messages', 'question_for')) {
-                $table->string('question_for')->default(CUSTOMER)->after('id');
-            }
-            if (Schema::hasTable('automated_messages') && !Schema::hasColumn('automated_messages', 'question')) {
-                $table->string('question')->after('question_for');
-            }
-        });
+        if (Schema::hasTable('automated_messages')) {
+            Schema::table('automated_messages', function (Blueprint $table) {
+            $table->string('question_for')->default(CUSTOMER)->after('id');
+            $table->string('question')->after('question_for');
+            });
+        }
     }
 
     /**
@@ -26,9 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('automated_messages', function (Blueprint $table) {
+        if (Schema::hasTable('automated_messages')) {
+            Schema::table('automated_messages', function (Blueprint $table) {
             $table->dropColumn('question_for');
             $table->dropColumn('question');
-        });
+            });
+        }
     }
 };

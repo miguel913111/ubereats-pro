@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('store_notification_settings', function (Blueprint $table) {
-            if (Schema::hasTable('store_notification_settings') && !Schema::hasColumn('store_notification_settings', 'module_type')) {
-                $table->string('module_type',20)->default('all');
-            }
-        });
+        if (Schema::hasTable('store_notification_settings')) {
+            Schema::table('store_notification_settings', function (Blueprint $table) {
+            $table->string('module_type',20)->default('all');
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('store_notification_settings', function (Blueprint $table) {
+        if (Schema::hasTable('store_notification_settings')) {
+            Schema::table('store_notification_settings', function (Blueprint $table) {
             $table->dropColumn('module_type');
-        });
+            });
+        }
     }
 };

@@ -13,11 +13,11 @@ class AddDeliveryInstructionColToOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'delivery_instruction')) {
-                $table->text('delivery_instruction')->nullable();
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->text('delivery_instruction')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddDeliveryInstructionColToOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('delivery_instruction');
-        });
+            });
+        }
     }
 }

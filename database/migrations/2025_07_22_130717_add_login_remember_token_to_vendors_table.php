@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('vendors', function (Blueprint $table) {
-            if (Schema::hasTable('vendors') && !Schema::hasColumn('vendors', 'login_remember_token')) {
-                $table->string('login_remember_token')->nullable();
-            }
-        });
+        if (Schema::hasTable('vendors')) {
+            Schema::table('vendors', function (Blueprint $table) {
+            $table->string('login_remember_token')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('vendors', function (Blueprint $table) {
+        if (Schema::hasTable('vendors')) {
+            Schema::table('vendors', function (Blueprint $table) {
             $table->dropColumn('login_remember_token');
-        });
+            });
+        }
     }
 };

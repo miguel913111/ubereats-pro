@@ -13,11 +13,11 @@ class AddRefByColToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasTable('users') && !Schema::hasColumn('users', 'ref_by')) {
-                $table->unsignedBigInteger('ref_by')->nullable();
-            }
-        });
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('ref_by')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddRefByColToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('ref_by');
-        });
+            });
+        }
     }
 }

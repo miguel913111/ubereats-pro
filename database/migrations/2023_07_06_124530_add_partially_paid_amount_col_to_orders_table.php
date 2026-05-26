@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'partially_paid_amount')) {
-                $table->double('partially_paid_amount',23, 3)->default(0);
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->double('partially_paid_amount',23, 3)->default(0);
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('partially_paid_amount');
-        });
+            });
+        }
     }
 };

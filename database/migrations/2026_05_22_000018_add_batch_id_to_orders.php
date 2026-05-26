@@ -8,21 +8,21 @@ class AddBatchIdToOrders extends Migration
 {
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'batch_id')) {
-                $table->foreignId('batch_id')->nullable()->constrained('delivery_batches')->onDelete('set null')->after('delivery_man_id');
-            }
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'batch_id')) {
-                $table->index('batch_id');
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->foreignId('batch_id')->nullable()->constrained('delivery_batches')->onDelete('set null')->after('delivery_man_id');
+            $table->index('batch_id');
+            });
+        }
     }
 
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropForeign(['batch_id']);
             $table->dropColumn('batch_id');
-        });
+            });
+        }
     }
 }

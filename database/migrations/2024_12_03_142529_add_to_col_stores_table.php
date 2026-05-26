@@ -13,14 +13,12 @@ class AddToColStoresTable extends Migration
      */
     public function up()
     {
-        Schema::table('stores', function (Blueprint $table) {
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'pickup_zone_id')) {
-                $table->json('pickup_zone_id')->nullable();
-            }
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'comment')) {
-                $table->text('comment')->nullable();
-            }
-        });
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
+            $table->json('pickup_zone_id')->nullable();
+            $table->text('comment')->nullable();
+            });
+        }
     }
 
     /**
@@ -30,9 +28,11 @@ class AddToColStoresTable extends Migration
      */
     public function down()
     {
-        Schema::table('stores', function (Blueprint $table) {
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
             $table->dropColumn('pickup_zone_id');
             $table->dropColumn('comment');
-        });
+            });
+        }
     }
 }

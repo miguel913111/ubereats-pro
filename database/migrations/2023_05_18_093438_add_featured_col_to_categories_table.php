@@ -13,11 +13,11 @@ class AddFeaturedColToCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            if (Schema::hasTable('categories') && !Schema::hasColumn('categories', 'featured')) {
-                $table->boolean('featured')->default(0);
-            }
-        });
+        if (Schema::hasTable('categories')) {
+            Schema::table('categories', function (Blueprint $table) {
+            $table->boolean('featured')->default(0);
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddFeaturedColToCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
+        if (Schema::hasTable('categories')) {
+            Schema::table('categories', function (Blueprint $table) {
             $table->dropColumn('featured');
-        });
+            });
+        }
     }
 }

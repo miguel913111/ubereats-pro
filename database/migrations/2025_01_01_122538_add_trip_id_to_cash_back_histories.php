@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('cash_back_histories', function (Blueprint $table) {
-            if (Schema::hasTable('cash_back_histories') && !Schema::hasColumn('cash_back_histories', 'trip_id')) {
-                $table->foreignId('trip_id')->nullable();
-            }
-        });
+        if (Schema::hasTable('cash_back_histories')) {
+            Schema::table('cash_back_histories', function (Blueprint $table) {
+            $table->foreignId('trip_id')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('cash_back_histories', function (Blueprint $table) {
+        if (Schema::hasTable('cash_back_histories')) {
+            Schema::table('cash_back_histories', function (Blueprint $table) {
             $table->dropColumn('trip_id');
-        });
+            });
+        }
     }
 };

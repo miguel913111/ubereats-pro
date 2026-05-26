@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('zones', function (Blueprint $table) {
-            if (Schema::hasTable('zones') && !Schema::hasColumn('zones', 'rider_wise_topic')) {
-                $table->string('rider_wise_topic')->nullable()->after('deliveryman_wise_topic');
-            }
-        });
+        if (Schema::hasTable('zones')) {
+            Schema::table('zones', function (Blueprint $table) {
+            $table->string('rider_wise_topic')->nullable()->after('deliveryman_wise_topic');
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('zones', function (Blueprint $table) {
+        if (Schema::hasTable('zones')) {
+            Schema::table('zones', function (Blueprint $table) {
             $table->dropColumn('rider_wise_topic');
-        });
+            });
+        }
     }
 };

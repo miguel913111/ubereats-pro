@@ -13,11 +13,11 @@ class AddDmTipsColumnToOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'dm_tips')) {
-                $table->double('dm_tips', 24, 2)->default(0);
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->double('dm_tips', 24, 2)->default(0);
+            });
+        }
     }
 
     /**
@@ -27,9 +27,11 @@ class AddDmTipsColumnToOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('dm_tips');
-        });
+            });
+        }
     }
 }
 

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('messages', function (Blueprint $table) {
-            if (Schema::hasTable('messages') && !Schema::hasColumn('messages', 'order_id')) {
-                $table->foreignId('order_id')->nullable();
-            }
-        });
+        if (Schema::hasTable('messages')) {
+            Schema::table('messages', function (Blueprint $table) {
+            $table->foreignId('order_id')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,10 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('messages', function (Blueprint $table) {
-            if (Schema::hasTable('messages') && !Schema::hasColumn('messages', 'order_id')) {
-                $table->foreignId('order_id')->nullable();
-            }
-        });
+        if (Schema::hasTable('messages')) {
+            Schema::table('messages', function (Blueprint $table) {
+            $table->foreignId('order_id')->nullable();
+            });
+        }
     }
 };

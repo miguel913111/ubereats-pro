@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('campaign_store', function (Blueprint $table) {
+        if (Schema::hasTable('campaign_store')) {
+            Schema::table('campaign_store', function (Blueprint $table) {
             $table->timestamps();
-        });
+            });
+        }
     }
 
     /**
@@ -21,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('campaign_store', function (Blueprint $table) {
+        if (Schema::hasTable('campaign_store')) {
+            Schema::table('campaign_store', function (Blueprint $table) {
             $table->dropTimestamps();
-        });
+            });
+        }
     }
 };

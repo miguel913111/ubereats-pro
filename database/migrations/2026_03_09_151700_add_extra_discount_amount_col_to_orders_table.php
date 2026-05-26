@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'extra_discount_amount')) {
-                $table->decimal('extra_discount_amount', 10, 2)->default(0);
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->decimal('extra_discount_amount', 10, 2)->default(0);
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('extra_discount_amount');
-        });
+            });
+        }
     }
 };

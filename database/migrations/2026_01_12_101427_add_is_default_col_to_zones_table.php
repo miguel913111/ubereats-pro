@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('zones', function (Blueprint $table) {
-             if (Schema::hasTable('zones') && !Schema::hasColumn('zones', 'is_default')) {
-                 $table->boolean('is_default')->default(0);
-             }
-        });
+        if (Schema::hasTable('zones')) {
+            Schema::table('zones', function (Blueprint $table) {
+             $table->boolean('is_default')->default(0);
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('zones', function (Blueprint $table) {
+        if (Schema::hasTable('zones')) {
+            Schema::table('zones', function (Blueprint $table) {
              $table->dropColumn('is_default');
-        });
+            });
+        }
     }
 };

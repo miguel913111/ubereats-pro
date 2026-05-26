@@ -13,11 +13,11 @@ class AddFoodVariationsColumnToItemCampaignsTable extends Migration
      */
     public function up()
     {
-        Schema::table('item_campaigns', function (Blueprint $table) {
-            if (Schema::hasTable('item_campaigns') && !Schema::hasColumn('item_campaigns', 'food_variations')) {
-                $table->text('food_variations')->nullable();
-            }
-        });
+        if (Schema::hasTable('item_campaigns')) {
+            Schema::table('item_campaigns', function (Blueprint $table) {
+            $table->text('food_variations')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddFoodVariationsColumnToItemCampaignsTable extends Migration
      */
     public function down()
     {
-        Schema::table('item_campaigns', function (Blueprint $table) {
+        if (Schema::hasTable('item_campaigns')) {
+            Schema::table('item_campaigns', function (Blueprint $table) {
             $table->dropColumn('food_variations');
-        });
+            });
+        }
     }
 }

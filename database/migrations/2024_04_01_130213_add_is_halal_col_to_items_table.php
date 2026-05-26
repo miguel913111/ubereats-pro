@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('items', function (Blueprint $table) {
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'is_halal')) {
-                $table->boolean('is_halal')->default(0);
-            }
-        });
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
+            $table->boolean('is_halal')->default(0);
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('items', function (Blueprint $table) {
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
             $table->dropColumn('is_halal');
-        });
+            });
+        }
     }
 };

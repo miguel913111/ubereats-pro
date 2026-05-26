@@ -13,11 +13,11 @@ class AddVehicleIdColumnToDeliveryMenTable extends Migration
      */
     public function up()
     {
-        Schema::table('delivery_men', function (Blueprint $table) {
-            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'vehicle_id')) {
-                $table->foreignId('vehicle_id')->nullable();
-            }
-        });
+        if (Schema::hasTable('delivery_men')) {
+            Schema::table('delivery_men', function (Blueprint $table) {
+            $table->foreignId('vehicle_id')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddVehicleIdColumnToDeliveryMenTable extends Migration
      */
     public function down()
     {
-        Schema::table('delivery_men', function (Blueprint $table) {
+        if (Schema::hasTable('delivery_men')) {
+            Schema::table('delivery_men', function (Blueprint $table) {
             $table->dropColumn('vehicle_id');
-        });
+            });
+        }
     }
 }

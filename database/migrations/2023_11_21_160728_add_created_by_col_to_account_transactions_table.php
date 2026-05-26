@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('account_transactions', function (Blueprint $table) {
-            if (Schema::hasTable('account_transactions') && !Schema::hasColumn('account_transactions', 'type')) {
-                $table->string('type',20)->default('collected');
-            }
-            if (Schema::hasTable('account_transactions') && !Schema::hasColumn('account_transactions', 'created_by')) {
-                $table->string('created_by',20)->default('admin');
-            }
-        });
+        if (Schema::hasTable('account_transactions')) {
+            Schema::table('account_transactions', function (Blueprint $table) {
+            $table->string('type',20)->default('collected');
+            $table->string('created_by',20)->default('admin');
+            });
+        }
     }
 
     /**
@@ -26,9 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('account_transactions', function (Blueprint $table) {
+        if (Schema::hasTable('account_transactions')) {
+            Schema::table('account_transactions', function (Blueprint $table) {
             $table->dropColumn('type');
             $table->dropColumn('created_by');
-        });
+            });
+        }
     }
 };

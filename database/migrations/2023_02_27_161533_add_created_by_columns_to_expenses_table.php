@@ -13,14 +13,12 @@ class AddCreatedByColumnsToExpensesTable extends Migration
      */
     public function up()
     {
-        Schema::table('expenses', function (Blueprint $table) {
-            if (Schema::hasTable('expenses') && !Schema::hasColumn('expenses', 'created_by')) {
-                $table->string('created_by',50)->default('admin')->nullable();
-            }
-            if (Schema::hasTable('expenses') && !Schema::hasColumn('expenses', 'store_id')) {
-                $table->foreignId('store_id')->nullable();
-            }
-        });
+        if (Schema::hasTable('expenses')) {
+            Schema::table('expenses', function (Blueprint $table) {
+            $table->string('created_by',50)->default('admin')->nullable();
+            $table->foreignId('store_id')->nullable();
+            });
+        }
     }
 
     /**
@@ -30,9 +28,11 @@ class AddCreatedByColumnsToExpensesTable extends Migration
      */
     public function down()
     {
-        Schema::table('expenses', function (Blueprint $table) {
+        if (Schema::hasTable('expenses')) {
+            Schema::table('expenses', function (Blueprint $table) {
             $table->dropColumn('created_by');
             $table->dropColumn('store_id');
-        });
+            });
+        }
     }
 }

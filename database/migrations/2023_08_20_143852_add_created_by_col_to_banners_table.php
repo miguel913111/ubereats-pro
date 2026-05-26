@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('banners', function (Blueprint $table) {
-            if (Schema::hasTable('banners') && !Schema::hasColumn('banners', 'title')) {
-                $table->string('title')->nullable()->change();
-            }
-            if (Schema::hasTable('banners') && !Schema::hasColumn('banners', 'created_by')) {
-                $table->string('created_by')->default('admin');
-            }
-        });
+        if (Schema::hasTable('banners')) {
+            Schema::table('banners', function (Blueprint $table) {
+            $table->string('title')->nullable()->change();
+            $table->string('created_by')->default('admin');
+            });
+        }
     }
 
     /**
@@ -26,11 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('banners', function (Blueprint $table) {
-            if (Schema::hasTable('banners') && !Schema::hasColumn('banners', 'title')) {
-                $table->string('title')->change();
-            }
+        if (Schema::hasTable('banners')) {
+            Schema::table('banners', function (Blueprint $table) {
+            $table->string('title')->change();
             $table->dropColumn('created_by');
-        });
+            });
+        }
     }
 };

@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('withdraw_requests', function (Blueprint $table) {
-            if (Schema::hasTable('withdraw_requests') && !Schema::hasColumn('withdraw_requests', 'sender_note')) {
-                $table->text('sender_note')->nullable();
-            }
-        });
+        if (Schema::hasTable('withdraw_requests')) {
+            Schema::table('withdraw_requests', function (Blueprint $table) {
+            $table->text('sender_note')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('withdraw_requests', function (Blueprint $table) {
+        if (Schema::hasTable('withdraw_requests')) {
+            Schema::table('withdraw_requests', function (Blueprint $table) {
             $table->dropColumn('sender_note');
-        });
+            });
+        }
     }
 };

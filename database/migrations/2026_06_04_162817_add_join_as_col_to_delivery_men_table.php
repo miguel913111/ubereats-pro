@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('delivery_men', function (Blueprint $table) {
-            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'is_delivery')) {
-                $table->boolean('is_delivery')->default(1);
-            }
-            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'is_ride')) {
-                $table->boolean('is_ride')->default(0);
-            }
-            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'earning')) {
-                $table->boolean('earning')->nullable()->change();
-            }
-        });
+        if (Schema::hasTable('delivery_men')) {
+            Schema::table('delivery_men', function (Blueprint $table) {
+            $table->boolean('is_delivery')->default(1);
+            $table->boolean('is_ride')->default(0);
+            $table->boolean('earning')->nullable()->change();
+            });
+        }
     }
 
     /**
@@ -29,12 +25,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('delivery_men', function (Blueprint $table) {
+        if (Schema::hasTable('delivery_men')) {
+            Schema::table('delivery_men', function (Blueprint $table) {
             $table->dropColumn('is_delivery');
             $table->dropColumn('is_ride');
-            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'earning')) {
-                $table->boolean('earning')->default(1)->change();
-            }
-        });
+            $table->boolean('earning')->default(1)->change();
+            });
+        }
     }
 };

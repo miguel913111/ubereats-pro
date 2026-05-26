@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('order_transactions', function (Blueprint $table) {
-            if (Schema::hasTable('order_transactions') && !Schema::hasColumn('order_transactions', 'commission_percentage')) {
-                $table->double('commission_percentage',16, 3)->default(0)->nullable();
-            }
-            if (Schema::hasTable('order_transactions') && !Schema::hasColumn('order_transactions', 'is_subscribed')) {
-                $table->boolean('is_subscribed')->default(0);
-            }
-        });
+        if (Schema::hasTable('order_transactions')) {
+            Schema::table('order_transactions', function (Blueprint $table) {
+            $table->double('commission_percentage',16, 3)->default(0)->nullable();
+            $table->boolean('is_subscribed')->default(0);
+            });
+        }
     }
 
     /**
@@ -26,9 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('order_transactions', function (Blueprint $table) {
+        if (Schema::hasTable('order_transactions')) {
+            Schema::table('order_transactions', function (Blueprint $table) {
             $table->dropColumn('commission_percentage');
             $table->dropColumn('is_subscribed');
-        });
+            });
+        }
     }
 };

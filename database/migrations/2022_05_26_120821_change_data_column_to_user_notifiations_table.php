@@ -13,9 +13,11 @@ class ChangeDataColumnToUserNotifiationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('user_notifications', function (Blueprint $table) {
+        if (Schema::hasTable('user_notifications')) {
+            Schema::table('user_notifications', function (Blueprint $table) {
             $table->text('data')->change();
-        });
+            });
+        }
     }
 
     /**
@@ -25,8 +27,10 @@ class ChangeDataColumnToUserNotifiationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('user_notifications', function (Blueprint $table) {
+        if (Schema::hasTable('user_notifications')) {
+            Schema::table('user_notifications', function (Blueprint $table) {
             $table->string('data', 191)->change();
-        });
+            });
+        }
     }
 }

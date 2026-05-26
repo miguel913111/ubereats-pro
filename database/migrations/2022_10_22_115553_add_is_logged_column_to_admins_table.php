@@ -13,11 +13,11 @@ class AddIsLoggedColumnToAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::table('admins', function (Blueprint $table) {
-            if (Schema::hasTable('admins') && !Schema::hasColumn('admins', 'is_logged_in')) {
-                $table->boolean('is_logged_in')->default(true);
-            }
-        });
+        if (Schema::hasTable('admins')) {
+            Schema::table('admins', function (Blueprint $table) {
+            $table->boolean('is_logged_in')->default(true);
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddIsLoggedColumnToAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::table('admins', function (Blueprint $table) {
+        if (Schema::hasTable('admins')) {
+            Schema::table('admins', function (Blueprint $table) {
             $table->dropColumn('is_logged_in');
-        });
+            });
+        }
     }
 }

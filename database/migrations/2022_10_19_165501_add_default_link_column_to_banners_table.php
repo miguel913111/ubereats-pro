@@ -13,11 +13,11 @@ class AddDefaultLinkColumnToBannersTable extends Migration
      */
     public function up()
     {
-        Schema::table('banners', function (Blueprint $table) {
-            if (Schema::hasTable('banners') && !Schema::hasColumn('banners', 'default_link')) {
-                $table->string('default_link')->nullable();
-            }
-        });
+        if (Schema::hasTable('banners')) {
+            Schema::table('banners', function (Blueprint $table) {
+            $table->string('default_link')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddDefaultLinkColumnToBannersTable extends Migration
      */
     public function down()
     {
-        Schema::table('banners', function (Blueprint $table) {
+        if (Schema::hasTable('banners')) {
+            Schema::table('banners', function (Blueprint $table) {
             $table->dropColumn('default_link');
-        });
+            });
+        }
     }
 }

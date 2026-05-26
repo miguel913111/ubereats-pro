@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('items', function (Blueprint $table) {
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'maximum_cart_quantity')) {
-                $table->integer('maximum_cart_quantity')->nullable();
-            }
-        });
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
+            $table->integer('maximum_cart_quantity')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('items', function (Blueprint $table) {
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
             $table->dropColumn('maximum_cart_quantity');
-        });
+            });
+        }
     }
 };

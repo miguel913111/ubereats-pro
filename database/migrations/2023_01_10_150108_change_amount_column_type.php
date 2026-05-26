@@ -13,9 +13,11 @@ class ChangeAmountColumnType extends Migration
      */
     public function up()
     {
-        Schema::table('withdraw_requests', function (Blueprint $table) {
+        if (Schema::hasTable('withdraw_requests')) {
+            Schema::table('withdraw_requests', function (Blueprint $table) {
             $table->decimal('amount',23,3)->default(0)->change();
-        });
+            });
+        }
     }
 
     /**
@@ -25,8 +27,10 @@ class ChangeAmountColumnType extends Migration
      */
     public function down()
     {
-        Schema::table('withdraw_requests', function (Blueprint $table) {
+        if (Schema::hasTable('withdraw_requests')) {
+            Schema::table('withdraw_requests', function (Blueprint $table) {
             $table->decimal('amount')->default(0)->change();
-        });
+            });
+        }
     }
 }

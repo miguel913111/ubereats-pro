@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('campaigns', function (Blueprint $table) {
-            if (Schema::hasTable('campaigns') && !Schema::hasColumn('campaigns', 'slug')) {
-                $table->string('slug')->nullable();
-            }
-        });
+        if (Schema::hasTable('campaigns')) {
+            Schema::table('campaigns', function (Blueprint $table) {
+            $table->string('slug')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('campaigns', function (Blueprint $table) {
+        if (Schema::hasTable('campaigns')) {
+            Schema::table('campaigns', function (Blueprint $table) {
             $table->dropColumn('slug');
-        });
+            });
+        }
     }
 };

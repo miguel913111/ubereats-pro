@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'meta_data')) {
-                $table->json('meta_data')->nullable()->after('meta_image');
-            }
-        });
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
+            $table->json('meta_data')->nullable()->after('meta_image');
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
             $table->dropColumn('meta_data');
-        });
+            });
+        }
     }
 };

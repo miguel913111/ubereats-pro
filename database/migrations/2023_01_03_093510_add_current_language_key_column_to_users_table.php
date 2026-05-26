@@ -13,11 +13,11 @@ class AddCurrentLanguageKeyColumnToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasTable('users') && !Schema::hasColumn('users', 'current_language_key')) {
-                $table->string('current_language_key')->default('en')->nullable();
-            }
-        });
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
+            $table->string('current_language_key')->default('en')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddCurrentLanguageKeyColumnToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        if (Schema::hasTable('users')) {
+            Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('current_language_key');
-        });
+            });
+        }
     }
 }

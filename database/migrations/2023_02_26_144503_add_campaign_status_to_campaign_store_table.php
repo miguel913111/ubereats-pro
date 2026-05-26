@@ -13,11 +13,11 @@ class AddCampaignStatusToCampaignStoreTable extends Migration
      */
     public function up()
     {
-        Schema::table('campaign_store', function (Blueprint $table) {
-            if (Schema::hasTable('campaign_store') && !Schema::hasColumn('campaign_store', 'campaign_status')) {
-                $table->string('campaign_status',10)->default('pending')->nullable();
-            }
-        });
+        if (Schema::hasTable('campaign_store')) {
+            Schema::table('campaign_store', function (Blueprint $table) {
+            $table->string('campaign_status',10)->default('pending')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddCampaignStatusToCampaignStoreTable extends Migration
      */
     public function down()
     {
-        Schema::table('campaign_store', function (Blueprint $table) {
+        if (Schema::hasTable('campaign_store')) {
+            Schema::table('campaign_store', function (Blueprint $table) {
             $table->dropColumn('campaign_status');
-        });
+            });
+        }
     }
 }

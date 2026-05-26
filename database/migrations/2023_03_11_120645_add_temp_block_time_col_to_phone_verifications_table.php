@@ -13,11 +13,11 @@ class AddTempBlockTimeColToPhoneVerificationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('phone_verifications', function (Blueprint $table) {
-            if (Schema::hasTable('phone_verifications') && !Schema::hasColumn('phone_verifications', 'temp_block_time')) {
-                $table->timestamp('temp_block_time')->nullable();
-            }
-        });
+        if (Schema::hasTable('phone_verifications')) {
+            Schema::table('phone_verifications', function (Blueprint $table) {
+            $table->timestamp('temp_block_time')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddTempBlockTimeColToPhoneVerificationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('phone_verifications', function (Blueprint $table) {
+        if (Schema::hasTable('phone_verifications')) {
+            Schema::table('phone_verifications', function (Blueprint $table) {
             $table->dropColumn('temp_block_time');
-        });
+            });
+        }
     }
 }

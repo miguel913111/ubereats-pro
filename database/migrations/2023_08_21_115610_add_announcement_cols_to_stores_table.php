@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'announcement')) {
-                $table->boolean('announcement')->default(0);
-            }
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'announcement_message')) {
-                $table->string('announcement_message')->nullable();
-            }
-        });
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
+            $table->boolean('announcement')->default(0);
+            $table->string('announcement_message')->nullable();
+            });
+        }
     }
 
     /**
@@ -26,9 +24,11 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
             $table->dropColumn('announcement');
             $table->dropColumn('announcement_message');
-        });
+            });
+        }
     }
 };

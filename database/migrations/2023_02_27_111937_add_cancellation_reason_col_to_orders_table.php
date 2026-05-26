@@ -13,14 +13,12 @@ class AddCancellationReasonColToOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'cancellation_reason')) {
-                $table->string('cancellation_reason', 255)->nullable();
-            }
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'canceled_by')) {
-                $table->string('canceled_by',50)->nullable();
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->string('cancellation_reason', 255)->nullable();
+            $table->string('canceled_by',50)->nullable();
+            });
+        }
     }
 
     /**
@@ -30,9 +28,11 @@ class AddCancellationReasonColToOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('cancellation_reason');
             $table->dropColumn('canceled_by');
-        });
+            });
+        }
     }
 }

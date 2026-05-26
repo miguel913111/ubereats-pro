@@ -13,11 +13,11 @@ class AddDeliveryFeeComissionToOrderTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('order_transactions', function (Blueprint $table) {
-            if (Schema::hasTable('order_transactions') && !Schema::hasColumn('order_transactions', 'delivery_fee_comission')) {
-                $table->double('delivery_fee_comission',24, 2)->default('0');
-            }
-        });
+        if (Schema::hasTable('order_transactions')) {
+            Schema::table('order_transactions', function (Blueprint $table) {
+            $table->double('delivery_fee_comission',24, 2)->default('0');
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddDeliveryFeeComissionToOrderTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('order_transactions', function (Blueprint $table) {
+        if (Schema::hasTable('order_transactions')) {
+            Schema::table('order_transactions', function (Blueprint $table) {
             $table->dropColumn('delivery_fee_comission'); //dropcolumn
-        });
+            });
+        }
     }
 }

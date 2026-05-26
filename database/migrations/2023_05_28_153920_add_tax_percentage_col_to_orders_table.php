@@ -13,11 +13,11 @@ class AddTaxPercentageColToOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'tax_percentage')) {
-                $table->double('tax_percentage', 24, 3)->nullable();
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->double('tax_percentage', 24, 3)->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddTaxPercentageColToOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('tax_percentage');
-        });
+            });
+        }
     }
 }

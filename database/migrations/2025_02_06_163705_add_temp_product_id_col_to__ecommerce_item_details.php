@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('ecommerce_item_details', function (Blueprint $table) {
-            if (Schema::hasTable('ecommerce_item_details') && !Schema::hasColumn('ecommerce_item_details', 'temp_product_id')) {
-                $table->foreignId('temp_product_id')->nullable();
-            }
-        });
+        if (Schema::hasTable('ecommerce_item_details')) {
+            Schema::table('ecommerce_item_details', function (Blueprint $table) {
+            $table->foreignId('temp_product_id')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('ecommerce_item_details', function (Blueprint $table) {
+        if (Schema::hasTable('ecommerce_item_details')) {
+            Schema::table('ecommerce_item_details', function (Blueprint $table) {
             $table->dropColumn('temp_product_id');
-        });
+            });
+        }
     }
 };

@@ -13,11 +13,11 @@ class AddRefundRequestCancelColumnToOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'refund_request_canceled')) {
-                $table->timestamp('refund_request_canceled')->nullable();
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->timestamp('refund_request_canceled')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddRefundRequestCancelColumnToOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('refund_request_canceled');
-        });
+            });
+        }
     }
 }

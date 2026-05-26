@@ -13,17 +13,13 @@ class AddCutleryProcessingTimeUnavailableProductNoteColToOrdersTable extends Mig
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'processing_time')) {
-                $table->string('processing_time',10)->nullable();
-            }
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'unavailable_item_note')) {
-                $table->string('unavailable_item_note', 255)->nullable();
-            }
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'cutlery')) {
-                $table->boolean('cutlery')->default(0);
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->string('processing_time',10)->nullable();
+            $table->string('unavailable_item_note', 255)->nullable();
+            $table->boolean('cutlery')->default(0);
+            });
+        }
     }
 
     /**
@@ -33,10 +29,12 @@ class AddCutleryProcessingTimeUnavailableProductNoteColToOrdersTable extends Mig
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('processing_time');
             $table->dropColumn('unavailable_item_note');
             $table->dropColumn('cutlery');
-        });
+            });
+        }
     }
 }

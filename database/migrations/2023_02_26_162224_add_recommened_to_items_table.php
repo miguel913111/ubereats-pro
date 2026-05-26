@@ -13,11 +13,11 @@ class AddRecommenedToItemsTable extends Migration
      */
     public function up()
     {
-        Schema::table('items', function (Blueprint $table) {
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'recommended')) {
-                $table->boolean('recommended')->default(0);
-            }
-        });
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
+            $table->boolean('recommended')->default(0);
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddRecommenedToItemsTable extends Migration
      */
     public function down()
     {
-        Schema::table('items', function (Blueprint $table) {
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
             $table->dropColumn('recommended');
-        });
+            });
+        }
     }
 }

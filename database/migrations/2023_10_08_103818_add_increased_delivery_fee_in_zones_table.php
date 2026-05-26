@@ -11,20 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('zones', function (Blueprint $table) {
-            if (Schema::hasTable('zones') && !Schema::hasColumn('zones', 'increased_delivery_fee')) {
-                $table->double('increased_delivery_fee',8,2)->default('0');
-            }
-            if (Schema::hasTable('zones') && !Schema::hasColumn('zones', 'increased_delivery_fee_status')) {
-                $table->boolean('increased_delivery_fee_status')->default('0');
-            }
-            if (Schema::hasTable('zones') && !Schema::hasColumn('zones', 'increase_delivery_charge_message')) {
-                $table->string('increase_delivery_charge_message')->nullable();
-            }
-            if (Schema::hasTable('zones') && !Schema::hasColumn('zones', 'offline_payment')) {
-                $table->boolean('offline_payment')->default(false);
-            }
-        });
+        if (Schema::hasTable('zones')) {
+            Schema::table('zones', function (Blueprint $table) {
+            $table->double('increased_delivery_fee',8,2)->default('0');
+            $table->boolean('increased_delivery_fee_status')->default('0');
+            $table->string('increase_delivery_charge_message')->nullable();
+            $table->boolean('offline_payment')->default(false);
+            });
+        }
     }
 
     /**
@@ -32,11 +26,13 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('zones', function (Blueprint $table) {
+        if (Schema::hasTable('zones')) {
+            Schema::table('zones', function (Blueprint $table) {
             $table->dropColumn('increased_delivery_fee_status');
             $table->dropColumn('increased_delivery_fee');
             $table->dropColumn('increase_delivery_charge_message');
             $table->dropColumn('offline_payment');
-        });
+            });
+        }
     }
 };

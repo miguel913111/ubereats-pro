@@ -11,32 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('items', function (Blueprint $table) {
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'category_id')) {
-                $table->index('category_id');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'store_id')) {
-                $table->index('store_id');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'name')) {
-                $table->index('name');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'slug')) {
-                $table->index('slug');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'price')) {
-                $table->index('price');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'created_at')) {
-                $table->index('created_at');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'order_count')) {
-                $table->index('order_count');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'avg_rating')) {
-                $table->index('avg_rating');
-            }
-        });
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
+            $table->index('category_id');
+            $table->index('store_id');
+            $table->index('name');
+            $table->index('slug');
+            $table->index('price');
+            $table->index('created_at');
+            $table->index('order_count');
+            $table->index('avg_rating');
+            });
+        }
     }
 
     /**
@@ -44,31 +30,17 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('items', function (Blueprint $table) {
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'category_id')) {
-                $table->dropIndex('category_id');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'store_id')) {
-                $table->dropIndex('store_id');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'name')) {
-                $table->dropIndex('name');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'slug')) {
-                $table->dropIndex('slug');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'price')) {
-                $table->dropIndex('price');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'created_at')) {
-                $table->dropIndex('created_at');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'order_count')) {
-                $table->dropIndex('order_count');
-            }
-            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'avg_rating')) {
-                $table->dropIndex('avg_rating');
-            }
-        });
+        if (Schema::hasTable('items')) {
+            Schema::table('items', function (Blueprint $table) {
+            $table->dropIndex('category_id');
+            $table->dropIndex('store_id');
+            $table->dropIndex('name');
+            $table->dropIndex('slug');
+            $table->dropIndex('price');
+            $table->dropIndex('created_at');
+            $table->dropIndex('order_count');
+            $table->dropIndex('avg_rating');
+            });
+        }
     }
 };

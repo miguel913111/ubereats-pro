@@ -13,9 +13,11 @@ class ChangeRefundAmountColumnType extends Migration
      */
     public function up()
     {
-        Schema::table('refunds', function (Blueprint $table) {
+        if (Schema::hasTable('refunds')) {
+            Schema::table('refunds', function (Blueprint $table) {
             $table->decimal('refund_amount',23,3)->default(0)->change();
-        });
+            });
+        }
     }
 
     /**
@@ -25,8 +27,10 @@ class ChangeRefundAmountColumnType extends Migration
      */
     public function down()
     {
-        Schema::table('refunds', function (Blueprint $table) {
+        if (Schema::hasTable('refunds')) {
+            Schema::table('refunds', function (Blueprint $table) {
             $table->decimal('refund_amount')->default(0)->change();
-        });
+            });
+        }
     }
 }

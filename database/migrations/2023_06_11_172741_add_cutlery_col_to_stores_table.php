@@ -13,11 +13,11 @@ class AddCutleryColToStoresTable extends Migration
      */
     public function up()
     {
-        Schema::table('stores', function (Blueprint $table) {
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'cutlery')) {
-                $table->boolean('cutlery')->default(0);
-            }
-        });
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
+            $table->boolean('cutlery')->default(0);
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddCutleryColToStoresTable extends Migration
      */
     public function down()
     {
-        Schema::table('stores', function (Blueprint $table) {
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
             $table->dropColumn('cutlery');
-        });
+            });
+        }
     }
 }

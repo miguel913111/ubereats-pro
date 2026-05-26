@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            if (Schema::hasTable('reviews') && !Schema::hasColumn('reviews', 'replied_at')) {
-                $table->dateTime('replied_at')->nullable();
-            }
-        });
+        if (Schema::hasTable('reviews')) {
+            Schema::table('reviews', function (Blueprint $table) {
+            $table->dateTime('replied_at')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('reviews', function (Blueprint $table) {
+        if (Schema::hasTable('reviews')) {
+            Schema::table('reviews', function (Blueprint $table) {
             $table->dropColumn('replied_at');
-        });
+            });
+        }
     }
 };

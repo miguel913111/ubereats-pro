@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('brands', function (Blueprint $table) {
-            if (Schema::hasTable('brands') && !Schema::hasColumn('brands', 'module_id')) {
-                $table->foreignId('module_id')->nullable();
-            }
-        });
+        if (Schema::hasTable('brands')) {
+            Schema::table('brands', function (Blueprint $table) {
+            $table->foreignId('module_id')->nullable();
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('brands', function (Blueprint $table) {
+        if (Schema::hasTable('brands')) {
+            Schema::table('brands', function (Blueprint $table) {
             $table->dropColumn('module_id');
-        });
+            });
+        }
     }
 };

@@ -13,11 +13,11 @@ class AddTempBlockTimeColToPasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::table('password_resets', function (Blueprint $table) {
-            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'temp_block_time')) {
-                $table->timestamp('temp_block_time')->nullable();
-            }
-        });
+        if (Schema::hasTable('password_resets')) {
+            Schema::table('password_resets', function (Blueprint $table) {
+            $table->timestamp('temp_block_time')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddTempBlockTimeColToPasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::table('password_resets', function (Blueprint $table) {
+        if (Schema::hasTable('password_resets')) {
+            Schema::table('password_resets', function (Blueprint $table) {
             $table->dropColumn('temp_block_time');
-        });
+            });
+        }
     }
 }

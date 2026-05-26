@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'meta_title')) {
-                $table->string('meta_title',100)->nullable();
-            }
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'meta_description')) {
-                $table->text('meta_description')->nullable();
-            }
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'meta_image')) {
-                $table->string('meta_image',100)->nullable();
-            }
-        });
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
+            $table->string('meta_title',100)->nullable();
+            $table->text('meta_description')->nullable();
+            $table->string('meta_image',100)->nullable();
+            });
+        }
     }
 
     /**
@@ -29,10 +25,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
             $table->dropColumn('meta_title');
             $table->dropColumn('meta_description');
             $table->dropColumn('meta_image');
-        });
+            });
+        }
     }
 };

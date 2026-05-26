@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('subscription_packages', function (Blueprint $table) {
-            if (Schema::hasTable('subscription_packages') && !Schema::hasColumn('subscription_packages', 'module_type')) {
-                $table->string('module_type',20)->default('all');
-            }
-        });
+        if (Schema::hasTable('subscription_packages')) {
+            Schema::table('subscription_packages', function (Blueprint $table) {
+            $table->string('module_type',20)->default('all');
+            });
+        }
     }
 
     /**
@@ -23,8 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('subscription_packages', function (Blueprint $table) {
+        if (Schema::hasTable('subscription_packages')) {
+            Schema::table('subscription_packages', function (Blueprint $table) {
             $table->dropColumn('module_type');
-        });
+            });
+        }
     }
 };

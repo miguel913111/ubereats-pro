@@ -13,11 +13,11 @@ class AddAllZonesColumnToModulesTable extends Migration
      */
     public function up()
     {
-        Schema::table('modules', function (Blueprint $table) {
-            if (Schema::hasTable('modules') && !Schema::hasColumn('modules', 'all_zone_service')) {
-                $table->boolean('all_zone_service')->default(false);
-            }
-        });
+        if (Schema::hasTable('modules')) {
+            Schema::table('modules', function (Blueprint $table) {
+            $table->boolean('all_zone_service')->default(false);
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddAllZonesColumnToModulesTable extends Migration
      */
     public function down()
     {
-        Schema::table('modules', function (Blueprint $table) {
+        if (Schema::hasTable('modules')) {
+            Schema::table('modules', function (Blueprint $table) {
             $table->dropColumn('all_zone_service');
-        });
+            });
+        }
     }
 }

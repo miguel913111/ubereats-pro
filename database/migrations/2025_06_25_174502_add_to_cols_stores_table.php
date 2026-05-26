@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'tin')) {
-                $table->string('tin')->nullable();
-            }
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'tin_expire_date')) {
-                $table->date('tin_expire_date')->nullable();
-            }
-            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'tin_certificate_image')) {
-                $table->string('tin_certificate_image')->nullable();
-            }
-        });
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
+            $table->string('tin')->nullable();
+            $table->date('tin_expire_date')->nullable();
+            $table->string('tin_certificate_image')->nullable();
+            });
+        }
     }
 
     /**
@@ -29,10 +25,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('stores', function (Blueprint $table) {
+        if (Schema::hasTable('stores')) {
+            Schema::table('stores', function (Blueprint $table) {
             $table->dropColumn('tin');
             $table->dropColumn('tin_expire_date');
             $table->dropColumn('tin_certificate_image');
-        });
+            });
+        }
     }
 };

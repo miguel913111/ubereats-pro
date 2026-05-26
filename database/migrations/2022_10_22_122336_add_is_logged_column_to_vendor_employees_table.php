@@ -13,11 +13,11 @@ class AddIsLoggedColumnToVendorEmployeesTable extends Migration
      */
     public function up()
     {
-        Schema::table('vendor_employees', function (Blueprint $table) {
-            if (Schema::hasTable('vendor_employees') && !Schema::hasColumn('vendor_employees', 'is_logged_in')) {
-                $table->boolean('is_logged_in')->default(true);
-            }
-        });
+        if (Schema::hasTable('vendor_employees')) {
+            Schema::table('vendor_employees', function (Blueprint $table) {
+            $table->boolean('is_logged_in')->default(true);
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddIsLoggedColumnToVendorEmployeesTable extends Migration
      */
     public function down()
     {
-        Schema::table('vendor_employees', function (Blueprint $table) {
+        if (Schema::hasTable('vendor_employees')) {
+            Schema::table('vendor_employees', function (Blueprint $table) {
             $table->dropColumn('is_logged_in');
-        });
+            });
+        }
     }
 }

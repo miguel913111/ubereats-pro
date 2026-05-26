@@ -11,17 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('temp_products', function (Blueprint $table) {
-            if (Schema::hasTable('temp_products') && !Schema::hasColumn('temp_products', 'nutrition_ids')) {
-                $table->string('nutrition_ids',255)->nullable();
-            }
-            if (Schema::hasTable('temp_products') && !Schema::hasColumn('temp_products', 'allergy_ids')) {
-                $table->string('allergy_ids',255)->nullable();
-            }
-            if (Schema::hasTable('temp_products') && !Schema::hasColumn('temp_products', 'generic_ids')) {
-                $table->string('generic_ids',255)->nullable();
-            }
-        });
+        if (Schema::hasTable('temp_products')) {
+            Schema::table('temp_products', function (Blueprint $table) {
+            $table->string('nutrition_ids',255)->nullable();
+            $table->string('allergy_ids',255)->nullable();
+            $table->string('generic_ids',255)->nullable();
+            });
+        }
     }
 
     /**
@@ -29,10 +25,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('temp_products', function (Blueprint $table) {
+        if (Schema::hasTable('temp_products')) {
+            Schema::table('temp_products', function (Blueprint $table) {
             $table->dropColumn('nutrition_ids');
             $table->dropColumn('allergy_ids');
             $table->dropColumn('generic_ids');
-        });
+            });
+        }
     }
 };

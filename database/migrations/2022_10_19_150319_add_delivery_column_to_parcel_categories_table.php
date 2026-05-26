@@ -13,14 +13,12 @@ class AddDeliveryColumnToParcelCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('parcel_categories', function (Blueprint $table) {
-            if (Schema::hasTable('parcel_categories') && !Schema::hasColumn('parcel_categories', 'parcel_per_km_shipping_charge')) {
-                $table->double('parcel_per_km_shipping_charge', 23, 2)->nullable();
-            }
-            if (Schema::hasTable('parcel_categories') && !Schema::hasColumn('parcel_categories', 'parcel_minimum_shipping_charge')) {
-                $table->double('parcel_minimum_shipping_charge', 23, 2)->nullable();
-            }
-        });
+        if (Schema::hasTable('parcel_categories')) {
+            Schema::table('parcel_categories', function (Blueprint $table) {
+            $table->double('parcel_per_km_shipping_charge', 23, 2)->nullable();
+            $table->double('parcel_minimum_shipping_charge', 23, 2)->nullable();
+            });
+        }
     }
 
     /**
@@ -30,9 +28,11 @@ class AddDeliveryColumnToParcelCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('parcel_categories', function (Blueprint $table) {
+        if (Schema::hasTable('parcel_categories')) {
+            Schema::table('parcel_categories', function (Blueprint $table) {
             $table->dropColumn('parcel_per_km_shipping_charge');
             $table->dropColumn('parcel_minimum_shipping_charge');
-        });
+            });
+        }
     }
 }

@@ -13,10 +13,12 @@ class ChangeAmountColumnToExpensesTable extends Migration
      */
     public function up()
     {
-        Schema::table('expenses', function (Blueprint $table) {
+        if (Schema::hasTable('expenses')) {
+            Schema::table('expenses', function (Blueprint $table) {
             $table->decimal('amount',23, 3)->default(0)->change();
             $table->foreignId('delivery_man_id')->nullable();
-        });
+            });
+        }
     }
 
     /**
@@ -26,8 +28,10 @@ class ChangeAmountColumnToExpensesTable extends Migration
      */
     public function down()
     {
-        Schema::table('expenses', function (Blueprint $table) {
+        if (Schema::hasTable('expenses')) {
+            Schema::table('expenses', function (Blueprint $table) {
             $table->dropColumn('delivery_man_id');
-        });
+            });
+        }
     }
 }

@@ -13,11 +13,11 @@ class AddSlugToCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            if (Schema::hasTable('categories') && !Schema::hasColumn('categories', 'slug')) {
-                $table->string('slug')->nullable();
-            }
-        });
+        if (Schema::hasTable('categories')) {
+            Schema::table('categories', function (Blueprint $table) {
+            $table->string('slug')->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddSlugToCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
+        if (Schema::hasTable('categories')) {
+            Schema::table('categories', function (Blueprint $table) {
             $table->dropColumn('slug');
-        });
+            });
+        }
     }
 }

@@ -13,11 +13,11 @@ class AddCouponCreatedByColumnsToOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'coupon_created_by')) {
-                $table->string('coupon_created_by',50)->nullable();
-            }
-        });
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
+            $table->string('coupon_created_by',50)->nullable();
+            });
+        }
     }
 
     /**
@@ -27,8 +27,10 @@ class AddCouponCreatedByColumnsToOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function (Blueprint $table) {
+        if (Schema::hasTable('orders')) {
+            Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('coupon_created_by');
-        });
+            });
+        }
     }
 }
