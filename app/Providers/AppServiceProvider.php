@@ -44,9 +44,9 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // If the schema is incomplete (users table missing), reset migrations
-            // and run migrate:fresh to create all required tables.
-            if (!Schema::hasTable('users')) {
+            // If addon_settings table is missing, the schema is incomplete.
+            // Drop migrations table and run migrate:fresh to rebuild everything.
+            if (!Schema::hasTable('addon_settings')) {
                 if (Schema::hasTable('migrations')) {
                     Schema::drop('migrations');
                 }
