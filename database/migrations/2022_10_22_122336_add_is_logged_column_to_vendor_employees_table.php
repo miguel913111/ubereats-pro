@@ -14,7 +14,9 @@ class AddIsLoggedColumnToVendorEmployeesTable extends Migration
     public function up()
     {
         Schema::table('vendor_employees', function (Blueprint $table) {
-            $table->boolean('is_logged_in')->default(true);
+            if (!Schema::hasColumn('vendor_employees', 'is_logged_in')) {
+                $table->boolean('is_logged_in')->default(true);
+            }
         });
     }
 

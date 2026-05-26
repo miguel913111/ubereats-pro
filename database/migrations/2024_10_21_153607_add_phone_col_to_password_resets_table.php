@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::table('password_resets', function (Blueprint $table) {
             $table->string('phone',50)->nullable();
-            $table->string('email')->nullable()->change();
+            if (!Schema::hasColumn('password_resets', 'email')) {
+                $table->string('email')->nullable()->change();
+            }
         });
     }
 
@@ -24,7 +26,9 @@ return new class extends Migration
     {
         Schema::table('password_resets', function (Blueprint $table) {
             $table->dropColumn('phone');
-            $table->string('email')->nullable(false)->change();
+            if (!Schema::hasColumn('password_resets', 'email')) {
+                $table->string('email')->nullable(false)->change();
+            }
         });
     }
 };
