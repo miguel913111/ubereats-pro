@@ -931,6 +931,101 @@
             if (cfg.oldZoneId) {
                 $('#choice_zones').trigger('change');
             }
+
+            function checkZone(lat, lng) {
+                checkModuleType();
+                $.get({
+                    url: (cfg.urls && cfg.urls.zoneGetZone) ? cfg.urls.zoneGetZone : '/admin/zone/get-zone',
+                    data: { lat: lat, lng: lng },
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.id) {
+                            $('#choice_zones').data('from-map', true).val(data.id).trigger('change');
+                            document.getElementById('latlng').style.setProperty('display', 'flex', 'important');
+                            document.getElementById('outOfZone').style.setProperty('display', 'none', 'important');
+                        } else {
+                            $('#choice_zones').val('').trigger('change');
+                            $('#latitude').val('');
+                            $('#longitude').val('');
+                            document.getElementById('latlng').style.setProperty('display', 'none', 'important');
+                            document.getElementById('outOfZone').style.setProperty('display', 'block', 'important');
+                        }
+                    },
+                });
+            }
+
+            window.checkModuleType = function() {
+                if (typeof checkModuleTypeUrl !== 'undefined' && checkModuleTypeUrl) {
+                    $.ajax({
+                        url: checkModuleTypeUrl,
+                        method: 'GET',
+                        data: { id: $('#module_id').val(), zone_id: $('#choice_zones').val() },
+                        success: function (response) {
+                            if (response.module_zone == false) {
+                                $('#module_id').val('').trigger('change');
+                                $('#pickup-zone-container').hide();
+                                $('.multiple-select2').prop('disabled', true);
+                                $('.module-select-time').html(approxDeliveryText);
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log("Error fetching module type:", error);
+                        }
+                    });
+                }
+            };
+
+            window.initModuleSelect2 = function() {
+                $('#module_id').select2({
+                    ajax: {
+                        url: (typeof getAllModules !== 'undefined') ? getAllModules : '/restaurant/get-all-modules',
+                        data: function (params) {
+                            return {
+                                q: params.term,
+                                page: params.page,
+                                zone_id: $('#choice_zones').val()
+                            };
+                        },
+                        processResults: function (data) {
+                            return { results: data };
+                        }
+                    }
+                });
+            };
+
+            window.loadModuleType = function(moduleId) {
+                $.ajax({
+                    url: (typeof getModuleType !== 'undefined') ? getModuleType : '/restaurant/get-module-type',
+                    method: 'GET',
+                    data: { id: moduleId, zone_id: $('#choice_zones').val() },
+                    success: function (response) {
+                        $('#show_sub_packages').html(response.view);
+                        if (response.module_type === 'rental') {
+                            $('#pickup-zone-container').show();
+                            $('.multiple-select2').prop('disabled', false);
+                            $('.module-select-time').html(estimatedPickupText);
+                        } else {
+                            $('#pickup-zone-container').hide();
+                            $('.multiple-select2').prop('disabled', true);
+                            $('.module-select-time').html(approxDeliveryText);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        console.log("Error fetching module type:", error);
+                    }
+                });
+            };
+
+            $(document).ready(function () {
+                initModuleSelect2();
+                $('#module_id').on('change', function () {
+                    const moduleId = $(this).val();
+                    loadModuleType(moduleId);
+                });
+                if ($('#choice_zones').val()) {
+                    $('#choice_zones').trigger('change');
+                }
+            });
         })();
     </script>
 
