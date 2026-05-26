@@ -152,8 +152,8 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
 
 
             Route::post('make-collected-cash-payment', 'DeliverymanController@make_payment')->name('deliveryman_make_payment');
-            Route::post('make-wallet-adjustment', 'DeliverymanController@make_wallet_adjustment')->name('make_wallet_adjustment');
-            Route::get('wallet-payment-list', 'DeliverymanController@wallet_payment_list')->name('wallet_payment_list');
+            Route::post('make-wallet-adjustment', 'DeliverymanController@make_wallet_adjustment')->name('deliveryman_make_wallet_adjustment');
+            Route::get('wallet-payment-list', 'DeliverymanController@wallet_payment_list')->name('deliveryman_wallet_payment_list');
             Route::get('wallet-provided-earning-list', 'DeliverymanController@wallet_provided_earning_list')->name('wallet_provided_earning_list');
 
 
@@ -195,8 +195,8 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
         Route::put('send-order-otp', 'VendorController@send_order_otp');
 
         Route::post('make-collected-cash-payment', 'VendorController@make_payment')->name('vendor_make_payment');
-        Route::post('make-wallet-adjustment', 'VendorController@make_wallet_adjustment')->name('make_wallet_adjustment');
-        Route::get('wallet-payment-list', 'VendorController@wallet_payment_list')->name('wallet_payment_list');
+        Route::post('make-wallet-adjustment', 'VendorController@make_wallet_adjustment')->name('vendor_make_wallet_adjustment');
+        Route::get('wallet-payment-list', 'VendorController@wallet_payment_list')->name('vendor_wallet_payment_list');
 
 
         Route::get('get-withdraw-method-list', 'WithdrawMethodController@withdraw_method_list');
@@ -249,7 +249,7 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
             Route::delete('delete/{id}', 'AdvertisementController@destroy');
             Route::post('store', 'AdvertisementController@store');
             Route::post('update/{id}', 'AdvertisementController@update');
-            Route::put('/status', 'AdvertisementController@status')->name('status');
+            Route::put('/status', 'AdvertisementController@status')->name('advertisement_status');
             Route::post('copy-add-post', 'AdvertisementController@copyAddPost');
 
         });
