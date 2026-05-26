@@ -34,7 +34,12 @@ class AppServiceProvider extends ServiceProvider
     {
 
         // Force HTTPS behind proxies (Railway, etc.)
-        Request::setTrustedProxies(['*'], Request::HEADER_X_FORWARDED_ALL);
+        Request::setTrustedProxies(['*'], 
+            Request::HEADER_X_FORWARDED_FOR |
+            Request::HEADER_X_FORWARDED_HOST |
+            Request::HEADER_X_FORWARDED_PORT |
+            Request::HEADER_X_FORWARDED_PROTO
+        );
         if (request()->header('x-forwarded-proto') === 'https' || request()->getScheme() === 'https') {
             \URL::forceScheme('https');
         }
