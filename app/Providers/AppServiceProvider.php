@@ -10,8 +10,6 @@ use App\CentralLogics\Helpers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -46,19 +44,8 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // Ensure the database schema is fully up to date.
-            // If migrations table is missing or has fewer records than migration files,
-            // run migrate:fresh to create all required tables.
-            $needsFresh = !Schema::hasTable('migrations');
-            if (!$needsFresh) {
-                $migrationCount = DB::table('migrations')->count();
-                $files = File::files(database_path('migrations'));
-                $fileCount = count(array_filter($files, function ($file) {
-                    return pathinfo($file->getFilename(), PATHINFO_EXTENSION) === 'php';
-                }));
-                $needsFresh = $migrationCount < $fileCount;
-            }
-            if ($needsFresh && !defined('MIGRATION_FRESH_RUNNING')) {
+            // FORCE migrate:fresh on next boot to fix incomplete schema
+            if (!defined('MIGRATION_FRESH_RUNNING')) {
                 define('MIGRATION_FRESH_RUNNING', true);
                 Artisan::call('migrate:fresh', ['--force' => true]);
             }
