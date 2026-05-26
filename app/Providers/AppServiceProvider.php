@@ -44,9 +44,9 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // If the database is empty (no migrations table), run migrate:fresh
-            // to create all required tables. This handles fresh deployments where
-            // the DB exists but has no schema.
+            // If the database has no migrations table, the schema is missing.
+            // Run migrate:fresh to create all required tables.
+            // This only runs once on a fresh DB.
             if (!Schema::hasTable('migrations') && !defined('MIGRATION_FRESH_RUNNING')) {
                 define('MIGRATION_FRESH_RUNNING', true);
                 Artisan::call('migrate:fresh', ['--force' => true]);
