@@ -44,9 +44,10 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // If addon_settings table is missing, the schema is incomplete.
-            // Drop migrations table and run migrate:fresh to rebuild everything.
-            if (!Schema::hasTable('addon_settings')) {
+            // Avoid recursion when running migration commands
+            if (isset($_SERVER['argv'][1]) && in_array($_SERVER['argv'][1], ['migrate:fresh', 'migrate', 'migrate:rollback', 'migrate:reset'])) {
+                // skip
+            } elseif (!Schema::hasTable('addon_settings')) {
                 if (Schema::hasTable('migrations')) {
                     Schema::drop('migrations');
                 }
