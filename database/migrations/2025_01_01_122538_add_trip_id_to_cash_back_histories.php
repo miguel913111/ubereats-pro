@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('cash_back_histories')) {
             Schema::table('cash_back_histories', function (Blueprint $table) {
-            $table->foreignId('trip_id')->nullable();
+            if (!Schema::hasColumn('cash_back_histories', 'trip_id')) {
+                $table->foreignId('trip_id')->nullable();
+            }
             });
         }
     }

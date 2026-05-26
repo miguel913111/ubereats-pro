@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('items')) {
             Schema::table('items', function (Blueprint $table) {
-            $table->boolean('is_halal')->default(0);
+            if (!Schema::hasColumn('items', 'is_halal')) {
+                $table->boolean('is_halal')->default(0);
+            }
             });
         }
     }

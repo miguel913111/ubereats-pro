@@ -15,7 +15,9 @@ class AddVehicleIdColumnToDeliveryMenTable extends Migration
     {
         if (Schema::hasTable('delivery_men')) {
             Schema::table('delivery_men', function (Blueprint $table) {
-            $table->foreignId('vehicle_id')->nullable();
+            if (!Schema::hasColumn('delivery_men', 'vehicle_id')) {
+                $table->foreignId('vehicle_id')->nullable();
+            }
             });
         }
     }

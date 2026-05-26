@@ -15,7 +15,9 @@ class AlterTableOrderDetailsChangeVariation extends Migration
     {
         if (Schema::hasTable('order_details')) {
             Schema::table('order_details', function (Blueprint $table) {
-            $table->text('variation')->change();
+            if (!Schema::hasColumn('order_details', 'variation')) {
+                $table->text('variation')->change();
+            }
             });
         }
     }

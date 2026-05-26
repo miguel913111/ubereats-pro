@@ -15,7 +15,9 @@ class AddFoodVariationsColumnToItemsTable extends Migration
     {
         if (Schema::hasTable('items')) {
             Schema::table('items', function (Blueprint $table) {
-            $table->text('food_variations')->nullable();
+            if (!Schema::hasColumn('items', 'food_variations')) {
+                $table->text('food_variations')->nullable();
+            }
             });
         }
     }

@@ -15,7 +15,9 @@ class AddDefaultLinkColumnToBannersTable extends Migration
     {
         if (Schema::hasTable('banners')) {
             Schema::table('banners', function (Blueprint $table) {
-            $table->string('default_link')->nullable();
+            if (!Schema::hasColumn('banners', 'default_link')) {
+                $table->string('default_link')->nullable();
+            }
             });
         }
     }

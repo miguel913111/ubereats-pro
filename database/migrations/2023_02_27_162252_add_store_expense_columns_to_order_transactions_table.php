@@ -15,7 +15,9 @@ class AddStoreExpenseColumnsToOrderTransactionsTable extends Migration
     {
         if (Schema::hasTable('order_transactions')) {
             Schema::table('order_transactions', function (Blueprint $table) {
-            $table->double('store_expense', 23, 3)->default(0)->nullable();
+            if (!Schema::hasColumn('order_transactions', 'store_expense')) {
+                $table->double('store_expense', 23, 3)->default(0)->nullable();
+            }
             });
         }
     }

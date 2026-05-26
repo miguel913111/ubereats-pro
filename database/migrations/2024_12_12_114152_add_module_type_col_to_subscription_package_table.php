@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('subscription_packages')) {
             Schema::table('subscription_packages', function (Blueprint $table) {
-            $table->string('module_type',20)->default('all');
+            if (!Schema::hasColumn('subscription_packages', 'module_type')) {
+                $table->string('module_type',20)->default('all');
+            }
             });
         }
     }

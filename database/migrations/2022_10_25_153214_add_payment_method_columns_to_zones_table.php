@@ -15,8 +15,12 @@ class AddPaymentMethodColumnsToZonesTable extends Migration
     {
         if (Schema::hasTable('zones')) {
             Schema::table('zones', function (Blueprint $table) {
-            $table->boolean('cash_on_delivery')->default(false);
-            $table->boolean('digital_payment')->default(false);
+            if (!Schema::hasColumn('zones', 'cash_on_delivery')) {
+                $table->boolean('cash_on_delivery')->default(false);
+            }
+            if (!Schema::hasColumn('zones', 'digital_payment')) {
+                $table->boolean('digital_payment')->default(false);
+            }
             });
         }
     }

@@ -13,9 +13,15 @@ return new class extends Migration
     {
         if (Schema::hasTable('stores')) {
             Schema::table('stores', function (Blueprint $table) {
-            $table->string('meta_title',100)->nullable();
-            $table->text('meta_description')->nullable();
-            $table->string('meta_image',100)->nullable();
+            if (!Schema::hasColumn('stores', 'meta_title')) {
+                $table->string('meta_title',100)->nullable();
+            }
+            if (!Schema::hasColumn('stores', 'meta_description')) {
+                $table->text('meta_description')->nullable();
+            }
+            if (!Schema::hasColumn('stores', 'meta_image')) {
+                $table->string('meta_image',100)->nullable();
+            }
             });
         }
     }

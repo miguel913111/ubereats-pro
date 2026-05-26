@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->string('tax_type')->nullable();
+           if (!Schema::hasColumn('orders', 'tax_type')) {
+               $table->string('tax_type')->nullable();
+           }
             });
         }
     }
@@ -25,7 +27,7 @@ return new class extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->dropColumn('tax_type');
+           $table->dropColumn('tax_type');
             });
         }
     }

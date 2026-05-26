@@ -13,12 +13,16 @@ return new class extends Migration
     {
         if (Schema::hasTable('vendors')) {
             Schema::table('vendors', function (Blueprint $table) {
-             $table->renameColumn('bank_name', 'rejection_note');
+             if (!Schema::hasColumn('vendors', 'bank_name')) {
+                 $table->renameColumn('bank_name', 'rejection_note');
+             }
             });
         }
         if (Schema::hasTable('vendors')) {
             Schema::table('vendors', function (Blueprint $table) {
-            $table->text('rejection_note')->nullable()->change();
+            if (!Schema::hasColumn('vendors', 'rejection_note')) {
+                $table->text('rejection_note')->nullable()->change();
+            }
             });
         }
     }
@@ -30,8 +34,12 @@ return new class extends Migration
     {
          if (Schema::hasTable('vendors')) {
              Schema::table('vendors', function (Blueprint $table) {
-             $table->string('rejection_note', 255)->change();
-             $table->renameColumn('rejection_note', 'bank_name');
+            if (!Schema::hasColumn('vendors', 'rejection_note')) {
+                $table->string('rejection_note', 255)->change();
+            }
+            if (!Schema::hasColumn('vendors', 'rejection_note')) {
+                $table->renameColumn('rejection_note', 'bank_name');
+            }
              });
          }
     }

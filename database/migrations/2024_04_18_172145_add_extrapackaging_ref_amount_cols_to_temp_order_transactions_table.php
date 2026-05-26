@@ -13,8 +13,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('order_transactions')) {
             Schema::table('order_transactions', function (Blueprint $table) {
-            $table->double('extra_packaging_amount',23, 3)->default(0);
-            $table->double('ref_bonus_amount',23, 3)->default(0);
+            if (!Schema::hasColumn('order_transactions', 'extra_packaging_amount')) {
+                $table->double('extra_packaging_amount',23, 3)->default(0);
+            }
+            if (!Schema::hasColumn('order_transactions', 'ref_bonus_amount')) {
+                $table->double('ref_bonus_amount',23, 3)->default(0);
+            }
             });
         }
     }

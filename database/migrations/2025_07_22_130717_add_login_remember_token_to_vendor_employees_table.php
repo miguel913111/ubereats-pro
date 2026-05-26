@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('vendor_employees')) {
             Schema::table('vendor_employees', function (Blueprint $table) {
-            $table->string('login_remember_token')->nullable();
+            if (!Schema::hasColumn('vendor_employees', 'login_remember_token')) {
+                $table->string('login_remember_token')->nullable();
+            }
             });
         }
     }

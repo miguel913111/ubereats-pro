@@ -13,8 +13,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->double('flash_admin_discount_amount', 24, 3)->default(0);
-            $table->double('flash_store_discount_amount', 24, 3)->default(0);
+            if (!Schema::hasColumn('orders', 'flash_admin_discount_amount')) {
+                $table->double('flash_admin_discount_amount', 24, 3)->default(0);
+            }
+            if (!Schema::hasColumn('orders', 'flash_store_discount_amount')) {
+                $table->double('flash_store_discount_amount', 24, 3)->default(0);
+            }
             });
         }
     }

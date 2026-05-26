@@ -15,7 +15,9 @@ class AddTaxStatusColumnToOrdersTable extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->string('tax_status',50)->nullable();
+            if (!Schema::hasColumn('orders', 'tax_status')) {
+                $table->string('tax_status',50)->nullable();
+            }
             });
         }
     }

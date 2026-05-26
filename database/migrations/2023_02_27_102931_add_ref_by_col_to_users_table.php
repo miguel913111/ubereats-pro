@@ -15,7 +15,9 @@ class AddRefByColToUsersTable extends Migration
     {
         if (Schema::hasTable('users')) {
             Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('ref_by')->nullable();
+            if (!Schema::hasColumn('users', 'ref_by')) {
+                $table->unsignedBigInteger('ref_by')->nullable();
+            }
             });
         }
     }

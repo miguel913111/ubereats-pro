@@ -13,9 +13,15 @@ return new class extends Migration
     {
         if (Schema::hasTable('reviews')) {
             Schema::table('reviews', function (Blueprint $table) {
-            $table->foreignId('store_id')->nullable();
-            $table->text('reply')->nullable();
-            $table->string('review_id',100)->nullable();
+            if (!Schema::hasColumn('reviews', 'store_id')) {
+                $table->foreignId('store_id')->nullable();
+            }
+            if (!Schema::hasColumn('reviews', 'reply')) {
+                $table->text('reply')->nullable();
+            }
+            if (!Schema::hasColumn('reviews', 'review_id')) {
+                $table->string('review_id',100)->nullable();
+            }
             });
         }
     }

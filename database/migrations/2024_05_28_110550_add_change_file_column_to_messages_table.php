@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('messages')) {
             Schema::table('messages', function (Blueprint $table) {
-            $table->text('file')->nullable()->change();
+            if (!Schema::hasColumn('messages', 'file')) {
+                $table->text('file')->nullable()->change();
+            }
             });
         }
     }
@@ -25,7 +27,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('messages')) {
             Schema::table('messages', function (Blueprint $table) {
-            $table->string('file',100)->nullable()->change();
+            if (!Schema::hasColumn('messages', 'file')) {
+                $table->string('file',100)->nullable()->change();
+            }
             });
         }
     }

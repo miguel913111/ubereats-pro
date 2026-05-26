@@ -15,7 +15,9 @@ class AddAllZonesColumnToModulesTable extends Migration
     {
         if (Schema::hasTable('modules')) {
             Schema::table('modules', function (Blueprint $table) {
-            $table->boolean('all_zone_service')->default(false);
+            if (!Schema::hasColumn('modules', 'all_zone_service')) {
+                $table->boolean('all_zone_service')->default(false);
+            }
             });
         }
     }

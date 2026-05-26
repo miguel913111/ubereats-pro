@@ -10,10 +10,18 @@ class AddRiderFaresToDmVehicles extends Migration
     {
         if (Schema::hasTable('d_m_vehicles')) {
             Schema::table('d_m_vehicles', function (Blueprint $table) {
-            $table->decimal('rider_base_fare', 24, 3)->default(0);
-            $table->decimal('rider_per_km_fare', 24, 3)->default(0);
-            $table->decimal('rider_fixed_fee', 24, 3)->default(0);
-            $table->decimal('rider_minimum_fare', 24, 3)->default(0);
+            if (!Schema::hasColumn('d_m_vehicles', 'rider_base_fare')) {
+                $table->decimal('rider_base_fare', 24, 3)->default(0);
+            }
+            if (!Schema::hasColumn('d_m_vehicles', 'rider_per_km_fare')) {
+                $table->decimal('rider_per_km_fare', 24, 3)->default(0);
+            }
+            if (!Schema::hasColumn('d_m_vehicles', 'rider_fixed_fee')) {
+                $table->decimal('rider_fixed_fee', 24, 3)->default(0);
+            }
+            if (!Schema::hasColumn('d_m_vehicles', 'rider_minimum_fare')) {
+                $table->decimal('rider_minimum_fare', 24, 3)->default(0);
+            }
             });
         }
     }

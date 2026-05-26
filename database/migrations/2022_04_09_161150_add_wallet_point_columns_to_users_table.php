@@ -15,12 +15,12 @@ class AddWalletPointColumnsToUsersTable extends Migration
     {
         if (Schema::hasTable('users')) {
             Schema::table('users', function (Blueprint $table) {
-            if (!Schema::hasColumn('users', 'wallet_balance')) {
-                $table->decimal('wallet_balance', 24, 3)->default(0);
-            }
-            if (!Schema::hasColumn('users', 'loyalty_point')) {
-                $table->decimal('loyalty_point', 24, 3)->default(0);
-            }
+                if (!Schema::hasColumn('users', 'wallet_balance')) {
+                    $table->decimal('wallet_balance', 24, 3)->default(0);
+                }
+                if (!Schema::hasColumn('users', 'loyalty_point')) {
+                    $table->decimal('loyalty_point', 24, 3)->default(0);
+                }
             });
         }
     }
@@ -34,8 +34,8 @@ class AddWalletPointColumnsToUsersTable extends Migration
     {
         if (Schema::hasTable('users')) {
             Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('wallet_balance');
-            $table->dropColumn('loyalty_point');
+                $table->dropColumn('wallet_balance');
+                $table->dropColumn('loyalty_point');
             });
         }
     }

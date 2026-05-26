@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('add_ons')) {
             Schema::table('add_ons', function (Blueprint $table) {
-            $table->foreignId('addon_category_id')->nullable();
+            if (!Schema::hasColumn('add_ons', 'addon_category_id')) {
+                $table->foreignId('addon_category_id')->nullable();
+            }
             });
         }
     }

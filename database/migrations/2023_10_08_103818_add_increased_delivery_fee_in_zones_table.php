@@ -13,10 +13,18 @@ return new class extends Migration
     {
         if (Schema::hasTable('zones')) {
             Schema::table('zones', function (Blueprint $table) {
-            $table->double('increased_delivery_fee',8,2)->default('0');
-            $table->boolean('increased_delivery_fee_status')->default('0');
-            $table->string('increase_delivery_charge_message')->nullable();
-            $table->boolean('offline_payment')->default(false);
+            if (!Schema::hasColumn('zones', 'increased_delivery_fee')) {
+                $table->double('increased_delivery_fee',8,2)->default('0');
+            }
+            if (!Schema::hasColumn('zones', 'increased_delivery_fee_status')) {
+                $table->boolean('increased_delivery_fee_status')->default('0');
+            }
+            if (!Schema::hasColumn('zones', 'increase_delivery_charge_message')) {
+                $table->string('increase_delivery_charge_message')->nullable();
+            }
+            if (!Schema::hasColumn('zones', 'offline_payment')) {
+                $table->boolean('offline_payment')->default(false);
+            }
             });
         }
     }

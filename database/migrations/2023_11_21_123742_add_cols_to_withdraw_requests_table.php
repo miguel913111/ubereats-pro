@@ -13,11 +13,21 @@ return new class extends Migration
     {
         if (Schema::hasTable('withdraw_requests')) {
             Schema::table('withdraw_requests', function (Blueprint $table) {
-            $table->foreignId('delivery_man_id')->nullable();
-            $table->foreignId('withdrawal_method_id')->nullable();
-            $table->json('withdrawal_method_fields')->nullable();
-            $table->foreignId('vendor_id')->nullable()->change();
-            $table->string('type',20)->default('manual');
+            if (!Schema::hasColumn('withdraw_requests', 'delivery_man_id')) {
+                $table->foreignId('delivery_man_id')->nullable();
+            }
+            if (!Schema::hasColumn('withdraw_requests', 'withdrawal_method_id')) {
+                $table->foreignId('withdrawal_method_id')->nullable();
+            }
+            if (!Schema::hasColumn('withdraw_requests', 'withdrawal_method_fields')) {
+                $table->json('withdrawal_method_fields')->nullable();
+            }
+            if (!Schema::hasColumn('withdraw_requests', 'vendor_id')) {
+                $table->foreignId('vendor_id')->nullable()->change();
+            }
+            if (!Schema::hasColumn('withdraw_requests', 'type')) {
+                $table->string('type',20)->default('manual');
+            }
             });
         }
     }

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('zones')) {
             Schema::table('zones', function (Blueprint $table) {
-             $table->boolean('is_default')->default(0);
+             if (!Schema::hasColumn('zones', 'is_default')) {
+                 $table->boolean('is_default')->default(0);
+             }
             });
         }
     }

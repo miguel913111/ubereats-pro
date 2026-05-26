@@ -13,9 +13,15 @@ return new class extends Migration
     {
         if (Schema::hasTable('delivery_men')) {
             Schema::table('delivery_men', function (Blueprint $table) {
-            $table->boolean('is_delivery')->default(1);
-            $table->boolean('is_ride')->default(0);
-            $table->boolean('earning')->nullable()->change();
+            if (!Schema::hasColumn('delivery_men', 'is_delivery')) {
+                $table->boolean('is_delivery')->default(1);
+            }
+            if (!Schema::hasColumn('delivery_men', 'is_ride')) {
+                $table->boolean('is_ride')->default(0);
+            }
+            if (!Schema::hasColumn('delivery_men', 'earning')) {
+                $table->boolean('earning')->nullable()->change();
+            }
             });
         }
     }
@@ -29,7 +35,9 @@ return new class extends Migration
             Schema::table('delivery_men', function (Blueprint $table) {
             $table->dropColumn('is_delivery');
             $table->dropColumn('is_ride');
-            $table->boolean('earning')->default(1)->change();
+            if (!Schema::hasColumn('delivery_men', 'earning')) {
+                $table->boolean('earning')->default(1)->change();
+            }
             });
         }
     }

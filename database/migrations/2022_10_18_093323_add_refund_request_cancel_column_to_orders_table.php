@@ -15,7 +15,9 @@ class AddRefundRequestCancelColumnToOrdersTable extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->timestamp('refund_request_canceled')->nullable();
+            if (!Schema::hasColumn('orders', 'refund_request_canceled')) {
+                $table->timestamp('refund_request_canceled')->nullable();
+            }
             });
         }
     }

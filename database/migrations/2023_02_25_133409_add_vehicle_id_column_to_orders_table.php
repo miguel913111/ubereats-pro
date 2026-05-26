@@ -15,7 +15,9 @@ class AddVehicleIdColumnToOrdersTable extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->foreignId('dm_vehicle_id')->nullable();
+            if (!Schema::hasColumn('orders', 'dm_vehicle_id')) {
+                $table->foreignId('dm_vehicle_id')->nullable();
+            }
             });
         }
     }

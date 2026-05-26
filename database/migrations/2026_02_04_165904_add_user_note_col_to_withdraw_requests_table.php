@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('withdraw_requests')) {
             Schema::table('withdraw_requests', function (Blueprint $table) {
-            $table->string('user_note')->nullable();
+            if (!Schema::hasColumn('withdraw_requests', 'user_note')) {
+                $table->string('user_note')->nullable();
+            }
             });
         }
     }

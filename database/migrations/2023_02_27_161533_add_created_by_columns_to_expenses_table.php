@@ -15,8 +15,12 @@ class AddCreatedByColumnsToExpensesTable extends Migration
     {
         if (Schema::hasTable('expenses')) {
             Schema::table('expenses', function (Blueprint $table) {
-            $table->string('created_by',50)->default('admin')->nullable();
-            $table->foreignId('store_id')->nullable();
+            if (!Schema::hasColumn('expenses', 'created_by')) {
+                $table->string('created_by',50)->default('admin')->nullable();
+            }
+            if (!Schema::hasColumn('expenses', 'store_id')) {
+                $table->foreignId('store_id')->nullable();
+            }
             });
         }
     }

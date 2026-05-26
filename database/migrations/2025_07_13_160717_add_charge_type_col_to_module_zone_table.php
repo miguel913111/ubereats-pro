@@ -13,8 +13,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('module_zone')) {
             Schema::table('module_zone', function (Blueprint $table) {
-            $table->enum('delivery_charge_type', ['fixed', 'distance'])->default('distance');
-            $table->double('fixed_shipping_charge', 23, 2)->nullable();
+            if (!Schema::hasColumn('module_zone', 'delivery_charge_type')) {
+                $table->enum('delivery_charge_type', ['fixed', 'distance'])->default('distance');
+            }
+            if (!Schema::hasColumn('module_zone', 'fixed_shipping_charge')) {
+                $table->double('fixed_shipping_charge', 23, 2)->nullable();
+            }
             });
         }
     }

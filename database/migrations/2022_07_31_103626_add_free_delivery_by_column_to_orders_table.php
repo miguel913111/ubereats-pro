@@ -15,7 +15,9 @@ class AddFreeDeliveryByColumnToOrdersTable extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->string('free_delivery_by')->nullable();
+            if (!Schema::hasColumn('orders', 'free_delivery_by')) {
+                $table->string('free_delivery_by')->nullable();
+            }
             });
         }
     }

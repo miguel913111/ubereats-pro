@@ -13,8 +13,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('categories')) {
             Schema::table('categories', function (Blueprint $table) {
-            $table->index('parent_id');
-            $table->index('name');
+            if (!Schema::hasColumn('categories', 'parent_id')) {
+                $table->index('parent_id');
+            }
+            if (!Schema::hasColumn('categories', 'name')) {
+                $table->index('name');
+            }
             });
         }
     }
@@ -26,8 +30,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('categories')) {
             Schema::table('categories', function (Blueprint $table) {
-            $table->dropIndex('parent_id');
-            $table->dropIndex('name');
+            if (!Schema::hasColumn('categories', 'parent_id')) {
+                $table->dropIndex('parent_id');
+            }
+            if (!Schema::hasColumn('categories', 'name')) {
+                $table->dropIndex('name');
+            }
             });
         }
     }

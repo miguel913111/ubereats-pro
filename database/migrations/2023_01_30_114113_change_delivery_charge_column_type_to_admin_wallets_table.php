@@ -15,7 +15,9 @@ class ChangeDeliveryChargeColumnTypeToAdminWalletsTable extends Migration
     {
         if (Schema::hasTable('admin_wallets')) {
             Schema::table('admin_wallets', function (Blueprint $table) {
-            $table->decimal('delivery_charge',24,3)->default(0)->change();
+            if (!Schema::hasColumn('admin_wallets', 'delivery_charge')) {
+                $table->decimal('delivery_charge',24,3)->default(0)->change();
+            }
             });
         }
     }
@@ -29,7 +31,9 @@ class ChangeDeliveryChargeColumnTypeToAdminWalletsTable extends Migration
     {
         if (Schema::hasTable('admin_wallets')) {
             Schema::table('admin_wallets', function (Blueprint $table) {
-            $table->decimal('delivery_charge')->default(0)->change();
+            if (!Schema::hasColumn('admin_wallets', 'delivery_charge')) {
+                $table->decimal('delivery_charge')->default(0)->change();
+            }
             });
         }
     }

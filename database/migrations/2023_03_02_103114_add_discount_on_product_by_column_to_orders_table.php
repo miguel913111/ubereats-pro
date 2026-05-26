@@ -15,7 +15,9 @@ class AddDiscountOnProductByColumnToOrdersTable extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->string('discount_on_product_by',50)->default('vendor');
+            if (!Schema::hasColumn('orders', 'discount_on_product_by')) {
+                $table->string('discount_on_product_by',50)->default('vendor');
+            }
             });
         }
     }

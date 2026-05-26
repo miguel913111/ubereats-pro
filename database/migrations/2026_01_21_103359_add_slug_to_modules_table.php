@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('modules')) {
             Schema::table('modules', function (Blueprint $table) {
-            $table->string('slug')->nullable();
+            if (!Schema::hasColumn('modules', 'slug')) {
+                $table->string('slug')->nullable();
+            }
             });
         }
     }

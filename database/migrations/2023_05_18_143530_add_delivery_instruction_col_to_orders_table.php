@@ -15,7 +15,9 @@ class AddDeliveryInstructionColToOrdersTable extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->text('delivery_instruction')->nullable();
+            if (!Schema::hasColumn('orders', 'delivery_instruction')) {
+                $table->text('delivery_instruction')->nullable();
+            }
             });
         }
     }

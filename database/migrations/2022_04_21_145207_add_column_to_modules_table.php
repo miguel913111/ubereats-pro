@@ -15,9 +15,15 @@ class AddColumnToModulesTable extends Migration
     {
         if (Schema::hasTable('modules')) {
             Schema::table('modules', function (Blueprint $table) {
-            $table->string('icon',191)->nullable();
-            $table->integer('theme_id')->default(1);
-            $table->text('description')->nullable();
+            if (!Schema::hasColumn('modules', 'icon')) {
+                $table->string('icon',191)->nullable();
+            }
+            if (!Schema::hasColumn('modules', 'theme_id')) {
+                $table->integer('theme_id')->default(1);
+            }
+            if (!Schema::hasColumn('modules', 'description')) {
+                $table->text('description')->nullable();
+            }
             });
         }
     }

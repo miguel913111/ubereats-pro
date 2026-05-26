@@ -15,7 +15,9 @@ class AddRecommenedToItemsTable extends Migration
     {
         if (Schema::hasTable('items')) {
             Schema::table('items', function (Blueprint $table) {
-            $table->boolean('recommended')->default(0);
+            if (!Schema::hasColumn('items', 'recommended')) {
+                $table->boolean('recommended')->default(0);
+            }
             });
         }
     }

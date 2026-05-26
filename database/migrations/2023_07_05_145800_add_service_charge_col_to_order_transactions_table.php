@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('order_transactions')) {
             Schema::table('order_transactions', function (Blueprint $table) {
-            $table->double('additional_charge',23, 3)->default(0);
+            if (!Schema::hasColumn('order_transactions', 'additional_charge')) {
+                $table->double('additional_charge',23, 3)->default(0);
+            }
             });
         }
     }

@@ -15,7 +15,9 @@ class AddDiscountAmountByStoreColToOrderTransactionsTable extends Migration
     {
         if (Schema::hasTable('order_transactions')) {
             Schema::table('order_transactions', function (Blueprint $table) {
-            $table->double('discount_amount_by_store',23, 3)->default(0)->nullable();
+            if (!Schema::hasColumn('order_transactions', 'discount_amount_by_store')) {
+                $table->double('discount_amount_by_store',23, 3)->default(0)->nullable();
+            }
             });
         }
     }

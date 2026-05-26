@@ -15,7 +15,9 @@ class AddTempBlockTimeColToPhoneVerificationsTable extends Migration
     {
         if (Schema::hasTable('phone_verifications')) {
             Schema::table('phone_verifications', function (Blueprint $table) {
-            $table->timestamp('temp_block_time')->nullable();
+            if (!Schema::hasColumn('phone_verifications', 'temp_block_time')) {
+                $table->timestamp('temp_block_time')->nullable();
+            }
             });
         }
     }

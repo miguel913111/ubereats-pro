@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->boolean('is_guest')->default(0);
+            if (!Schema::hasColumn('orders', 'is_guest')) {
+                $table->boolean('is_guest')->default(0);
+            }
             });
         }
     }

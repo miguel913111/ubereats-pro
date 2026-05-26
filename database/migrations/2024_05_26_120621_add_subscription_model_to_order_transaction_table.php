@@ -13,8 +13,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('order_transactions')) {
             Schema::table('order_transactions', function (Blueprint $table) {
-            $table->double('commission_percentage',16, 3)->default(0)->nullable();
-            $table->boolean('is_subscribed')->default(0);
+            if (!Schema::hasColumn('order_transactions', 'commission_percentage')) {
+                $table->double('commission_percentage',16, 3)->default(0)->nullable();
+            }
+            if (!Schema::hasColumn('order_transactions', 'is_subscribed')) {
+                $table->boolean('is_subscribed')->default(0);
+            }
             });
         }
     }

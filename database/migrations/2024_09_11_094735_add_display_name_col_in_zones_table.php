@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('zones')) {
             Schema::table('zones', function (Blueprint $table) {
-            $table->string('display_name')->nullable();
+            if (!Schema::hasColumn('zones', 'display_name')) {
+                $table->string('display_name')->nullable();
+            }
             });
         }
     }

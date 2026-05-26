@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('stores')) {
             Schema::table('stores', function (Blueprint $table) {
-            $table->foreignId('package_id')->nullable();
+            if (!Schema::hasColumn('stores', 'package_id')) {
+                $table->foreignId('package_id')->nullable();
+            }
             });
         }
     }

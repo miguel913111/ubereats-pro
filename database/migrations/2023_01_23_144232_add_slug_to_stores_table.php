@@ -15,7 +15,9 @@ class AddSlugToStoresTable extends Migration
     {
         if (Schema::hasTable('stores')) {
             Schema::table('stores', function (Blueprint $table) {
-            $table->string('slug')->nullable();
+            if (!Schema::hasColumn('stores', 'slug')) {
+                $table->string('slug')->nullable();
+            }
             });
         }
     }

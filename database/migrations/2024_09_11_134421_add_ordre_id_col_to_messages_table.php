@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('messages')) {
             Schema::table('messages', function (Blueprint $table) {
-            $table->foreignId('order_id')->nullable();
+            if (!Schema::hasColumn('messages', 'order_id')) {
+                $table->foreignId('order_id')->nullable();
+            }
             });
         }
     }
@@ -25,7 +27,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('messages')) {
             Schema::table('messages', function (Blueprint $table) {
-            $table->foreignId('order_id')->nullable();
+            if (!Schema::hasColumn('messages', 'order_id')) {
+                $table->foreignId('order_id')->nullable();
+            }
             });
         }
     }

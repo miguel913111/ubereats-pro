@@ -13,8 +13,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('orders')) {
             Schema::table('orders', function (Blueprint $table) {
-            $table->integer('bring_change_amount')->default(0)->nullable();
-            $table->text('cancellation_note')->nullable();
+            if (!Schema::hasColumn('orders', 'bring_change_amount')) {
+                $table->integer('bring_change_amount')->default(0)->nullable();
+            }
+            if (!Schema::hasColumn('orders', 'cancellation_note')) {
+                $table->text('cancellation_note')->nullable();
+            }
             });
         }
     }

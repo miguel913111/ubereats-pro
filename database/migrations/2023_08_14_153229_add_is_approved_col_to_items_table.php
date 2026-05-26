@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('items')) {
             Schema::table('items', function (Blueprint $table) {
-            $table->boolean('is_approved')->default(1);
+            if (!Schema::hasColumn('items', 'is_approved')) {
+                $table->boolean('is_approved')->default(1);
+            }
             });
         }
     }

@@ -13,7 +13,9 @@ return new class extends Migration
     {
         if (Schema::hasTable('stores')) {
             Schema::table('stores', function (Blueprint $table) {
-            $table->json('meta_data')->nullable()->after('meta_image');
+            if (!Schema::hasColumn('stores', 'meta_data')) {
+                $table->json('meta_data')->nullable()->after('meta_image');
+            }
             });
         }
     }

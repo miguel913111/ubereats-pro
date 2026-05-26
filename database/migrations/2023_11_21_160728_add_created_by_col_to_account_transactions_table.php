@@ -13,8 +13,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('account_transactions')) {
             Schema::table('account_transactions', function (Blueprint $table) {
-            $table->string('type',20)->default('collected');
-            $table->string('created_by',20)->default('admin');
+            if (!Schema::hasColumn('account_transactions', 'type')) {
+                $table->string('type',20)->default('collected');
+            }
+            if (!Schema::hasColumn('account_transactions', 'created_by')) {
+                $table->string('created_by',20)->default('admin');
+            }
             });
         }
     }

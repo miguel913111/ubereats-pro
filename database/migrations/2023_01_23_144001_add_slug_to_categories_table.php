@@ -15,7 +15,9 @@ class AddSlugToCategoriesTable extends Migration
     {
         if (Schema::hasTable('categories')) {
             Schema::table('categories', function (Blueprint $table) {
-            $table->string('slug')->nullable();
+            if (!Schema::hasColumn('categories', 'slug')) {
+                $table->string('slug')->nullable();
+            }
             });
         }
     }
