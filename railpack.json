@@ -2,7 +2,7 @@
   "$schema": "https://schema.railpack.com",
   "deploy": {
     "variables": {
-      "RAILPACK_PHP_EXTENSIONS": "gd,zip,exif,bcmath"
+      "RAILPACK_PHP_EXTENSIONS": "gd,zip,exif,bcmath,pdo_mysql"
     }
   }
 }
