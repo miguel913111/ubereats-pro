@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
 {
     use AddonHelper;
     /**
-     * Register any application services. 
+     * Register any application services.
      *
      * @return void
      */
@@ -45,22 +45,21 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // Avoid recursion when running migration commands
-            if (isset($_SERVER['argv'][1]) && in_array($_SERVER['argv'][1], ['migrate:fresh', 'migrate', 'migrate:rollback', 'migrate:reset'])) {
-                // skip
-            } elseif (!Schema::hasTable('addon_settings')) {
+            // Use a global variable to prevent recursion during migrate:fresh
+            if (!isset($GLOBALS['MIGRATION_FRESH_RUNNING']) && !Schema::hasTable('addon_settings')) {
+                $GLOBALS['MIGRATION_FRESH_RUNNING'] = true;
                 // Drop all existing tables to ensure clean state
                 $tables = DB::select('SHOW TABLES');
                 foreach ($tables as $table) {
                     $tableName = array_values((array)$table)[0];
                     Schema::dropIfExists($tableName);
                 }
-                Artisan::call('migrate', ['--force' => true]);
+                Artisan::call('migrate:fresh', ['--force' => true]);
             }
         }
         catch(\Exception $e)
         {
-            info('Auto migrate error: ' . $e->getMessage());
+            info('Auto migrate:fresh error: ' . $e->getMessage());
         }
 
         try
