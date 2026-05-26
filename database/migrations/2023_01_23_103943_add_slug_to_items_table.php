@@ -14,7 +14,7 @@ class AddSlugToItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            if (!Schema::hasColumn('items', 'slug')) {
+            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'slug')) {
                 $table->string('slug')->nullable();
             }
         });

@@ -14,7 +14,7 @@ class AddMaximumDeliveryChargeColumnToStoresTable extends Migration
     public function up()
     {
         Schema::table('stores', function (Blueprint $table) {
-            if (!Schema::hasColumn('stores', 'maximum_shipping_charge')) {
+            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'maximum_shipping_charge')) {
                 $table->double('maximum_shipping_charge', 23, 3)->nullable();
             }
         });

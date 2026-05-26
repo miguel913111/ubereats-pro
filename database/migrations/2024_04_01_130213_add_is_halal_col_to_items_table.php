@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('items', function (Blueprint $table) {
-            if (!Schema::hasColumn('items', 'is_halal')) {
+            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'is_halal')) {
                 $table->boolean('is_halal')->default(0);
             }
         });

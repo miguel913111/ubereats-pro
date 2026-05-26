@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('account_transactions', function (Blueprint $table) {
-            if (!Schema::hasColumn('account_transactions', 'type')) {
+            if (Schema::hasTable('account_transactions') && !Schema::hasColumn('account_transactions', 'type')) {
                 $table->string('type',20)->default('collected');
             }
-            if (!Schema::hasColumn('account_transactions', 'created_by')) {
+            if (Schema::hasTable('account_transactions') && !Schema::hasColumn('account_transactions', 'created_by')) {
                 $table->string('created_by',20)->default('admin');
             }
         });

@@ -14,7 +14,7 @@ class AddExpenseColumnToOrderTransactionsTable extends Migration
     public function up()
     {
         Schema::table('order_transactions', function (Blueprint $table) {
-            if (!Schema::hasColumn('order_transactions', 'admin_expense')) {
+            if (Schema::hasTable('order_transactions') && !Schema::hasColumn('order_transactions', 'admin_expense')) {
                 $table->decimal('admin_expense', 23, 3)->default(0)->nullable();
             }
         });

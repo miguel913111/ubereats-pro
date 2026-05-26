@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('delivery_men', function (Blueprint $table) {
-            if (!Schema::hasColumn('delivery_men', 'is_delivery')) {
+            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'is_delivery')) {
                 $table->boolean('is_delivery')->default(1);
             }
-            if (!Schema::hasColumn('delivery_men', 'is_ride')) {
+            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'is_ride')) {
                 $table->boolean('is_ride')->default(0);
             }
-            if (!Schema::hasColumn('delivery_men', 'earning')) {
+            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'earning')) {
                 $table->boolean('earning')->nullable()->change();
             }
         });
@@ -32,7 +32,7 @@ return new class extends Migration
         Schema::table('delivery_men', function (Blueprint $table) {
             $table->dropColumn('is_delivery');
             $table->dropColumn('is_ride');
-            if (!Schema::hasColumn('delivery_men', 'earning')) {
+            if (Schema::hasTable('delivery_men') && !Schema::hasColumn('delivery_men', 'earning')) {
                 $table->boolean('earning')->default(1)->change();
             }
         });

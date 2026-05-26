@@ -14,13 +14,13 @@ class AddCutleryProcessingTimeUnavailableProductNoteColToOrdersTable extends Mig
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            if (!Schema::hasColumn('orders', 'processing_time')) {
+            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'processing_time')) {
                 $table->string('processing_time',10)->nullable();
             }
-            if (!Schema::hasColumn('orders', 'unavailable_item_note')) {
+            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'unavailable_item_note')) {
                 $table->string('unavailable_item_note', 255)->nullable();
             }
-            if (!Schema::hasColumn('orders', 'cutlery')) {
+            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'cutlery')) {
                 $table->boolean('cutlery')->default(0);
             }
         });

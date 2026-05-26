@@ -14,7 +14,7 @@ class AddCutleryColToStoresTable extends Migration
     public function up()
     {
         Schema::table('stores', function (Blueprint $table) {
-            if (!Schema::hasColumn('stores', 'cutlery')) {
+            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'cutlery')) {
                 $table->boolean('cutlery')->default(0);
             }
         });

@@ -14,7 +14,7 @@ class AddOrganicColToItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            if (!Schema::hasColumn('items', 'organic')) {
+            if (Schema::hasTable('items') && !Schema::hasColumn('items', 'organic')) {
                 $table->boolean('organic')->default(0);
             }
         });

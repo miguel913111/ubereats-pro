@@ -30,7 +30,7 @@ foreach ($files as $file) {
                 $newLines[] = $line;
                 continue;
             }
-            $newLines[] = $indent . "if (!Schema::hasColumn('{$table}', '{$col}')) {" . "\n";
+            $newLines[] = $indent . "if (Schema::hasTable('{$table}') && !Schema::hasColumn('{$table}', '{$col}')) {" . "\n";
             $newLines[] = $indent . "    " . ltrim($line);
             $newLines[] = $indent . "}" . "\n";
             $wasModified = true;

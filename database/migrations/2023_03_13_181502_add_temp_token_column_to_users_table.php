@@ -14,13 +14,13 @@ class AddTempTokenColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            if (!Schema::hasColumn('users', 'temp_token')) {
+            if (Schema::hasTable('users') && !Schema::hasColumn('users', 'temp_token')) {
                 $table->string('temp_token')->nullable();
             }
-            if (!Schema::hasColumn('users', 'phone')) {
+            if (Schema::hasTable('users') && !Schema::hasColumn('users', 'phone')) {
                 $table->string('phone')->nullable()->change();
             }
-            if (!Schema::hasColumn('users', 'password')) {
+            if (Schema::hasTable('users') && !Schema::hasColumn('users', 'password')) {
                 $table->string('password',100)->nullable()->change();
             }
         });
@@ -35,10 +35,10 @@ class AddTempTokenColumnToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('temp_token');
-            if (!Schema::hasColumn('users', 'phone')) {
+            if (Schema::hasTable('users') && !Schema::hasColumn('users', 'phone')) {
                 $table->string('phone')->change();
             }
-            if (!Schema::hasColumn('users', 'password')) {
+            if (Schema::hasTable('users') && !Schema::hasColumn('users', 'password')) {
                 $table->string('password',100)->change();
             }
         });

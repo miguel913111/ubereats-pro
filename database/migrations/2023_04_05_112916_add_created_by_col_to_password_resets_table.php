@@ -14,7 +14,7 @@ class AddCreatedByColToPasswordResetsTable extends Migration
     public function up()
     {
         Schema::table('password_resets', function (Blueprint $table) {
-            if (!Schema::hasColumn('password_resets', 'created_by')) {
+            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'created_by')) {
                 $table->string('created_by',50)->default('user')->nullable();
             }
         });

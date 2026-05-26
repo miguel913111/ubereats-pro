@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('order_transactions', function (Blueprint $table) {
-            if (!Schema::hasColumn('order_transactions', 'additional_charge')) {
+            if (Schema::hasTable('order_transactions') && !Schema::hasColumn('order_transactions', 'additional_charge')) {
                 $table->double('additional_charge',23, 3)->default(0);
             }
         });

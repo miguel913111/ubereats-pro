@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('automated_messages', function (Blueprint $table) {
-            if (!Schema::hasColumn('automated_messages', 'question_for')) {
+            if (Schema::hasTable('automated_messages') && !Schema::hasColumn('automated_messages', 'question_for')) {
                 $table->string('question_for')->default(CUSTOMER)->after('id');
             }
-            if (!Schema::hasColumn('automated_messages', 'question')) {
+            if (Schema::hasTable('automated_messages') && !Schema::hasColumn('automated_messages', 'question')) {
                 $table->string('question')->after('question_for');
             }
         });

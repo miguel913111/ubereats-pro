@@ -14,7 +14,7 @@ class AddFeaturedColToCategoriesTable extends Migration
     public function up()
     {
         Schema::table('categories', function (Blueprint $table) {
-            if (!Schema::hasColumn('categories', 'featured')) {
+            if (Schema::hasTable('categories') && !Schema::hasColumn('categories', 'featured')) {
                 $table->boolean('featured')->default(0);
             }
         });

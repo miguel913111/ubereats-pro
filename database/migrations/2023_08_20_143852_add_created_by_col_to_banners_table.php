@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('banners', function (Blueprint $table) {
-            if (!Schema::hasColumn('banners', 'title')) {
+            if (Schema::hasTable('banners') && !Schema::hasColumn('banners', 'title')) {
                 $table->string('title')->nullable()->change();
             }
-            if (!Schema::hasColumn('banners', 'created_by')) {
+            if (Schema::hasTable('banners') && !Schema::hasColumn('banners', 'created_by')) {
                 $table->string('created_by')->default('admin');
             }
         });
@@ -27,7 +27,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('banners', function (Blueprint $table) {
-            if (!Schema::hasColumn('banners', 'title')) {
+            if (Schema::hasTable('banners') && !Schema::hasColumn('banners', 'title')) {
                 $table->string('title')->change();
             }
             $table->dropColumn('created_by');

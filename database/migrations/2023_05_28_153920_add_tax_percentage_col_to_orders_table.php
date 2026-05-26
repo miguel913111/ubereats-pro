@@ -14,7 +14,7 @@ class AddTaxPercentageColToOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            if (!Schema::hasColumn('orders', 'tax_percentage')) {
+            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'tax_percentage')) {
                 $table->double('tax_percentage', 24, 3)->nullable();
             }
         });

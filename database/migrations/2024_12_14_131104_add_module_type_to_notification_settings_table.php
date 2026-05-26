@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('notification_settings', function (Blueprint $table) {
-            if (!Schema::hasColumn('notification_settings', 'module_type')) {
+            if (Schema::hasTable('notification_settings') && !Schema::hasColumn('notification_settings', 'module_type')) {
                 $table->string('module_type',20)->default('all');
             }
             DB::statement("ALTER TABLE `notification_settings` MODIFY `type` ENUM('admin', 'customer', 'store', 'deliveryman', 'provider') DEFAULT 'admin'");

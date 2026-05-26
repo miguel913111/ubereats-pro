@@ -14,7 +14,7 @@ class AddPrescriptionOrderColumnToOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            if (!Schema::hasColumn('orders', 'prescription_order')) {
+            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'prescription_order')) {
                 $table->boolean('prescription_order')->default(false);
             }
         });

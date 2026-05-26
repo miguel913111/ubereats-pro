@@ -14,7 +14,7 @@ class AddIsLoggedColumnToAdminsTable extends Migration
     public function up()
     {
         Schema::table('admins', function (Blueprint $table) {
-            if (!Schema::hasColumn('admins', 'is_logged_in')) {
+            if (Schema::hasTable('admins') && !Schema::hasColumn('admins', 'is_logged_in')) {
                 $table->boolean('is_logged_in')->default(true);
             }
         });

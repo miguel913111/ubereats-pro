@@ -14,13 +14,13 @@ class AddHitCountAtColInPasswordResetsTable extends Migration
     public function up()
     {
         Schema::table('password_resets', function (Blueprint $table) {
-            if (!Schema::hasColumn('password_resets', 'otp_hit_count')) {
+            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'otp_hit_count')) {
                 $table->tinyInteger('otp_hit_count')->default('0');
             }
-            if (!Schema::hasColumn('password_resets', 'is_blocked')) {
+            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'is_blocked')) {
                 $table->boolean('is_blocked')->default('0');
             }
-            if (!Schema::hasColumn('password_resets', 'is_temp_blocked')) {
+            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'is_temp_blocked')) {
                 $table->boolean('is_temp_blocked')->default('0');
             }
         });

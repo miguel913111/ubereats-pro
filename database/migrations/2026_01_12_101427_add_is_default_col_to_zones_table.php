@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('zones', function (Blueprint $table) {
-             if (!Schema::hasColumn('zones', 'is_default')) {
+             if (Schema::hasTable('zones') && !Schema::hasColumn('zones', 'is_default')) {
                  $table->boolean('is_default')->default(0);
              }
         });

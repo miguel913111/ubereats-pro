@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('withdraw_requests', function (Blueprint $table) {
-            if (!Schema::hasColumn('withdraw_requests', 'delivery_man_id')) {
+            if (Schema::hasTable('withdraw_requests') && !Schema::hasColumn('withdraw_requests', 'delivery_man_id')) {
                 $table->foreignId('delivery_man_id')->nullable();
             }
-            if (!Schema::hasColumn('withdraw_requests', 'withdrawal_method_id')) {
+            if (Schema::hasTable('withdraw_requests') && !Schema::hasColumn('withdraw_requests', 'withdrawal_method_id')) {
                 $table->foreignId('withdrawal_method_id')->nullable();
             }
-            if (!Schema::hasColumn('withdraw_requests', 'withdrawal_method_fields')) {
+            if (Schema::hasTable('withdraw_requests') && !Schema::hasColumn('withdraw_requests', 'withdrawal_method_fields')) {
                 $table->json('withdrawal_method_fields')->nullable();
             }
-            if (!Schema::hasColumn('withdraw_requests', 'vendor_id')) {
+            if (Schema::hasTable('withdraw_requests') && !Schema::hasColumn('withdraw_requests', 'vendor_id')) {
                 $table->foreignId('vendor_id')->nullable()->change();
             }
-            if (!Schema::hasColumn('withdraw_requests', 'type')) {
+            if (Schema::hasTable('withdraw_requests') && !Schema::hasColumn('withdraw_requests', 'type')) {
                 $table->string('type',20)->default('manual');
             }
         });

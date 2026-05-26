@@ -14,10 +14,10 @@ class AddCancellationReasonColToOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            if (!Schema::hasColumn('orders', 'cancellation_reason')) {
+            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'cancellation_reason')) {
                 $table->string('cancellation_reason', 255)->nullable();
             }
-            if (!Schema::hasColumn('orders', 'canceled_by')) {
+            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'canceled_by')) {
                 $table->string('canceled_by',50)->nullable();
             }
         });

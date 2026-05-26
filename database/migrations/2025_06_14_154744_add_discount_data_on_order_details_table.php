@@ -12,19 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('order_details', function (Blueprint $table) {
-           if (!Schema::hasColumn('order_details', 'category_id')) {
+           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'category_id')) {
                $table->foreignId('category_id')->nullable();
            }
-           if (!Schema::hasColumn('order_details', 'discount_on_product_by')) {
+           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'discount_on_product_by')) {
                $table->string('discount_on_product_by')->nullable();
            }
-           if (!Schema::hasColumn('order_details', 'tax_status')) {
+           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'tax_status')) {
                $table->string('tax_status')->nullable();
            }
-           if (!Schema::hasColumn('order_details', 'discount_percentage')) {
+           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'discount_percentage')) {
                $table->double('discount_percentage',23, 8)->default(0)->nullable();
            }
-           if (!Schema::hasColumn('order_details', 'addon_discount')) {
+           if (Schema::hasTable('order_details') && !Schema::hasColumn('order_details', 'addon_discount')) {
                $table->double('addon_discount',23, 8)->default(0)->nullable();
            }
         });

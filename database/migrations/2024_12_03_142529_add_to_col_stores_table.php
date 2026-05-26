@@ -14,10 +14,10 @@ class AddToColStoresTable extends Migration
     public function up()
     {
         Schema::table('stores', function (Blueprint $table) {
-            if (!Schema::hasColumn('stores', 'pickup_zone_id')) {
+            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'pickup_zone_id')) {
                 $table->json('pickup_zone_id')->nullable();
             }
-            if (!Schema::hasColumn('stores', 'comment')) {
+            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'comment')) {
                 $table->text('comment')->nullable();
             }
         });

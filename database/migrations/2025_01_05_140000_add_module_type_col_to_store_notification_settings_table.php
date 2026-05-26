@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('store_notification_settings', function (Blueprint $table) {
-            if (!Schema::hasColumn('store_notification_settings', 'module_type')) {
+            if (Schema::hasTable('store_notification_settings') && !Schema::hasColumn('store_notification_settings', 'module_type')) {
                 $table->string('module_type',20)->default('all');
             }
         });

@@ -14,13 +14,13 @@ class AddColumnToCustomerAddressesTable extends Migration
     public function up()
     {
         Schema::table('customer_addresses', function (Blueprint $table) {
-            if (!Schema::hasColumn('customer_addresses', 'floor')) {
+            if (Schema::hasTable('customer_addresses') && !Schema::hasColumn('customer_addresses', 'floor')) {
                 $table->string('floor')->nullable();
             }
-            if (!Schema::hasColumn('customer_addresses', 'road')) {
+            if (Schema::hasTable('customer_addresses') && !Schema::hasColumn('customer_addresses', 'road')) {
                 $table->string('road')->nullable();
             }
-            if (!Schema::hasColumn('customer_addresses', 'house')) {
+            if (Schema::hasTable('customer_addresses') && !Schema::hasColumn('customer_addresses', 'house')) {
                 $table->string('house')->nullable();
             }
         });

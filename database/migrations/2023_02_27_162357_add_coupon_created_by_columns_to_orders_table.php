@@ -14,7 +14,7 @@ class AddCouponCreatedByColumnsToOrdersTable extends Migration
     public function up()
     {
         Schema::table('orders', function (Blueprint $table) {
-            if (!Schema::hasColumn('orders', 'coupon_created_by')) {
+            if (Schema::hasTable('orders') && !Schema::hasColumn('orders', 'coupon_created_by')) {
                 $table->string('coupon_created_by',50)->nullable();
             }
         });

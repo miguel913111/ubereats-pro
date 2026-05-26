@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('order_transactions', function (Blueprint $table) {
-            if (!Schema::hasColumn('order_transactions', 'commission_percentage')) {
+            if (Schema::hasTable('order_transactions') && !Schema::hasColumn('order_transactions', 'commission_percentage')) {
                 $table->double('commission_percentage',16, 3)->default(0)->nullable();
             }
-            if (!Schema::hasColumn('order_transactions', 'is_subscribed')) {
+            if (Schema::hasTable('order_transactions') && !Schema::hasColumn('order_transactions', 'is_subscribed')) {
                 $table->boolean('is_subscribed')->default(0);
             }
         });

@@ -14,7 +14,7 @@ class AddCurrentLanguageKeyColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            if (!Schema::hasColumn('users', 'current_language_key')) {
+            if (Schema::hasTable('users') && !Schema::hasColumn('users', 'current_language_key')) {
                 $table->string('current_language_key')->default('en')->nullable();
             }
         });

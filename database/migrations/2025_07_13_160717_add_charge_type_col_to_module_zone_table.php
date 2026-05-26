@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('module_zone', function (Blueprint $table) {
-            if (!Schema::hasColumn('module_zone', 'delivery_charge_type')) {
+            if (Schema::hasTable('module_zone') && !Schema::hasColumn('module_zone', 'delivery_charge_type')) {
                 $table->enum('delivery_charge_type', ['fixed', 'distance'])->default('distance');
             }
-            if (!Schema::hasColumn('module_zone', 'fixed_shipping_charge')) {
+            if (Schema::hasTable('module_zone') && !Schema::hasColumn('module_zone', 'fixed_shipping_charge')) {
                 $table->double('fixed_shipping_charge', 23, 2)->nullable();
             }
         });

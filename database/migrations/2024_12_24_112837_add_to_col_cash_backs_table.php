@@ -14,7 +14,7 @@ class AddToColCashBacksTable extends Migration
     public function up()
     {
         Schema::table('cash_backs', function (Blueprint $table) {
-            if (!Schema::hasColumn('cash_backs', 'is_rental')) {
+            if (Schema::hasTable('cash_backs') && !Schema::hasColumn('cash_backs', 'is_rental')) {
                 $table->boolean('is_rental')->default(false);
             }
         });

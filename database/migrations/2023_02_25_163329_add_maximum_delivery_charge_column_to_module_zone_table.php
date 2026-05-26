@@ -14,7 +14,7 @@ class AddMaximumDeliveryChargeColumnToModuleZoneTable extends Migration
     public function up()
     {
         Schema::table('module_zone', function (Blueprint $table) {
-            if (!Schema::hasColumn('module_zone', 'maximum_shipping_charge')) {
+            if (Schema::hasTable('module_zone') && !Schema::hasColumn('module_zone', 'maximum_shipping_charge')) {
                 $table->double('maximum_shipping_charge', 23, 2)->nullable();
             }
         });

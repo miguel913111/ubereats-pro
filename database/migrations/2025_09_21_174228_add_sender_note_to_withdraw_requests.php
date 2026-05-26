@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('withdraw_requests', function (Blueprint $table) {
-            if (!Schema::hasColumn('withdraw_requests', 'sender_note')) {
+            if (Schema::hasTable('withdraw_requests') && !Schema::hasColumn('withdraw_requests', 'sender_note')) {
                 $table->text('sender_note')->nullable();
             }
         });

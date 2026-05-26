@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('subscription_packages', function (Blueprint $table) {
-            if (!Schema::hasColumn('subscription_packages', 'module_type')) {
+            if (Schema::hasTable('subscription_packages') && !Schema::hasColumn('subscription_packages', 'module_type')) {
                 $table->string('module_type',20)->default('all');
             }
         });

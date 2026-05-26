@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('cash_back_histories', function (Blueprint $table) {
-            if (!Schema::hasColumn('cash_back_histories', 'trip_id')) {
+            if (Schema::hasTable('cash_back_histories') && !Schema::hasColumn('cash_back_histories', 'trip_id')) {
                 $table->foreignId('trip_id')->nullable();
             }
         });

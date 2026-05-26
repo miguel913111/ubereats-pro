@@ -14,7 +14,7 @@ class AddTempBlockTimeColToPasswordResetsTable extends Migration
     public function up()
     {
         Schema::table('password_resets', function (Blueprint $table) {
-            if (!Schema::hasColumn('password_resets', 'temp_block_time')) {
+            if (Schema::hasTable('password_resets') && !Schema::hasColumn('password_resets', 'temp_block_time')) {
                 $table->timestamp('temp_block_time')->nullable();
             }
         });

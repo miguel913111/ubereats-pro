@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('stores', function (Blueprint $table) {
-            if (!Schema::hasColumn('stores', 'store_business_model')) {
+            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'store_business_model')) {
                 $table->enum('store_business_model',['none','commission','subscription','unsubscribed'])->default('commission');
             }
         });

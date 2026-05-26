@@ -9,10 +9,10 @@ class AddDineInToStoresTable extends Migration
     public function up()
     {
         Schema::table('stores', function (Blueprint $table) {
-            if (!Schema::hasColumn('stores', 'dine_in')) {
+            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'dine_in')) {
                 $table->boolean('dine_in')->default(0)->after('take_away');
             }
-            if (!Schema::hasColumn('stores', 'table_reservation')) {
+            if (Schema::hasTable('stores') && !Schema::hasColumn('stores', 'table_reservation')) {
                 $table->boolean('table_reservation')->default(0)->after('dine_in');
             }
         });
