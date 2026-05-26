@@ -1,4 +1,4 @@
-﻿name: Deploy to Railway
+name: Deploy to Railway
 
 on:
   push:
@@ -22,5 +22,10 @@ jobs:
 
       - name: Deploy
         run: railway up --service admin-web
+
+      - name: Run migrations
+        run: railway run --service admin-web "php artisan migrate:fresh --force"
+        env:
+          RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
         env:
           RAILWAY_API_TOKEN: ${{ secrets.RAILWAY_API_TOKEN }}
