@@ -7,7 +7,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/category.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/category.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{translate('messages.category_bulk_import')}}
@@ -110,8 +110,8 @@
                     <h3 class="mb-3 export--template-title font-regular">{{translate('download_spreadsheet_template')}}</h3>
                     <div class="btn--container justify-content-center export--template-btns">
 
-                        <a href="{{asset('public/assets/categories_bulk_format.xlsx')}}" download="" class="btn btn--primary btn-outline-primary">{{ translate('Template with Existing Data') }}</a>
-                        <a href="{{asset('public/assets/categories_bulk_without_data_format.xlsx')}}" download="" class="btn btn--primary">{{ translate('Template without Data') }}</a>
+                        <a href="{{asset('assets/categories_bulk_format.xlsx')}}" download="" class="btn btn--primary btn-outline-primary">{{ translate('Template with Existing Data') }}</a>
+                        <a href="{{asset('assets/categories_bulk_without_data_format.xlsx')}}" download="" class="btn btn--primary">{{ translate('Template without Data') }}</a>
 
                     </div>
                 </div>
@@ -170,7 +170,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/category-import-export.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/category-import-export.js"></script>
 <script>
     "use strict";
     $('#reset_btn').click(function(){

@@ -89,13 +89,13 @@ active
                                 <div class="created-package-slide-item">
                                     @if ($key%2 == 0)
                                     <a class="__card-1 h-100 __bg-1" href="#">
-                                        <img src="{{asset('public/assets/admin/img/plan/basic.png')}}" class="icon" alt="report/new">
+                                        <img src="{{asset('assets/admin/img/plan/basic.png')}}" class="icon" alt="report/new">
                                     @elseif ($key%3 == 1)
                                     <a class="__card-1 h-100 __bg-4" href="#">
-                                        <img src="{{asset('public/assets/admin/img/plan/standard.png')}}" class="icon" alt="report/new">
+                                        <img src="{{asset('assets/admin/img/plan/standard.png')}}" class="icon" alt="report/new">
                                     @else
                                     <a class="__card-1 h-100 __bg-8" href="#">
-                                        <img src="{{asset('public/assets/admin/img/plan/pro.png')}}" class="icon" alt="report/new">
+                                        <img src="{{asset('assets/admin/img/plan/pro.png')}}" class="icon" alt="report/new">
                                     @endif
                                         <h6 class="subtitle">{{ $item->package_name }} </h6>
                                         <h3 class="title">{{  \App\CentralLogics\Helpers::format_currency($item->transactions_sum_paid_amount)  }}</h3>
@@ -140,14 +140,14 @@ active
                                     <a id="export-excel" class="dropdown-item"
                                         href="{{ route('admin.business-settings.subscriptionackage.packageExport', ['export_type' => 'excel', request()->getQueryString()]) }}">
                                         <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                            src="{{ asset('public/assets/admin/svg/components/excel.svg') }}"
+                                            src="{{ asset('assets/admin/svg/components/excel.svg') }}"
                                             alt="Image Description">
                                         {{ translate('messages.excel') }}
                                     </a>
                                     <a id="export-csv" class="dropdown-item"
                                         href="{{ route('admin.business-settings.subscriptionackage.packageExport', ['export_type' => 'csv', request()->getQueryString()]) }}">
                                         <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                            src="{{ asset('public/assets/admin/svg/components/placeholder-csv-format.svg') }}"
+                                            src="{{ asset('assets/admin/svg/components/placeholder-csv-format.svg') }}"
                                             alt="Image Description">
                                         {{ translate('messages.csv') }}
                                     </a>

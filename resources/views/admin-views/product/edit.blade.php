@@ -4,8 +4,8 @@
 
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ asset('public/assets/admin/css/tags-input.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/assets/admin/css/AI/animation/product/ai-sidebar.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/tags-input.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/AI/animation/product/ai-sidebar.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -16,7 +16,7 @@
         <div class="page-header d-flex flex-wrap __gap-15px justify-content-between align-items-center">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{ asset('public/assets/admin/img/edit.png') }}" class="w--22" alt="">
+                    <img src="{{ asset('assets/admin/img/edit.png') }}" class="w--22" alt="">
                 </span>
                 <span>
                     {{ request()->product_gellary == 1 ? translate('Add_item') : translate('item_update') }}
@@ -77,7 +77,7 @@
                                                 class="spartan_item_wrapper min-w-176px max-w-176px">
                                                 <img class="img--square onerror-image"
                                                     src="{{ \App\CentralLogics\Helpers::get_full_url('product', $photo['img'] ?? '', $photo['storage']) }}"
-                                                    data-onerror-image="{{ asset('public/assets/admin/img/upload-img.png') }}"
+                                                    data-onerror-image="{{ asset('assets/admin/img/upload-img.png') }}"
                                                     alt="Product image">
                                                 <a href="#" data-key={{ $key }}
                                                     data-photo="{{ $photo['img'] }}"
@@ -105,7 +105,7 @@
                                                     'name' => 'image',
                                                     'ratio' => '1:1',
                                                     'isRequired' =>false,
-                                                    'existingImage' => $product['image_full_url'] ?? asset('public/assets/admin/img/upload-img.png') ,
+                                                    'existingImage' => $product['image_full_url'] ?? asset('assets/admin/img/upload-img.png') ,
                                                     'imageExtension' => IMAGE_EXTENSION,
                                                     'imageFormat' => IMAGE_FORMAT,
                                                     'maxSize' => MAX_FILE_SIZE,
@@ -199,7 +199,7 @@
                                                     data-lang="en">
                                                     <div class="btn-svg-wrapper">
                                                         <img width="18" height="18" class=""
-                                                            src="{{ asset('public/assets/admin/img/svg/blink-right-small.svg') }}"
+                                                            src="{{ asset('assets/admin/img/svg/blink-right-small.svg') }}"
                                                             alt="">
                                                     </div>
                                                     <span class="ai-text-animation d-none" role="status">
@@ -269,7 +269,7 @@
                                                 data-lang="en">
                                                 <div class="btn-svg-wrapper">
                                                     <img width="18" height="18" class=""
-                                                        src="{{ asset('public/assets/admin/img/svg/blink-right-small.svg') }}"
+                                                        src="{{ asset('assets/admin/img/svg/blink-right-small.svg') }}"
                                                         alt="">
                                                 </div>
                                                 <span class="ai-text-animation d-none" role="status">
@@ -393,22 +393,22 @@
         let count = $('.count_div').length;
     </script>
 
-    <script src="{{ asset('public/assets/admin') }}/js/tags-input.min.js"></script>
-    <script src="{{ asset('public/assets/admin/js/spartan-multi-image-picker.js') }}"></script>
+    <script src="{{ asset('assets/admin') }}/js/tags-input.min.js"></script>
+    <script src="{{ asset('assets/admin/js/spartan-multi-image-picker.js') }}"></script>
 
 
-    <script src="{{ asset('public/assets/admin/js/AI/products/product-title-autofill.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/AI/products/product-description-autofill.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/AI/products/general-setup-autofill.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/AI/products/product-others-autofill.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/AI/products/seo-section-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/product-title-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/product-description-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/general-setup-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/product-others-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/seo-section-autofill.js') }}"></script>
     @if (Config::get('module.current_module_type') == 'food')
-        <script src="{{ asset('public/assets/admin/js/AI/products/variation-setup-auto-fill.js') }}"></script>
+        <script src="{{ asset('assets/admin/js/AI/products/variation-setup-auto-fill.js') }}"></script>
     @else
-        <script src="{{ asset('public/assets/admin/js/AI/products/other-variation-setup-auto-fill.js') }}"></script>
+        <script src="{{ asset('assets/admin/js/AI/products/other-variation-setup-auto-fill.js') }}"></script>
     @endif
 
-    <script src="{{ asset('public/assets/admin/js/AI/products/ai-sidebar.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/ai-sidebar.js') }}"></script>
 
     <script src="{{ asset('/public/assets/admin/js/AI/products/compressor/image-compressor.js') }}"></script>
     <script src="{{ asset('/public/assets/admin/js/AI/products/compressor/compressor.min.js') }}"></script>
@@ -1108,7 +1108,7 @@
                     groupClassName: 'spartan_item_wrapper size--md',
                     maxFileSize: {{ MAX_FILE_SIZE }} * 1024 * 1024,
                     placeholderImage: {
-                        image: '{{asset('public/assets/admin/img/400x400/coba-placeholder.png')}}',
+                        image: '{{asset('assets/admin/img/400x400/coba-placeholder.png')}}',
                         width: '100%'
                     },
                     dropFileLabel: "Drop Here",
@@ -1153,7 +1153,7 @@
             $('#choice_attributes').val(null).trigger('change');
             $('#customer_choice_options').empty().trigger('change');
             $('#variant_combination').empty().trigger('change');
-            $('#viewer').attr('src', "{{ asset('public/assets/admin/img/upload.png') }}");
+            $('#viewer').attr('src', "{{ asset('assets/admin/img/upload.png') }}");
             $("#coba").empty();
             initImagePicker();
         })

@@ -132,7 +132,7 @@
                         <div class="col-sm-6 col-md-4">
                             <a class="__card-2 __bg-1" href="#">
                             <h4 class="title">{{$total_progress_count}}</h4>
-                            <span class="subtitle">{{translate('messages.in_progress_orders')}} <span data-toggle="tooltip" data-placement="right" data-original-title="{{translate('Including accepted and processing orders')}}"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="{{translate('messages.in_progress_orders')}}"></span></span>
+                            <span class="subtitle">{{translate('messages.in_progress_orders')}} <span data-toggle="tooltip" data-placement="right" data-original-title="{{translate('Including accepted and processing orders')}}"><img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="{{translate('messages.in_progress_orders')}}"></span></span>
                             <img src="{{asset('/public/assets/admin/img/report/new/progress-report.png')}}" alt="report/new" class="card-icon">
                             </a>
                         </div>
@@ -213,14 +213,14 @@
                             <a id="export-excel" class="dropdown-item"
                                 href="{{ route('admin.transactions.report.order-report-export', ['type' => 'excel', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin/svg/components/excel.svg') }}"
+                                    src="{{ asset('assets/admin/svg/components/excel.svg') }}"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item"
                                 href="{{ route('admin.transactions.report.order-report-export', ['type' => 'csv', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin/svg/components/placeholder-csv-format.svg') }}"
+                                    src="{{ asset('assets/admin/svg/components/placeholder-csv-format.svg') }}"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>
@@ -452,11 +452,11 @@
 @endpush
 
 @push('script_2')
-    <script src="{{ asset('public/assets/admin') }}/vendor/chart.js/dist/Chart.min.js"></script>
-    <script src="{{ asset('public/assets/admin') }}/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js">
+    <script src="{{ asset('assets/admin') }}/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="{{ asset('assets/admin') }}/vendor/chartjs-chart-matrix/dist/chartjs-chart-matrix.min.js">
     </script>
-    <script src="{{ asset('public/assets/admin') }}/js/hs.chartjs-matrix.js"></script>
-    <script src="{{ asset('public/assets/admin') }}/js/view-pages/admin-reports.js"></script>
+    <script src="{{ asset('assets/admin') }}/js/hs.chartjs-matrix.js"></script>
+    <script src="{{ asset('assets/admin') }}/js/view-pages/admin-reports.js"></script>
 
     <script>
         "use strict";

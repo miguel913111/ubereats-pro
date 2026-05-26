@@ -12,7 +12,7 @@
         <div class="page-header d-flex flex-wrap align-items-center justify-content-between">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/module.png')}}" alt="">
+                    <img src="{{asset('assets/admin/img/module.png')}}" alt="">
                 </span>
                 <span>
                     {{translate('messages.business_Module_list')}}
@@ -67,13 +67,13 @@
                             <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                             <a id="export-excel" class="dropdown-item" href="{{route('admin.business-settings.module.export', ['type'=>'excel',request()->getQueryString()])}}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item" href="{{route('admin.business-settings.module.export', ['type'=>'csv',request()->getQueryString()])}}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>

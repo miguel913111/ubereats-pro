@@ -85,9 +85,9 @@
                             class="avatar avatar-xxl avatar-circle avatar-border-lg avatar-uploader profile-cover-avatar"
                             for="avatarUploader">
                             <img id="viewer"
-                                 data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}"
+                                 data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}"
                                  class="avatar-img onerror-image w-100"
-                                 src="{{ \App\CentralLogics\Helpers::get_loggedin_user()?->image_full_url ?? asset('public/assets/admin/img/160x160/img1.jpg') }}"
+                                 src="{{ \App\CentralLogics\Helpers::get_loggedin_user()?->image_full_url ?? asset('assets/admin/img/160x160/img1.jpg') }}"
                                  alt="Image">
 
                             <input type="file" name="image" class="js-file-attach avatar-uploader-input"
@@ -278,5 +278,5 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/vendor/profile-index.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/vendor/profile-index.js"></script>
 @endpush

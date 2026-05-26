@@ -14,7 +14,7 @@
                 <div class="col-md-9 col-12">
                     <h1 class="page-header-title">
                         <span class="page-header-icon w-40px">
-                            <img src="{{ asset('public/assets/admin/img/group.png') }}" class="w-100 h-100" alt="">
+                            <img src="{{ asset('assets/admin/img/group.png') }}" class="w-100 h-100" alt="">
                         </span>
                         <span>
                             <span>

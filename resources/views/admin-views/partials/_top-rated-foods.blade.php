@@ -23,9 +23,9 @@
             @forelse($top_rated_foods as $key=>$item)
                 <a href="{{ route('admin.item.view', [$item['id']]) }}">
                     <div class="rated-media d-flex align-items-center">
-                        <img src="{{ $item['image_full_url'] ?? asset('public/assets/admin/img/100x100/2.png') }}"
+                        <img src="{{ $item['image_full_url'] ?? asset('assets/admin/img/100x100/2.png') }}"
                             class="onerror-image"
-                            data-onerror-image="{{ asset('public/assets/admin/img/100x100/2.png') }}"
+                            data-onerror-image="{{ asset('assets/admin/img/100x100/2.png') }}"
                             alt="{{ Str::limit($item->name ?? translate('messages.Item deleted!'), 20, '...') }}">
                         <span class="line--limit-1 w-0 flex-grow-1 text-hover--primary" title="{{ $item?->name }}">
                             {{ Str::limit($item->name ?? translate('messages.Item deleted!'), 20, '...') }}
@@ -61,4 +61,4 @@
 
 </div>
 
-<script src="{{ asset('public/assets/admin') }}/js/view-pages/common.js"></script>
+<script src="{{ asset('assets/admin') }}/js/view-pages/common.js"></script>

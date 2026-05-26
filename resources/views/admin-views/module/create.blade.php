@@ -3,7 +3,7 @@
 @section('title',translate('messages.business_modules'))
 
 @push('css_or_js')
-<link rel="stylesheet" href="{{asset('public/assets/admin/css/radio-image.css')}}">
+<link rel="stylesheet" href="{{asset('assets/admin/css/radio-image.css')}}">
 
 @endpush
 
@@ -168,7 +168,7 @@
                                                 <small class="text-danger">* ( {{translate('messages.ratio')}} 1:1)</small>
                                             </label>
                                             <label class="text-center my-auto position-relative">
-                                                <img class="img--176 h-unset aspect-ratio-1 image--border" id="viewer" src="{{asset('public/assets/admin/img/upload-img.png')}}" alt="image" />
+                                                <img class="img--176 h-unset aspect-ratio-1 image--border" id="viewer" src="{{asset('assets/admin/img/upload-img.png')}}" alt="image" />
                                                 <div class="icon-file-group">
                                                     <div class="icon-file">
                                                         <input type="file" name="icon" id="customFileEg1" class="custom-file-input" accept=".webp, .jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
@@ -185,7 +185,7 @@
                                                 <small class="text-danger">* ( {{translate('messages.ratio')}} 1:1)</small>
                                             </label>
                                             <label class="text-center my-auto position-relative">
-                                                <img class="img--176 h-unset aspect-ratio-1 image--border" id="viewer2" src="{{asset('public/assets/admin/img/upload-img.png')}}" alt="image" />
+                                                <img class="img--176 h-unset aspect-ratio-1 image--border" id="viewer2" src="{{asset('assets/admin/img/upload-img.png')}}" alt="image" />
                                                 <div class="icon-file-group">
                                                     <div class="icon-file">
                                                         <input type="file" name="thumbnail" id="customFileEg2" class="custom-file-input" accept=".webp, .jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*">
@@ -213,7 +213,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
     <script>
         "use strict";
     $('.module-change').on('click', function (){
@@ -289,8 +289,8 @@
             $('.ckeditor').each(function() {
                 CKEDITOR.instances[$(this).attr('id')].setData('');
             });
-            $('#viewer').attr('src','{{asset('public/assets/admin/img/400x400/img2.jpg')}}');
-            $('#viewer2').attr('src','{{asset('public/assets/admin/img/400x400/img2.jpg')}}');
+            $('#viewer').attr('src','{{asset('assets/admin/img/400x400/img2.jpg')}}');
+            $('#viewer2').attr('src','{{asset('assets/admin/img/400x400/img2.jpg')}}');
         })
 </script>
 @endpush

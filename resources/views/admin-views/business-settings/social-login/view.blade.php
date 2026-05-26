@@ -9,7 +9,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/captcha.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/captcha.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('Social Login Setup')}}
@@ -35,7 +35,7 @@
                                 </h5>
                                 <label class="toggle-switch toggle-switch-sm p-0">
                                     <span class="d-flex align-items-center switch--label">
-                                        <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="Lorem ipsum dolor set amet"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
+                                        <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="Lorem ipsum dolor set amet"><img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
                                     </span>
                                     <input id="{{$socialLoginService['login_medium']}}_status"
 
@@ -107,7 +107,7 @@
                                     </h5>
                                     <label class="toggle-switch toggle-switch-sm p-0">
                                         <span class="d-flex align-items-center switch--label">
-                                            <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="Lorem ipsum dolor set amet"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
+                                            <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="Lorem ipsum dolor set amet"><img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
                                         </span>
                                         <input  id="{{$appleLoginService['login_medium']}}_status"
                                                data-id="{{$appleLoginService['login_medium']}}_status"

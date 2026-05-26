@@ -14,7 +14,7 @@
     <div class="page-header">
         <h1 class="page-header-title">
             <span class="page-header-icon">
-                <img src="{{asset('public/assets/admin/img/3rd-party.png')}}" class="w--26" alt="">
+                <img src="{{asset('assets/admin/img/3rd-party.png')}}" class="w--26" alt="">
             </span>
             <span>
                 {{translate('messages.Other_Promotional_Content_Setup')}}
@@ -33,7 +33,7 @@
                         <div class="row g-3">
                             <div class="col-12 d-flex justify-content-between">
                                 <span class="d-flex g-1">
-                                    <img src="{{asset('public/assets/admin/img/other-banner.png')}}" class="h-85"
+                                    <img src="{{asset('assets/admin/img/other-banner.png')}}" class="h-85"
                                         alt="">
                                     <h3 class="form-label d-block mb-2">
                                         {{translate('Bottom_Section_Banner')}}
@@ -97,7 +97,7 @@
                         <div class="row g-3">
                             <div class="col-12 d-flex justify-content-between">
                                 <span class="d-flex g-1">
-                                    <img src="{{asset('public/assets/admin/img/other-banner.png')}}" class="h-85"
+                                    <img src="{{asset('assets/admin/img/other-banner.png')}}" class="h-85"
                                         alt="">
                                     <h3 class="form-label d-block mb-2">
                                         {{translate('Basic_Medicine_Nearby')}}
@@ -182,7 +182,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/other-banners.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/other-banners.js"></script>
     <script>
         $('#reset_btn').click(function () {
             $('#viewer').attr('src', '{{asset('/public/assets/admin/img/upload-placeholder.png')}}');

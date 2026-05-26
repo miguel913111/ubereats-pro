@@ -18,7 +18,7 @@
                  data-url="{{route('vendor.item.view',[$item['id']])}}">
                 <div class="text-center">
                     <img class="rounded onerror-image" src="{{ $item['image_full_url'] }}"
-                    data-onerror-image="{{asset('public/assets/admin/img/100x100/2.png')}}" alt="{{Str::limit($item->name??translate('messages.Item deleted!'),20,'...')}}">
+                    data-onerror-image="{{asset('assets/admin/img/100x100/2.png')}}" alt="{{Str::limit($item->name??translate('messages.Item deleted!'),20,'...')}}">
                 </div>
 
                 <div class="text-center mt-3">
@@ -45,4 +45,4 @@
     @endif
 </div>
 <!-- End Body -->
-<script src="{{asset('public/assets/admin')}}/js/view-pages/common.js"></script>
+<script src="{{asset('assets/admin')}}/js/view-pages/common.js"></script>

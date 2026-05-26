@@ -7,7 +7,7 @@
     <div class="page-header">
         <h1 class="page-header-title">
             <span class="page-header-icon">
-                <img src="{{asset('public/assets/admin/img/role.png')}}" class="w--26" alt="">
+                <img src="{{asset('assets/admin/img/role.png')}}" class="w--26" alt="">
             </span>
             <span>
                 {{translate('messages.employee_Role')}}
@@ -1444,14 +1444,14 @@
                                 <a id="export-excel" class="dropdown-item"
                                 href="{{route('admin.users.customer.wallet.export', ['type'=>'excel',request()->getQueryString()])}}">
                                     <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                        src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                        src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                         alt="Image Description">
                                     {{ translate('messages.excel') }}
                                 </a>
                                 <a id="export-csv" class="dropdown-item"
                                 href="{{route('admin.users.customer.wallet.export', ['type'=>'csv',request()->getQueryString()])}}">
                                     <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                        src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                        src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                         alt="Image Description">
                                     {{ translate('messages.csv') }}
                                 </a>
@@ -1531,7 +1531,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <div class="text-center">
-                                                <img src="{{asset('public/assets/admin/img/delete.png')}}" alt="icon" class="mb-20">
+                                                <img src="{{asset('assets/admin/img/delete.png')}}" alt="icon" class="mb-20">
                                                 <h3 class="mb-2 fs-18">{{ translate('Are you sure ?') }}</h3>
                                                 <p class="mb-2 px-3">{{ translate('Want to delete this role') }}</p>
                                             </div>
@@ -1593,7 +1593,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin/js/view-pages/custom-role-index.js')}}"></script>
+    <script src="{{asset('assets/admin/js/view-pages/custom-role-index.js')}}"></script>
 
 <script>
         $(document).on('click', '.data-info-show', function() {

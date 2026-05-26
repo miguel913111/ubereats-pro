@@ -9,7 +9,7 @@
         <div class="page-header">
             <h1 class="page-header-title mr-3">
                 <span class="page-header-icon">
-                    <img src="{{ asset('public/assets/admin/img/business.png') }}" class="w--26" alt="">
+                    <img src="{{ asset('assets/admin/img/business.png') }}" class="w--26" alt="">
                 </span>
                 <span>
                     {{ translate('business_setup') }}
@@ -459,7 +459,7 @@
                                 </div>
                             </div>
                             <div class="info-notes-bg px-3 py-2 rounded fz-11  gap-2 align-items-center d-flex mt-20">
-                                <img src="{{asset('public/assets/admin/img/info-idea.svg')}}" alt="">
+                                <img src="{{asset('assets/admin/img/info-idea.svg')}}" alt="">
                                 <span>
                                     {{translate('To setup vendor cash withdraw method visit')}}
                                     <span class="fz-12px font-semibold info-dark"><a style="color: #245BD1;" href={{ route('admin.transactions.withdraw-method.list') }} target="_blank" rel="noopener noreferrer">{{translate('Withdraw Method List')}}</a></span>

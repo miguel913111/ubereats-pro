@@ -14,7 +14,7 @@
                 <div class="col-md-9 col-12">
                     <h1 class="page-header-title">
                         <span class="page-header-icon">
-                            <img src="{{asset('public/assets/admin/img/items.png')}}" class="w--22" alt="">
+                            <img src="{{asset('assets/admin/img/items.png')}}" class="w--22" alt="">
                         </span>
                         <span>
                             {{translate('messages.New_Item_requests')}} <span class="badge badge-soft-dark ml-2" id="foodCount">{{$items->total()}}</span>
@@ -170,13 +170,13 @@
                             <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                             <a id="export-excel" class="dropdown-item" href="{{ route('admin.item.export', ['type' => 'excel', 'table'=>'TempProduct' , request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item" href="{{ route('admin.item.export', ['type' => 'csv',  'table'=>'TempProduct' , request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>
@@ -234,7 +234,7 @@
 
                                     src="{{ $item['image_full_url'] }}"
 
-                                    data-onerror-image="{{asset('public/assets/admin/img/160x160/img2.jpg')}}" alt="{{$item->name}} image">
+                                    data-onerror-image="{{asset('assets/admin/img/160x160/img2.jpg')}}" alt="{{$item->name}} image">
                                     <div class="media-body">
                                         <h5 class="text-hover-primary mb-0">{{Str::limit($item['name'],20,'...')}}</h5>
                                     </div>
@@ -346,7 +346,7 @@
           },
           language: {
             zeroRecords: '<div class="text-center p-4">' +
-                '<img class="w-7rem mb-3" src="{{asset('public/assets/admin/svg/illustrations/sorry.svg')}}" alt="Image Description">' +
+                '<img class="w-7rem mb-3" src="{{asset('assets/admin/svg/illustrations/sorry.svg')}}" alt="Image Description">' +
 
                 '</div>'
           }

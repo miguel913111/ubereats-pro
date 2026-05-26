@@ -7,7 +7,7 @@
     <div class="page-header">
         <h1 class="page-header-title">
             <span class="page-header-icon">
-                <img src="{{asset('public/assets/admin/img/3rd-party.png')}}" class="w--26" alt="">
+                <img src="{{asset('assets/admin/img/3rd-party.png')}}" class="w--26" alt="">
             </span>
             <span>
                 {{translate('messages.Other_Promotional_Content_Setup')}}
@@ -51,7 +51,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label">{{translate('Title')}} ({{ translate('messages.default') }})<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_title_within_80_characters') }}">
-                                                            <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                            <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                                         </span></label>
                                                 <input type="text"  maxlength="80" name="title[]" class="form-control" placeholder="{{translate('messages.title_here...')}}">
                                             </div>
@@ -59,7 +59,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label">{{translate('messages.Short_Description')}} ({{ translate('messages.default') }})<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_short_description_within_100_characters') }}">
-                                                            <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                            <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                                         </span></label>
                                                 <textarea type="text"  maxlength="100" name="short_description[]" class="form-control" rows="3" {{translate('messages.short_description_here...')}}> </textarea>
                                             </div>
@@ -72,7 +72,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label">{{translate('Title')}} ({{strtoupper($lang)}})<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_title_within_80_characters') }}">
-                                                    <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                    <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                                 </span></label>
                                                 <input type="text"  maxlength="80" name="title[]" class="form-control" placeholder="{{translate('messages.title_here...')}}">
                                             </div>
@@ -80,7 +80,7 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label class="form-label">{{translate('messages.Short_Description')}} ({{strtoupper($lang)}})<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_short_description_within_100_characters') }}">
-                                                    <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                    <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                                 </span></label>
                                                 <textarea type="text"  maxlength="100" name="short_description[]" class="form-control" rows="3" {{translate('messages.short_description_here...')}}> </textarea>
                                             </div>
@@ -94,7 +94,7 @@
                                 @else
                                 <div class="col-sm-6">
                                     <label class="form-label">{{translate('Title')}}<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_title_within_80_characters') }}">
-                                                <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                             </span></label>
                                     <input type="text"  maxlength="80" name="title[]" class="form-control" placeholder="{{translate('messages.title_here...')}}">
                                 </div>
@@ -215,5 +215,5 @@
 </div>
 @endsection
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/other-banners.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/other-banners.js"></script>
 @endpush

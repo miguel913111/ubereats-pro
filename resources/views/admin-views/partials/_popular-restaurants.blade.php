@@ -24,8 +24,8 @@
                 <li class="cursor-pointer redirect-url" data-url="{{ route('admin.store.view', $item->store_id) }}">
                     <div class="img-container">
                         <img class="onerror-image"
-                            data-onerror-image="{{ asset('public/assets/admin/img/100x100/1.png') }}"
-                            src="{{ $item->store['logo_full_url'] ?? asset('public/assets/admin/img/100x100/1.png') }}"
+                            data-onerror-image="{{ asset('assets/admin/img/100x100/1.png') }}"
+                            src="{{ $item->store['logo_full_url'] ?? asset('assets/admin/img/100x100/1.png') }}"
                             alt="{{ translate('store') }}" title="{{ $item?->store?->name }}">
                         <a href="{{ route('admin.store.view', $item->store_id) }}">
                             <span class="text-hover--primary ml-2" title="{{ $item?->store?->name }}">
@@ -56,4 +56,4 @@
 
 
 </div>
-<script src="{{ asset('public/assets/admin') }}/js/view-pages/common.js"></script>
+<script src="{{ asset('assets/admin') }}/js/view-pages/common.js"></script>

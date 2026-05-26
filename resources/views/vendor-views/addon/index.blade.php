@@ -11,7 +11,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{ asset('public/assets/admin/img/addon.png') }}" class="w--26" alt="">
+                    <img src="{{ asset('assets/admin/img/addon.png') }}" class="w--26" alt="">
                 </span>
                 <span>{{ translate('messages.add_new_addon') }}</span>
             </h1>
@@ -252,7 +252,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{ asset('public/assets/admin/js/view-pages/datatable-search.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/view-pages/datatable-search.js') }}"></script>
     <script>
         "use strict";
         $(document).on('click', '.data-info-show', function() {

@@ -8,7 +8,7 @@
         <div class="d-flex flex-wrap justify-content-between">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/landing.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/landing.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{ translate('messages.react_landing_page') }}
@@ -122,7 +122,7 @@
                                                 accept=".webp, .jpg, .jpeg, .png, .gif" required>
                                         <label class="upload-file__wrapper w-100 h-100 m-0">
                                             <div class="upload-file-textbox text-center" style="">
-                                                <img width="22" class="svg" src="{{asset('public/assets/admin/img/document-upload.svg')}}" alt="img">
+                                                <img width="22" class="svg" src="{{asset('assets/admin/img/document-upload.svg')}}" alt="img">
                                                 <h6 class="mt-1 color-656566 fw-medium fs-10 lh-base text-center">
                                                     <span class="theme-clr">Click to upload</span>
                                                     <br>
@@ -309,7 +309,7 @@
                                     <div class="bg-white rounded p-xxl-4 p-2">
                                         <div class="d-flex mb-20 align-items-center gap-2 flex-wrap justify-content-between">
                                             <h4 class="mb-0">
-                                                <img src="{{asset('public/assets/admin/img/playstore.png')}}" class="mr-2" alt="">
+                                                <img src="{{asset('assets/admin/img/playstore.png')}}" class="mr-2" alt="">
                                                 {{translate('Playstore Button')}}
                                             </h4>
                                             <label class="toggle-switch toggle-switch-sm m-0">
@@ -350,7 +350,7 @@
                                     <div class="bg-white rounded p-xxl-4 p-2">
                                         <div class="d-flex mb-20 align-items-center gap-2 flex-wrap justify-content-between">
                                             <h4 class="m-0">
-                                                <img src="{{asset('public/assets/admin/img/ios.png')}}" class="mr-2" alt="">
+                                                <img src="{{asset('assets/admin/img/ios.png')}}" class="mr-2" alt="">
                                                 {{translate('App Store Button')}}
                                             </h4>
                                             <label class="toggle-switch toggle-switch-sm m-0">
@@ -429,15 +429,15 @@
                                 </p>
                                 <ul class="list-checked d-flex flex-column gap-1 mb-xxl-4 mb-xl-3 mb-3">
                                     <li class="d-flex fs-14 align-items-center gap-2 text-title fw-medium">
-                                        <img width="16" src="{{asset('public/assets/admin/img/icons/6check.png')}}" alt="check" class="svg">
+                                        <img width="16" src="{{asset('assets/admin/img/icons/6check.png')}}" alt="check" class="svg">
                                         Choose your ride – car, bike, or bicycle
                                     </li>
                                     <li class="d-flex fs-14 align-items-center gap-2 text-title fw-medium">
-                                        <img width="16" src="{{asset('public/assets/admin/img/icons/6check.png')}}" alt="check" class="svg">
+                                        <img width="16" src="{{asset('assets/admin/img/icons/6check.png')}}" alt="check" class="svg">
                                         Flexible hours that fit your lifestyle
                                     </li>
                                     <li class="d-flex fs-14 align-items-center gap-2 text-title fw-medium">
-                                        <img width="16" src="{{asset('public/assets/admin/img/icons/6check.png')}}" alt="check" class="svg">
+                                        <img width="16" src="{{asset('assets/admin/img/icons/6check.png')}}" alt="check" class="svg">
                                         Instant payouts & bonus opportunities
                                     </li>
                                 </ul>
@@ -495,7 +495,7 @@
 @endsection
 
 @push('script_2')
-<script src="{{asset('public/assets/admin/ckeditor/ckeditor.js')}}"></script>
+<script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
 <script>
     "use strict";
     $(document).ready(function () {

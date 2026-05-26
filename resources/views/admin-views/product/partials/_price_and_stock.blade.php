@@ -15,7 +15,7 @@
                             data-lang="en">
                             <div class="btn-svg-wrapper">
                                 <img width="18" height="18" class=""
-                                    src="{{ asset('public/assets/admin/img/svg/blink-right-small.svg') }}"
+                                    src="{{ asset('assets/admin/img/svg/blink-right-small.svg') }}"
                                     alt="">
                             </div>
                             <span class="ai-text-animation d-none" role="status">

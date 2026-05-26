@@ -3,7 +3,7 @@
             <div class="d-flex flex-wrap justify-content-between align-items-start gap-2">
                 <div class="d-flex gap-2 mb-0">
                     <div class="page-header-icon">
-                        <img src="{{ asset('public/assets/admin/img/delivery-man.png') }}" class="w--26" alt="">
+                        <img src="{{ asset('assets/admin/img/delivery-man.png') }}" class="w--26" alt="">
                     </div>
                     <div>
                         <h1 class="page-header-title text-break mb-1">

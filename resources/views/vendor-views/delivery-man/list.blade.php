@@ -9,7 +9,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/deliveryman.png')}}" class="w--30" alt="">
+                    <img src="{{asset('assets/admin/img/deliveryman.png')}}" class="w--30" alt="">
                 </span>
                 <span>
                    {{translate('messages.deliveryman')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{$delivery_men->total()}}</span>
@@ -59,7 +59,7 @@
                             <td>
                                 <a class="media align-items-center" href="{{route('vendor.delivery-man.preview',[$dm['id']])}}">
                                     <img class="avatar avatar-lg mr-3 onerror-image"
-                                         data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}"
+                                         data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}"
                                          src="{{ $dm['image_full_url']}}"
                                          alt="{{$dm['f_name']}} {{$dm['l_name']}}">
                                     <div class="media-body">
@@ -141,5 +141,5 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin/js/view-pages/datatable-search.js')}}"></script>
+    <script src="{{asset('assets/admin/js/view-pages/datatable-search.js')}}"></script>
 @endpush

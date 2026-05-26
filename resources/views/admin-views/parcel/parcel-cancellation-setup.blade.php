@@ -9,7 +9,7 @@
 @section('content')
     <div id="content-disable" class="content container-fluid">
         <div class="d-flex align-items-center mb-20 gap-2">
-            <img width="22" height="22" src="{{ asset('public/assets/admin/img/parcel-cancellation-setup.png') }}"
+            <img width="22" height="22" src="{{ asset('assets/admin/img/parcel-cancellation-setup.png') }}"
                 alt="cencellation-icon">
             <h2 class="mb-0 fs-24 lh-base">{{ translate('Parcel Cancellation Setup') }}</h2>
         </div>
@@ -23,8 +23,8 @@
                 {{-- <label class="toggle-switch toggle-switch-sm">
                     <input type="checkbox" data-id="parcel_cancellation_status"
                         {{ $parcel_cancellation_status == 1 ? 'checked' : '' }}
-                        data-image-off="{{ asset('public/assets/admin/img/off-danger.png') }}"
-                        data-image-on="{{ asset('public/assets/admin/img/on-theme.png') }}"
+                        data-image-off="{{ asset('assets/admin/img/off-danger.png') }}"
+                        data-image-on="{{ asset('assets/admin/img/on-theme.png') }}"
                         data-title-on="<strong>{{ translate('Are you sure you want to enable the Parcel Cancellation feature?') }}</strong>"
                         data-title-off="<strong>{{ translate('Are you sure you want to Disable the Parcel Cancellation feature?') }}</strong>"
                         data-text-on="<p>{{ translate('If enabled, both customers and deliverymen can cancel delivery orders') }}</p>"
@@ -335,14 +335,14 @@
                             <a id="export-excel" class="dropdown-item"
                                 href="{{ route('admin.parcel.cancellationReasonExport', ['type' => 'excel', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item"
                                 href="{{ route('admin.parcel.cancellationReasonExport', ['type' => 'csv', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>
@@ -462,7 +462,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="text-center">
-                        <img src="{{ asset('public/assets/admin/img/delete-confirmation.png') }}" alt="icon"
+                        <img src="{{ asset('assets/admin/img/delete-confirmation.png') }}" alt="icon"
                             class="mb-3">
                         <h3 class="mb-2">Are you sure?</h3>
                         <p class="mb-0">You ....................</p>
@@ -490,7 +490,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="text-center ">
-                        <img src="{{ asset('public/assets/admin/img/off-danger.png') }}" alt="icon" class="mb-3">
+                        <img src="{{ asset('assets/admin/img/off-danger.png') }}" alt="icon" class="mb-3">
                         <h3 class="mb-2 px-xl-4">Are you sure you want to Disable the Parcel Cancellation feature</h3>
                         <p class="mb-0 fs-12 max-w-320 mx-auto">If disable, both customers and deliverymen can’t cancel
                             delivery orders</p>

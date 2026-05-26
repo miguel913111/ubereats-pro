@@ -21,7 +21,7 @@
                         <div class="card_earning-box theme-bg-opacity10 rounded-10 h-100">
                             <div class="box d-flex align-items-center">
                                 <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                    <img src="{{asset('public/assets/admin/img/t-earning.png')}}" class="w--26" alt="">
+                                    <img src="{{asset('assets/admin/img/t-earning.png')}}" class="w--26" alt="">
                                 </div>
                                 <div>
                                     <h3 class="text-006AB4 mb-1 fs-26">{{ $total_loyalty_point }}</h3>
@@ -34,7 +34,7 @@
                         <div class="card_earning-box card--bg-3 rounded-10 h-100">
                             <div class="box d-flex align-items-center">
                                 <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                    <img src="{{asset('public/assets/admin/img/t-points.png')}}" class="w--26" alt="">
+                                    <img src="{{asset('assets/admin/img/t-points.png')}}" class="w--26" alt="">
                                 </div>
                                 <div>
                                     <h3 class="text-00AA6D mb-1 fs-26">{{ $total_converted_loyalty_point }}</h3>
@@ -47,7 +47,7 @@
                         <div class="card_earning-box color-card color-4 rounded-10 h-100">
                             <div class="box d-flex align-items-center">
                                 <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                    <img src="{{asset('public/assets/admin/img/Create_Cashback_Offer.png')}}" class="w--26"
+                                    <img src="{{asset('assets/admin/img/Create_Cashback_Offer.png')}}" class="w--26"
                                         alt="">
                                 </div>
                                 <div>
@@ -101,13 +101,13 @@
                         <a id="export-excel" class="dropdown-item"
                             href="{{ route('admin.users.delivery-man.loyalty-point-export', ['type' => 'excel', 'id' => $deliveryMan->id, request()->getQueryString()]) }}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/excel.svg" alt="Image Description">
+                                src="{{ asset('assets/admin') }}/svg/components/excel.svg" alt="Image Description">
                             {{ translate('messages.excel') }}
                         </a>
                         <a id="export-csv" class="dropdown-item"
                             href="{{ route('admin.users.delivery-man.loyalty-point-export', ['type' => 'csv', 'id' => $deliveryMan->id, request()->getQueryString()]) }}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                 alt="Image Description">
                             {{ translate('messages.csv') }}
                         </a>

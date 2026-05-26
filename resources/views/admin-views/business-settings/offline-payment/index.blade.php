@@ -181,7 +181,7 @@
                 <div class="modal-body pb-5 pt-0">
                     <div class="mx-auto mb-20">
                         <div class="text-center mb-30">
-                            <img width="64" height="64" src="{{asset('public/assets/admin/img/modal/delete.png')}}" alt="" class="mb-20 initial--10">
+                            <img width="64" height="64" src="{{asset('assets/admin/img/modal/delete.png')}}" alt="" class="mb-20 initial--10">
                             <h3 class="mb-3">
                                 {{ translate('Do you want to delete this payment method?') }}
                             </h3>

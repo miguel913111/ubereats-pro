@@ -85,7 +85,7 @@
                             @else
 
                                 <div class="search--no-found text-center py-5 w-100">
-                                    <img src="{{ asset('public/assets/admin/img/search-icon.png') }}" alt="img">
+                                    <img src="{{ asset('assets/admin/img/search-icon.png') }}" alt="img">
                                     <p class="mt-3">
                                         {{ translate('messages.no_products_on_store_pos_search') }}
                                     </p>
@@ -249,7 +249,7 @@
         src="https://maps.googleapis.com/maps/api/js?key={{ \App\Models\BusinessSetting::where('key', 'map_api_key')->first()->value }}&libraries=places,marker&callback=initMap&v=3.61">
     </script>
 
-    <script src="{{asset('public/assets/admin/js/view-pages/pos.js')}}"></script>
+    <script src="{{asset('assets/admin/js/view-pages/pos.js')}}"></script>
     <script>
         "use strict";
         $(document).on('click', '.place-order-submit', function (event) {

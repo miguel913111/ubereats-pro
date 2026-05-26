@@ -38,7 +38,7 @@
                                      </div>
                                      <div class="modal-body">
                                          <div class="text-center">
-                                             <img src="{{ asset('public/assets/admin/img/delete.png') }}" alt="icon"
+                                             <img src="{{ asset('assets/admin/img/delete.png') }}" alt="icon"
                                                  class="mb-20">
                                              <h3 class="mb-2 fs-18">
                                                  {{ translate('Want to delete this common condition?') }}</h3>

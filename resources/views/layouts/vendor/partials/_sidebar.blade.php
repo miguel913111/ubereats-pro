@@ -8,10 +8,10 @@
                 @php($store_data = \App\CentralLogics\Helpers::get_store_data())
                 <a class="navbar-brand" href="{{ route('vendor.dashboard') }}" aria-label="Front">
                     <img class="navbar-brand-logo initial--36  onerror-image"
-                        data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                        data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                         src="{{ $store_data->logo_full_url }}" alt="Logo">
                     <img class="navbar-brand-logo-mini initial--36 onerror-image"
-                        data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                        data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                         src="{{ $store_data->logo_full_url }}" alt="Logo">
                 </a>
                 <!-- End Logo -->
@@ -803,7 +803,7 @@
                         <li class="nav-item px-20 pb-5">
                             <div class="promo-card">
                                 <div class="position-relative">
-                                    <img src="{{ asset('public/assets/admin/img/promo-2.png') }}" class="mw-100"
+                                    <img src="{{ asset('assets/admin/img/promo-2.png') }}" class="mw-100"
                                         alt="">
                                     <h4 class="mb-2 mt-3">{{ translate('Want_to_get_highlighted?') }}</h4>
                                     <p class="mb-4">
@@ -827,5 +827,5 @@
 </div>
  
 @push('script_2')
-   <script src="{{ asset('public/assets/admin/js/view-pages/sidebar.js') }}"></script>
+   <script src="{{ asset('assets/admin/js/view-pages/sidebar.js') }}"></script>
 @endpush

@@ -36,13 +36,13 @@
                         <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                         <a id="export-excel" class="dropdown-item" href="{{route('admin.business-settings.module.export', ['type'=>'excel',request()->getQueryString()])}}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                 alt="Image Description">
                             {{ translate('messages.excel') }}
                         </a>
                         <a id="export-csv" class="dropdown-item" href="{{route('admin.business-settings.module.export', ['type'=>'csv',request()->getQueryString()])}}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                 alt="Image Description">
                             {{ translate('messages.csv') }}
                         </a>
@@ -327,7 +327,7 @@
         </button>
       </div>
       <div class="modal-body text-center">
-        <img src="{{ asset('public/assets/admin/img/delete.png') }}" class="mb-20" alt="">
+        <img src="{{ asset('assets/admin/img/delete.png') }}" class="mb-20" alt="">
         <h3 class="title-clr mb-2">Want to Delete this surge Price?</h3>
         <p class="fz--14px max-w-400px mx-auto">Are you sure you want to delete this surge Price & remove it permanently?</p>
       </div>

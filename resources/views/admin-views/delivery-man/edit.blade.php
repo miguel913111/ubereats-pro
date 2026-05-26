@@ -9,7 +9,7 @@
         <div class="page-header  mb-15 mt-2">
             <h1 class="page-header-title mb-0 fs-24 text-break">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/edit.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/edit.png')}}" class="w--26" alt="">
                 </span>
                 <span>{{translate('messages.update_deliveryman')}}</span>
             </h1>
@@ -342,7 +342,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin/js/spartan-multi-image-picker.js')}}"></script>
+    <script src="{{asset('assets/admin/js/spartan-multi-image-picker.js')}}"></script>
 <script>
     "use strict";
    
@@ -372,7 +372,7 @@
                     groupClassName: 'spartan_item_wrapper size--md',
                     maxFileSize: {{ MAX_FILE_SIZE }} * 1024 * 1024,
                     placeholderImage: {
-                        image: '{{asset('public/assets/admin/img/400x400/coba-placeholder.png')}}',
+                        image: '{{asset('assets/admin/img/400x400/coba-placeholder.png')}}',
                         width: '100%'
                     },
                     dropFileLabel: "Drop Here",

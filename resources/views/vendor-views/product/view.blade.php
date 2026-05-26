@@ -14,7 +14,7 @@
             <div class="d-flex flex-wrap justify-content-between">
                 <h1 class="page-header-title text-break">
                     <span class="page-header-icon">
-                        <img src="{{ asset('public/assets/admin/img/items.png') }}" class="w--22" alt="">
+                        <img src="{{ asset('assets/admin/img/items.png') }}" class="w--22" alt="">
                     </span>
                     <span>{{ $product['name'] }}</span>
                 </h1>
@@ -44,7 +44,7 @@
                             <div class="d-flex flex-wrap align-items-center food--media">
                                 <img class="avatar avatar-xxl avatar-4by3 mr-4 onerror-image"
                                     src="{{ $product['image_full_url'] }}"
-                                    data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                                    data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                                     alt="Image Description">
                                 <div class="d-block">
                                     <div class="rating--review">
@@ -409,7 +409,7 @@
                                         <a class=" text-hover-primary absolute--link"
                                             href="{{ route('vendor.item.view', [$review->item['id']]) }}">
                                             <img class="avatar avatar-lg mr-3  onerror-image"
-                                                data-onerror-image="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}"
+                                                data-onerror-image="{{ asset('assets/admin/img/160x160/img1.jpg') }}"
                                                 src="{{ $review->item['image_full_url'] }}"
                                                 alt="{{ $review->item->name }} image">
                                         </a>
@@ -487,7 +487,7 @@
                                                     href="{{ route('vendor.item.view', [$review->item['id']]) }}">
                                                 </a>
                                                 <img class="avatar avatar-lg mr-3  onerror-image"
-                                                    data-onerror-image="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}"
+                                                    data-onerror-image="{{ asset('assets/admin/img/160x160/img1.jpg') }}"
                                                     src="{{ $review->item['image_full_url'] }}"
                                                     alt="{{ $review->item->name }} image">
                                                 <div>

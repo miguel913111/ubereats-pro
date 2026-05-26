@@ -13,7 +13,7 @@
                         <div class="swiper-slide">
                             <div class="d-flex flex-column align-items-center gap-2">
                                 <img width="80" class="mb-3"
-                                    src="{{ asset('public/assets/back-end/img/modal/instruction.png') }}"
+                                    src="{{ asset('assets/back-end/img/modal/instruction.png') }}"
                                     loading="lazy" alt="">
                                 <div>
                                     <h3 class="lh-md mb-3 text-capitalize text-start">

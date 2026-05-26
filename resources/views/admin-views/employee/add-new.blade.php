@@ -10,7 +10,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{ asset('public/assets/admin/img/role.png') }}" class="w--26" alt="">
+                    <img src="{{ asset('assets/admin/img/role.png') }}" class="w--26" alt="">
                 </span>
                 <span>
                     {{ translate('messages.add_new_employee') }}
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="text-center py-3 my-auto">
                                     <img class="img--100" id="viewer"
-                                        src="{{ asset('public\assets\admin\img\400x400\img2.jpg') }}"
+                                        src="{{ asset('assets/admin/img/400x400/img2.jpg') }}"
                                         alt="Employee thumbnail" />
                                 </div>
                                 <div class="custom-file">
@@ -227,7 +227,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{ asset('public/assets/admin') }}/js/view-pages/employee.js"></script>
+    <script src="{{ asset('assets/admin') }}/js/view-pages/employee.js"></script>
     <script>
         "use strict";
         $(document).on('ready', function() {
@@ -251,7 +251,7 @@
             });
         });
         $('#reset_btn').click(function() {
-            $('#viewer').attr('src', "{{ asset('public/assets/admin/img/400x400/img2.jpg') }}");
+            $('#viewer').attr('src', "{{ asset('assets/admin/img/400x400/img2.jpg') }}");
             $('#customFileUpload').val(null);
             $('#zone_id').val(null).trigger('change');
             $('#role_id').val(null).trigger('change');

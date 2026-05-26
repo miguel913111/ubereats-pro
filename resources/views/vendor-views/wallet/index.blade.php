@@ -248,7 +248,7 @@
 
 @endsection
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/vendor/wallet-method.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/vendor/wallet-method.js"></script>
     <script>
         "use strict";
 $('#withdraw_method').on('change', function () {

@@ -8,7 +8,7 @@
                         <span class="ai-btn-animation">
                             <span class="gradientCirc"></span>
                         </span>
-                        <img class="position-relative z-1" width="15" height="12" src="{{ asset('public/assets/admin/img/svg/blink-right.svg') }}" alt="">
+                        <img class="position-relative z-1" width="15" height="12" src="{{ asset('assets/admin/img/svg/blink-right.svg') }}" alt="">
                     </span>
                     <span id="modalTitle">{{ translate('AI_Assistant') }}</span>
                 </h5>
@@ -25,7 +25,7 @@
                                 <span class="ai-btn-animation">
                                     <span class="gradientCirc"></span>
                                 </span>
-                                <img class="position-relative z-1" width="40" height="34" src="{{ asset('public/assets/admin/img/svg/blink-right.svg') }}" alt="">
+                                <img class="position-relative z-1" width="40" height="34" src="{{ asset('assets/admin/img/svg/blink-right.svg') }}" alt="">
                             </div>
                         </div>
 
@@ -40,12 +40,12 @@
                         <div class="ai-actions d-grid gap-3">
                             <button type="button" class="btn btn-outline-secondary bg-transparent btn-block d-flex gap-2 mb-3 ai-action-btn"
                                 data-action="upload">
-                                <img width="18" height="18" src="{{ asset('public/assets/admin/img/svg/picture.svg') }}" alt="">
+                                <img width="18" height="18" src="{{ asset('assets/admin/img/svg/picture.svg') }}" alt="">
                                 <span class="text-title">{{ translate('Upload_Image') }}</span>
                             </button>
                             <button type="button" class="btn btn-outline-secondary bg-transparent btn-block d-flex gap-2 ai-action-btn"
                                 data-action="title">
-                                <img width="18" height="18" src="{{ asset('public/assets/admin/img/svg/text-generate.svg') }}" alt="">
+                                <img width="18" height="18" src="{{ asset('assets/admin/img/svg/text-generate.svg') }}" alt="">
                                 <span class="text-title">{{ translate('Generate_Item_Name') }}</span>
                             </button>
                         </div>
@@ -70,7 +70,7 @@
                                 <input type="file" id="aiImageUploadOriginal" hidden accept="image/*">
                                 <div class="text-box mx-auto">
                                     <div class="w-100 d-flex flex-column gap-2 justify-content-center align-items-center py-4">
-                                        <img width="40" height="40" src="{{ asset('public/assets/admin/img/svg/image-upload.svg') }}" alt="">
+                                        <img width="40" height="40" src="{{ asset('assets/admin/img/svg/image-upload.svg') }}" alt="">
                                         <div class="d-flex gap-2 align-items-center justify-content-center fs-14">
                                             <span class="text-dark">{{ translate('drag_&_drop_your_image') }}</span>
                                             <span class="text-lowercase">{{ translate('or') }}</span>
@@ -101,7 +101,7 @@
                                         <span class="position-relative z-1 d-flex gap-2 align-items-center">
                                             <span
                                                 class="d-flex align-items-center btn-text">{{ translate('Generate_Item_Description') }}</span>
-                                                <img width="17" height="15" src="{{ asset('public/assets/admin/img/svg/blink-left.svg') }}" alt="">
+                                                <img width="17" height="15" src="{{ asset('assets/admin/img/svg/blink-left.svg') }}" alt="">
                                         </span>
                                     </button>
                                 </div>
@@ -139,7 +139,7 @@
                                     data-lang="en">
                                     <span class="ai-loader-animation z-2 d-none">
                                         <span class="loader-circle"></span>
-                                        <img width="15" height="15" class="position-relative h-100" src="{{ asset('public/assets/admin/img/svg/blink-left.svg') }}" alt="">
+                                        <img width="15" height="15" class="position-relative h-100" src="{{ asset('assets/admin/img/svg/blink-left.svg') }}" alt="">
                                     </span>
                                     <span class="position-rtelative z-1"><i class="tio-arrow-forward"></i></span>
                                 </button>
@@ -167,7 +167,7 @@
                     <div id="generatedTitles" style="display: none;">
                         <div class="text-primary generate_btn_wrapper show_generating_text d-none mb-3">
                             <div class="btn-svg-wrapper">
-                                <img width="18" height="18" class="" src="{{ asset('public/assets/admin/img/svg/blink-right-small.svg') }}"
+                                <img width="18" height="18" class="" src="{{ asset('assets/admin/img/svg/blink-right-small.svg') }}"
                                 alt="">
                             </div>
                             <span class="ai-text-animation ai-text-animation-visible">
@@ -207,7 +207,7 @@
                 <span class="gradientCirc"></span>
             </span>
             <span class="position-relative z-1 text-white d-flex flex-column gap-1 align-items-center">
-                <img width="16" height="17" src="{{ asset('public/assets/admin/img/svg/hexa-ai.svg') }}" alt="">
+                <img width="16" height="17" src="{{ asset('assets/admin/img/svg/hexa-ai.svg') }}" alt="">
                 <span class="fs-12 font-semibold">{{ translate('Use_AI') }}</span>
             </span>
         </button>

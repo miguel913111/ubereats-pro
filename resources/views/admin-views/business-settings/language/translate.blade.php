@@ -42,7 +42,7 @@
                 </form>
                 @if ($lang !== 'en')
                 <button class="btn btn--primary d-flex align-items-center justify-content-center gap-2" id="translate-confirm-btn">
-                    <img width="14" height="14" class="svg" src="{{asset('public/assets/admin/img/svg/language-exchange.svg')}}" alt="public">
+                    <img width="14" height="14" class="svg" src="{{asset('assets/admin/img/svg/language-exchange.svg')}}" alt="public">
                     {{ translate('Translate_All') }}
                 </button>
                 @endif
@@ -82,7 +82,7 @@
                                 <button type="button"
                                     data-key="{{$key}}" data-id="{{$count}}"
                                     class="btn btn--primary btn-outline-primary action-btn auto-translate-btn">
-                                    <img width="14" height="14" class="svg" src="{{asset('public/assets/admin/img/svg/language-exchange.svg')}}" alt="public">
+                                    <img width="14" height="14" class="svg" src="{{asset('assets/admin/img/svg/language-exchange.svg')}}" alt="public">
                                 </button>
                             </div>
                         </td>
@@ -92,7 +92,7 @@
                                         data-key="{{$key}}"
                                         data-id="{{$count}}"
                                         class="btn btn--primary action-btn update-language-btn">
-                                         <img width="14" height="14" class="svg" src="{{asset('public/assets/admin/img/svg/disk.svg')}}" alt="public">
+                                         <img width="14" height="14" class="svg" src="{{asset('assets/admin/img/svg/disk.svg')}}" alt="public">
                                 </button>
                             </div>
                         </td>

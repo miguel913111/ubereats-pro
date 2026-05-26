@@ -12,7 +12,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/edit.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/edit.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{translate('messages.add_new_sub_category')}}
@@ -136,13 +136,13 @@
                             <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                             <a id="export-excel" class="dropdown-item" href="{{ route('admin.category.export-categories', ['type' => 'excel', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item" href="{{ route('admin.category.export-categories', ['type' => 'csv', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>
@@ -174,7 +174,7 @@
 
                                 @endif
                                 <th class="border-0 text-center">{{translate('messages.priority')}}     <span class="input-label-secondary"
-                                            data-toggle="tooltip" data-placement="right" data-original-title="{{translate('Categories will be displayed based on priority order: High first, then Medium, and finally Low ')}}"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}"
+                                            data-toggle="tooltip" data-placement="right" data-original-title="{{translate('Categories will be displayed based on priority order: High first, then Medium, and finally Low ')}}"><img src="{{asset('assets/admin/img/info-circle.svg')}}"
                                             alt="public/img"></span></th>
                                 <th class="border-0 text-center">{{translate('messages.action')}}</th>
                             </tr>
@@ -292,5 +292,5 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/sub-category-index.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/sub-category-index.js"></script>
 @endpush

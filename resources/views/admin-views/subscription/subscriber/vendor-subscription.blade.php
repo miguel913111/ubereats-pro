@@ -49,7 +49,7 @@ active
             <div class="card-header border-0 align-items-center">
                 <h4 class="card-title align-items-center gap-2">
                     <span class="card-header-icon">
-                        <img src="{{asset('public/assets/admin/img/store-3.png')}}" alt="">
+                        <img src="{{asset('assets/admin/img/store-3.png')}}" alt="">
                     </span>
                     <span class="text-title">{{ translate('Store_Info') }}</span>
                 </h4>
@@ -64,7 +64,7 @@ active
                                         <a href="{{route('admin.store.view', $store->id)}}">
 
                                             <img class="onerror-image"
-                                            src="{{ $store->logo_full_url ?? asset('public/assets/admin/img/100x100/1.png') }}">
+                                            src="{{ $store->logo_full_url ?? asset('assets/admin/img/100x100/1.png') }}">
                                     </div>
                                         </a>
                                     <ul class="address-info list-unstyled list-unstyled-py-3 text-dark">
@@ -143,7 +143,7 @@ active
             <div class="card-header border-0 align-items-center">
                 <h4 class="card-title align-items-center gap-2">
                     <span class="card-header-icon">
-                        <img src="{{asset('public/assets/admin/img/billing.png')}}" alt="">
+                        <img src="{{asset('assets/admin/img/billing.png')}}" alt="">
                     </span>
                     <span class="text-title">{{ translate('Billing') }}</span>
                 </h4>
@@ -152,7 +152,7 @@ active
                 <div class="row g-3">
                     <div class="col-sm-6 col-lg-4">
                         <a class="__card-2 __bg-1 flex-row align-items-center gap-4" href="#">
-                            <img src="{{asset('public/assets/admin/img/expiring.png')}}" alt="report/new" class="w-60px">
+                            <img src="{{asset('assets/admin/img/expiring.png')}}" alt="report/new" class="w-60px">
                             <div class="w-0 flex-grow-1 py-md-3">
                                 <span class="text-body">{{ translate('Expire Date') }}</span>
                                 <h4 class="title m-0">{{  \App\CentralLogics\Helpers::date_format($store?->store_sub_update_application?->expiry_date_parsed) }}</h4>
@@ -161,7 +161,7 @@ active
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <a class="__card-2 __bg-8 flex-row align-items-center gap-4" href="#">
-                            <img src="{{asset('public/assets/admin/img/total-bill.png')}}" alt="report/new" class="w-60px">
+                            <img src="{{asset('assets/admin/img/total-bill.png')}}" alt="report/new" class="w-60px">
                             <div class="w-0 flex-grow-1 py-md-3">
                                 <span class="text-body">{{ translate('Total_Bill') }}</span>
                                 <h4 class="title m-0">{{  \App\CentralLogics\Helpers::format_currency($store?->store_sub_update_application?->package?->price * ($store?->store_sub_update_application?->total_package_renewed + 1) ) }}</h4>
@@ -170,7 +170,7 @@ active
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <a class="__card-2 __bg-4 flex-row align-items-center gap-4" href="#">
-                            <img src="{{asset('public/assets/admin/img/number.png')}}" alt="report/new" class="w-60px">
+                            <img src="{{asset('assets/admin/img/number.png')}}" alt="report/new" class="w-60px">
                             <div class="w-0 flex-grow-1 py-md-3">
                                 <span class="text-body">{{ translate('Number of Uses') }}</span>
                                 <h4 class="title m-0">{{ $store?->store_sub_update_application?->total_package_renewed + 1 }}</h4>
@@ -184,7 +184,7 @@ active
             <div class="card-header border-0 align-items-center">
                 <h4 class="card-title align-items-center gap-2">
                     <span class="card-header-icon">
-                        <img width="25" src="{{asset('public/assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
+                        <img width="25" src="{{asset('assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
                     </span>
                     <span>{{ translate('Package Overview') }}</span>
                 </h4>

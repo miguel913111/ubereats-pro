@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
 
 @endpush
 
@@ -18,7 +18,7 @@
                 <div class="card-header">
                     <h5 class="card-title">
                         <span class="card-header-icon">
-                            <img class="w--22" src="{{asset('public/assets/admin/img/store.png')}}" alt="">
+                            <img class="w--22" src="{{asset('assets/admin/img/store.png')}}" alt="">
                         </span>
                         <span class="p-md-1"> {{translate('messages.store_settings')}}</span>
                     </h5>

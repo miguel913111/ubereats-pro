@@ -16,7 +16,7 @@
                                 <div class="">
                                     <div class="d-flex justify-content-center mb-5">
                                         <img height="60"
-                                            src="{{ asset('public/assets/admin/img/svg/google.svg') }}"
+                                            src="{{ asset('assets/admin/img/svg/google.svg') }}"
                                             loading="lazy" alt="">
                                     </div>
                                     <div class="text-dark mb-3">

@@ -8,7 +8,7 @@
             data-sender-id="{{ $user->id }}" id="customer-{{ $user->id }}">
             <div class="chat-user-info-img d-none d-md-block">
                 <img class="avatar-img onerror-image" src="{{ $user['image_full_url'] }}"
-                    data-onerror-image="{{ asset('public/assets/admin') }}/img/160x160/img1.jpg" alt="Image Description">
+                    data-onerror-image="{{ asset('assets/admin') }}/img/160x160/img1.jpg" alt="Image Description">
             </div>
             <div class="chat-user-info-content">
                 <h5 class="mb-0 d-flex justify-content-between">
@@ -21,7 +21,7 @@
     @else
         <div class="chat-user-info d-flex border-bottom p-3 align-items-center customer-list">
             <div class="chat-user-info-img d-none d-md-block">
-                <img class="avatar-img" src='{{ asset('public/assets/admin') }}/img/160x160/img1.jpg'
+                <img class="avatar-img" src='{{ asset('assets/admin') }}/img/160x160/img1.jpg'
                     alt="Image Description">
             </div>
             <div class="chat-user-info-content">
@@ -47,4 +47,4 @@
 
 
 
-{{-- <script src="{{asset('public/assets/admin')}}/js/view-pages/common.js"></script> --}}
+{{-- <script src="{{asset('assets/admin')}}/js/view-pages/common.js"></script> --}}

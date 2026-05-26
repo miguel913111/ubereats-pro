@@ -10,7 +10,7 @@
             <div class="d-flex flex-wrap justify-content-between align-items-center">
                 <h1 class="page-header-title">
                     <span class="page-header-icon">
-                        <img src="{{asset('public/assets/admin/img/campaign.png')}}" class="w--26" alt="">
+                        <img src="{{asset('assets/admin/img/campaign.png')}}" class="w--26" alt="">
                     </span>
                     <span>
                         {{translate('messages.campaign')}}
@@ -23,7 +23,7 @@
         <div class="fs-12 px-3 py-2 rounded bg-info bg-opacity-10 mb-20">
             <div class="d-flex align-items-center gap-2 mb-0">
                 <span class="text-info lh-1 fs-14">
-                    <img src="{{asset('public/assets/admin/img/svg/bulb.svg')}}" class="svg" alt="">
+                    <img src="{{asset('assets/admin/img/svg/bulb.svg')}}" class="svg" alt="">
                 </span>
                 <p class="mb-0">
                     {{ translate('messages.Vendors can join any campaign directly from the Basic Campaign List in the vendor panel.') }}
@@ -71,14 +71,14 @@
                                 {{ route('admin.campaign.basic_campaign_export', ['type' => 'excel', request()->getQueryString()]) }}
                                 ">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item" href="
                             {{ route('admin.campaign.basic_campaign_export', ['type' => 'csv', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>
@@ -182,7 +182,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="text-center">
-                                                                        <img src="{{asset('public/assets/admin/img/delete.png')}}" alt="icon" class="mb-20">
+                                                                        <img src="{{asset('assets/admin/img/delete.png')}}" alt="icon" class="mb-20">
                                                                         <h3 class="mb-2 fs-18">{{ translate('Want to delete this Campaign?') }}</h3>
                                                                         @if ( $campaign->stores_count > 0)
                                                                         <p class="mb-2 px-3 text-wrap">{{ translate('This campaign is already running, and ') }} {{ $campaign->stores_count }} {{ translate('of your stores have joined. If you delete it, those stores will be removed from the campaign.') }}</p>

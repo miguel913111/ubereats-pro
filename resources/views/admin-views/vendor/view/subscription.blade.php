@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{asset('public/assets/admin/css/croppie.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/croppie.css')}}" rel="stylesheet">
 
 @endpush
 
@@ -19,7 +19,7 @@
             <div>
                 <h3 class="card-title mb-1 align-items-center gap-2">
                     <!-- <span class="card-header-icon">
-                    <img width="25" src="{{asset('public/assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
+                    <img width="25" src="{{asset('assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
                     </span> -->
                     <span class="text-title">{{ translate('Package Overview') }}</span>
                 </h3>
@@ -48,7 +48,7 @@
                                 </span>
                                 <span class="fs-14 font-semibold d-block">{{ translate('messages.Commission_per_order') }}</span>
                             </h4>
-                            <img width="40" src="{{asset('public/assets/admin/img/money-percentage.png')}}" alt="">
+                            <img width="40" src="{{asset('assets/admin/img/money-percentage.png')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                     <div class="card-header flex-wrap gap-2 border-0 align-items-center">
                         <h3 class="card-title align-items-center gap-2">
                             <span class="card-header-icon">
-                                <img src="{{asset('public/assets/admin/img/billing.png')}}" alt="">
+                                <img src="{{asset('assets/admin/img/billing.png')}}" alt="">
                             </span>
                             <span class="text-title">{{ translate('Billing') }}</span>
                         </h3>
@@ -155,7 +155,7 @@
                         <div class="row g-3">
                             <div class="col-sm-6 col-lg-4">
                                 <a class="__card-2 __bg-1 flex-row align-items-center gap-4" href="#">
-                                    <img src="{{asset('public/assets/admin/img/expiring.png')}}" alt="report/new" class="w-60px">
+                                    <img src="{{asset('assets/admin/img/expiring.png')}}" alt="report/new" class="w-60px">
                                     <div class="w-0 flex-grow-1 py-md-3">
                                         <span class="text-body">{{ translate('Expire Date') }}</span>
                                         <h4 class="title m-0">{{  \App\CentralLogics\Helpers::date_format($store?->store_sub_update_application?->expiry_date_parsed) }}</h4>
@@ -164,7 +164,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <a class="__card-2 __bg-8 flex-row align-items-center gap-4" href="#">
-                                    <img src="{{asset('public/assets/admin/img/total-bill.png')}}" alt="report/new" class="w-60px">
+                                    <img src="{{asset('assets/admin/img/total-bill.png')}}" alt="report/new" class="w-60px">
                                     <div class="w-0 flex-grow-1 py-md-3">
                                         <span class="text-body">{{ translate('Total_Bill') }}</span>
                                         <h4 class="title m-0">{{  \App\CentralLogics\Helpers::format_currency($store?->store_sub_update_application?->package?->price * ($store?->store_sub_update_application?->total_package_renewed + 1) ) }}</h4>
@@ -173,7 +173,7 @@
                             </div>
                             <div class="col-sm-6 col-lg-4">
                                 <a class="__card-2 __bg-4 flex-row align-items-center gap-4" href="#">
-                                    <img src="{{asset('public/assets/admin/img/number.png')}}" alt="report/new" class="w-60px">
+                                    <img src="{{asset('assets/admin/img/number.png')}}" alt="report/new" class="w-60px">
                                     <div class="w-0 flex-grow-1 py-md-3">
                                         <span class="text-body">{{ translate('Number of Uses') }}</span>
                                         <h4 class="title m-0">{{ $store?->store_sub_update_application?->total_package_renewed + 1 }}</h4>
@@ -188,7 +188,7 @@
                         <div>
                             <h3 class="card-title align-items-center gap-2">
                                 <!-- <span class="card-header-icon">
-                                    <img width="25" src="{{asset('public/assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
+                                    <img width="25" src="{{asset('assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
                                 </span> -->
                                 <span class="text-title">{{ translate('Package Overview') }}
                                     @if($store?->status == 0 &&  $store?->vendor?->status == 0)

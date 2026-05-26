@@ -101,7 +101,7 @@
             <div class="custom-offcanvas-body custom-offcanvas-body-100 p-20">
                 <div class="" style="pointer-events: none;">
                     <div class="d-flex align-items-center flex-column gap-2 text-center">
-                        <img width="68" src="{{asset('public/assets/admin/img/offline_payment-new.png')}}" alt="">
+                        <img width="68" src="{{asset('assets/admin/img/offline_payment-new.png')}}" alt="">
                         <p class="fs-12 text-title mb-0">
                             {{ translate('messages.Pay your bill using any of the payment method below')}} <br> {{ translate('messages.and input the required information.') }}
                         </p>
@@ -143,7 +143,7 @@
 
 @push('script_2')
 
-    <script src="{{asset('public/assets/admin/js/view-pages/offline-payment.js')}}"></script>
+    <script src="{{asset('assets/admin/js/view-pages/offline-payment.js')}}"></script>
 
     <script>
         "use strict";

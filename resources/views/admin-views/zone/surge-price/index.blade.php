@@ -5,8 +5,8 @@
 @push('css_or_js')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<script type="text/javascript" src="{{asset('public/assets/admin/js/moment.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('public/assets/admin/js/daterangepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/daterangepicker.min.js')}}"></script>
 @endpush
 
 @section('content')
@@ -428,7 +428,7 @@
                 <div class="max-349 mx-auto mb-20">
                     <div>
                         <div class="text-center">
-                            <img id="toggle-image" alt="" src="{{ asset('public/assets/admin/img/modal-error.png') }}" class="mb-20">
+                            <img id="toggle-image" alt="" src="{{ asset('assets/admin/img/modal-error.png') }}" class="mb-20">
                             <h5 class="modal-title" id="toggle-title">{{ translate('Surge Price setup Overlap!') }}</h5>
                         </div>
                         <div class="text-center" id="toggle-message">

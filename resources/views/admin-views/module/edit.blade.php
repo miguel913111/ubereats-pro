@@ -3,7 +3,7 @@
 @section('title',translate('Update_Business_Module'))
 
 @push('css_or_js')
-<link rel="stylesheet" href="{{asset('public/assets/admin/css/radio-image.css')}}">
+<link rel="stylesheet" href="{{asset('assets/admin/css/radio-image.css')}}">
 @endpush
 
 @section('edit_module')
@@ -16,7 +16,7 @@ active
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/module.png')}}" alt="">
+                    <img src="{{asset('assets/admin/img/module.png')}}" alt="">
                 </span>
                 <span>
                     {{translate('Edit_Business_Module')}}
@@ -155,7 +155,7 @@ active
                                                     <small class="text-danger">* ( {{translate('messages.ratio')}} 1:1)</small>
                                                 </label>
                                                 <label class="text-center my-auto position-relative">
-                                                    <img class="img--176 h-unset aspect-ratio-1 image--border" id="viewer" data-onerror-image="{{asset('public/assets/admin/img/upload-img.png')}}" src="{{ $module['icon_full_url'] }}"
+                                                    <img class="img--176 h-unset aspect-ratio-1 image--border" id="viewer" data-onerror-image="{{asset('assets/admin/img/upload-img.png')}}" src="{{ $module['icon_full_url'] }}"
                                                     alt="image" />
                                                     <div class="icon-file-group">
                                                         <div class="icon-file">
@@ -173,7 +173,7 @@ active
                                                     <small class="text-danger">* ( {{translate('messages.ratio')}} 1:1)</small>
                                                 </label>
                                                 <label class="text-center my-auto position-relative">
-                                                    <img class="img--176 h-unset aspect-ratio-1 image--border" id="viewer2" data-onerror-image="{{asset('public/assets/admin/img/upload-img.png')}}" src="{{ $module['thumbnail_full_url'] }}"
+                                                    <img class="img--176 h-unset aspect-ratio-1 image--border" id="viewer2" data-onerror-image="{{asset('assets/admin/img/upload-img.png')}}" src="{{ $module['thumbnail_full_url'] }}"
                                                     alt="image" />
                                                     <div class="icon-file-group">
                                                         <div class="icon-file">
@@ -203,7 +203,7 @@ active
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('assets/admin/ckeditor/ckeditor.js')}}"></script>
     <script>
         "use strict";
 

@@ -154,7 +154,7 @@
                         <div class="card-body d-flex flex-column pt-0">
                             {{-- <div class="text-center my-auto py-4 py-xl-5">
                                 <img class="store-banner onerror-image" id="viewer"
-                                data-onerror-image="{{asset('public/assets/admin/img/image-place-holder.png')}}"
+                                data-onerror-image="{{asset('assets/admin/img/image-place-holder.png')}}"
                                 src="{{ $shop->logo_full_url }}" alt="Product thumbnail"/>
                             </div>
                             <div class="custom-file">
@@ -190,7 +190,7 @@
                         <div class="card-body d-flex flex-column pt-0">
                             {{-- <div class="text-center my-auto py-4 py-xl-5">
                                 <img class="store-banner onerror-image" id="coverImageViewer"
-                                data-onerror-image="{{asset('public/assets/admin/img/restaurant_cover.jpg')}}"
+                                data-onerror-image="{{asset('assets/admin/img/restaurant_cover.jpg')}}"
                                 src="{{ $shop->cover_photo_full_url }}" alt="Product thumbnail"/>
                             </div>
                             <div class="custom-file">
@@ -228,7 +228,7 @@
 @endpush
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/vendor/shop-edit.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/vendor/shop-edit.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {

@@ -79,7 +79,7 @@ active
         <div class="card-header border-0 align-items-center">
             <h4 class="card-title align-items-center gap-2">
                 <span class="card-header-icon">
-                    <img width="25" src="{{asset('public/assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
+                    <img width="25" src="{{asset('assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
                 </span>
                 <span>{{ translate('Package_details') }}</span>
             </h4>

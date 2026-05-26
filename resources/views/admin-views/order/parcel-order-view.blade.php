@@ -257,8 +257,8 @@
                                 <div class="avatar avatar-xl mr-3"
                                     title="{{ $order->parcel_category ? $order->parcel_category->name : translate('messages.parcel_category_not_found') }}">
                                     <img class="img-fluid onerror-image"
-                                        src="{{ $order->parcel_category?->image_full_url ?? asset('public/assets/admin/img/160x160/img2.jpg') }}"
-                                        data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}">
+                                        src="{{ $order->parcel_category?->image_full_url ?? asset('assets/admin/img/160x160/img2.jpg') }}"
+                                        data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}">
                                 </div>
                                 <div class="media-body">
                                     <div class="row">
@@ -328,7 +328,7 @@
                                                 <span class="form-label-secondary text-danger d-flex"
                                                     data-toggle="tooltip" data-placement="right"
                                                     data-original-title="{{ translate('No delivery fee will be charged if Delivery Man cancels the order') }}"><img
-                                                        src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                        src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                         alt="Veg/non-veg toggle"> </span>
                                             @endif
 
@@ -473,7 +473,7 @@
 
 
                         <h5 class="card-title mb-10px text-start fw-medium fs-12 d-flex align-items-center gap-1">
-                            <img class="svg" src="{{ asset('public/assets/admin/img/icons/shop-bag.svg') }}"
+                            <img class="svg" src="{{ asset('assets/admin/img/icons/shop-bag.svg') }}"
                                 alt="{{ translate('img') }}">
                             {{ translate('Parcel_Status') }}
 
@@ -514,7 +514,7 @@
                                             data-id="order-{{ $order['id'] }}"
                                             data-cancel-btn="{{ translate('messages.Cancel') }}"
                                             data-confirm-btn="{{ translate('messages.Confirm') }}"
-                                            data-image-url="{{ asset('public/assets/admin/img/tughrik.png') }}"
+                                            data-image-url="{{ asset('assets/admin/img/tughrik.png') }}"
                                             data-title="{{ translate('Switch to Cash on Delivery?') }}"
                                             data-message="{{ translate('The customer’s digital payment has failed. Before switching this order to Cash on Delivery (COD), please confirm the payment issue with the customer to avoid any misunderstandings.') }}">
                                             {{ translate('messages.Switch to COD') }}</button>
@@ -801,8 +801,8 @@
                                 href="{{ !$order?->store?->sub_self_delivery ? route('admin.users.delivery-man.preview', [$order->delivery_man['id']]) : '#' }}">
                                 <div class="avatar avatar-circle">
                                     <img class="avatar-img onerror-image"
-                                        data-onerror-image="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}"
-                                        src="{{ $order->delivery_man?->image_full_url ?? asset('public/assets/admin/img/160x160/img1.jpg') }}"
+                                        data-onerror-image="{{ asset('assets/admin/img/160x160/img1.jpg') }}"
+                                        src="{{ $order->delivery_man?->image_full_url ?? asset('assets/admin/img/160x160/img1.jpg') }}"
                                         alt="Image Description">
                                 </div>
                                 <div class="media-body">
@@ -865,7 +865,7 @@
                                 href="{{ route('admin.users.customer.view', [$order->customer['id']]) }}">
                                 <div class="avatar avatar-circle">
                                     <img class="avatar-img onerror-image"
-                                        data-onerror-image="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}"
+                                        data-onerror-image="{{ asset('assets/admin/img/160x160/img1.jpg') }}"
                                         src="{{ $order->customer->image_full_url }}" alt="Image Description">
                                 </div>
                                 <div class="media-body">
@@ -1028,7 +1028,7 @@
                                             <div class="col-3">
                                                 <img class="img__aspect-1 rounded border w-100 onerror-image"
                                                     data-toggle="modal" data-target="#imagemodal{{ $key }}"
-                                                    data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                                                    data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                                                     src="{{ \App\CentralLogics\Helpers::get_full_url('order', $img['img'], $img['storage']) }}">
                                             </div>
                                             <div class="modal fade" id="imagemodal{{ $key }}" tabindex="-1"
@@ -1344,7 +1344,7 @@
                                     <li class="list-group-item">
                                         <span class="dm_list" role='button' data-id="{{ $dm['id'] }}">
                                             <img class="avatar avatar-sm avatar-circle mr-1 onerror-image"
-                                                data-onerror-image="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}"
+                                                data-onerror-image="{{ asset('assets/admin/img/160x160/img1.jpg') }}"
                                                 src="{{ $dm['image_full_url'] }}" alt="{{ $dm['name'] }}">
                                             {{ $dm['name'] }}
                                         </span>
@@ -1543,7 +1543,7 @@
                                         data-id="order-{{ $order['id'] }}"
                                         data-cancel-btn="{{ translate('messages.Cancel') }}"
                                         data-confirm-btn="{{ translate('messages.Confirm') }}"
-                                        data-image-url="{{ asset('public/assets/admin/img/tughrik.png') }}"
+                                        data-image-url="{{ asset('assets/admin/img/tughrik.png') }}"
                                         data-title="{{ translate('Switch to Cash on Delivery?') }}"
                                         data-message="{{ translate('The customer’s offline payment has failed. Before switching this order to Cash on Delivery (COD), please confirm the payment issue with the customer to avoid any misunderstandings.') }}">
                                         {{ translate('messages.Switch to COD') }}
@@ -1834,7 +1834,7 @@
                     dmbounds.extend(point);
                     map.fitBounds(dmbounds);
                     var activeIconContent = document.createElement("img");
-                    activeIconContent.src = "{{ asset('public/assets/admin/img/delivery_boy_map.png') }}";
+                    activeIconContent.src = "{{ asset('assets/admin/img/delivery_boy_map.png') }}";
                     activeIconContent.alt = "Active DM";
                     activeIconContent.style.width = '100%';
                     activeIconContent.style.height = '100%';
@@ -1988,7 +1988,7 @@
 
                 @if ($order->customer && isset($address))
                     var activeIconContent = document.createElement("img");
-                    activeIconContent.src = "{{ asset('public/assets/admin/img/customer_location.png') }}";
+                    activeIconContent.src = "{{ asset('assets/admin/img/customer_location.png') }}";
                     activeIconContent.alt = "Active DM";
                     activeIconContent.style.width = '100%';
                     activeIconContent.style.height = '100%';
@@ -2004,7 +2004,7 @@
                     google.maps.event.addListener(marker, 'click', (function(marker) {
                         return function() {
                             infowindow.setContent(
-                                "<div style='float:left'><img style='max-height:40px;wide:auto;' src='{{ $order?->customer?->image_full_url ?? asset('public/assets/admin/img/160x160/img1.jpg') }}'></div><div style='float:right; padding: 10px;'><b>{{ $order->customer->f_name }} {{ $order->customer->l_name }}</b><br />{{ $address['address'] }}</div>"
+                                "<div style='float:left'><img style='max-height:40px;wide:auto;' src='{{ $order?->customer?->image_full_url ?? asset('assets/admin/img/160x160/img1.jpg') }}'></div><div style='float:right; padding: 10px;'><b>{{ $order->customer->f_name }} {{ $order->customer->l_name }}</b><br />{{ $address['address'] }}</div>"
                             );
                             infowindow.open(map, marker);
                         }
@@ -2013,7 +2013,7 @@
                 @endif
                 @if ($order->delivery_man && $order->dm_last_location)
                     var activeIconContent = document.createElement("img");
-                    activeIconContent.src = "{{ asset('public/assets/admin/img/delivery_boy_map.png') }}";
+                    activeIconContent.src = "{{ asset('assets/admin/img/delivery_boy_map.png') }}";
                     activeIconContent.alt = "Active DM";
                     activeIconContent.style.width = '100%';
                     activeIconContent.style.height = '100%';
@@ -2029,7 +2029,7 @@
                     google.maps.event.addListener(dmmarker, 'click', (function(dmmarker) {
                         return function() {
                             infowindow.setContent(
-                                "<div style='float:left'><img style='max-height:40px;wide:auto;' src='{{ $order?->delivery_man?->image_full_url ?? asset('public/assets/admin/img/160x160/img1.jpg') }}'></div> <div style='float:right; padding: 10px;'><b>{{ $order->delivery_man->f_name }} {{ $order->delivery_man->l_name }}</b><br /> {{ $order->dm_last_location['location'] }}</div>"
+                                "<div style='float:left'><img style='max-height:40px;wide:auto;' src='{{ $order?->delivery_man?->image_full_url ?? asset('assets/admin/img/160x160/img1.jpg') }}'></div> <div style='float:right; padding: 10px;'><b>{{ $order->delivery_man->f_name }} {{ $order->delivery_man->l_name }}</b><br /> {{ $order->dm_last_location['location'] }}</div>"
                             );
                             infowindow.open(map, dmmarker);
                         }
@@ -2044,7 +2044,7 @@
                             {{ $receiver_details['longitude'] }}),
                         map: map,
                         title: "{{ Str::limit($receiver_details['contact_person_name'], 15, '...') }}",
-                        // icon: "{{ asset('public/assets/admin/img/restaurant_map.png') }}"
+                        // icon: "{{ asset('assets/admin/img/restaurant_map.png') }}"
                     });
 
                     google.maps.event.addListener(Receivermarker, 'click', (function(Receivermarker) {
@@ -2078,7 +2078,7 @@
         })
     </script>
 
-    <script src="{{ asset('public/assets/admin/js/spartan-multi-image-picker.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/spartan-multi-image-picker.js') }}"></script>
     <script type="text/javascript">
         $(function() {
             $("#coba").spartanMultiImagePicker({
@@ -2089,7 +2089,7 @@
                 groupClassName: 'spartan_item_wrapper min-w-176px max-w-176px',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: "{{ asset('public/assets/admin/img/upload-img.png') }}",
+                    image: "{{ asset('assets/admin/img/upload-img.png') }}",
                     width: '176px'
                 },
                 dropFileLabel: "Drop Here",

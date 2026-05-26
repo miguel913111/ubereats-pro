@@ -64,7 +64,7 @@
                                                     placeholder="{{translate('messages.Search_by_product_name')}}"
                                                     aria-label="{{translate('messages.search_here')}}" disabled>
                                                 <img width="16" height="16"
-                                                    src="{{asset('public/assets/admin/img/icons/search-icon.png')}}" alt=""
+                                                    src="{{asset('assets/admin/img/icons/search-icon.png')}}" alt=""
                                                     class="search-icon">
 
                                             </div>
@@ -90,7 +90,7 @@
                             </div>
                             @if(count($products) === 0)
                                 <div class="search--no-found">
-                                    <img src="{{asset('public/assets/admin/img/search-icon.png')}}" alt="img">
+                                    <img src="{{asset('assets/admin/img/search-icon.png')}}" alt="img">
                                     <p>
                                         {{translate('messages.no_products_on_pos_search')}}
                                     </p>
@@ -307,7 +307,7 @@
 <script
     src="https://maps.googleapis.com/maps/api/js?key={{ \App\Models\BusinessSetting::where('key', 'map_api_key')->first()->value }}&libraries=places,marker&callback=initMap&v=3.61">
     </script>
-<script src="{{asset('public/assets/admin/js/view-pages/pos.js')}}"></script>
+<script src="{{asset('assets/admin/js/view-pages/pos.js')}}"></script>
 
 <script>
     "use strict";

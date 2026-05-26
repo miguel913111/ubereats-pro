@@ -1,7 +1,7 @@
 @extends('layouts.landing.app')
 @section('title', translate('messages.deliveryman_registration'))
 @push('css_or_js')
-<link rel="stylesheet" href="{{asset('public/assets/admin/css/style.css')}}">
+<link rel="stylesheet" href="{{asset('assets/admin/css/style.css')}}">
 @endpush
 @section('content')
 
@@ -220,7 +220,7 @@ $countryCode= strtolower($country?$country->value:'auto');
                                             class="text-danger">* ( {{ translate('messages.ratio') }} 1:1 )</small></label>
                                         <label class="position-relative w-140px">
                                             <img class="__register-img mb-3 image--border h-140px" id="viewer"
-                                                src="{{ asset('public/assets/admin/img/upload-img.png') }}"
+                                                src="{{ asset('assets/admin/img/upload-img.png') }}"
                                                 alt="delivery-man image" />
                                             <div class="icon-file-group">
                                                 <div class="icon-file">
@@ -582,7 +582,7 @@ $countryCode= strtolower($country?$country->value:'auto');
                     this.input.value = '';
                     const viewer = document.getElementById('viewer');
                     if (viewer) {
-                        viewer.src = '{{ asset('public/assets/admin/img/upload-img.png') }}';
+                        viewer.src = '{{ asset('assets/admin/img/upload-img.png') }}';
                     }
                 }
 
@@ -730,7 +730,7 @@ $countryCode= strtolower($country?$country->value:'auto');
 
     </script>
 
-    <script src="{{ asset('public/assets/admin/js/spartan-multi-image-picker.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/spartan-multi-image-picker.js') }}"></script>
     <script type="text/javascript">
         $(function() {
             $("#coba").spartanMultiImagePicker({
@@ -740,7 +740,7 @@ $countryCode= strtolower($country?$country->value:'auto');
                 groupClassName: 'col-lg-2 col-md-4 col-sm-4 col-6',
                 maxFileSize: '{{ MAX_FILE_SIZE * 1024 * 1024 }}',
                 placeholderImage: {
-                    image: '{{ asset('public/assets/admin/img/upload-img.png') }}',
+                    image: '{{ asset('assets/admin/img/upload-img.png') }}',
                     width: '100%',
                 },
                 dropFileLabel: "Drop Here",

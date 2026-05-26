@@ -8,7 +8,7 @@
         <div class="d-flex flex-wrap justify-content-between">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/landing.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/landing.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{ translate('messages.admin_landing_pages') }}
@@ -137,7 +137,7 @@
                                                         class="form-label-secondary" data-toggle="tooltip"
                                                         data-placement="right"
                                                         data-original-title="{{ translate('Write_the_title_within_20_characters') }}">
-                                                        <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                        <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                             alt="">
                                                     </span></label>
                                                 <input id="download_user_app_title" type="text" maxlength="20" name="download_user_app_title[]" value="{{ $download_user_app_title?->getRawOriginal('value') }}" class="form-control" placeholder="{{translate('messages.title_here...')}}">
@@ -147,7 +147,7 @@
                                                         class="form-label-secondary" data-toggle="tooltip"
                                                         data-placement="right"
                                                         data-original-title="{{ translate('Write_the_title_within_50_characters') }}">
-                                                        <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                        <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                             alt="">
                                                     </span></label>
                                                 <input id="download_user_app_sub_title" type="text" maxlength="50" name="download_user_app_sub_title[]" value="{{ $download_user_app_sub_title?->getRawOriginal('value') }}" class="form-control" placeholder="{{translate('messages.sub_title_here...')}}">
@@ -185,7 +185,7 @@
                                                         class="form-label-secondary" data-toggle="tooltip"
                                                         data-placement="right"
                                                         data-original-title="{{ translate('Write_the_title_within_20_characters') }}">
-                                                        <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                        <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                             alt="">
                                                     </span></label>
                                                 <input id="download_user_app_title{{$lang}}" type="text" maxlength="20" name="download_user_app_title[]" value="{{ $download_user_app_title_translate[$lang]['value']??'' }}" class="form-control" placeholder="{{translate('messages.title_here...')}}">
@@ -195,7 +195,7 @@
                                                         class="form-label-secondary" data-toggle="tooltip"
                                                         data-placement="right"
                                                         data-original-title="{{ translate('Write_the_title_within_50_characters') }}">
-                                                        <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                        <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                             alt="">
                                                     </span></label>
                                                 <input id="download_user_app_sub_title{{$lang}}" type="text" maxlength="50" name="download_user_app_sub_title[]" value="{{ $download_user_app_sub_title_translate[$lang]['value']??'' }}" class="form-control" placeholder="{{translate('messages.sub_title_here...')}}">
@@ -212,7 +212,7 @@
                                                         class="form-label-secondary" data-toggle="tooltip"
                                                         data-placement="right"
                                                         data-original-title="{{ translate('Write_the_title_within_20_characters') }}">
-                                                        <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                        <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                             alt="">
                                                     </span></label>
                                                 <input id="download_user_app_title" type="text" maxlength="20" name="download_user_app_title[]" class="form-control" placeholder="{{translate('messages.title_here...')}}">
@@ -222,7 +222,7 @@
                                                         class="form-label-secondary" data-toggle="tooltip"
                                                         data-placement="right"
                                                         data-original-title="{{ translate('Write_the_title_within_50_characters') }}">
-                                                        <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                        <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                             alt="">
                                                     </span></label>
                                                 <input id="download_user_app_sub_title" type="text" maxlength="50" name="download_user_app_sub_title[]" class="form-control" placeholder="{{translate('messages.sub_title_here...')}}">
@@ -265,7 +265,7 @@
                         <div class="row g-3 mt-3">
                             <div class="col-md-6">
                                 <h5 class="card-title mb-2">
-                                    <img src="{{asset('public/assets/admin/img/playstore.png')}}" class="mr-2" alt="">
+                                    <img src="{{asset('assets/admin/img/playstore.png')}}" class="mr-2" alt="">
                                     {{translate('Playstore Button')}}
                                 </h5>
                                 <div class="__bg-F8F9FC-card">
@@ -299,7 +299,7 @@
                             </div>
                             <div class="col-md-6">
                                 <h5 class="card-title mb-2">
-                                    <img src="{{asset('public/assets/admin/img/ios.png')}}" class="mr-2" alt="">
+                                    <img src="{{asset('assets/admin/img/ios.png')}}" class="mr-2" alt="">
                                     {{translate('App Store Button')}}
                                 </h5>
                                 <div class="__bg-F8F9FC-card">

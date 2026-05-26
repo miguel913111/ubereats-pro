@@ -10,7 +10,7 @@
     <div class="page-header">
         <h1 class="page-header-title mr-3">
             <span class="page-header-icon">
-                <img src="{{ asset('public/assets/admin/img/business.png') }}" class="w--26" alt="">
+                <img src="{{ asset('assets/admin/img/business.png') }}" class="w--26" alt="">
             </span>
             <span>
                 {{ translate('messages.business_settings') }}
@@ -29,7 +29,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="info-notes-bg px-3 py-2 rounded fz-11  gap-2 align-items-center d-flex mb-20">
-                            <img src="{{asset('public/assets/admin/img/info-idea.svg')}}" alt="">
+                            <img src="{{asset('assets/admin/img/info-idea.svg')}}" alt="">
                             <span>
                                 {{translate('All order you can show & manage them from')}}
                                 <a href="{{route('admin.order.list', ['status' => 'all'])}}"
@@ -1023,8 +1023,8 @@
 @endpush
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin/js/view-pages/business-settings-order-page.js')}}"></script>
-    <script src="{{asset('public/assets/admin/js/view-pages/offcanvas-edit.js')}}"></script>
+    <script src="{{asset('assets/admin/js/view-pages/business-settings-order-page.js')}}"></script>
+    <script src="{{asset('assets/admin/js/view-pages/offcanvas-edit.js')}}"></script>
 
     <script>
         "use strict";

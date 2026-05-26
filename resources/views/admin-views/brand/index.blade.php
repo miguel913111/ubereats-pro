@@ -12,7 +12,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/category.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/category.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{translate('messages.Brand_Setup')}}
@@ -66,7 +66,7 @@
                                 <td>
                                     <div class="media align-items-center">
                                         <img class="avatar avatar-lg mr-3 onerror-image"
-                                        src="{{$brand['image_full_url'] ?? asset('public/assets/admin/img/160x160/img2.jpg') }}"  alt="{{$brand->name}} image">
+                                        src="{{$brand['image_full_url'] ?? asset('assets/admin/img/160x160/img2.jpg') }}"  alt="{{$brand->name}} image">
                                         <div  class="media-body">
                                             <h5   class="text-hover-primary mb-0">{{Str::limit($brand['name'],20,'...')}}
                                                 @if($brand->module_id == null)
@@ -252,7 +252,7 @@
                                             @if(isset($category))
                                                 src="{{asset('storage/app/public/category')}}/{{$category['image']}}"
                                             @else
-                                                src="{{asset('public/assets/admin/img/upload-img.png')}}"
+                                                src="{{asset('assets/admin/img/upload-img.png')}}"
                                             @endif
                                             alt="image"/>
                                     <div class="icon-file-group">
@@ -362,7 +362,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/brand-index.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/brand-index.js"></script>
     <script>
         "use strict";
         $('.withdraw-info-hide, .withdraw-info-sidebar-overlay, .withdraw-info-hide2').on('click', function () {
@@ -404,7 +404,7 @@
 });
 
         $('#reset_btn').click(function(){
-            $('#viewer').attr('src', "{{asset('public/assets/admin/img/upload-img.png')}}");
+            $('#viewer').attr('src', "{{asset('assets/admin/img/upload-img.png')}}");
         })
     </script>
 @endpush

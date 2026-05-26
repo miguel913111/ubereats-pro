@@ -129,13 +129,13 @@
                             <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                             <a id="export-excel" class="dropdown-item" href="{{route('admin.store.export', ['type'=>'excel',request()->getQueryString()])}}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item" href="{{route('admin.store.export', ['type'=>'csv',request()->getQueryString()])}}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>
@@ -176,9 +176,9 @@
                             <td>
                                 <div>
                                     <a href="{{route('admin.store.view', $store->id)}}" class="table-rest-info" alt="view store">
-                                    <img class="img--60 circle onerror-image" data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}"
+                                    <img class="img--60 circle onerror-image" data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}"
 
-                                            src="{{ $store['logo_full_url'] ?? asset('public/assets/admin/img/160x160/img1.jpg') }}"
+                                            src="{{ $store['logo_full_url'] ?? asset('assets/admin/img/160x160/img1.jpg') }}"
 
                                             >
                                         <div class="info"><div title="{{ $store?->name }}" class="text--title">

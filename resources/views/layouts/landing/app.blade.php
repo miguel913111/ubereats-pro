@@ -25,14 +25,14 @@
     <title>@yield('title')</title>
     @include('layouts.landing._seo')
 
-    <link rel="stylesheet" href="{{ asset('public/assets/landing/css/bootstrap.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('public/assets/landing/css/customize-animate.css') }}" />
-    <link rel="stylesheet" href="{{ asset('public/assets/landing/css/odometer.css') }}" />
-    <link rel="stylesheet" href="{{ asset('public/assets/landing/css/owl.min.css') }}" />
-    <link rel="stylesheet" href="{{ asset('public/assets/admin/css/toastr.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/landing/css/main.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/landing/css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/landing/css/customize-animate.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/landing/css/odometer.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/landing/css/owl.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/toastr.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/landing/css/main.css') }}"/>
 
-    <link rel="stylesheet" href="{{asset('public/assets/admin/intltelinput/css/intlTelInput.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/admin/intltelinput/css/intlTelInput.css')}}">
 
 
     <link rel="icon" type="image/x-icon" href="{{\App\CentralLogics\Helpers::iconFullUrl()}}">
@@ -64,7 +64,7 @@
                 <div class="navbar-bottom-wrapper">
 
                     <a href="{{route('home')}}" class="logo">
-                        <img class="onerror-image"  data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                        <img class="onerror-image"  data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
 
                     src="{{ \App\CentralLogics\Helpers::logoFullUrl()}}"
 
@@ -232,7 +232,7 @@
                     <div class="footer-widget">
                         <div class="footer-logo">
                             <a class="logo">
-                                <img  class="onerror-image"  data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}" src="{{\App\CentralLogics\Helpers::logoFullUrl()}}" alt="image">
+                                <img  class="onerror-image"  data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}" src="{{\App\CentralLogics\Helpers::logoFullUrl()}}" alt="image">
                             </a>
                         </div>
                         <div class="txt">
@@ -244,7 +244,7 @@
                                 @foreach ($social_media as $social)
                                 <li>
                                     <a href="{{ $social->link }}" target="_blank">
-                                        <img src="{{ asset('public/assets/landing/img/footer/'. $social->name.'.svg') }}" alt="">
+                                        <img src="{{ asset('assets/landing/img/footer/'. $social->name.'.svg') }}" alt="">
                                     </a>
                                 </li>
                                 @endforeach
@@ -256,12 +256,12 @@
                         <div class="app-btn-grp">
                             @if (isset($landing_page_links['playstore_url_status']))
                             <a href="{{ isset($landing_page_links['playstore_url']) ? $landing_page_links['playstore_url'] : '' }}">
-                                <img src="{{ asset('public/assets/landing/img/google.svg') }}" alt="">
+                                <img src="{{ asset('assets/landing/img/google.svg') }}" alt="">
                             </a>
                             @endif
                             @if (isset($landing_page_links['apple_store_url_status']))
                             <a href="{{ isset($landing_page_links['apple_store_url']) ? $landing_page_links['apple_store_url'] : '' }}">
-                                <img src="{{ asset('public/assets/landing/img/apple.svg') }}" alt="">
+                                <img src="{{ asset('assets/landing/img/apple.svg') }}" alt="">
                             </a>
                             @endif
                         </div>
@@ -346,15 +346,15 @@
         </div>
     </footer>
     <!-- ======= Footer Section ======= -->
-    <script src="{{ asset('public/assets/landing/js/jquery-3.6.0.min.js') }}"></script>
-    <script src="{{ asset('public/assets/landing/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/assets/landing/js/viewport.jquery.js') }}"></script>
-    <script src="{{ asset('public/assets/landing/js/wow.min.js') }}"></script>
-    <script src="{{ asset('public/assets/landing/js/odometer.min.js') }}"></script>
-    <script src="{{ asset('public/assets/landing/js/owl.min.js') }}"></script>
-    <script src="{{ asset('public/assets/landing/js/main.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/toastr.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/intltelinput/js/intlTelInput.min.js')}}"></script>
+    <script src="{{ asset('assets/landing/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('assets/landing/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/landing/js/viewport.jquery.js') }}"></script>
+    <script src="{{ asset('assets/landing/js/wow.min.js') }}"></script>
+    <script src="{{ asset('assets/landing/js/odometer.min.js') }}"></script>
+    <script src="{{ asset('assets/landing/js/owl.min.js') }}"></script>
+    <script src="{{ asset('assets/landing/js/main.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/toastr.js') }}"></script>
+    <script src="{{ asset('assets/admin/intltelinput/js/intlTelInput.min.js')}}"></script>
     {!! Toastr::message() !!}
     @if ($errors->any())
         <script>
@@ -520,7 +520,7 @@
 
                 const iti = window.intlTelInput(input, {
                     initialCountry: "{{$countryCode}}",
-                    utilsScript: "{{ asset('public/assets/admin/intltelinput/js/utils.js') }}",
+                    utilsScript: "{{ asset('assets/admin/intltelinput/js/utils.js') }}",
                     autoInsertDialCode: true,
                     nationalMode: false,
                     formatOnDisplay: false,

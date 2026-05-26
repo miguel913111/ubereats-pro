@@ -58,7 +58,7 @@
                                     <span class="line--limit-1">
                                         {{translate('Cash On Delivery')}}
                                     </span>
-                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_Customers_will_be_able_to_select_COD_as_a_payment_method_during_checkout')}}"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
+                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_Customers_will_be_able_to_select_COD_as_a_payment_method_during_checkout')}}"><img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
                                 </span>
                                 <input type="hidden" name="toggle_type" value="cash_on_delivery">
                                 <input
@@ -89,7 +89,7 @@
                                     <span class="line--limit-1">
                                         {{translate('digital payment')}}
                                     </span>
-                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_Customers_will_be_able_to_select_digital_payment_as_a_payment_method_during_checkout')}}"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
+                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_Customers_will_be_able_to_select_digital_payment_as_a_payment_method_during_checkout')}}"><img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
                                 </span>
                                 <input type="hidden" name="toggle_type" value="digital_payment">
                                 <input  type="checkbox" id="digital_payment_status"
@@ -119,7 +119,7 @@
                                     <span class="line--limit-1">
                                         {{translate('Offline_Payment')}}
                                     </span>
-                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_Customers_will_be_able_to_select_offline_payment_as_a_payment_method_during_checkout')}}"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
+                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_Customers_will_be_able_to_select_offline_payment_as_a_payment_method_during_checkout')}}"><img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
                                 </span>
                                 <input type="hidden" name="toggle_type" value="offline_payment_status" >
                                 <input  type="checkbox" id="offline_payment_status"
@@ -354,7 +354,7 @@
                     <div class="max-349 mx-auto mb-20">
                         <div>
                             <div class="text-center">
-                                <img width="80" src="{{  asset('public/assets/admin/img/modal/gateway.png') }}" class="mb-20">
+                                <img width="80" src="{{  asset('assets/admin/img/modal/gateway.png') }}" class="mb-20">
                                 <h5 class="modal-title"></h5>
                             </div>
                             <div class="text-center" >
@@ -382,7 +382,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin/js/view-pages/business-settings-payment-page.js')}}"></script>
+    <script src="{{asset('assets/admin/js/view-pages/business-settings-payment-page.js')}}"></script>
     <script>
         "use strict";
 

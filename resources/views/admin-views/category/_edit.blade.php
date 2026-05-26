@@ -148,7 +148,7 @@
                                 <label class="text-center my-auto position-relative d-inline-block">
                                     <img class="img--176 border--dashed rounded viewer_img" id=""
                                          src="{{ $category['image_full_url'] }}"
-                                         data-onerror-image="{{ asset('public/assets/admin/img/upload-img.png') }}"
+                                         data-onerror-image="{{ asset('assets/admin/img/upload-img.png') }}"
                                          alt=""/>
                                     <div class="icon-file-group">
                                         <div class="icon-file">

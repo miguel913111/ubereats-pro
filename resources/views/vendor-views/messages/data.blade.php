@@ -9,7 +9,7 @@
         id="customer-{{$user->id}}">
         <div class="chat-user-info-img d-none d-md-block">
             <img class="avatar-img onerror-image"
-                 data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}"
+                 data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}"
                  src="{{ $user['image_full_url'] }}"
                     alt="Image Description">
         </div>
@@ -28,7 +28,7 @@
 @endforeach
 @else
     <div class="no-conversation-wrapper h-100 w-100 d-flex flex-column justify-content-center align-items-center text-center">
-        <img src="{{asset('public/assets/admin/img/conversation-no-data.svg')}}" 
+        <img src="{{asset('assets/admin/img/conversation-no-data.svg')}}" 
              style="max-width:120px; opacity:.6;" 
              alt="No conversation">
 
@@ -36,4 +36,4 @@
         <p class="text-muted mb-0">{{translate('start chat when customer message')}}</p>
     </div>
 @endif
-<script src="{{asset('public/assets/admin')}}/js/view-pages/common.js"></script>
+<script src="{{asset('assets/admin')}}/js/view-pages/common.js"></script>

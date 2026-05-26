@@ -38,7 +38,7 @@
         @endif
         <label for="{{ $id }}" class="upload-file__wrapper w-100 h-100 m-0 {{ $aspectRatio }}">
             <div class="upload-file-textbox text-center">
-                <img width="27" class="svg" src="{{ asset('public/assets/admin/img/document-upload.svg') }}" alt="img">
+                <img width="27" class="svg" src="{{ asset('assets/admin/img/document-upload.svg') }}" alt="img">
                 <h6 class="mt-1 color-656566 fw-medium fs-10 lh-base text-center">
                     <span class="theme-clr">{{ translate('Add') }}</span>
                     @if ($isRequired)

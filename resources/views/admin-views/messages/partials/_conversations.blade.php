@@ -5,7 +5,7 @@
             <div class="chat-user-info-img">
                 <img class="avatar-img onerror-image"
                 src="{{ $user['image_full_url'] }}"
-                    data-onerror-image="{{asset('public/assets/admin')}}/img/160x160/img1.jpg"
+                    data-onerror-image="{{asset('assets/admin')}}/img/160x160/img1.jpg"
                     alt="Image Description">
             </div>
             <div class="chat-user-info-content">
@@ -177,7 +177,7 @@
     </div>
 </div>
 
-<script src="{{asset('public/assets/admin')}}/js/view-pages/common.js"></script>
+<script src="{{asset('assets/admin')}}/js/view-pages/common.js"></script>
 <!-- Emoji Conv -->
 <script>
     "use strict";
@@ -278,7 +278,7 @@
             groupClassName: 'attc--img border-0',
             maxFileSize: '',
             placeholderImage: {
-                image: '{{ asset('public/assets/admin/img/gallery.png') }}',
+                image: '{{ asset('assets/admin/img/gallery.png') }}',
                 width: '100%'
             },
             dropFileLabel: "Drop Here",

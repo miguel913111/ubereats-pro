@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <!-- Custom styles for this page -->
-    <link href="{{ asset('public/assets/admin/css/croppie.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/croppie.css') }}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -151,14 +151,14 @@
                                     <a id="export-excel" class="dropdown-item"
                                         href="{{ route('admin.item.store-item-export', ['type' => 'excel', 'table' => isset($sub_tab) && ($sub_tab == 'pending-items' || $sub_tab == 'rejected-items') ? 'TempProduct' : null, 'sub_tab' => $sub_tab ?? null, 'store_id' => $store->id, request()->getQueryString()]) }}">
                                         <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                            src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                            src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                             alt="Image Description">
                                         {{ translate('messages.excel') }}
                                     </a>
                                     <a id="export-csv" class="dropdown-item"
                                         href="{{ route('admin.item.store-item-export', ['type' => 'csv', 'table' => isset($sub_tab) && ($sub_tab == 'pending-items' || $sub_tab == 'rejected-items') ? 'TempProduct' : null, 'sub_tab' => $sub_tab ?? null, 'store_id' => $store->id, request()->getQueryString()]) }}">
                                         <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                            src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                            src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                             alt="Image Description">
                                         {{ translate('messages.csv') }}
                                     </a>
@@ -206,8 +206,8 @@
                                                 <a class="media align-items-center"
                                                     href="{{ route('admin.item.requested_item_view', ['id' => $food['id']]) }}">
                                                     <img class="avatar avatar-lg mr-3 onerror-image"
-                                                        src="{{ $food['image_full_url'] ?? asset('public/assets/admin/img/160x160/img2.jpg') }}"
-                                                        data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                                                        src="{{ $food['image_full_url'] ?? asset('assets/admin/img/160x160/img2.jpg') }}"
+                                                        data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                                                         alt="{{ $food->name }} image">
                                                     <div class="media-body">
                                                         <h5 class="text-hover-primary mb-0">
@@ -303,8 +303,8 @@
                                                 <a class="media align-items-center"
                                                     href="{{ route('admin.item.view', [$food['id']]) }}">
                                                     <img class="avatar avatar-lg mr-3 onerror-image"
-                                                        src="{{ $food['image_full_url'] ?? asset('public/assets/admin/img/160x160/img2.jpg') }}"
-                                                        data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                                                        src="{{ $food['image_full_url'] ?? asset('assets/admin/img/160x160/img2.jpg') }}"
+                                                        data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                                                         alt="{{ $food->name }} image">
 
                                                     <div class="media-body">

@@ -12,7 +12,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/banner.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/banner.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('messages.add_new_banner')}}
@@ -127,7 +127,7 @@
                                             <label class="mt-auto mb-0 d-block text-center">{{translate('messages.banner_image')}} <small class="text-danger">* ( {{translate('messages.ratio')}} 3:1 )</small></label>
                                             <div class="text-center py-3 my-auto">
                                                 <img class="img--vertical" id="viewer"
-                                                    src="{{asset('public/assets/admin/img/900x400/img1.jpg')}}" alt="banner image"/>
+                                                    src="{{asset('assets/admin/img/900x400/img1.jpg')}}" alt="banner image"/>
                                             </div>
                                             <div class="custom-file">
                                                 <input type="file" name="image" id="customFileEg1" class="custom-file-input"
@@ -191,7 +191,7 @@
                                     <th class="border-0">{{translate('messages.title')}}</th>
                                     <th class="border-0">{{translate('messages.type')}}</th>
                                     <th class="border-0 text-center">{{translate('messages.featured')}} <span class="input-label-secondary"
-                                        data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If the feature status is turned ON/OFF, the banner will be displayed on the module homepage on the website and in the user app')}}"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}"
+                                        data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If the feature status is turned ON/OFF, the banner will be displayed on the module homepage on the website and in the user app')}}"><img src="{{asset('assets/admin/img/info-circle.svg')}}"
                                             alt="public/img"></span></th>
                                     <th class="border-0 text-center">{{translate('messages.status')}}</th>
                                     <th class="border-0 text-center">{{translate('messages.action')}}</th>
@@ -303,7 +303,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/banner-index.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/banner-index.js"></script>
     <script>
         "use strict";
         var module_id = {{Config::get('module.current_module_id')}};
@@ -408,7 +408,7 @@
         $('#zone').val(null).trigger('change');
         $('#store_id').val(null).trigger('change');
         $('#choice_item').val(null).trigger('change');
-        $('#viewer').attr('src','{{asset('public/assets/admin/img/900x400/img1.jpg')}}');
+        $('#viewer').attr('src','{{asset('assets/admin/img/900x400/img1.jpg')}}');
     })
     </script>
 @endpush

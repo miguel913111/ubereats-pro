@@ -8,7 +8,7 @@
         <div class="d-flex flex-wrap justify-content-between">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/landing.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/landing.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{ translate('messages.react_landing_page') }}
@@ -124,7 +124,7 @@
                                                 accept=".webp, .jpg, .jpeg, .png, .gif" required>
                                         <label class="upload-file__wrapper w-100 h-100 m-0">
                                             <div class="upload-file-textbox text-center" style="">
-                                                <img width="22" class="svg" src="{{asset('public/assets/admin/img/document-upload.svg')}}" alt="img">
+                                                <img width="22" class="svg" src="{{asset('assets/admin/img/document-upload.svg')}}" alt="img">
                                                 <h6 class="mt-1 color-656566 fw-medium fs-10 lh-base text-center">
                                                     <span class="theme-clr">Click to upload</span>
                                                     <br>
@@ -165,7 +165,7 @@
 
     <div class="card shadow-none border-0 bg-opacity-primary-10 mb-20">
         <div class="card-body py-3 d-flex gap-2 align-items-center">
-            <img width="20" src="{{asset('public/assets/admin/img/info-idea.svg')}}" alt="img">            
+            <img width="20" src="{{asset('assets/admin/img/info-idea.svg')}}" alt="img">            
             <p class="fs-12 color-656566 m-0">
                 {{ translate('Our 12 popular partners will be automatically displayed on the Admin Landing Page, based on their popularity') }}
             </p>
@@ -321,7 +321,7 @@
                                     <div class="bg-white rounded p-xxl-4 p-2">
                                         <div class="d-flex mb-20 align-items-center gap-2 flex-wrap justify-content-between">
                                             <h4 class="mb-0">
-                                                <img src="{{asset('public/assets/admin/img/playstore.png')}}" class="mr-2" alt="">
+                                                <img src="{{asset('assets/admin/img/playstore.png')}}" class="mr-2" alt="">
                                                 {{translate('Playstore Button')}}
                                             </h4>
                                             <label class="toggle-switch toggle-switch-sm m-0">
@@ -362,7 +362,7 @@
                                     <div class="bg-white rounded p-xxl-4 p-2">
                                         <div class="d-flex mb-20 align-items-center gap-2 flex-wrap justify-content-between">                                        
                                             <h4 class="m-0">
-                                                <img src="{{asset('public/assets/admin/img/ios.png')}}" class="mr-2" alt="">
+                                                <img src="{{asset('assets/admin/img/ios.png')}}" class="mr-2" alt="">
                                                 {{translate('App Store Button')}}
                                             </h4>
                                             <label class="toggle-switch toggle-switch-sm m-0">

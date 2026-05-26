@@ -8,7 +8,7 @@
     <div class="page-header">
         <h1 class="page-header-title text-break">
             <span class="page-header-icon">
-                <img src="{{asset('public/assets/admin/img/seo-setting.png')}}" class="w--26" alt="">
+                <img src="{{asset('assets/admin/img/seo-setting.png')}}" class="w--26" alt="">
             </span>
             <span>Manage Page SEO</span>
         </h1> 
@@ -76,7 +76,7 @@
                                     <input class="upload-file__input single_file_input" type="file" id="" name="" accept="">
                                     <label for="" class="upload-file__wrapper w-100 h-100 m-0">
                                         <div class="upload-file-textbox text-center">
-                                            <img width="22" class="svg" src="{{ asset('public/assets/admin/img/document-upload.svg') }}" alt="img">
+                                            <img width="22" class="svg" src="{{ asset('assets/admin/img/document-upload.svg') }}" alt="img">
                                             <h6 class="mt-1 fw-medium fs-10 lh-base text-center">
                                                 <span class="theme-clr">{{ translate('Add') }}</span>
                                             </h6>

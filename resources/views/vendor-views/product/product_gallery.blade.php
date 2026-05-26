@@ -16,7 +16,7 @@ $store_data=\App\CentralLogics\Helpers::get_store_data();
             <div class="btn--container align-items-center mb-0">
                 <div class="d-flex gap-2">
                     <img class="h--50px"
-                        src="{{ asset('public/assets/admin/img/group.png') }}" alt="Product_Gallery">
+                        src="{{ asset('assets/admin/img/group.png') }}" alt="Product_Gallery">
                     <div>
                         <h1 class="page-header-title"> {{translate('messages.Product_Gallery')}}<span class="badge badge-soft-dark ml-2" id="itemCount">{{ $items->total() }}</span></h1>
                     <p>{{ translate('search_product_and_use_its_info_to_create_own_product') }}</p>

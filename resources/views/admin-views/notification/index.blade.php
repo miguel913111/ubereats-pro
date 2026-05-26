@@ -195,14 +195,14 @@
                         <a id="export-excel" class="dropdown-item"
                             href="{{ route('admin.notification.export', ['type' => 'excel', request()->getQueryString()]) }}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                 alt="Image Description">
                             {{ translate('messages.excel') }}
                         </a>
                         <a id="export-csv" class="dropdown-item"
                             href="{{ route('admin.notification.export', ['type' => 'csv', request()->getQueryString()]) }}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                 alt="Image Description">
                             {{ translate('messages.csv') }}
                         </a>
@@ -235,7 +235,7 @@
                                     @if ($notification['image'] != null)
                                         <img width="60" height="30" class="w-60px object--cover onerror-image"
                                             src="{{ $notification['image_full_url'] }}"
-                                            data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}">
+                                            data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}">
                                     @else
                                         <label class="badge badge-soft-warning mb-0">{{ translate('No Image') }}</label>
                                     @endif
@@ -461,7 +461,7 @@
                             <div class="text-center mb-3">
                                 <img class="img--vertical rounded aspect-2-1 max-w-300px onerror-image" src=""
                                     id="modal-image"
-                                    data-onerror-image="{{ asset('public/assets/admin/img/900x400/img1.jpg') }}"
+                                    data-onerror-image="{{ asset('assets/admin/img/900x400/img1.jpg') }}"
                                     alt="image" />
                             </div>
                             <div class="card card-body mb-3">
@@ -523,7 +523,7 @@
                 title: '{{ translate('messages.are_you_sure') }}',
                 text: '{{ translate('messages.you want to sent notification to ') }}' + $('#tergat')
                 .val() + '?',
-                imageUrl: '{{ asset('public/assets/admin/img/off-danger.png') }}',
+                imageUrl: '{{ asset('assets/admin/img/off-danger.png') }}',
                 imageWidth: 80,
                 imageHeight: 80,
                 imageAlt: 'Custom icon',

@@ -98,7 +98,7 @@
                                         @if(isset($brand))
                                             src="{{ $brand['image_full_url'] }}"
                                         @else
-                                            src="{{asset('public/assets/admin/img/upload-img.png')}}"
+                                            src="{{asset('assets/admin/img/upload-img.png')}}"
                                         @endif
                                         alt="image"/>
                                 <div class="icon-file-group">

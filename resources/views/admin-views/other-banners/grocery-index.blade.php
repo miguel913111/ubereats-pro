@@ -14,7 +14,7 @@
     <div class="page-header">
         <h1 class="page-header-title">
             <span class="page-header-icon">
-                <img src="{{asset('public/assets/admin/img/3rd-party.png')}}" class="w--26" alt="">
+                <img src="{{asset('assets/admin/img/3rd-party.png')}}" class="w--26" alt="">
             </span>
             <span>
                 {{translate('messages.Other_Promotional_Content_Setup')}}
@@ -30,7 +30,7 @@
                 <div class="card card-body h-100">
                     <input type="text" name="key" value="bottom_section_banner" hidden>
                     <div class="d-flex gap-1 align-items-center mb-4">
-                        <img src="{{asset('public/assets/admin/img/other-banner.png')}}" class="h-85"
+                        <img src="{{asset('assets/admin/img/other-banner.png')}}" class="h-85"
                             alt="">
                         <h3 class="fs-16 mb-0">
                             {{translate('Bottom_Section_Banner')}}
@@ -69,7 +69,7 @@
                     <input type="text" name="key" value="best_reviewed_section_banner" hidden>
                     <div class="d-flex align-items-center justify-content-between gap-3 mb-4">
                         <div class="d-flex gap-1 align-items-center">
-                            <img src="{{asset('public/assets/admin/img/other-banner.png')}}" class="h-85"
+                            <img src="{{asset('assets/admin/img/other-banner.png')}}" class="h-85"
                                 alt="">
                             <h3 class="fs-16 mb-0">
                                 {{translate('Best_Reviewed_Section_Banner')}}
@@ -134,7 +134,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/other-banners.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/other-banners.js"></script>
     <script>
         $('#reset_btn').click(function () {
             $('#viewer').attr('src', '{{asset('/public/assets/admin/img/upload-placeholder.png')}}');

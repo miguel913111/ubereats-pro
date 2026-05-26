@@ -9,7 +9,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/firebase_auth.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/firebase_auth.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('Firebase OTP Verification')}}
@@ -122,7 +122,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="text-center my-5">
-                        <img src="{{ asset('public/assets/admin/img/modal/bell.png') }}">
+                        <img src="{{ asset('assets/admin/img/modal/bell.png') }}">
                     </div>
 
                     <h5 class="modal-title my-3" id="instructionsModalLabel">{{translate('Instructions')}}</h5>

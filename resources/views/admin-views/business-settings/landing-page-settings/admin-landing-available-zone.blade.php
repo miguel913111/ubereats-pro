@@ -8,7 +8,7 @@
         <div class="d-flex flex-wrap justify-content-between">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/landing.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/landing.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{ translate('messages.admin_landing_pages') }}
@@ -100,7 +100,7 @@
                                     <label class="input-label"
                                            for="default_title">{{ translate('messages.title') }}
                                         ({{ translate('messages.Default') }})<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_title_within_50_characters') }}">
-                                                <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                             </span>
                                         <span class="form-label-secondary text-danger"
                                               data-toggle="tooltip" data-placement="right"
@@ -115,7 +115,7 @@
                                 <div class="form-group mb-0">
                                     <label class="input-label"
                                            for="exampleFormControlInput1">{{ translate('messages.short_description') }} ({{ translate('messages.default') }})<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_short_description_within_200_characters') }}">
-                                                <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                             </span></label>
                                     <textarea type="text" name="available_zone_short_description[]" maxlength="200" placeholder="{{translate('messages.short_description')}}" class="form-control min-h-90px ckeditor">{{$available_zone_short_description?->getRawOriginal('value')}}</textarea>
                                 </div>
@@ -149,7 +149,7 @@
                                         <label class="input-label"
                                                for="{{ $lang }}_title">{{ translate('messages.title') }}
                                             ({{ strtoupper($lang) }})<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_title_within_50_characters') }}">
-                                                <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                             </span>
                                         </label>
                                         <input type="text" name="available_zone_title[]" maxlength="50" id="{{ $lang }}_title"
@@ -159,7 +159,7 @@
                                     <div class="form-group mb-0">
                                         <label class="input-label"
                                                for="exampleFormControlInput1">{{ translate('messages.short_description') }} ({{ strtoupper($lang) }})<span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('Write_the_short_description_within_200_characters') }}">
-                                                <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                             </span></label>
                                         <textarea type="text" name="available_zone_short_description[]" maxlength="200" placeholder="{{translate('messages.short_description')}}" class="form-control min-h-90px ckeditor">{{ $available_zone_short_description_translate[$lang]['value']??'' }}</textarea>
                                     </div>
@@ -202,7 +202,7 @@
                             <label class="position-relative d-inline-block">
                                 <img class="img--110 min-height-170px min-width-170px onerror-image image--border"
                                      id="viewer"
-                                     data-onerror-image="{{ asset('public/assets/admin/img/upload.png') }}"
+                                     data-onerror-image="{{ asset('assets/admin/img/upload.png') }}"
                                      src="{{ \App\CentralLogics\Helpers::get_full_url('available_zone_image', $available_zone_image?->value ?? '', $available_zone_image?->storage[0]?->value ?? 'public','upload_image')}}"
                                      alt="logo image">
 

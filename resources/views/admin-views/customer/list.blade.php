@@ -113,13 +113,13 @@
                             <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                             <a id="export-excel" class="dropdown-item" href="{{route('admin.customer.export', ['type'=>'excel',request()->getQueryString()])}}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item" href="{{route('admin.customer.export', ['type'=>'csv',request()->getQueryString()])}}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>
@@ -177,7 +177,7 @@
                                     </td>
                                     <td class="table-column-pl-0">
                                         <div class="d-flex align-items-center gap-2">
-                                            <img class="rounded aspect-1-1 object-cover" width="40" data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}" src="{{ $customer->image_full_url }}" alt="Image Description">
+                                            <img class="rounded aspect-1-1 object-cover" width="40" data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}" src="{{ $customer->image_full_url }}" alt="Image Description">
                                             <a href="{{ route('admin.users.customer.view', [$customer['id']]) }}" class="text--hover max-w-400px min-w-220">
                                                 {{ $customer['f_name'] ?  $customer['f_name'] . ' ' . $customer['l_name'] : translate('messages.Incomplete_Profile') }}
                                             </a>
@@ -256,7 +256,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/customer-list.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/customer-list.js"></script>
     <script>
         "use strict";
 

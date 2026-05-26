@@ -99,9 +99,9 @@ active
                             <td>
                                 <div>
                                     <a href="{{route('admin.store.view', $store->id)}}" class="table-rest-info" alt="view store">
-                                        <img class="img--60 circle onerror-image" data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}"
+                                        <img class="img--60 circle onerror-image" data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}"
 
-                                        src="{{ $store['logo_full_url'] ?? asset('public/assets/admin/img/160x160/img1.jpg') }}" >
+                                        src="{{ $store['logo_full_url'] ?? asset('assets/admin/img/160x160/img1.jpg') }}" >
                                         <div class="info"><div class="text--title">
                                             {{Str::limit($store->name,20,'...')}}
                                             </div>
@@ -150,7 +150,7 @@ active
                                     <a class="btn action-btn btn--primary btn-outline-primary float-right mr-2 swal_fire_alert" data-toggle="tooltip" data-placement="top"
                                        data-original-title="{{ translate('messages.approve') }}"
                                        data-title="{{translate('messages.are_you_sure_?')}}"
-                                       data-image_url="{{ asset('public/assets/admin/img/off-danger.png') }}"
+                                       data-image_url="{{ asset('assets/admin/img/off-danger.png') }}"
                                        data-confirm_button_text="{{ translate('messages.yes') }}"
                                        data-cancel_button_text="{{ translate('messages.No') }}"
                                        data-message="{{translate('messages.you_want_to_approve_the_vendor_joining_request.')}}"

@@ -3,7 +3,7 @@
 @section('title', translate('messages.settings'))
 
 @push('css_or_js')
-<link rel="stylesheet" href="{{asset('public/assets/admin/css/custom.css')}}">
+<link rel="stylesheet" href="{{asset('assets/admin/css/custom.css')}}">
 
 @endpush
 
@@ -15,7 +15,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{ asset('public/assets/admin/img/config.png') }}" class="w--30" alt="">
+                    <img src="{{ asset('assets/admin/img/config.png') }}" class="w--30" alt="">
                 </span>
                 <span>
                     {{ translate('messages.store_setup') }}
@@ -27,7 +27,7 @@
             <div class="card-body py-3">
                 <div class="d-flex flex-row justify-content-between align-items-center">
                     <h4 class="card-title align-items-center d-flex">
-                        <img src="{{ asset('public/assets/admin/img/store.png') }}" class="w--20 mr-1" alt="">
+                        <img src="{{ asset('assets/admin/img/store.png') }}" class="w--20 mr-1" alt="">
                         <span>{{ translate('messages.store_temporarily_closed_title') }}</span>
                     </h4>
                     <label class="switch toggle-switch-lg m-0" for="restaurant-open-status">
@@ -147,7 +147,7 @@
                                             <span data-toggle="tooltip" data-placement="right"
                                                 data-original-title="{{ translate('If this option is on, customers will get free delivery') }}"
                                                 class="input-label-secondary"><img
-                                                    src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                    src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                     alt="i"></span>
                                         </span>
                                         <input type="checkbox" name="free_delivery"
@@ -222,7 +222,7 @@
                                             <span data-toggle="tooltip" data-placement="right"
                                                 data-original-title="{{ translate('If_enabled,_customers_can_see_halal_tag_on_product') }}"
                                                 class="input-label-secondary"><img
-                                                    src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                    src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                     alt="i"></span>
 
                                         </span>
@@ -443,7 +443,7 @@
             <div class="card-header">
                 <h5 class="card-title">
                     <span class="card-header-icon">
-                        <img class="w--22" src="{{ asset('public/assets/admin/img/store.png') }}" alt="">
+                        <img class="w--22" src="{{ asset('assets/admin/img/store.png') }}" alt="">
                     </span>
                     <span class="p-md-1"> {{ translate('messages.store_meta_data') }}</span>
                 </h5>

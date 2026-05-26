@@ -9,7 +9,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/parcel.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/parcel.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('messages.parcel_category')}}
@@ -102,7 +102,7 @@
                             </label>
                             <div class="text-center py-3 my-auto">
                                 <img class="img--120" id="viewer"
-                                    src="{{asset('public/assets/admin/img/900x400/img1.jpg')}}"
+                                    src="{{asset('assets/admin/img/900x400/img1.jpg')}}"
                                     alt="image"/>
                             </div>
                             <div class="custom-file">
@@ -327,7 +327,7 @@
 
         $('#reset_btn').click(function(){
             $('#module_id').val(null).trigger('change');
-            $('#viewer').attr('src', "{{asset('public/assets/admin/img/900x400/img1.jpg')}}");
+            $('#viewer').attr('src', "{{asset('assets/admin/img/900x400/img1.jpg')}}");
         })
     </script>
 @endpush

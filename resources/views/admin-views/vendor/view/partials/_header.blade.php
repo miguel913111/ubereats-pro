@@ -4,7 +4,7 @@
             <div>
                 <h1 class="page-header-title text-break fs-24 m-0">
                     <span class="page-header-icon">
-                        <img src="{{ asset('public/assets/admin/img/store-new.png') }}" class="w--26" alt="">
+                        <img src="{{ asset('assets/admin/img/store-new.png') }}" class="w--26" alt="">
                     </span>
                     <span>{{ $store->name }}</span>
                 </h1>
@@ -24,7 +24,7 @@
                     <a class="btn btn--primary border-0 m-0 text-capitalize font-weight-bold float-right swal_fire_alert"
                         data-url="{{ route('admin.store.application', [$store['id'], 1]) }}"
                          data-title="{{translate('messages.are_you_sure_?')}}"
-                                       data-image_url="{{ asset('public/assets/admin/img/off-danger.png') }}"
+                                       data-image_url="{{ asset('assets/admin/img/off-danger.png') }}"
                                        data-confirm_button_text="{{ translate('messages.yes') }}"
                                        data-cancel_button_text="{{ translate('messages.No') }}"
                                        data-message="{{translate('messages.you_want_to_approve_the_vendor_joining_request.')}}"
@@ -128,7 +128,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="text-center">
-                        <img src="{{ asset('public/assets/admin/img/delete-confirmation.png') }}" alt="icon"
+                        <img src="{{ asset('assets/admin/img/delete-confirmation.png') }}" alt="icon"
                             class="mb-3">
                         <h3 class="mb-2">{{ translate('messages.Are_you_sure_?') }}</h3>
                         <p class="mb-0">{{ translate('You want to deny this joining application?') }}</p>

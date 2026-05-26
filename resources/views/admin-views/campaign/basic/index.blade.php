@@ -12,7 +12,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/campaign.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/campaign.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('messages.Add new campaign')}}
@@ -111,7 +111,7 @@
                                                 <label class="upload-file__wrapper w-100 h-100 m-0">
                                                     <div class="upload-file-textbox text-center">
                                                         <img width="22" class="svg"
-                                                             src="{{asset('public/assets/admin/img/document-upload.svg')}}"
+                                                             src="{{asset('assets/admin/img/document-upload.svg')}}"
                                                              alt="img">
                                                         <h6 class="mt-1 color-656566 fw-medium fs-10 lh-base text-center">
                                                             <span class="theme-clr">Add Image</span>
@@ -197,7 +197,7 @@
                                         </label>
                                         <div class="text-center py-3 my-auto">
                                             <img class="initial--4" id="viewer"
-                                                 src="{{asset('public/assets/admin/img/900x400/img1.jpg')}}" alt="campaign image"/>
+                                                 src="{{asset('assets/admin/img/900x400/img1.jpg')}}" alt="campaign image"/>
                                         </div>
                                         <div class="custom-file">
                                             <input type="file" name="image" id="customFileEg1" class="custom-file-input"
@@ -221,7 +221,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/basic-campaign-index.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/basic-campaign-index.js"></script>
     <script>
     "use strict";
         $('#campaign-form').on('submit', function (e) {
@@ -267,7 +267,7 @@
 
         $('#reset_btn').click(function(){
             $('#module_id').val(null).trigger('change');
-            $('#viewer').attr('src','{{asset('public/assets/admin/img/900x400/img1.jpg')}}');
+            $('#viewer').attr('src','{{asset('assets/admin/img/900x400/img1.jpg')}}');
         })
     </script>
 @endpush

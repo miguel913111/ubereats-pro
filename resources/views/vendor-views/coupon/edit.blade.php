@@ -200,6 +200,6 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin/js/view-pages/vendor-coupon.js')}}"></script>
+    <script src="{{asset('assets/admin/js/view-pages/vendor-coupon.js')}}"></script>
 
 @endpush

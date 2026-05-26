@@ -9,7 +9,7 @@
         <div class="page-header mb-15 mt-2">
             <h1 class="page-header-title mb-0 fs-24 text-break">
                 <!-- <span class="page-header-icon">
-                    <img src="{{ asset('public/assets/admin/img/delivery-man.png') }}" class="w--26" alt="">
+                    <img src="{{ asset('assets/admin/img/delivery-man.png') }}" class="w--26" alt="">
                 </span> -->
                 <span>{{ translate('messages.add_new_deliveryman') }}</span>
             </h1>
@@ -371,7 +371,7 @@
 
 @push('script_2')
 
-    <script src="{{ asset('public/assets/admin/js/spartan-multi-image-picker.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/spartan-multi-image-picker.js') }}"></script>
     <script>
         "use strict";
 
@@ -384,7 +384,7 @@
                 groupClassName: 'spartan_item_wrapper size--md',
                 maxFileSize: {{ MAX_FILE_SIZE }} * 1024 * 1024,
                 placeholderImage: {
-                    image: '{{ asset('public/assets/admin/img/400x400/coba-placeholder.png') }}',
+                    image: '{{ asset('assets/admin/img/400x400/coba-placeholder.png') }}',
                     width: '100%'
                 },
                 dropFileLabel: "Drop Here",
@@ -414,7 +414,7 @@
         });
 
         $('#reset_btn').click(function() {
-            $('#viewer').attr('src', '{{ asset('public/assets/admin/img/400x400/img2.jpg') }}');
+            $('#viewer').attr('src', '{{ asset('assets/admin/img/400x400/img2.jpg') }}');
             $("#coba").empty().spartanMultiImagePicker({
                 fieldName: 'identity_image[]',
                 maxCount: 5,
@@ -422,7 +422,7 @@
                 groupClassName: 'col-6 spartan_item_wrapper size--md',
                 maxFileSize: '',
                 placeholderImage: {
-                    image: '{{ asset('public/assets/admin/img/400x400/img2.jpg') }}',
+                    image: '{{ asset('assets/admin/img/400x400/img2.jpg') }}',
                     width: '100%'
                 },
                 dropFileLabel: "Drop Here",

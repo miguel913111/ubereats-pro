@@ -140,7 +140,7 @@
                                         data-key="{{ $key }}"
                                         data-env-mode="{{ env('APP_MODE') }}"
                                         href="{{( ($key == 0 ||  $key == 1 ) && env('APP_MODE') == 'demo') ? 'javascript:' :route('admin.business-settings.language.translate',[$data['code']]) }}">
-                                        <img width="14" height="14" class="svg" src="{{asset('public/assets/admin/img/svg/language-exchange.svg')}}" alt="public">
+                                        <img width="14" height="14" class="svg" src="{{asset('assets/admin/img/svg/language-exchange.svg')}}" alt="public">
                                         <span class="fs-12">{{ translate('messages.View') }}</span>
 
                                     </a>
@@ -262,7 +262,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
                 <div class="mb-3">
-                    <img src="{{asset('public/assets/admin/img/modal/delete.png')}}" alt="delete" class="w-12">
+                    <img src="{{asset('assets/admin/img/modal/delete.png')}}" alt="delete" class="w-12">
                 </div>
                 <h4 class="modal-title mb-2">{{translate('Want to delete this Language')}}?</h4>
                 <p class="mb-4">{{translate('Deleting a language will remove all associated content. This action cannot be undone.')}}</p>

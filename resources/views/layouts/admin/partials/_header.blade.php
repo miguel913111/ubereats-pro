@@ -257,7 +257,7 @@
                                                 <div class="img w--70px ">
                                                     <img src="{{ $module?->icon_full_url }}"
 
-                                                         data-onerror-image="{{asset('public/assets/admin/img/new-img/module/e-shop.svg')}}"
+                                                         data-onerror-image="{{asset('assets/admin/img/new-img/module/e-shop.svg')}}"
                                                          alt="new-img" class="mw-100 onerror-image">
                                                 </div>
                                                 <div>
@@ -325,7 +325,7 @@
 
 <div class="toggle-tour">
     <button type="button" class="tour-guide_btn w-40px h-40px border-0 bg-white d-flex align-items-center justify-content-center ">
-        <span class="w-32 h-32px  min-w-32 d-flex align-items-center justify-content-center  bg-primary rounded-8"><img src="{{ asset('public/assets/admin/img/solar_multiple-forward-right-line-duotone.svg') }}" alt=""></span>
+        <span class="w-32 h-32px  min-w-32 d-flex align-items-center justify-content-center  bg-primary rounded-8"><img src="{{ asset('assets/admin/img/solar_multiple-forward-right-line-duotone.svg') }}" alt=""></span>
     </button>
     <div class="d-flex flex-column">
  

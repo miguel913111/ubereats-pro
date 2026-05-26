@@ -27,7 +27,7 @@
                                         <label class="upload-file__wrapper border-0 bg-white w-100 h-100 m-0">
                                             <div class="upload-file-textbox text-center">
                                                 <img width="22" class="svg"
-                                                        src="{{asset('public/assets/admin/img/document-upload.svg')}}"
+                                                        src="{{asset('assets/admin/img/document-upload.svg')}}"
                                                         alt="img">
 
                                             </div>
@@ -133,14 +133,14 @@
                                 {{ route('admin.campaign.basic_campaign_store_export', [ 'id' => $campaign->id ,'type' => 'excel', request()->getQueryString()]) }}
                                 ">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item" href="
                             {{ route('admin.campaign.basic_campaign_store_export', [ 'id' => $campaign->id ,'type' => 'csv', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>
@@ -309,7 +309,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="text-center">
-                                                                        <img src="{{asset('public/assets/admin/img/delete.png')}}" alt="icon" class="mb-20">
+                                                                        <img src="{{asset('assets/admin/img/delete.png')}}" alt="icon" class="mb-20">
                                                                         <h3 class="mb-2 fs-18">{{ translate('Want to delete this Campaign?') }}</h3>
                                                                         @if ( $campaign->stores_count > 0)
                                                                         <p class="mb-2 px-3 text-wrap">{{ translate('This campaign is already running, and ') }} {{ $campaign->stores_count }} {{ translate('of your stores have joined. If you delete it, those stores will be removed from the campaign.') }}</p>

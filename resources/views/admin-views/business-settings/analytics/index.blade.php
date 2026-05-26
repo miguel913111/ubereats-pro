@@ -93,8 +93,8 @@
                                             <label class="toggle-switch toggle-switch-sm mb-0">
                                                 <input type="checkbox" data-id="{{ $tool['key'] }}-status"
                                                     data-type="toggle"
-                                                    data-image-on="{{ asset('public/assets/admin/img/svg/' . $tool['icon']) }}"
-                                                    data-image-off="{{ asset('public/assets/admin/img/svg/' . $tool['icon']) }}"
+                                                    data-image-on="{{ asset('assets/admin/img/svg/' . $tool['icon']) }}"
+                                                    data-image-off="{{ asset('assets/admin/img/svg/' . $tool['icon']) }}"
                                                     data-title-on="<strong>{{ translate('turn_on_' . $tool['key']) }}?</strong>"
                                                     data-title-off="<strong>{{ translate('turn_off_' . $tool['key']) }}?</strong>"
                                                     data-text-on="<p>{{ translate('are_you_sure_to_turn_on_the_' . $tool['key']) }}? {{ translate('enable_this_option_to_make_the_marketing_tool_available_for_website_utilization.') }}</p>"

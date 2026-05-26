@@ -8,7 +8,7 @@
     <div class="page-header">
         <h1 class="page-header-title text-break">
             <span class="page-header-icon">
-                <img src="{{asset('public/assets/admin/img/seo-setting.png')}}" class="w--26" alt="">
+                <img src="{{asset('assets/admin/img/seo-setting.png')}}" class="w--26" alt="">
             </span>
             <span>{{ translate('Manage Page SEO') }}</span>
         </h1> 
@@ -70,7 +70,7 @@
                         <tr>
                             <td colspan="3">
                                 <div class="empty--data">
-                                    <img src="{{asset('public/assets/admin/img/modal/pending-order-off.png')}}" alt="public">
+                                    <img src="{{asset('assets/admin/img/modal/pending-order-off.png')}}" alt="public">
                                     <h5>
                                         {{translate('no_data_found')}}
                                     </h5>
@@ -81,7 +81,7 @@
                         <tr class="empty-data-row" style="display: none;">
                             <td colspan="3">
                                 <div class="empty--data">
-                                    <img src="{{asset('public/assets/admin/img/modal/pending-order-off.png')}}" alt="public">
+                                    <img src="{{asset('assets/admin/img/modal/pending-order-off.png')}}" alt="public">
                                     <h5>
                                         {{translate('no_data_found')}}
                                     </h5>

@@ -8,7 +8,7 @@
     <div class="page-header">
         <h1 class="page-header-title text-break">
             <span class="page-header-icon">
-                <img src="{{asset('public/assets/admin/img/delivery-man.png')}}" class="w--26" alt="">
+                <img src="{{asset('assets/admin/img/delivery-man.png')}}" class="w--26" alt="">
             </span>
             <span>Deliveryman Preview</span>
         </h1>
@@ -53,7 +53,7 @@
                     <div class="card_earning-box theme-bg-opacity10 rounded-10 h-100">
                         <div class="box d-flex align-items-center">
                             <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                <img src="{{asset('public/assets/admin/img/t-earning.png')}}" class="w--26" alt="">
+                                <img src="{{asset('assets/admin/img/t-earning.png')}}" class="w--26" alt="">
                             </div>
                             <div>
                                 <h3 class="text-006AB4 mb-1 fs-26">{{ translate('messages.1,000') }}</h3>
@@ -66,7 +66,7 @@
                     <div class="card_earning-box card--bg-3 rounded-10 h-100">
                         <div class="box d-flex align-items-center">
                             <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                <img src="{{asset('public/assets/admin/img/t-points.png')}}" class="w--26" alt="">
+                                <img src="{{asset('assets/admin/img/t-points.png')}}" class="w--26" alt="">
                             </div>
                             <div>
                                 <h3 class="text-00AA6D mb-1 fs-26">{{ translate('messages.2,000') }}</h3>
@@ -79,7 +79,7 @@
                     <div class="card_earning-box color-card color-4 rounded-10 h-100">
                         <div class="box d-flex align-items-center">
                             <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                <img src="{{asset('public/assets/admin/img/Create_Cashback_Offer.png')}}" class="w--26" alt="">
+                                <img src="{{asset('assets/admin/img/Create_Cashback_Offer.png')}}" class="w--26" alt="">
                             </div>
                             <div>
                                 <h3 class="title mb-1 fs-26">{{ translate('messages.200') }}</h3>
@@ -123,13 +123,13 @@
                     <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                     <a id="export-excel" class="dropdown-item" href="">
                         <img class="avatar avatar-xss avatar-4by3 mr-2"
-                            src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                            src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                             alt="Image Description">
                         {{ translate('messages.excel') }}
                     </a>
                     <a id="export-csv" class="dropdown-item" href="">
                         <img class="avatar avatar-xss avatar-4by3 mr-2"
-                            src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                            src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                             alt="Image Description">
                         {{ translate('messages.csv') }}
                     </a>

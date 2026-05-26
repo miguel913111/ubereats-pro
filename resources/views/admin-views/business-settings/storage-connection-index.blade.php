@@ -9,7 +9,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/captcha.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/captcha.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('messages.storage_connection_credentials_setup')}}
@@ -36,7 +36,7 @@
                                     <span class="line--limit-1">
                                         {{translate('Local Storage')}}
                                     </span>
-                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_System_will_store_all_files_and_images_to_local_storage')}}"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
+                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_System_will_store_all_files_and_images_to_local_storage')}}"><img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
                                 </span>
                                 <input type="hidden" name="toggle_type" value="local_storage">
                                 <input
@@ -67,7 +67,7 @@
                                     <span class="line--limit-1">
                                         {{translate('3rd Party Storage')}}
                                     </span>
-                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_System_will_store_all_files_and_images_to_3rd_party_storage')}}"><img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
+                                    <span class="form-label-secondary text-danger d-flex" data-toggle="tooltip" data-placement="right" data-original-title="{{translate('If_enabled_System_will_store_all_files_and_images_to_3rd_party_storage')}}"><img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="Veg/non-veg toggle"> * </span>
                                 </span>
                                 <input type="hidden" name="toggle_type" value="3rd_party_storage">
                                 <input

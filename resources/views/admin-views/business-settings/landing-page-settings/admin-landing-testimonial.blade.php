@@ -8,7 +8,7 @@
         <div class="d-flex flex-wrap justify-content-between">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/landing.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/landing.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{ translate('messages.admin_landing_pages') }}
@@ -61,7 +61,7 @@
                                         class="form-label-secondary" data-toggle="tooltip"
                                         data-placement="right"
                                         data-original-title="{{ translate('Write_the_title_within_40_characters') }}">
-                                        <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                        <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                             alt="">
                                     </span>
                                         <span class="form-label-secondary text-danger"
@@ -91,7 +91,7 @@
                                                 class="form-label-secondary" data-toggle="tooltip"
                                                 data-placement="right"
                                                 data-original-title="{{ translate('Write_the_title_within_40_characters') }}">
-                                                <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                                <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                     alt="">
                                             </span></label>
                                         <input id="testimonial_title{{$lang}}" type="text" maxlength="40" name="testimonial_title[]" class="form-control" value="{{ $testimonial_title_translate[$lang]['value']?? '' }}" placeholder="{{translate('messages.title_here...')}}">
@@ -106,7 +106,7 @@
                                             class="form-label-secondary" data-toggle="tooltip"
                                             data-placement="right"
                                             data-original-title="{{ translate('Write_the_title_within_40_characters') }}">
-                                            <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                            <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                 alt="">
                                         </span></label>
                                     <input type="text" id="testimonial_title" maxlength="40" name="testimonial_title[]" class="form-control" placeholder="{{translate('messages.title_here...')}}">
@@ -155,7 +155,7 @@
                                             class="form-label-secondary" data-toggle="tooltip"
                                             data-placement="right"
                                             data-original-title="{{ translate('Write_the_title_within_250_characters') }}">
-                                            <img src="{{ asset('public/assets/admin/img/info-circle.svg') }}"
+                                            <img src="{{ asset('assets/admin/img/info-circle.svg') }}"
                                                 alt="">
                                         </span>
                                             <span class="form-label-secondary text-danger"

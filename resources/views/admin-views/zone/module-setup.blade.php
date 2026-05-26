@@ -35,7 +35,7 @@
                                 @if (data_get($cash_on_delivery, 'status') != 1 && data_get($digital_payment, 'status') != 1 && $offline_payment != 1)
                                     <div
                                         class="danger-notes-bg px-2 py-2 rounded fz-11  gap-2 align-items-center d-flex ">
-                                        <img src="{{ asset('public/assets/admin/img/Icon.svg') }}" alt="">
+                                        <img src="{{ asset('assets/admin/img/Icon.svg') }}" alt="">
                                         <img src="{{asset('/public/assets/admin/svg/illustrations/sorry.svg')}}" alt="">
                                         <span>
                                             {{ translate('Must enable at least one payment method from your 3rd party payment settings.') }}
@@ -43,7 +43,7 @@
                                     </div>
                                 @else
                                     <div class="bg--4 px-2 py-2 rounded fz-11  gap-2 align-items-center d-flex ">
-                                        <img src="{{ asset('public/assets/admin/img/Icon.svg') }}" alt="">
+                                        <img src="{{ asset('assets/admin/img/Icon.svg') }}" alt="">
 
                                         <span>
                                             {{ translate('Must select at least one payment method.') }}
@@ -363,7 +363,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{ asset('public/assets/admin') }}/js/tags-input.min.js"></script>
+    <script src="{{ asset('assets/admin') }}/js/tags-input.min.js"></script>
     <script>
         "use strict";
 

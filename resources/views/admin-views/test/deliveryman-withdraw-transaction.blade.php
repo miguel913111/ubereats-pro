@@ -5,14 +5,14 @@
 @push('css_or_js')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<script type="text/javascript" src="{{asset('public/assets/admin/js/moment.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('public/assets/admin/js/daterangepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/daterangepicker.min.js')}}"></script>
 @endpush
 
 @section('content')
 <div class="content container-fluid">
     <div class="d-flex align-items-center mb-20 gap-2">
-        <img width="22" height="22" src="{{ asset('public/assets/admin/img/d-withdraw.png') }}"
+        <img width="22" height="22" src="{{ asset('assets/admin/img/d-withdraw.png') }}"
             alt="cencellation-icon">
         <h2 class="mb-0 fs-24 lh-base">Deliveryman Withdraw Transaction</h2>
     </div>
@@ -46,13 +46,13 @@
                         <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                         <a id="export-excel" class="dropdown-item" href="{{route('admin.business-settings.module.export', ['type'=>'excel',request()->getQueryString()])}}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                 alt="Image Description">
                             {{ translate('messages.excel') }}
                         </a>
                         <a id="export-csv" class="dropdown-item" href="{{route('admin.business-settings.module.export', ['type'=>'csv',request()->getQueryString()])}}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                 alt="Image Description">
                             {{ translate('messages.csv') }}
                         </a>
@@ -100,7 +100,7 @@
                         <td class="px-3 py-4">
                             <div>
                                 <a href="javascript:void(0)" class="d-flex align-items-center gap-2">
-                                    <img width="40" height="40" src="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}" alt="img" class="w-40px h-40px rounded-circle">
+                                    <img width="40" height="40" src="{{ asset('assets/admin/img/160x160/img1.jpg') }}" alt="img" class="w-40px h-40px rounded-circle">
                                     <div class="info">
                                         <div class="text-title fs-14">
                                             Steven Paull
@@ -142,7 +142,7 @@
                         <td class="px-3 py-4">
                             <div>
                                 <a href="javascript:void(0)" class="d-flex align-items-center gap-2">
-                                    <img width="40" height="40" src="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}" alt="img" class="w-40px h-40px rounded-circle">
+                                    <img width="40" height="40" src="{{ asset('assets/admin/img/160x160/img1.jpg') }}" alt="img" class="w-40px h-40px rounded-circle">
                                     <div class="info">
                                         <div class="text-title fs-14">
                                             Steven Paull
@@ -184,7 +184,7 @@
                         <td class="px-3 py-4">
                             <div>
                                 <a href="javascript:void(0)" class="d-flex align-items-center gap-2">
-                                    <img width="40" height="40" src="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}" alt="img" class="w-40px h-40px rounded-circle">
+                                    <img width="40" height="40" src="{{ asset('assets/admin/img/160x160/img1.jpg') }}" alt="img" class="w-40px h-40px rounded-circle">
                                     <div class="info">
                                         <div class="text-title fs-14">
                                             Steven Paull
@@ -328,7 +328,7 @@
             </div>
             <div class="modal-body">
                 <div class="text-center max-w-320 mx-auto">
-                    <img src="{{asset('public/assets/admin/img/feature-status-on.png')}}" alt="icon" class="mb-3">
+                    <img src="{{asset('assets/admin/img/feature-status-on.png')}}" alt="icon" class="mb-3">
                     <h3 class="mb-2 px-xl-4">Turn ON Google Analytics</h3>
                     <p class="mb-0 fs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam odio tellus,
                         laoreet </p>

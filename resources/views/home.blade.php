@@ -9,7 +9,7 @@
         <div class="container">
             <div class="banner-content wow fadeInUp">
                 <h1 class="title">{{ $landing_data['fixed_header_title'] }}</h1>
-                <img class="w-100 onerror-image" data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                <img class="w-100 onerror-image" data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                     src="{{ \App\CentralLogics\Helpers::logoFullUrl()}}"
                     alt="">
                 <div class="text">
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="px-xl-5 d-flex justify-content-center text-base banner-svg-img">
-            <img src="{{asset('public/assets/landing/img/main-banner.svg')}}" class="svg" alt="">
+            <img src="{{asset('assets/landing/img/main-banner.svg')}}" class="svg" alt="">
         </div>
     </section>
     <!-- ==== Banner Section Ends Here ==== -->
@@ -41,8 +41,8 @@
                         @foreach ($modules as $key => $item)
                             <div class="item">
                                 <img class="__img-50 onerror-image"
-                                    data-onerror-image="{{ asset('public/assets/admin/img/100x100/2.png') }}"
-                                    src="{{ $item['icon_full_url'] ?? asset('public/assets/admin/img/100x100/2.png') }}"
+                                    data-onerror-image="{{ asset('assets/admin/img/100x100/2.png') }}"
+                                    src="{{ $item['icon_full_url'] ?? asset('assets/admin/img/100x100/2.png') }}"
                                     alt="image">
                                 <div class="txt d-block">{{ translate("messages.{$item->module_name}") }}</div>
                             </div>
@@ -62,9 +62,9 @@
                         </div>
                         <div class="col-lg-6 col-md-8">
                             <div class="venture-img mx-1">
-                                <img src="{{ $item['thumbnail_full_url'] ?? asset('public/assets/admin/img/100x100/2.png') }}"
+                                <img src="{{ $item['thumbnail_full_url'] ?? asset('assets/admin/img/100x100/2.png') }}"
                                     class="img-fluid onerror-image w-100 mw-450"
-                                    data-onerror-image="{{ asset('public/assets/admin/img/100x100/2.png') }}"
+                                    data-onerror-image="{{ asset('assets/admin/img/100x100/2.png') }}"
                                     alt="image">
                             </div>
                         </div>
@@ -100,7 +100,7 @@
 
     <!-- ==== Learn Feature Section Starts Here ==== -->
     <section class="learn-feature-section"
-        style="background: url({{ asset('public/assets/landing/img/learn-feature-bg.svg') }}) no-repeat center center / cover">
+        style="background: url({{ asset('assets/landing/img/learn-feature-bg.svg') }}) no-repeat center center / cover">
         <div class="container position-relative">
             <div class="row gy-5 gx-0 gx-xl-4 align-items-center">
                 <div class=" col-lg-6 pe-lg-5">
@@ -1708,7 +1708,7 @@
                                 <div class="feature-card-icon">
                                     <img src="{{ $item['image_full_url'] }}" alt="{{ $item['title'] }}"
                                         class="onerror-image"
-                                        data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}">
+                                        data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}">
                                 </div>
                                 <div class="feature-card-cont">
                                     <h4 class="subtitle">
@@ -1957,7 +1957,7 @@
 
                         <div class="right-side d-flex word-nowrap align-items-center">
                             <img class="onerror-image"
-                                data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                                data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                                 src="{{\App\CentralLogics\Helpers::iconFullUrl() }}"
                                 alt="image">
                             {{ translate('messages.Still increasing') }}

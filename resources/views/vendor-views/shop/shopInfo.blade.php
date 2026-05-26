@@ -28,7 +28,7 @@
             @if($shop->cover_photo)
             <div>
                 <img class="my-restaurant-img onerror-image" src="{{ $shop->cover_photo_full_url }}"
-                data-onerror-image="{{asset('public/assets/admin/img/900x400/img1.jpg')}}">
+                data-onerror-image="{{asset('assets/admin/img/900x400/img1.jpg')}}">
             </div>
             @endif
             <div class="my-resturant--card">
@@ -36,13 +36,13 @@
                 @if($shop->image=='def.png')
                 <div class="my-resturant--avatar">
                     <img class="border onerror-image"
-                    src="{{asset('public/assets/back-end')}}/img/shop.png"
-                    data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}" alt="User Pic">
+                    src="{{asset('assets/back-end')}}/img/shop.png"
+                    data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}" alt="User Pic">
                 </div>
                 @else
                     <div class="my-resturant--avatar onerror-image">
                         <img src="{{ $shop->logo_full_url }}"
-                        class="border" data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}" alt="">
+                        class="border" data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}" alt="">
                     </div>
                 @endif
 

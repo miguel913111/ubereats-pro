@@ -4,7 +4,7 @@
 
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{asset('public/assets/admin/css/tags-input.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/tags-input.min.css')}}" rel="stylesheet">
 @endpush
 
 @section('content')
@@ -13,7 +13,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/campaign.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/campaign.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('messages.add_new_campaign')}}
@@ -132,7 +132,7 @@
 
                                 <div id="image-viewer-section" class="text-center py-3 my-auto">
                                     <img class="img--120" id="viewer"
-                                            src="{{asset('public/assets/admin/img/100x100/2.png')}}" alt="banner image"/>
+                                            src="{{asset('assets/admin/img/100x100/2.png')}}" alt="banner image"/>
                                 </div>
                                 <div class="custom-file">
                                     <input type="file" name="image" id="customFileEg1" class="custom-file-input"
@@ -476,7 +476,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/tags-input.min.js"></script>
+    <script src="{{asset('assets/admin')}}/js/tags-input.min.js"></script>
     <script>
         "use strict";
         $(document).ready(function(){

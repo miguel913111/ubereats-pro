@@ -8,7 +8,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/condition.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/condition.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('messages.flash_sale_setup')}}
@@ -75,7 +75,7 @@
                                                 <label class="input-label"
                                                     for="default_title">{{ translate('messages.discount_Bearer') }}
                                                     <span class="form-label-secondary" data-toggle="tooltip" data-placement="right" data-original-title="{{ translate('messages.Define_the_cost_amount_you_want_to_bear_for_this_Flash_Sale.The_total_bear_amount_should_be_100.') }}">
-                                                        <img src="{{asset('public/assets/admin/img/info-circle.svg')}}" alt="">
+                                                        <img src="{{asset('assets/admin/img/info-circle.svg')}}" alt="">
                                                     </span>
                                                 </label>
                                             </div>
@@ -254,5 +254,5 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/flash-sale-index.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/flash-sale-index.js"></script>
 @endpush

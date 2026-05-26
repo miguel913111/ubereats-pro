@@ -114,8 +114,8 @@
                                     <input type="checkbox" class="toggle-switch-input dynamic-checkbox"
                                             data-id="status-{{$surge['id']}}"
                                             data-type="status"
-                                            data-image-on='{{ asset('public/assets/admin/img/status-ons.png') }}'
-                                            data-image-off="{{ asset('public/assets/admin/img/status-ons.png') }}"
+                                            data-image-on='{{ asset('assets/admin/img/status-ons.png') }}'
+                                            data-image-off="{{ asset('assets/admin/img/status-ons.png') }}"
                                             data-title-on="{{translate('Turn_On_The_Status?')}}"
                                             data-title-off="{{translate('Turn_Off_The_Status?')}}"
                                             data-text-on="<p>{{translate('Are_you_sure,_do_you_want_to_turn_on_the_Surge_Price_status_from_your_system.')}}</p>"
@@ -171,7 +171,7 @@
                     <td colspan="">
                         <div class="bg-light rounded table-column p-5 text-center">
                             <div class="pt-5">
-                                <img class="mb-20" src="{{asset('public/assets/admin/img/price-emty.png')}}" alt="status">
+                                <img class="mb-20" src="{{asset('assets/admin/img/price-emty.png')}}" alt="status">
                                 <h4 class="mb-3">{{ translate('Currently you don’t have any Surge Price') }}</h4>
                                 <p class="mb-20 fs-12 mx-auto max-w-400px">{{ translate('To enable surge pricing, you must create at least one Surge Price. In this page you see all the surge price you added.') }}</p>
                                 <a href="{{route('admin.business-settings.zone.surge-price.create',[$zone['id']])}}" class="btn btn--primary">

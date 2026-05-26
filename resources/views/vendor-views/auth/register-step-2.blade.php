@@ -1,9 +1,9 @@
 @extends('layouts.landing.app')
 @section('title', translate('messages.vendor_registration'))
 @push('css_or_js')
-    <link rel="stylesheet" href="{{ asset('public/assets/admin/css/toastr.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/admin/css/view-pages/vendor-registration.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/landing/css/select2.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/toastr.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/view-pages/vendor-registration.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/landing/css/select2.min.css') }}" />
 @endpush
 @section('content')
     <section class="m-0 py-5">

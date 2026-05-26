@@ -35,7 +35,7 @@
                                 data-route="{{ route('admin.product.title-auto-fill') }}">
                                 <div class="btn-svg-wrapper">
                                     <img width="18" height="18" class=""
-                                        src="{{ asset('public/assets/admin/img/svg/blink-right-small.svg') }}" alt="">
+                                        src="{{ asset('assets/admin/img/svg/blink-right-small.svg') }}" alt="">
                                 </div>
                                 <span class="ai-text-animation d-none" role="status">
                                     {{ translate('Just_a_second') }}
@@ -72,7 +72,7 @@
                                        data-route="{{ route('admin.product.description-auto-fill') }}">
                                        <div class="btn-svg-wrapper">
                                             <img width="18" height="18" class=""
-                                                src="{{ asset('public/assets/admin/img/svg/blink-right-small.svg') }}" alt="">
+                                                src="{{ asset('assets/admin/img/svg/blink-right-small.svg') }}" alt="">
                                         </div>
                                         <span class="ai-text-animation d-none" role="status">
                                             {{ translate('Just_a_second') }}
@@ -125,7 +125,7 @@
                                     data-route="{{ route('admin.product.title-auto-fill') }}">
                                     <div class="btn-svg-wrapper">
                                         <img width="18" height="18" class=""
-                                            src="{{ asset('public/assets/admin/img/svg/blink-right-small.svg') }}" alt="">
+                                            src="{{ asset('assets/admin/img/svg/blink-right-small.svg') }}" alt="">
                                     </div>
                                     <span class="ai-text-animation d-none" role="status">
                                         {{ translate('Just_a_second') }}
@@ -157,7 +157,7 @@
                                           data-route="{{ route('admin.product.description-auto-fill') }}">
                                             <div class="btn-svg-wrapper">
                                                 <img width="18" height="18" class=""
-                                                    src="{{ asset('public/assets/admin/img/svg/blink-right-small.svg') }}" alt="">
+                                                    src="{{ asset('assets/admin/img/svg/blink-right-small.svg') }}" alt="">
                                             </div>
                                             <span class="ai-text-animation d-none" role="status">
                                                 {{ translate('Just_a_second') }}

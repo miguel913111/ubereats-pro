@@ -5,8 +5,8 @@
 @push('css_or_js')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<script type="text/javascript" src="{{asset('public/assets/admin/js/moment.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('public/assets/admin/js/daterangepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/daterangepicker.min.js')}}"></script>
 @endpush
 
 @section('content')

@@ -2,7 +2,7 @@
     <div class="card-body">
         <div class="media gap-3 flex-wrap">
             <div class="avatar avatar-circle avatar-70">
-                <img class="avatar-img onerror-image" width="70" height="70" data-onerror-image="{{asset('public/assets/admin/img/160x160/img1.jpg')}}" src="{{ $customer->image_full_url }}"
+                <img class="avatar-img onerror-image" width="70" height="70" data-onerror-image="{{asset('assets/admin/img/160x160/img1.jpg')}}" src="{{ $customer->image_full_url }}"
                 alt="Image Description">
             </div>
             <div class="media-body">

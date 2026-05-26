@@ -10,7 +10,7 @@
             <div class="d-flex flex-wrap justify-content-between align-items-center">
                 <h1 class="page-header-title">
                     <span class="page-header-icon">
-                        <img src="{{asset('public/assets/admin/img/campaign.png')}}" class="w--26" alt="">
+                        <img src="{{asset('assets/admin/img/campaign.png')}}" class="w--26" alt="">
                     </span>
                     <span>
                         {{translate('messages.campaign')}}
@@ -72,14 +72,14 @@
                                 {{ route('admin.campaign.item_campaign_export', ['type' => 'excel', request()->getQueryString()]) }}
                                 ">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                     alt="Image Description">
                                 {{ translate('messages.excel') }}
                             </a>
                             <a id="export-csv" class="dropdown-item" href="
                             {{ route('admin.campaign.item_campaign_export', ['type' => 'csv', request()->getQueryString()]) }}">
                                 <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                    src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                    src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                     alt="Image Description">
                                 {{ translate('messages.csv') }}
                             </a>

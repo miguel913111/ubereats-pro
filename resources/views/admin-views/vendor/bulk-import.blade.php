@@ -11,7 +11,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/resturant.png')}}" class="w--20" alt="">
+                    <img src="{{asset('assets/admin/img/resturant.png')}}" class="w--20" alt="">
                 </span>
                 <span>
                     {{translate('messages.stores_bulk_import')}}
@@ -122,8 +122,8 @@
                     <h3 class="mb-3 export--template-title font-regular">{{translate('download_spreadsheet_template')}}</h3>
                     <div class="btn--container justify-content-center export--template-btns">
 
-                        <a href="{{asset('public/assets/stores_bulk_format.xlsx')}}" download="" class="btn btn--primary btn-outline-primary">{{ translate('Template with Existing Data') }}</a>
-                        <a href="{{asset('public/assets/stores_bulk_format_nodata.xlsx')}}" download="" class="btn btn--primary">{{ translate('Template without Data') }}</a>
+                        <a href="{{asset('assets/stores_bulk_format.xlsx')}}" download="" class="btn btn--primary btn-outline-primary">{{ translate('Template with Existing Data') }}</a>
+                        <a href="{{asset('assets/stores_bulk_format_nodata.xlsx')}}" download="" class="btn btn--primary">{{ translate('Template without Data') }}</a>
 
                     </div>
                 </div>

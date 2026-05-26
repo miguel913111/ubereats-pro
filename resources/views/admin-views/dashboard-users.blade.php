@@ -50,7 +50,7 @@
                             </div>
                             @foreach ($customers as $key => $customer)
                                 <img src="{{ $customer['image_full_url'] }}" class="onerror-image"
-                                    data-onerror-image="{{asset('public/assets/admin/img/160x160/img2.jpg')}}" alt="new-img">
+                                    data-onerror-image="{{asset('assets/admin/img/160x160/img2.jpg')}}" alt="new-img">
                             @endforeach
                         </div>
                         <h3 class="title">{{$total_customers}}</h3>
@@ -69,7 +69,7 @@
                             </div>
                             @foreach ($delivery_man as $key => $dm)
                                 <img src="{{ $dm['image_full_url'] }}" class="onerror-image"
-                                    data-onerror-image="{{asset('public/assets/admin/img/160x160/img2.jpg')}}" alt="new-img">
+                                    data-onerror-image="{{asset('assets/admin/img/160x160/img2.jpg')}}" alt="new-img">
                             @endforeach
                         </div>
                         <h3 class="title">{{$total_deliveryman}}</h3>
@@ -89,7 +89,7 @@
                             </div>
                             @foreach ($rider_data['rider_images'] ?? [] as $key => $dm)
                                 <img src="{{ $dm['image_full_url'] }}" class="onerror-image"
-                                    data-onerror-image="{{asset('public/assets/admin/img/160x160/img2.jpg')}}" alt="new-img">
+                                    data-onerror-image="{{asset('assets/admin/img/160x160/img2.jpg')}}" alt="new-img">
                             @endforeach
                         </div>
                         <h3 class="title">{{$total_riders}}</h3>
@@ -111,7 +111,7 @@
                                     @break
                                 @endif
                                 <img src="{{ $item['image_full_url'] }}" class="onerror-image"
-                                    data-onerror-image="{{asset('public/assets/admin/img/160x160/img2.jpg')}}" alt="new-img">
+                                    data-onerror-image="{{asset('assets/admin/img/160x160/img2.jpg')}}" alt="new-img">
                             @endforeach
                         </div>
                         <h3 class="title">{{$total_employees}}</h3>
@@ -546,7 +546,7 @@
                 dmbounds.extend(point);
 
                 const activeIconContent = document.createElement("img");
-                activeIconContent.src = "{{ asset('public/assets/admin/img/delivery_boy_active.png') }}";
+                activeIconContent.src = "{{ asset('assets/admin/img/delivery_boy_active.png') }}";
                 activeIconContent.alt = "Active DM";
                 activeIconContent.style.width = '100%';
                 activeIconContent.style.height = '100%';
@@ -617,7 +617,7 @@
                 riderBounds.extend(point);
 
                 const activeIconContent = document.createElement("img");
-                activeIconContent.src = "{{ asset('public/assets/admin/img/delivery_boy_active.png') }}";
+                activeIconContent.src = "{{ asset('assets/admin/img/delivery_boy_active.png') }}";
                 activeIconContent.alt = "Active Rider";
                 activeIconContent.style.width = '100%';
                 activeIconContent.style.height = '100%';
@@ -682,8 +682,8 @@
                             itemCount++
                         }
                         const icon = isDMActive ?
-                            "{{ asset('public/assets/admin/img/delivery_boy_active.png') }}" :
-                            "{{ asset('public/assets/admin/img/delivery_boy_map_inactive.png') }}";
+                            "{{ asset('assets/admin/img/delivery_boy_active.png') }}" :
+                            "{{ asset('assets/admin/img/delivery_boy_map_inactive.png') }}";
 
                         const newIconContent = document.createElement("img");
                         newIconContent.src = icon;
@@ -761,8 +761,8 @@
                             itemCount++
                         }
                         const icon = isRiderActive ?
-                            "{{ asset('public/assets/admin/img/delivery_boy_active.png') }}" :
-                            "{{ asset('public/assets/admin/img/delivery_boy_map_inactive.png') }}";
+                            "{{ asset('assets/admin/img/delivery_boy_active.png') }}" :
+                            "{{ asset('assets/admin/img/delivery_boy_map_inactive.png') }}";
 
                         const newIconContent = document.createElement("img");
                         newIconContent.src = icon;

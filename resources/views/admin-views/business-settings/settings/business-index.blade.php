@@ -12,7 +12,7 @@
             <div class="page-header">
                 <h1 class="page-header-title fs-24 mr-3">
                     <span class="page-header-icon">
-                        <img src="{{ asset('public/assets/admin/img/business.png') }}" class="w--26" alt="">
+                        <img src="{{ asset('assets/admin/img/business.png') }}" class="w--26" alt="">
                     </span>
                     <span>
                         {{ translate('business_settings') }}
@@ -247,7 +247,7 @@
                                 </div>
                             </div>
                             <div class="info-notes-bg px-3 py-2 rounded fz-11  gap-2 align-items-center d-flex mt-20">
-                                <img src="{{asset('public/assets/admin/img/info-idea.svg')}}" alt="">
+                                <img src="{{asset('assets/admin/img/info-idea.svg')}}" alt="">
                                 <span>
                                     {{translate('For the address setup you can simply drag the map to pick for the perfect')}}
                                     <strong class="text-title"> {{translate('Lat(Latitude) & Log(Longitude)')}}</strong>
@@ -481,7 +481,7 @@
                                                                     </p>
                                                                     <div
                                                                         class="info-notes-bg px-3 py-2 rounded fz-11  gap-2 d-flex mt-20">
-                                                                        <img src="{{asset('public/assets/admin/img/info-idea.svg')}}"
+                                                                        <img src="{{asset('assets/admin/img/info-idea.svg')}}"
                                                                             alt="">
                                                                         <span>
                                                                             {{translate('To set different commission for commission based stores.')}}
@@ -626,7 +626,7 @@
                                 </div>
                                 <div id="additional_charge_note">
                                     <div class="info-notes-bg px-3 py-2 rounded fz-11  gap-2 d-flex mt-20">
-                                        <img src="{{asset('public/assets/admin/img/info-idea.svg')}}" alt="">
+                                        <img src="{{asset('assets/admin/img/info-idea.svg')}}" alt="">
                                         <span>
                                             {{translate('Only admin will get the additional amount & customer must pay the amount.')}}
                                         </span>
@@ -767,7 +767,7 @@
                 <div class="max-349 mx-auto mb-20">
                     <div>
                         <div class="text-center">
-                            <img width="80" src="{{  asset('public/assets/admin/img/modal/currency.png') }}"
+                            <img width="80" src="{{  asset('assets/admin/img/modal/currency.png') }}"
                                 class="mb-20">
                             <h5 class="modal-title"></h5>
                         </div>

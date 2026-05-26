@@ -8,7 +8,7 @@
         <div class="page-header d-flex flex-wrap align-items-center justify-content-between">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{asset('public/assets/admin/img/add.png')}}" class="w--26" alt="">
+                    <img src="{{asset('assets/admin/img/add.png')}}" class="w--26" alt="">
                 </span>
                 <span>
                     {{translate('messages.wallet_bonus_setup')}}
@@ -352,7 +352,7 @@
 @endsection
 
 @push('script_2')
-    <script src="{{asset('public/assets/admin')}}/js/view-pages/wallet-bonus-index.js"></script>
+    <script src="{{asset('assets/admin')}}/js/view-pages/wallet-bonus-index.js"></script>
 <script>
 
 

@@ -3,7 +3,7 @@
     <a class="resturant-card dashboard--card card--bg-1" href="{{route('vendor.order.list',['confirmed'])}}">
        <h4 class="title">{{$data['confirmed']}}</h4>
        <span class="subtitle">{{translate('messages.confirmed')}}</span>
-       <img src="{{asset('public/assets/admin/img/dashboard/1.png')}}" alt="img" class="resturant-icon">
+       <img src="{{asset('assets/admin/img/dashboard/1.png')}}" alt="img" class="resturant-icon">
     </a>
     <!-- End Card -->
 </div>
@@ -18,7 +18,7 @@
         @else
        <span class="subtitle">{{translate('messages.processing')}}</span>
         @endif
-       <img src="{{asset('public/assets/admin/img/dashboard/2.png')}}" alt="img" class="resturant-icon">
+       <img src="{{asset('assets/admin/img/dashboard/2.png')}}" alt="img" class="resturant-icon">
     </a>
     <!-- End Card -->
 </div>
@@ -28,7 +28,7 @@
     <a class="resturant-card dashboard--card card--bg-3" href="{{route('vendor.order.list',['ready_for_delivery'])}}">
        <h4 class="title">{{$data['ready_for_delivery']}}</h4>
        <span class="subtitle">{{translate('messages.ready_for_delivery')}}</span>
-       <img src="{{asset('public/assets/admin/img/dashboard/3.png')}}" alt="img" class="resturant-icon">
+       <img src="{{asset('assets/admin/img/dashboard/3.png')}}" alt="img" class="resturant-icon">
     </a>
     <!-- End Card -->
 </div>
@@ -38,7 +38,7 @@
     <a class="resturant-card dashboard--card card--bg-4" href="{{route('vendor.order.list',['item_on_the_way'])}}">
        <h4 class="title">{{$data['item_on_the_way']}}</h4>
        <span class="subtitle">{{translate('messages.item_on_the_way')}}</span>
-       <img src="{{asset('public/assets/admin/img/dashboard/4.png')}}" alt="img" class="resturant-icon">
+       <img src="{{asset('assets/admin/img/dashboard/4.png')}}" alt="img" class="resturant-icon">
     </a>
     <!-- End Card -->
 </div>

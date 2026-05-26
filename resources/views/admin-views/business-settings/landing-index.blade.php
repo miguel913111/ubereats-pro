@@ -122,7 +122,7 @@
                                 <div class="fs-12 px-3 py-2 rounded bg-info bg-opacity-10">
                                     <div class="d-flex gap-2 mb-3">
                                         <span class="text-info lh-1 fs-14">
-                                            <img src="{{asset('public/assets/admin/img/svg/bulb.svg')}}" class="svg" alt="">
+                                            <img src="{{asset('assets/admin/img/svg/bulb.svg')}}" class="svg" alt="">
                                         </span>
                                         <h4 class="font-medium mb-0">
                                             {{ translate('messages.If you want to set up your own landing page please follow tha instructions below') }}
@@ -322,8 +322,8 @@
     </div>
 @endsection
 @push('script_2')
-            <script src="{{asset('public/assets/admin/js/view-pages/business-settings-landing-page.js')}}"></script>
-            <script href="{{ asset('public/assets/admin/vendor/swiper/swiper-bundle.min.js') }}"></script>
+            <script src="{{asset('assets/admin/js/view-pages/business-settings-landing-page.js')}}"></script>
+            <script href="{{ asset('assets/admin/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
 
     <script>

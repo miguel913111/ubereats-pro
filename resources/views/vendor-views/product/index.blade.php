@@ -4,9 +4,9 @@
 
 @push('css_or_js')
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link href="{{ asset('public/assets/admin/css/tags-input.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/assets/admin/css/AI/animation/product/ai-sidebar.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('public/assets/admin/css/custom.css') }}">
+    <link href="{{ asset('assets/admin/css/tags-input.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/admin/css/AI/animation/product/ai-sidebar.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/admin/css/custom.css') }}">
 @endpush
 
 @section('content')
@@ -19,7 +19,7 @@
         <div class="page-header">
             <h1 class="page-header-title">
                 <span class="page-header-icon">
-                    <img src="{{ asset('public/assets/admin/img/items.png') }}" class="w--22" alt="">
+                    <img src="{{ asset('assets/admin/img/items.png') }}" class="w--22" alt="">
                 </span>
                 <span>
                     {{ translate('messages.add_new_item') }}
@@ -59,7 +59,7 @@
                                     </label>
                                     <label class="d-inline-block m-0 position-relative error-wrapper">
                                         <img class="img--176 border" id="viewer"
-                                            src="{{ asset('public/assets/admin/img/upload-img.png') }}" alt="thumbnail" />
+                                            src="{{ asset('assets/admin/img/upload-img.png') }}" alt="thumbnail" />
                                         <div class="icon-file-group">
                                             <div class="icon-file"><input type="file" name="image" id="customFileEg1"
                                                     class="custom-file-input d-none"
@@ -111,23 +111,23 @@
 @endpush
 
 @push('script_2')
-    <script src="{{ asset('public/assets/admin') }}/js/tags-input.min.js"></script>
-    <script src="{{ asset('public/assets/admin/js/spartan-multi-image-picker.js') }}"></script>
-    <script src="{{ asset('public/assets/admin') }}/js/view-pages/vendor/product-index.js"></script>
+    <script src="{{ asset('assets/admin') }}/js/tags-input.min.js"></script>
+    <script src="{{ asset('assets/admin/js/spartan-multi-image-picker.js') }}"></script>
+    <script src="{{ asset('assets/admin') }}/js/view-pages/vendor/product-index.js"></script>
 
 
-    <script src="{{ asset('public/assets/admin/js/AI/products/product-title-autofill.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/AI/products/product-description-autofill.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/AI/products/general-setup-autofill.js') }}"></script>
-    <script src="{{ asset('public/assets/admin/js/AI/products/product-others-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/product-title-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/product-description-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/general-setup-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/product-others-autofill.js') }}"></script>
     @if ($module_type == 'food')
-        <script src="{{ asset('public/assets/admin/js/AI/products/variation-setup-auto-fill.js') }}"></script>
+        <script src="{{ asset('assets/admin/js/AI/products/variation-setup-auto-fill.js') }}"></script>
     @else
-        <script src="{{ asset('public/assets/admin/js/AI/products/other-variation-setup-auto-fill.js') }}"></script>
+        <script src="{{ asset('assets/admin/js/AI/products/other-variation-setup-auto-fill.js') }}"></script>
     @endif
-    <script src="{{ asset('public/assets/admin/js/AI/products/seo-section-autofill.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/seo-section-autofill.js') }}"></script>
 
-    <script src="{{ asset('public/assets/admin/js/AI/products/ai-sidebar.js') }}"></script>
+    <script src="{{ asset('assets/admin/js/AI/products/ai-sidebar.js') }}"></script>
 
     <script src="{{ asset('/public/assets/admin/js/AI/products/compressor/image-compressor.js') }}"></script>
     <script src="{{ asset('/public/assets/admin/js/AI/products/compressor/compressor.min.js') }}"></script>
@@ -444,7 +444,7 @@
                 groupClassName: 'spartan_item_wrapper min-w-176px max-w-176px',
                 maxFileSize: 1024 * 1024 * 2,
                 placeholderImage: {
-                    image: "{{ asset('public/assets/admin/img/upload-img.png') }}",
+                    image: "{{ asset('assets/admin/img/upload-img.png') }}",
                     width: '176px'
                 },
                 dropFileLabel: "Drop Here",
@@ -489,7 +489,7 @@
             $('#choice_attributes').val(null).trigger('change');
             $('#customer_choice_options').empty().trigger('change');
             $('#variant_combination').empty().trigger('change');
-            $('#viewer').attr('src', "{{ asset('public/assets/admin/img/upload.png') }}");
+            $('#viewer').attr('src', "{{ asset('assets/admin/img/upload.png') }}");
             $("#coba").empty();
             initImagePicker();
         })

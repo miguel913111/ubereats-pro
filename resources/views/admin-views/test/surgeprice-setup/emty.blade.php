@@ -17,7 +17,7 @@
                 <td colspan="">
                     <div class="bg-light rounded table-column p-5 text-center">
                         <div class="pt-5">
-                            <img class="mb-20" src="{{asset('public/assets/admin/img/price-emty.png')}}" alt="status">
+                            <img class="mb-20" src="{{asset('assets/admin/img/price-emty.png')}}" alt="status">
                             <h4 class="mb-3">Currently you don’t have any Surge Price</h4>
                             <p class="mb-20 fs-12 mx-auto max-w-400px">To enable surge pricing, you must create at least one Surge Price. In this page you see all the surge price you added.</p>
                             <a href="#0" class="btn btn--primary">

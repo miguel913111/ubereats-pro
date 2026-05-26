@@ -31,7 +31,7 @@
             <p class="m-0 fs-12">{{ translate('After you create a new zone, use this') }}</p>
         </div>
         <p class="m-0">
-            <img src="{{asset('public/assets/admin/img/icons/path-icon.svg')}}" alt=""> {{ translate('button to.') }} <a
+            <img src="{{asset('assets/admin/img/icons/path-icon.svg')}}" alt=""> {{ translate('button to.') }} <a
                 href="#0" class="font-semibold text-title">{{ translate('Connect Module.') }}</a>
             {{ translate('If you don’t connect a module, it won’t show in the zone') }}.
         </p>
@@ -183,14 +183,14 @@
                                 <a id="export-excel" class="dropdown-item"
                                     href="{{route('admin.business-settings.zone.export', ['type' => 'excel', request()->getQueryString()])}}">
                                     <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                        src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                        src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                         alt="Image Description">
                                     {{ translate('messages.excel') }}
                                 </a>
                                 <a id="export-csv" class="dropdown-item"
                                     href="{{route('admin.business-settings.zone.export', ['type' => 'csv', request()->getQueryString()])}}">
                                     <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                        src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                        src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                         alt="Image Description">
                                     {{ translate('messages.csv') }}
                                 </a>
@@ -313,7 +313,7 @@
                     </div>
                 </div>
                 <div class="instructions-image mt-4">
-                    <img src="{{asset('public/assets/admin/img/instructions.gif')}}" alt="instructions">
+                    <img src="{{asset('assets/admin/img/instructions.gif')}}" alt="instructions">
                 </div>
             </div>
         </div>

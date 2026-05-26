@@ -5,8 +5,8 @@
 @push('css_or_js')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<script type="text/javascript" src="{{asset('public/assets/admin/js/moment.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('public/assets/admin/js/daterangepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/daterangepicker.min.js')}}"></script>
 @endpush
 
 @section('content')
@@ -51,7 +51,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="text-center">
-                            <img src="{{asset('public/assets/admin/img/delete.png')}}" alt="icon" class="mb-20">
+                            <img src="{{asset('assets/admin/img/delete.png')}}" alt="icon" class="mb-20">
                             <h3 class="mb-2 fs-18">Are you sure ?</h3>
                             <p class="mb-2">Want to delete this role</p>
                         </div>
@@ -171,13 +171,13 @@
                         <span class="dropdown-header">{{ translate('messages.download_options') }}</span>
                         <a id="export-excel" class="dropdown-item" href="{{route('admin.business-settings.module.export', ['type'=>'excel',request()->getQueryString()])}}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                 alt="Image Description">
                             {{ translate('messages.excel') }}
                         </a>
                         <a id="export-csv" class="dropdown-item" href="{{route('admin.business-settings.module.export', ['type'=>'csv',request()->getQueryString()])}}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                 alt="Image Description">
                             {{ translate('messages.csv') }}
                         </a>
@@ -206,7 +206,7 @@
             </div>
             <div class="modal-body">
                 <div class="text-center">
-                    <img src="{{asset('public/assets/admin/img/delete-confirmation.png')}}" alt="icon" class="mb-3">
+                    <img src="{{asset('assets/admin/img/delete-confirmation.png')}}" alt="icon" class="mb-3">
                     <h3 class="mb-2">Are you sure?</h3>
                     <p class="mb-0">You want to sent notification to the customer.</p>
                 </div>
@@ -232,7 +232,7 @@
             </div>
             <div class="modal-body">
                 <div class="text-center max-w-320 mx-auto">
-                    <img src="{{asset('public/assets/admin/img/feature-status-on.png')}}" alt="icon" class="mb-3">
+                    <img src="{{asset('assets/admin/img/feature-status-on.png')}}" alt="icon" class="mb-3">
                     <h3 class="mb-2 px-xl-4">Do you want to
                     Featured this category?</h3>
                     <p class="mb-0 fs-12">If you turn on this category as a featured category it will show in customer app landing page.</p>
@@ -261,7 +261,7 @@
             </div>
             <div class="modal-body">
                 <div class="text-center">
-                    <img src="{{asset('public/assets/admin/img/delete-confirmation.png')}}" alt="icon" class="mb-3">
+                    <img src="{{asset('assets/admin/img/delete-confirmation.png')}}" alt="icon" class="mb-3">
                     <h3 class="mb-2">Are you sure?</h3>
                     <p class="mb-0">You want to sent notification to the customer.</p>
                 </div>

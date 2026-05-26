@@ -35,7 +35,7 @@
                                     <button class="btn btn--primary dropdown_after gap-0 fs-14 dropdown-toggle"
                                         type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                         aria-expanded="false">
-                                        <img src="{{ asset('public/assets/admin/img/icons/bx_edit.png') }}" alt=""
+                                        <img src="{{ asset('assets/admin/img/icons/bx_edit.png') }}" alt=""
                                             class="mr-1">
                                         {{ translate('Edit') }}
 
@@ -59,7 +59,7 @@
                 <div
                     class="d-flex flex-column flex-lg-nowrap flex-wrap flex-md-row align-items-center gap-3 border rounded p-3">
                     <div class="d-flex gap-3 justify-content-center position-relative w-115 rounded">
-                        <img class="rounded" data-onerror-image="{{ asset('public/assets/admin/img/160x160/img1.jpg') }}"
+                        <img class="rounded" data-onerror-image="{{ asset('assets/admin/img/160x160/img1.jpg') }}"
                             src="{{ $deliveryMan['image_full_url'] }}" width="115" height="115"
                             alt="Delivery man image">
                         <span
@@ -139,7 +139,7 @@
                             @if ($total > 0)
                                 <div class="d-flex flex-column align-items-center justify-content-center px-4">
                                     <img class=""
-                                        src="{{ asset('public/assets/admin/img/icons/rating-stars.png') }}" alt="">
+                                        src="{{ asset('assets/admin/img/icons/rating-stars.png') }}" alt="">
 
                                     <div class="d-block">
                                         <div class="rating--review">
@@ -230,7 +230,7 @@
                             @else
                                 <div class="d-flex flex-column align-items-center justify-content-center px-4 m-auto">
                                     <img width="75" class=""
-                                        src="{{ asset('public/assets/admin/img/icons/no_rating.png') }}" alt="">
+                                        src="{{ asset('assets/admin/img/icons/no_rating.png') }}" alt="">
                                     <p class="mb-0 font-weight-normal">
                                         {{ translate('messages.no_review/rating_given_yet') }}
                                     </p>
@@ -377,7 +377,7 @@
                                     class="box d-flex flex-column text-center justify-content-center align-items-center gap-3">
                                     <div class="img-box">
                                         <img class="resturant-icon w--30"
-                                            src="{{ asset('public/assets/admin/img/icons/color-icon-1.png') }}"
+                                            src="{{ asset('assets/admin/img/icons/color-icon-1.png') }}"
                                             alt="img">
                                     </div>
                                     <div>
@@ -601,14 +601,14 @@
                                 <a id="export-excel" class="dropdown-item"
                                     href="{{ route('admin.users.delivery-man.review-export', ['type' => 'excel', 'id' => $deliveryMan->id, request()->getQueryString()]) }}">
                                     <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                        src="{{ asset('public/assets/admin') }}/svg/components/excel.svg"
+                                        src="{{ asset('assets/admin') }}/svg/components/excel.svg"
                                         alt="Image Description">
                                     {{ translate('messages.excel') }}
                                 </a>
                                 <a id="export-csv" class="dropdown-item"
                                     href="{{ route('admin.users.delivery-man.review-export', ['type' => 'csv', 'id' => $deliveryMan->id, request()->getQueryString()]) }}">
                                     <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                        src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                        src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                         alt="Image Description">
                                     {{ translate('messages.csv') }}
                                 </a>
@@ -735,7 +735,7 @@
                         <div>
                             <div class="text-center mb-20">
                                 <img width="80"
-                                    src="{{ asset('public/assets/admin/img/icons/deliveryman-type.png') }}"
+                                    src="{{ asset('assets/admin/img/icons/deliveryman-type.png') }}"
                                     class="">
                                 <h5 class="modal-title m-0"></h5>
                             </div>

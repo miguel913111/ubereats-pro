@@ -5,15 +5,15 @@
 @push('css_or_js')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<script type="text/javascript" src="{{asset('public/assets/admin/js/moment.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('public/assets/admin/js/daterangepicker.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('assets/admin/js/daterangepicker.min.js')}}"></script>
 @endpush
 
 @section('content')
 <div class="content container-fluid">
     <h2 class="mb-20 fs-24">Marketing Tool</h2>
     <div class="info-notes-bg px-2 py-2 rounded fs-12  gap-2 align-items-center d-flex mb-15">
-       <img width="14" height="18" src="{{ asset('public/assets/admin/img/info-idea.svg') }}" class="w--20" alt="">
+       <img width="14" height="18" src="{{ asset('assets/admin/img/info-idea.svg') }}" class="w--20" alt="">
         <span>
             In this page you can add credentials to show your analytics on the platform. Make sure fill with proper data other wise you can’t see the analytics properly.
         </span>
@@ -373,7 +373,7 @@
             </div>
             <div class="modal-body">
                 <div class="text-center max-w-320 mx-auto">
-                    <img src="{{asset('public/assets/admin/img/feature-status-on.png')}}" alt="icon" class="mb-3">
+                    <img src="{{asset('assets/admin/img/feature-status-on.png')}}" alt="icon" class="mb-3">
                     <h3 class="mb-2 px-xl-4">Turn ON Google Analytics</h3>
                     <p class="mb-0 fs-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam odio tellus, laoreet </p>
                 </div>

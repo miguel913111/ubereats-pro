@@ -58,7 +58,7 @@
 @endsection
 
 @push('script_2')
-<script src="{{ asset('public/assets/admin/js/spartan-multi-image-picker.js') }}"></script>
+<script src="{{ asset('assets/admin/js/spartan-multi-image-picker.js') }}"></script>
     <script>
         "use strict";
 

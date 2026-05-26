@@ -23,8 +23,8 @@
             @foreach ($top_sell as $key => $item)
                 <a class="grid--card" href="{{ route('admin.item.view', [$item['id']]) }}">
                     <img class="initial--28 onerror-image"
-                        src="{{ $item['image_full_url'] ?? asset('public/assets/admin/img/placeholder-2.png') }}"
-                        data-onerror-image="{{ asset('public/assets/admin/img/placeholder-2.png') }}"
+                        src="{{ $item['image_full_url'] ?? asset('assets/admin/img/placeholder-2.png') }}"
+                        data-onerror-image="{{ asset('assets/admin/img/placeholder-2.png') }}"
                         alt="{{ $item->name }} image">
                     <div class="cont pt-2" title="{{ $item?->name }}">
                         <span class="fz--13 text-hover--primary">{{ Str::limit($item['name'], 20, '...') }}</span>
@@ -53,4 +53,4 @@
     @endif
 </div>
 
-<script src="{{ asset('public/assets/admin') }}/js/view-pages/common.js"></script>
+<script src="{{ asset('assets/admin') }}/js/view-pages/common.js"></script>

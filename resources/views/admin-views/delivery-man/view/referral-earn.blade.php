@@ -24,7 +24,7 @@
                         <div class="card_earning-box card--bg-4 rounded-10 h-100">
                             <div class="box d-flex align-items-center">
                                 <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                    <img src="{{asset('public/assets/admin/img/e-referral-code.png')}}" class="w--26"
+                                    <img src="{{asset('assets/admin/img/e-referral-code.png')}}" class="w--26"
                                         alt="">
                                 </div>
                                 <div>
@@ -45,7 +45,7 @@
                         <div class="card_earning-box card--bg-3 rounded-10 h-100">
                             <div class="box d-flex align-items-center">
                                 <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                    <img src="{{asset('public/assets/admin/img/e-referred-total.png')}}" class="w--26"
+                                    <img src="{{asset('assets/admin/img/e-referred-total.png')}}" class="w--26"
                                         alt="">
                                 </div>
                                 <div>
@@ -59,7 +59,7 @@
                         <div class="card_earning-box color-card color-5 rounded-10 h-100">
                             <div class="box d-flex align-items-center">
                                 <div class="icon w-60px h-60px rounded-circle d-center bg-white">
-                                    <img src="{{asset('public/assets/admin/img/e-referral-earned.png')}}" class="w--26"
+                                    <img src="{{asset('assets/admin/img/e-referral-earned.png')}}" class="w--26"
                                         alt="">
                                 </div>
                                 <div>
@@ -113,13 +113,13 @@
                         <a id="export-excel" class="dropdown-item"
                             href="{{ route('admin.users.delivery-man.referral-export', ['type' => 'excel', 'id' => $deliveryMan->id, request()->getQueryString()]) }}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/excel.svg" alt="Image Description">
+                                src="{{ asset('assets/admin') }}/svg/components/excel.svg" alt="Image Description">
                             {{ translate('messages.excel') }}
                         </a>
                         <a id="export-csv" class="dropdown-item"
                             href="{{ route('admin.users.delivery-man.referral-export', ['type' => 'csv', 'id' => $deliveryMan->id, request()->getQueryString()]) }}">
                             <img class="avatar avatar-xss avatar-4by3 mr-2"
-                                src="{{ asset('public/assets/admin') }}/svg/components/placeholder-csv-format.svg"
+                                src="{{ asset('assets/admin') }}/svg/components/placeholder-csv-format.svg"
                                 alt="Image Description">
                             {{ translate('messages.csv') }}
                         </a>

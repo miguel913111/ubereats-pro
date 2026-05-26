@@ -9,7 +9,7 @@
             margin-bottom: 10px;
         }
     </style>
-       <link rel="stylesheet" href="{{ asset('public/assets/admin/vendor/swiper/swiper-bundle.min.css')}}" />
+       <link rel="stylesheet" href="{{ asset('assets/admin/vendor/swiper/swiper-bundle.min.css')}}" />
 @endpush
 
 @section('content')
@@ -42,7 +42,7 @@
                             <div class="item">
                                 <div class="mb-20">
                                     <div class="">
-                                        <img src="{{asset('public/assets/admin/img/addon_setting.png')}}" loading="lazy" alt="" class="dark-support rounded mb-4 mw-100">
+                                        <img src="{{asset('assets/admin/img/addon_setting.png')}}" loading="lazy" alt="" class="dark-support rounded mb-4 mw-100">
                                         <ol>
                                             <li>{{translate('After purchasing the ')}} <strong>{{translate('Payment & SMS Module/Rental Module')}}</strong> {{translate('from Codecanyon, you will find a file download option.')}}</li>
                                             <li>{{translate('Download the file. It will be downloaded as Zip format Filename.Zip.')}}</li>
@@ -150,7 +150,7 @@
 
                         <div class="d-flex gap-2 gap-sm-3 align-items-center">
                             @if ($data['is_published'] == 0)
-                                <button class="text-danger bg-transparent p-0 border-0 mr-2" data-toggle="modal" data-target="#deleteThemeModal_{{$key}}"><img src="{{asset('public/assets/admin/img/delete.svg')}}" class="svg" alt=""></button>
+                                <button class="text-danger bg-transparent p-0 border-0 mr-2" data-toggle="modal" data-target="#deleteThemeModal_{{$key}}"><img src="{{asset('assets/admin/img/delete.svg')}}" class="svg" alt=""></button>
                                 <!-- Delete Theme Modal -->
                                 <div class="modal fade" id="deleteThemeModal_{{$key}}" tabindex="-1" aria-labelledby="deleteThemeModal_{{$key}}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
@@ -165,7 +165,7 @@
                                             </div>
                                             <div class="modal-body px-4 px-sm-5 text-center">
                                                 <div class="mb-3 text-center">
-                                                    <img width="75" src="{{asset('public/assets/admin/img/delete.png')}}" alt="">
+                                                    <img width="75" src="{{asset('assets/admin/img/delete.png')}}" alt="">
                                                 </div>
 
                                                 <h3>{{ translate('are_you_sure_you_want_to_delete_the').' '.$data['name'] }}?</h3>
@@ -180,7 +180,7 @@
                                 </div>
                             @endif
 
-                                <button class="{{$data['is_published'] == 1 ? 'checkbox-color-primary' : 'text-muted'}} bg-transparent p-0 border-0" data-toggle="modal" data-target="#shiftThemeModal_{{$key}}"><img src="{{asset('public/assets/admin/img/check.svg')}}" class="svg" alt=""></button>
+                                <button class="{{$data['is_published'] == 1 ? 'checkbox-color-primary' : 'text-muted'}} bg-transparent p-0 border-0" data-toggle="modal" data-target="#shiftThemeModal_{{$key}}"><img src="{{asset('assets/admin/img/check.svg')}}" class="svg" alt=""></button>
 
                                 <div class="modal fade" id="shiftThemeModal_{{$key}}" tabindex="-1" aria-labelledby="shiftThemeModalLabel_{{$key}}" aria-hidden="true">
                                     <div class="modal-dialog status-warning-modal">
@@ -195,7 +195,7 @@
                                             </div>
                                             <div class="modal-body px-4 pt-0 px-sm-5 text-center">
                                                 <div class="mb-3 text-center">
-                                                    <img width="75" src="{{asset('public/assets/admin/img/shift.png')}}" alt="">
+                                                    <img width="75" src="{{asset('assets/admin/img/shift.png')}}" alt="">
                                                 </div>
 
                                                 <h3>{{ translate('are_you_sure?') }}</h3>
@@ -238,7 +238,7 @@
 
                         <div class="aspect-ration-3:2 border border-color-primary-light radius-10">
                             <img class="img-fit radius-10 onerror-image"
-                            data-onerror-image="{{asset('public/assets/admin/img/placeholder.png')}}"
+                            data-onerror-image="{{asset('assets/admin/img/placeholder.png')}}"
                                 src="{{asset($addon.'/public/addon.png')}}">
                         </div>
                     </div>
@@ -253,7 +253,7 @@
 @endsection
 
 @push('script_2')
-<script href="{{ asset('public/assets/admin/vendor/swiper/swiper-bundle.min.js')}}"></script>
+<script href="{{ asset('assets/admin/vendor/swiper/swiper-bundle.min.js')}}"></script>
 
 <script>
     $("img.svg").each(function () {

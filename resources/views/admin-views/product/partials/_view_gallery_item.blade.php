@@ -13,8 +13,8 @@
                     <div class="d-flex gap-10px">
                         <div class="border minmax-xl-130px rounded overflow-hidden">
                             <img class="onerror-image w-100 h-100 object-cover"
-                                src="{{ $item['image_full_url'] ?? asset('public/assets/admin/img/160x160/img2.jpg') }}"
-                                data-onerror-image="{{ asset('public/assets/admin/img/160x160/img2.jpg') }}"
+                                src="{{ $item['image_full_url'] ?? asset('assets/admin/img/160x160/img2.jpg') }}"
+                                data-onerror-image="{{ asset('assets/admin/img/160x160/img2.jpg') }}"
                                 alt="Image Description">
                         </div>
                         <div class="cont overflow-hidden py-0">

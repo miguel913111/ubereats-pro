@@ -56,7 +56,7 @@
             <div class="card-header border-0 align-items-center">
                 <h4 class="card-title align-items-center gap-2">
                     <span class="card-header-icon">
-                        <img src="{{asset('public/assets/admin/img/billing.png')}}" alt="">
+                        <img src="{{asset('assets/admin/img/billing.png')}}" alt="">
                     </span>
                     <span class="text-title">Billing</span>
                 </h4>
@@ -65,7 +65,7 @@
                 <div class="row g-3">
                     <div class="col-sm-6 col-lg-4">
                         <a class="__card-2 __bg-1 flex-row align-items-center gap-4" href="#">
-                            <img src="{{asset('public/assets/admin/img/expiring.png')}}" alt="report/new" class="w-60px">
+                            <img src="{{asset('assets/admin/img/expiring.png')}}" alt="report/new" class="w-60px">
                             <div class="w-0 flex-grow-1 py-md-3">
                                 <span class="text-body">Expire Date</span>
                                 <h4 class="title m-0">20 Jun 2024</h4>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <a class="__card-2 __bg-8 flex-row align-items-center gap-4" href="#">
-                            <img src="{{asset('public/assets/admin/img/total-bill.png')}}" alt="report/new" class="w-60px">
+                            <img src="{{asset('assets/admin/img/total-bill.png')}}" alt="report/new" class="w-60px">
                             <div class="w-0 flex-grow-1 py-md-3">
                                 <span class="text-body">Total Bill</span>
                                 <h4 class="title m-0">$ 2,000</h4>
@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-sm-6 col-lg-4">
                         <a class="__card-2 __bg-4 flex-row align-items-center gap-4" href="#">
-                            <img src="{{asset('public/assets/admin/img/number.png')}}" alt="report/new" class="w-60px">
+                            <img src="{{asset('assets/admin/img/number.png')}}" alt="report/new" class="w-60px">
                             <div class="w-0 flex-grow-1 py-md-3">
                                 <span class="text-body">Number of Uses</span>
                                 <h4 class="title m-0">2</h4>
@@ -97,7 +97,7 @@
             <div class="card-header border-0 align-items-center">
                 <h4 class="card-title align-items-center gap-2">
                     <span class="card-header-icon">
-                        <img width="25" src="{{asset('public/assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
+                        <img width="25" src="{{asset('assets/admin/img/subscription-plan/subscribed-user.png')}}" alt="">
                     </span>
                     <span>Package Overview</span>
                 </h4>
@@ -328,7 +328,7 @@
                                 </div>
                                 <!-- Plan Seperator Arrow -->
                                 <div class="plan-seperator-arrow mx-auto">
-                                    <img src="{{asset('public/assets/admin/img/exchange.svg')}}" alt="" class="w-100">
+                                    <img src="{{asset('assets/admin/img/exchange.svg')}}" alt="" class="w-100">
                                 </div>
                                 <!-- Plan Seperator Arrow -->
                                 <div class="__plan-item active">
