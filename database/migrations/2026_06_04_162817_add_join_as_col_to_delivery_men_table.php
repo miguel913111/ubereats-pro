@@ -15,7 +15,9 @@ return new class extends Migration
             if (!Schema::hasColumn('delivery_men', 'is_delivery')) {
                 $table->boolean('is_delivery')->default(1);
             }
-            $table->boolean('is_ride')->default(0);
+            if (!Schema::hasColumn('delivery_men', 'is_ride')) {
+                $table->boolean('is_ride')->default(0);
+            }
             if (!Schema::hasColumn('delivery_men', 'earning')) {
                 $table->boolean('earning')->nullable()->change();
             }

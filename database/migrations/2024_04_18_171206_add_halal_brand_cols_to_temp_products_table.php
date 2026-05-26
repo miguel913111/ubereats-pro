@@ -12,9 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('temp_products', function (Blueprint $table) {
-            $table->boolean('is_halal')->default(0);
-            $table->boolean('brand_id')->default(0);
-            $table->boolean('is_prescription_required')->default(0);
+            if (!Schema::hasColumn('temp_products', 'is_halal')) {
+                $table->boolean('is_halal')->default(0);
+            }
+            if (!Schema::hasColumn('temp_products', 'brand_id')) {
+                $table->boolean('brand_id')->default(0);
+            }
+            if (!Schema::hasColumn('temp_products', 'is_prescription_required')) {
+                $table->boolean('is_prescription_required')->default(0);
+            }
         });
     }
 

@@ -12,9 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('temp_products', function (Blueprint $table) {
-            $table->string('nutrition_ids',255)->nullable();
-            $table->string('allergy_ids',255)->nullable();
-            $table->string('generic_ids',255)->nullable();
+            if (!Schema::hasColumn('temp_products', 'nutrition_ids')) {
+                $table->string('nutrition_ids',255)->nullable();
+            }
+            if (!Schema::hasColumn('temp_products', 'allergy_ids')) {
+                $table->string('allergy_ids',255)->nullable();
+            }
+            if (!Schema::hasColumn('temp_products', 'generic_ids')) {
+                $table->string('generic_ids',255)->nullable();
+            }
         });
     }
 

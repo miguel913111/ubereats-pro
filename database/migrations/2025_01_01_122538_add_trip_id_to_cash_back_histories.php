@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('cash_back_histories', function (Blueprint $table) {
-            $table->foreignId('trip_id')->nullable();
+            if (!Schema::hasColumn('cash_back_histories', 'trip_id')) {
+                $table->foreignId('trip_id')->nullable();
+            }
         });
     }
 

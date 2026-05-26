@@ -14,7 +14,9 @@ class AddDeliveryFeeComissionToOrderTransactionsTable extends Migration
     public function up()
     {
         Schema::table('order_transactions', function (Blueprint $table) {
-            $table->double('delivery_fee_comission',24, 2)->default('0');
+            if (!Schema::hasColumn('order_transactions', 'delivery_fee_comission')) {
+                $table->double('delivery_fee_comission',24, 2)->default('0');
+            }
         });
     }
 

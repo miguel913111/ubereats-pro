@@ -12,9 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('wishlists', function (Blueprint $table) {
-            $table->index('user_id');
-            $table->index('item_id');
-            $table->index('store_id');
+            if (!Schema::hasColumn('wishlists', 'user_id')) {
+                $table->index('user_id');
+            }
+            if (!Schema::hasColumn('wishlists', 'item_id')) {
+                $table->index('item_id');
+            }
+            if (!Schema::hasColumn('wishlists', 'store_id')) {
+                $table->index('store_id');
+            }
         });
     }
 
@@ -24,9 +30,15 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('wishlists', function (Blueprint $table) {
-            $table->dropIndex('user_id');
-            $table->dropIndex('item_id');
-            $table->dropIndex('store_id');
+            if (!Schema::hasColumn('wishlists', 'user_id')) {
+                $table->dropIndex('user_id');
+            }
+            if (!Schema::hasColumn('wishlists', 'item_id')) {
+                $table->dropIndex('item_id');
+            }
+            if (!Schema::hasColumn('wishlists', 'store_id')) {
+                $table->dropIndex('store_id');
+            }
         });
     }
 };

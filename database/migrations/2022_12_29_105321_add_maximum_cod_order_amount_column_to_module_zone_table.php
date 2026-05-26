@@ -14,7 +14,9 @@ class AddMaximumCodOrderAmountColumnToModuleZoneTable extends Migration
     public function up()
     {
         Schema::table('module_zone', function (Blueprint $table) {
-            $table->double('maximum_cod_order_amount', 23, 2)->nullable();
+            if (!Schema::hasColumn('module_zone', 'maximum_cod_order_amount')) {
+                $table->double('maximum_cod_order_amount', 23, 2)->nullable();
+            }
         });
     }
 

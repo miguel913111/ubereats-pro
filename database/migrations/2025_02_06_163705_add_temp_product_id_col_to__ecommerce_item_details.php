@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('ecommerce_item_details', function (Blueprint $table) {
-            $table->foreignId('temp_product_id')->nullable();
+            if (!Schema::hasColumn('ecommerce_item_details', 'temp_product_id')) {
+                $table->foreignId('temp_product_id')->nullable();
+            }
         });
     }
 

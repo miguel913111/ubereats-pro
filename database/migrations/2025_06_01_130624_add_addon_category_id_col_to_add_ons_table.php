@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('add_ons', function (Blueprint $table) {
-            $table->foreignId('addon_category_id')->nullable();
+            if (!Schema::hasColumn('add_ons', 'addon_category_id')) {
+                $table->foreignId('addon_category_id')->nullable();
+            }
         });
     }
 

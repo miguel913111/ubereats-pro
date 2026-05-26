@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('automated_messages', function (Blueprint $table) {
-            $table->string('question_for')->default(CUSTOMER)->after('id');
-            $table->string('question')->after('question_for');
+            if (!Schema::hasColumn('automated_messages', 'question_for')) {
+                $table->string('question_for')->default(CUSTOMER)->after('id');
+            }
+            if (!Schema::hasColumn('automated_messages', 'question')) {
+                $table->string('question')->after('question_for');
+            }
         });
     }
 

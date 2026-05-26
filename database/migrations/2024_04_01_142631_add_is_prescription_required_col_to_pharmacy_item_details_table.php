@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('pharmacy_item_details', function (Blueprint $table) {
-            $table->boolean('is_prescription_required')->default(0);
+            if (!Schema::hasColumn('pharmacy_item_details', 'is_prescription_required')) {
+                $table->boolean('is_prescription_required')->default(0);
+            }
         });
     }
 

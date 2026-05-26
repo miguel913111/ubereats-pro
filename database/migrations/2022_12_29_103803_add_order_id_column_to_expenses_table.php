@@ -14,7 +14,9 @@ class AddOrderIdColumnToExpensesTable extends Migration
     public function up()
     {
         Schema::table('expenses', function (Blueprint $table) {
-            $table->renameColumn('description','order_id');
+            if (!Schema::hasColumn('expenses', 'description')) {
+                $table->renameColumn('description','order_id');
+            }
             // $table->foreignId('order_id')->nullable()->change();
         });
     }
@@ -27,7 +29,9 @@ class AddOrderIdColumnToExpensesTable extends Migration
     public function down()
     {
         Schema::table('expenses', function (Blueprint $table) {
-            $table->renameColumn('order_id','description');
+            if (!Schema::hasColumn('expenses', 'order_id')) {
+                $table->renameColumn('order_id','description');
+            }
         });
     }
 }

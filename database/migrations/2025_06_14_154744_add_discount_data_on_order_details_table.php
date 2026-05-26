@@ -12,11 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('order_details', function (Blueprint $table) {
-           $table->foreignId('category_id')->nullable();
-           $table->string('discount_on_product_by')->nullable();
-           $table->string('tax_status')->nullable();
-           $table->double('discount_percentage',23, 8)->default(0)->nullable();
-           $table->double('addon_discount',23, 8)->default(0)->nullable();
+           if (!Schema::hasColumn('order_details', 'category_id')) {
+               $table->foreignId('category_id')->nullable();
+           }
+           if (!Schema::hasColumn('order_details', 'discount_on_product_by')) {
+               $table->string('discount_on_product_by')->nullable();
+           }
+           if (!Schema::hasColumn('order_details', 'tax_status')) {
+               $table->string('tax_status')->nullable();
+           }
+           if (!Schema::hasColumn('order_details', 'discount_percentage')) {
+               $table->double('discount_percentage',23, 8)->default(0)->nullable();
+           }
+           if (!Schema::hasColumn('order_details', 'addon_discount')) {
+               $table->double('addon_discount',23, 8)->default(0)->nullable();
+           }
         });
     }
 
