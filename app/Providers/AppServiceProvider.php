@@ -44,15 +44,16 @@ class AppServiceProvider extends ServiceProvider
 
         try
         {
-            // FORCE migrate:fresh on next boot to fix incomplete schema
             if (!defined('MIGRATION_FRESH_RUNNING')) {
                 define('MIGRATION_FRESH_RUNNING', true);
+                info('Running migrate:fresh from AppServiceProvider');
                 Artisan::call('migrate:fresh', ['--force' => true]);
+                info('migrate:fresh completed successfully');
             }
         }
         catch(\Exception $e)
         {
-            // Silently ignore if DB is not yet available
+            info('migrate:fresh failed: ' . $e->getMessage());
         }
 
         try
