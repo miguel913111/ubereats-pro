@@ -3420,6 +3420,9 @@ class Helpers
         }
 
         if (request()->is('api/*')) {
+            if ($data) {
+                return asset('storage/app/public') . '/' . $path . '/' . $data;
+            }
             return null;
         }
 
