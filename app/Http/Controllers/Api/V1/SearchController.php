@@ -66,7 +66,7 @@ class SearchController extends Controller
                 return $query->where('store_id', $request->store_id);
             })
             ->whereHas('module.zones', function ($query) use ($zone_id , $filter) {
-                $query->whereIn('zones.id', json_decode($zone_id, true))
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? [])
                 ->when($filter&&in_array('free_delivery',$filter),function ($qurey){
                     return $qurey->where('free_delivery',1);
                 })
@@ -80,7 +80,7 @@ class SearchController extends Controller
                     $query->where('module_id', config('module.current_module_data')['id'])->whereHas('zone.modules', function ($query) {
                         $query->where('modules.id', config('module.current_module_data')['id']);
                     });
-                })->whereIn('zone_id', json_decode($zone_id, true));
+                })->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->where(function ($q) use ($key) {
                 foreach ($key as $value) {

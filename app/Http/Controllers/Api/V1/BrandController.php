@@ -32,7 +32,7 @@ class BrandController extends Controller
             ->withCount(['items' => function($query) use($zone_id, $module_id) {
                 $query->whereHas('item.store', function($q) use($zone_id, $module_id) {
                     $q->when(isset($zone_id) ,function ($query) use($zone_id){
-                        $query->whereIn('zone_id', json_decode($zone_id, true));
+                        $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                     })
                     ->where('module_id', $module_id);
                 });
@@ -111,13 +111,13 @@ class BrandController extends Controller
 
         $query = Item::
         whereHas('module.zones', function($query)use($zone_id){
-            $query->whereIn('zones.id', json_decode($zone_id, true));
+            $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
         })
         ->when(config('module.current_module_data'), function($query){
             $query->where('module_id', config('module.current_module_data')['id']);
         })
         ->whereHas('store', function($query)use($zone_id){
-            $query->whereIn('zone_id', json_decode($zone_id, true))->whereHas('zone.modules',function($query){
+            $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? [])->whereHas('zone.modules',function($query){
                 $query->when(config('module.current_module_data'), function($query){
                     $query->where('modules.id', config('module.current_module_data')['id']);
                 });

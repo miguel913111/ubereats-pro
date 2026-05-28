@@ -26,13 +26,13 @@ class BannerController extends Controller
             $cacheKey = 'campaigns_' . md5($zone_id . '_' . $moduleId);
             $campaigns = Cache::remember($cacheKey, now()->addMinutes(20), function() use ($zone_id) {
                 return Campaign::whereHas('module.zones', function($query) use($zone_id) {
-                    $query->whereIn('zones.id', json_decode($zone_id, true));
+                    $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
                 })
                     ->when(config('module.current_module_data'), function($query) use($zone_id) {
                         $query->module(config('module.current_module_data')['id']);
                         if (!config('module.current_module_data')['all_zone_service']) {
                             $query->whereHas('stores', function($q) use($zone_id) {
-                                $q->whereIn('zone_id', json_decode($zone_id, true));
+                                $q->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                             });
                         }
                     })
@@ -69,11 +69,11 @@ class BannerController extends Controller
                 })
                     ->module(config('module.current_module_data')['id'])
                     ->when(!config('module.current_module_data')['all_zone_service'], function($query) use ($zone_id) {
-                        $query->whereIn('zone_id', json_decode($zone_id, true));
+                        $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                     });
             }
 
-            $banners = $banners->whereIn('zone_id', json_decode($zone_id, true))
+            $banners = $banners->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? [])
                 ->whereHas('module', function($query) {
                     $query->active();
                 })

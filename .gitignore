@@ -20,3 +20,4 @@ docker-local/
 .ddev/
 installation/backup/database.sql
 multi_food_db_dump.sql
+public/public/assets/admin/js/theme.min.js

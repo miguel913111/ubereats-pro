@@ -31,10 +31,10 @@ class CategoryLogic
 
         $query = Item::
         whereHas('module.zones', function($query)use($zone_id){
-            $query->whereIn('zones.id', json_decode($zone_id, true));
+            $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
         })
             ->whereHas('store', function($query)use($zone_id){
-                $query->whereIn('zone_id', json_decode($zone_id, true))->whereHas('zone.modules',function($query){
+                $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? [])->whereHas('zone.modules',function($query){
                     $query->when(config('module.current_module_data'), function($query){
                         $query->where('modules.id', config('module.current_module_data')['id']);
                     });
@@ -114,14 +114,14 @@ class CategoryLogic
 
         $query = Item::
             whereHas('module.zones', function($query)use($zone_id){
-                $query->whereIn('zones.id', json_decode($zone_id, true));
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->whereHas('store', function($query)use($zone_id , $filter){
                 return $query->when(config('module.current_module_data'), function($query){
                     return  $query->where('module_id', config('module.current_module_data')['id'])->whereHas('zone.modules',function($query){
                         return  $query->where('modules.id', config('module.current_module_data')['id']);
                     });
-                })->whereIn('zone_id', json_decode($zone_id, true))
+                })->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? [])
 
                 ->when($filter&&in_array('free_delivery',$filter),function ($qurey){
                     return $qurey->where('free_delivery',1);
@@ -256,7 +256,7 @@ class CategoryLogic
                     return $query->where('modules.id', config('module.current_module_data')['id']);
                 })->module(config('module.current_module_data')['id']);
                 if(!config('module.current_module_data')['all_zone_service']) {
-                    return  $query->whereIn('zone_id', json_decode($zone_id, true));
+                    return  $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                 }
             })
             ->active()->type($type)
@@ -364,7 +364,7 @@ class CategoryLogic
                     $query->where('modules.id', config('module.current_module_data')['id']);
                 })->module(config('module.current_module_data')['id']);
                 if(!config('module.current_module_data')['all_zone_service']) {
-                    $query->whereIn('zone_id', json_decode($zone_id, true));
+                    $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                 }
             })
             ->active()->type($type)
@@ -425,10 +425,10 @@ class CategoryLogic
 
         return Item::whereIn('category_id', $cate_ids)
             ->whereHas('module.zones', function($query)use($zone_id){
-                $query->whereIn('zones.id', json_decode($zone_id, true));
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->whereHas('store', function($query)use($zone_id){
-                $query->whereIn('zone_id', json_decode($zone_id, true))->whereHas('zone.modules',function($query){
+                $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? [])->whereHas('zone.modules',function($query){
                     $query->when(config('module.current_module_data'), function($query){
                         $query->where('modules.id', config('module.current_module_data')['id']);
                     });
@@ -442,10 +442,10 @@ class CategoryLogic
     {
         $paginator = Item::active()->type($type)
             ->whereHas('module.zones', function($query)use($zone_id){
-                $query->whereIn('zones.id', json_decode($zone_id, true));
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->whereHas('store', function($query)use($zone_id){
-                $query->whereIn('zone_id', json_decode($zone_id, true))->whereHas('zone.modules',function($query){
+                $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? [])->whereHas('zone.modules',function($query){
                     $query->when(config('module.current_module_data'), function($query){
                         $query->where('modules.id', config('module.current_module_data')['id']);
                     });
@@ -464,10 +464,10 @@ class CategoryLogic
 
         $item_categories = Item::active()->type($type)
             ->whereHas('module.zones', function($query)use($zone_id){
-                $query->whereIn('zones.id', json_decode($zone_id, true));
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->whereHas('store', function($query)use($zone_id){
-                $query->whereIn('zone_id', json_decode($zone_id, true))->whereHas('zone.modules',function($query){
+                $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? [])->whereHas('zone.modules',function($query){
                     $query->when(config('module.current_module_data'), function($query){
                         $query->where('modules.id', config('module.current_module_data')['id']);
                     });

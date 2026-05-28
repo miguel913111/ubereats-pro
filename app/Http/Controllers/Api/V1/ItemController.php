@@ -149,14 +149,14 @@ class ItemController extends Controller
             return $query->where('store_id', $request->store_id);
         })
         ->whereHas('module.zones', function($query)use($zone_id){
-            $query->whereIn('zones.id', json_decode($zone_id, true));
+            $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
         })
         ->whereHas('store', function($query)use($zone_id){
             $query->when(config('module.current_module_data'), function($query){
                 $query->where('module_id', config('module.current_module_data')['id'])->whereHas('zone.modules',function($query){
                     $query->where('modules.id', config('module.current_module_data')['id']);
                 });
-            })->whereIn('zone_id', json_decode($zone_id, true));
+            })->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
         })
         ->where(function ($q) use ($key) {
             foreach ($key as $value) {
@@ -267,14 +267,14 @@ class ItemController extends Controller
             return $query->where('store_id', $request->store_id);
         })
         ->whereHas('module.zones', function($query)use($zone_id){
-            $query->whereIn('zones.id', json_decode($zone_id, true));
+            $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
         })
         ->whereHas('store', function($query)use($zone_id){
             $query->when(config('module.current_module_data'), function($query){
                 $query->where('module_id', config('module.current_module_data')['id'])->whereHas('zone.modules',function($query){
                     $query->where('modules.id', config('module.current_module_data')['id']);
                 });
-            })->whereIn('zone_id', json_decode($zone_id, true));
+            })->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
         })
         ->where(function ($q) use ($key) {
             foreach ($key as $value) {
@@ -673,7 +673,7 @@ class ItemController extends Controller
                 $query->where('module_id', config('module.current_module_data')['id'])->whereHas('zone.modules',function($query){
                     $query->where('modules.id', config('module.current_module_data')['id']);
                 });
-            })->whereIn('zone_id', json_decode($zone_id, true));
+            })->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
         })
         ->where(function ($q) use ($key) {
             foreach ($key as $value) {
@@ -734,7 +734,7 @@ class ItemController extends Controller
         ->when(config('module.current_module_data'), function($query)use($zone_id){
             $query->module(config('module.current_module_data')['id']);
             if(!config('module.current_module_data')['all_zone_service']) {
-                $query->whereIn('zone_id', json_decode($zone_id, true));
+                $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
             }
         })
         ->active()
@@ -777,7 +777,7 @@ class ItemController extends Controller
         $type = $request->query('type', 'all');
         $limit = $request['limit'];
         $offset = $request['offset'];
-        $zones = !empty($zone_id) ? json_decode($zone_id, true) : null;
+        $zones = !empty($zone_id) ? json_decode($zone_id ?? '[]', true) ?? [] : null;
 
         $paginator = Item::query()
 

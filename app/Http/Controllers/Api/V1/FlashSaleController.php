@@ -18,13 +18,13 @@ class FlashSaleController extends Controller
             $flash_sales = FlashSale::with(['activeProducts','activeProducts.item'])
             ->module(config('module.current_module_data')['id'])
             ->whereHas('module.zones', function($query)use($zone_id){
-                $query->whereIn('zones.id', json_decode($zone_id, true));
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
             })->whereHas('activeProducts.item.store',function($query) use ($zone_id){
                 $query->when(config('module.current_module_data'), function($query){
                     $query->where('module_id', config('module.current_module_data')['id'])->whereHas('zone.modules',function($query){
                         $query->where('modules.id', config('module.current_module_data')['id']);
                     });
-                })->whereIn('zone_id', json_decode($zone_id, true));
+                })->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->running()->active()->first();
             if ($flash_sales) {
@@ -50,7 +50,7 @@ class FlashSaleController extends Controller
         $offset = isset($request['offset'])?$request['offset']:1;
         $zone_id= $request->header('zoneId');
         $flash_sale = FlashSale::whereHas('module.zones', function($query)use($zone_id){
-            $query->whereIn('zones.id', json_decode($zone_id, true));
+            $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
         })->module(config('module.current_module_data')['id'])
         ->running()->active()->first();
 
@@ -65,7 +65,7 @@ class FlashSaleController extends Controller
             $flash_sale_items = FlashSaleItem::where('flash_sale_id',$flash_sale->id)->where('available_stock' ,'>' ,0 )->active()
 
             ->wherehas('item.store', function($query)use($zone_id){
-                $query->whereIn('zone_id',json_decode($zone_id, true));
+                $query->whereIn('zone_id',json_decode($zone_id ?? '[]', true) ?? []);
             })->wherehas('item',function($query){
                 $query->active();
             })

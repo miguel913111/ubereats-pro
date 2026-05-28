@@ -17,13 +17,13 @@ class CampaignController extends Controller
         try {
             $campaigns = Campaign::
             whereHas('module.zones',function($query)use($zone_id){
-                $query->whereIn('zones.id', json_decode($zone_id, true));
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->when(config('module.current_module_data'), function($query)use($zone_id){
                 $query->module(config('module.current_module_data')['id']);
                 if(!config('module.current_module_data')['all_zone_service']) {
                     $query->whereHas('stores', function($q)use($zone_id){
-                        $q->whereIn('zone_id', json_decode($zone_id, true));
+                        $q->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                     });
                 }
             })
@@ -52,13 +52,13 @@ class CampaignController extends Controller
                     $query->where('module_id', config('module.current_module_data')['id'])->whereHas('zone.modules',function($query){
                         $query->where('modules.id', config('module.current_module_data')['id']);
                     });
-                })->whereIn('zone_id', json_decode($zone_id, true));
+                })->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                 if(!config('module.current_module_data')['all_zone_service']) {
-                    $q->whereIn('zone_id', json_decode($zone_id, true));
+                    $q->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                 }
             }])
             ->whereHas('module.zones', function($query)use($zone_id){
-                $query->whereIn('zones.id', json_decode($zone_id, true));
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->running()
             ->active()
@@ -82,14 +82,14 @@ class CampaignController extends Controller
         try {
             $query = ItemCampaign::active()
             ->whereHas('module.zones', function($query)use($zone_id){
-                $query->whereIn('zones.id', json_decode($zone_id, true));
+                $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->whereHas('store', function($query)use($zone_id){
                 $query->Active()->when(config('module.current_module_data'), function($query){
                     $query->where('module_id', config('module.current_module_data')['id'])->whereHas('zone.modules',function($query){
                         $query->where('modules.id', config('module.current_module_data')['id']);
                     });
-                })->whereIn('zone_id', json_decode($zone_id, true));
+                })->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
             })
             ->running();
 

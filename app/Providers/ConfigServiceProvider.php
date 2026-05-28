@@ -226,12 +226,9 @@ class ConfigServiceProvider extends ServiceProvider
                 Config::set('canceled_by_deliveryman', (bool) $canceled_by_deliveryman->value);
             }
 
-            $toggle_veg_non_veg = (bool) BusinessSetting::where(['key' => 'toggle_veg_non_veg'])->first()->value;
-            if ($toggle_veg_non_veg) {
-                Config::set('toggle_veg_non_veg', $toggle_veg_non_veg);
-            } else {
-                Config::set('toggle_veg_non_veg', false);
-            }
+            $toggle_veg_non_veg_model = BusinessSetting::where(['key' => 'toggle_veg_non_veg'])->first();
+            $toggle_veg_non_veg = $toggle_veg_non_veg_model ? (bool) $toggle_veg_non_veg_model->value : false;
+            Config::set('toggle_veg_non_veg', $toggle_veg_non_veg);
 
             $data = BusinessSetting::where(['key' => 's3_credential'])->first();
             $credentials = null;

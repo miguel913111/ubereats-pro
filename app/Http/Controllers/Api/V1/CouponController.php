@@ -33,7 +33,7 @@ class CouponController extends Controller
                     $temp = Store::active()
                     ->when(config('module.current_module_data'), function($query)use($zone_id){
                         if(!config('module.current_module_data')['all_zone_service']) {
-                            $query->whereIn('zone_id', json_decode($zone_id, true));
+                            $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                         }
                     })
                     ->whereIn('id', json_decode($coupon->data, true))->first();
@@ -46,7 +46,7 @@ class CouponController extends Controller
                 }
                 else if($coupon->coupon_type == 'zone_wise')
                 {
-                    if(count(array_intersect(json_decode($zone_id, true), json_decode($coupon->data,true))))
+                    if(count(array_intersect(json_decode($zone_id ?? '[]', true) ?? [], json_decode($coupon->data,true))))
                     {
                         $data[] = $coupon;
                     }
@@ -62,7 +62,7 @@ class CouponController extends Controller
                 {
                     $temp = Store::active()->when(config('module.current_module_data'), function($query)use($zone_id){
                         if(!config('module.current_module_data')['all_zone_service']) {
-                            $query->whereIn('zone_id', json_decode($zone_id, true));
+                            $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                         }
                     })->where('id', $coupon->store_id)->exists();
 

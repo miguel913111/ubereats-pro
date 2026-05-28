@@ -27,7 +27,7 @@ class BannerLogic
                 ->where(function ($query) use ($zone_id) {
                     $query->where(function ($query) use ($zone_id) {
                         $query->whereIn('type', ['store_wise', 'item_wise'])
-                            ->whereIn('zone_id', json_decode($zone_id, true));
+                            ->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? []);
                     })->orWhere('type', 'default');
                 });
 
@@ -67,7 +67,7 @@ class BannerLogic
                 $item = Item::active()
                     ->when(config('module.current_module_data'), function ($query) use ($zone_id) {
                         $query->whereHas('module.zones', function ($query) use ($zone_id) {
-                            $query->whereIn('zones.id', json_decode($zone_id, true));
+                            $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
                         });
                     })
                     ->find($banner->data);

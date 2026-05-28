@@ -91,10 +91,10 @@ class CommonConditionController extends Controller
 
         $paginator = Item::
         whereHas('module.zones', function($query)use($zone_id){
-            $query->whereIn('zones.id', json_decode($zone_id, true));
+            $query->whereIn('zones.id', json_decode($zone_id ?? '[]', true) ?? []);
         })
         ->whereHas('store', function($query)use($zone_id){
-            $query->whereIn('zone_id', json_decode($zone_id, true))->whereHas('zone.modules',function($query){
+            $query->whereIn('zone_id', json_decode($zone_id ?? '[]', true) ?? [])->whereHas('zone.modules',function($query){
                 $query->when(config('module.current_module_data'), function($query){
                     $query->where('modules.id', config('module.current_module_data')['id']);
                 });
