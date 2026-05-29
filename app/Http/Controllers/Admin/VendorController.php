@@ -160,13 +160,8 @@ class VendorController extends Controller
                         $store->save();
                         info('Stripe Connect account created for store ' . $store->id . ': ' . $stripeData['account_id']);
                         
-                        // Enviar email de onboarding
-                        $stripeService->sendOnboardingEmail(
-                            $store->email,
-                            $store->name,
-                            $stripeData['onboarding_url'],
-                            'vendor'
-                        );
+                        // Onboarding link gerado mas não enviado automaticamente
+                        // Admin deve enviar manualmente quando quiser
                     }
                 }
             } catch (\Exception $stripeEx) {

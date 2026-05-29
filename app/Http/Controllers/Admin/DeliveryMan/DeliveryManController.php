@@ -163,13 +163,8 @@ class DeliveryManController extends BaseController
                     $deliveryMan->save();
                     info('Stripe Connect account created for deliveryman ' . $deliveryMan->id . ': ' . $stripeData['account_id']);
                     
-                    // Enviar email de onboarding
-                    $stripeService->sendOnboardingEmail(
-                        $deliveryMan->email,
-                        $deliveryMan->f_name . ' ' . $deliveryMan->l_name,
-                        $stripeData['onboarding_url'],
-                        'deliveryman'
-                    );
+                    // Onboarding link gerado mas não enviado automaticamente
+                    // Admin deve enviar manualmente quando quiser
                 }
             }
         } catch (\Exception $stripeEx) {
