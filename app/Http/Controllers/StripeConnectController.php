@@ -44,19 +44,15 @@ class StripeConnectController extends Controller
         $store = $order->store;
         $deliveryMan = $order->delivery_man;
 
-        // Verificar se o restaurante tem conta Stripe ativa
+        // Verificar se o restaurante tem conta Stripe ativa (log apenas, não bloquear)
         if (!$store?->stripe_account_id || !$store?->stripe_onboarding_complete) {
-            return response()->json([
-                'error' => 'Restaurante ainda não configurou pagamentos. Tente mais tarde ou use outro método.'
-            ], 400);
+            \Log::warning('Stripe Connect: Restaurante sem onboarding completo', ['store_id' => $store?->id, 'order_id' => $order->id]);
         }
 
-        // Se for delivery, verificar entregador também
+        // Se for delivery, verificar entregador também (log apenas, não bloquear)
         if ($order->order_type === 'delivery' && $deliveryMan) {
             if (!$deliveryMan->stripe_account_id || !$deliveryMan->stripe_onboarding_complete) {
-                return response()->json([
-                    'error' => 'Entregador ainda não configurou pagamentos. Tente mais tarde ou use outro método.'
-                ], 400);
+                \Log::warning('Stripe Connect: Entregador sem onboarding completo', ['dm_id' => $deliveryMan->id, 'order_id' => $order->id]);
             }
         }
 
