@@ -4725,4 +4725,34 @@ class Helpers
         return [];
     }
 
+    public static function formatMetaData($data, $oldMetaData = null)
+    {
+        $metaData = is_string($oldMetaData) ? json_decode($oldMetaData, true) : (is_array($oldMetaData) ? $oldMetaData : []);
+        if (!is_array($metaData)) {
+            $metaData = [];
+        }
+
+        $fields = [
+            'meta_index',
+            'meta_no_follow',
+            'meta_no_image_index',
+            'meta_no_archive',
+            'meta_no_snippet',
+            'meta_max_snippet',
+            'meta_max_snippet_value',
+            'meta_max_video_preview',
+            'meta_max_video_preview_value',
+            'meta_max_image_preview',
+            'meta_max_image_preview_value',
+        ];
+
+        foreach ($fields as $field) {
+            if (array_key_exists($field, $data)) {
+                $metaData[$field] = $data[$field];
+            }
+        }
+
+        return $metaData;
+    }
+
 }
