@@ -121,9 +121,11 @@ if (!$is_published) {
             
             // API endpoints (para app/web)
             Route::post('payment-intent', [StripeConnectController::class, 'createPaymentIntent'])
-                ->name('payment-intent');
+                ->name('payment-intent')
+                ->middleware('auth');
             Route::get('account-status', [StripeConnectController::class, 'checkAccountStatus'])
-                ->name('account-status');
+                ->name('account-status')
+                ->middleware('auth');
         });
 
       //RAZOR-PAY

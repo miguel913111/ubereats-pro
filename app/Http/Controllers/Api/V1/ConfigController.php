@@ -377,6 +377,7 @@ class ConfigController extends Controller
             'home_delivery_status' => (int)(isset($settings['home_delivery_status']) ? $settings['home_delivery_status'] : 0),
             'takeaway_status' => (int)(isset($settings['takeaway_status']) ? $settings['takeaway_status'] : 0),
             'active_payment_method_list' => $active_addon_payment_lists,
+            'stripe_publishable_key' => Helpers::get_business_settings('stripe')['published_key'] ?? null,
             'additional_charge_status' => (int)(isset($settings['additional_charge_status']) ? $settings['additional_charge_status'] : 0),
             'additional_charge_name' => (isset($settings['additional_charge_name']) ? $settings['additional_charge_name'] : 'Service Charge'),
             'additional_charge' => $additional_charge,
