@@ -1,0 +1,257 @@
+import { alpha, Box, Grid, Stack, Typography } from "@mui/material";
+import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import InStockTag from "../../product-details/InStockTag";
+import {
+  getAvailableStock,
+  isVariationAvailable,
+} from "../../product-details/product-details-section/helperFunction";
+
+import {
+  CustomFavICon,
+  FoodSubTitleTypography,
+} from "../food-card/FoodCard.style";
+// import { CustomTypographyTag } from "../../styled-components/CustomTypographies.style";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import IconButton from "@mui/material/IconButton";
+import {
+  CustomOverlayBox,
+  CustomStackForFoodModal,
+  CustomStackFullWidth,
+} from "styled-components/CustomStyles.style";
+import { getImageUrl, isAvailable } from "utils/CustomFunctions";
+import CustomRatingBox from "../../CustomRatingBox";
+import { FoodHalalHaram, FoodVegNonVegFlag } from "../../cards/SpecialCard";
+import NotAvailableCard from "./NotAvailableCard";
+import VerifiedStoreBadge from "components/cards/VerifiedStoreBadge";
+import React from "react";
+import FoodModalMediaPreview from "./FoodModalMediaPreview";
+
+const RemainingStock = ({ qty = 0 }) => {
+  const { t } = useTranslation();
+  return (
+    <Box
+      sx={{
+        padding: "3px 10px",
+        backgroundColor: (theme) => alpha(theme.palette.info.blue, 0.1),
+        color: (theme) => alpha(theme.palette.info.blue, 1),
+        fontSize: "12px",
+        borderRadius: "5px",
+        fontWeight: "400",
+        textAlign: "center",
+      }}
+    >
+      {t("Only")} {qty} {t("Products Left")}
+    </Box>
+  );
+};
+
+const FoodDetailsManager = (props) => {
+  const {
+    configData,
+    handleDiscountChip,
+    modalData,
+    product,
+    t,
+    router,
+    addToWishlistHandler,
+    removeFromWishlistHandler,
+    isWishlisted,
+    theme,
+
+    handleRouteToStore,
+  } = props;
+
+  const { showLowStockCount, minimumStockForWarning } = useMemo(() => {
+    const store = product?.store_details ?? modalData?.[0]?.store_details;
+    return {
+      showLowStockCount: Number(store?.show_low_stock_count) === 1,
+      minimumStockForWarning: Number(store?.minimum_stock_for_warning) || 0,
+    };
+  }, [product?.store_details, modalData]);
+
+
+  const renderStockBadge = (item) => {
+    if (!item) return null;
+    if (!isVariationAvailable(item)) return null;
+    const availableStock = getAvailableStock(item);
+    if (availableStock <= 0) return null;
+    const cartQuantity = item?.quantity || 0;
+    const currentStock = Math.max(0, availableStock - (cartQuantity - 1));
+    const showWarning =
+      showLowStockCount && minimumStockForWarning >= currentStock;
+    return showWarning ? <RemainingStock qty={currentStock} /> : <InStockTag />;
+  };
+  return (
+    <Grid container direction="row">
+      <Grid item xs={12} md={12} position="relative">
+        {handleDiscountChip(product, t)}
+        {modalData?.length > 0 &&
+          !isAvailable(
+            modalData[0]?.available_time_starts,
+            modalData[0]?.available_time_ends,
+          ) && (
+            <CustomOverlayBox height="40%" top="126px">
+              <NotAvailableCard
+                endTime={
+                  modalData.length > 0 && modalData[0].available_time_ends
+                }
+                startTime={
+                  modalData.length > 0 && modalData[0].available_time_starts
+                }
+              />
+            </CustomOverlayBox>
+          )}
+
+        <FoodModalMediaPreview
+          imageUrl={modalData[0]?.images_full_url}
+          product={modalData[0]}
+          height="200px"
+          aspectRatio="2/1"
+          borderRadius=".3rem"
+          alt="The house from the offer."
+        />
+        <CustomStackForFoodModal width="100%" spacing={2}>
+          <Stack spacing={1.4} alignItems="start">
+            {!product?.available_date_ends &&
+              Number(product?.avg_rating) > 0 && (
+                <CustomRatingBox rating={product?.avg_rating} />
+              )}
+            {router.pathname !== `/store/[id]` ? (
+              <Stack direction="row" alignItems="center" spacing={0.5}>
+                <Typography
+                  sx={{ cursor: "pointer" }}
+                  fontSize="14px"
+                  fontWeight="400"
+                  color={theme.palette.whiteContainer.main}
+                  onClick={handleRouteToStore}
+                >
+                  {product?.store_name}
+                </Typography>
+                <VerifiedStoreBadge
+                  verified={
+                    product?.store_details?.verified_seller ??
+                    product?.verified_seller ??
+                    modalData?.[0]?.store_details?.verified_seller ??
+                    modalData?.[0]?.verified_seller
+                  }
+                  color="#ffffff"
+                  fontSize="16px"
+                />
+              </Stack>
+            ) : null}
+          </Stack>
+          {!product?.available_date_ends && (
+            <>
+              {!isWishlisted ? (
+                <CustomFavICon>
+                  <IconButton onClick={addToWishlistHandler}>
+                    <FavoriteBorderIcon color="primary" />
+                  </IconButton>
+                </CustomFavICon>
+              ) : (
+                <CustomFavICon>
+                  <IconButton onClick={(e) => removeFromWishlistHandler(e)}>
+                    <FavoriteIcon color="primary" />
+                  </IconButton>
+                </CustomFavICon>
+              )}
+            </>
+          )}
+        </CustomStackForFoodModal>
+      </Grid>
+      <Grid item md={12} sm={12} xs={12}>
+        <Stack paddingX="1rem" width="100%" spaicing={1} paddingTop="1rem">
+          <CustomStackFullWidth>
+            <CustomStackFullWidth
+              direction="row"
+              justifyContent="flex-start"
+              alignItems="center"
+              flexWrap="wrap"
+              spacing={0.5}
+            >
+              <Typography fontSize="16px" fontWeight="500">
+                {modalData.length > 0 && modalData[0].name}
+              </Typography>
+              {modalData?.length > 0 && renderStockBadge(modalData[0])}
+              {modalData.length > 0 &&
+                modalData[0]?.module?.module_type === "food" &&
+                configData?.toggle_veg_non_veg && (
+                  <FoodVegNonVegFlag
+                    veg={modalData[0]?.veg === 0 ? "false" : "true"}
+                  />
+                )}
+              {modalData[0]?.halal_tag_status && modalData[0]?.is_halal ? (
+                <FoodHalalHaram position="relative" />
+              ) : (
+                ""
+              )}
+            </CustomStackFullWidth>
+          </CustomStackFullWidth>
+          {modalData[0]?.generic_name[0] && (
+            <Typography
+              fontSize={{ xs: "12px", sm: "12px" }}
+              fontWeight="400"
+              color="customColor.textGray"
+              component="h2"
+              mb="5px"
+            >
+              {modalData[0]?.generic_name[0]}.
+            </Typography>
+          )}
+          <FoodSubTitleTypography
+            color={theme.palette.neutral[400]}
+            sx={{
+              textAlign: "left",
+              fontSize: "12px",
+            }}
+          >
+            {modalData.length > 0 && modalData[0].description}
+          </FoodSubTitleTypography>
+
+          {modalData[0]?.nutritions_name?.length > 0 && (
+            <>
+              <Typography fontSize="14px" fontWeight="500" mt="5px">
+                {t("Nutrition Details")}
+              </Typography>
+
+              <Stack direction="row" spacing={0.5}>
+                {modalData[0]?.nutritions_name?.map((item, index) => (
+                  <Typography fontSize="12px" key={index}>
+                    {item}
+                    {index !== modalData[0]?.nutritions_name.length - 1
+                      ? ","
+                      : "."}
+                  </Typography>
+                ))}
+              </Stack>
+            </>
+          )}
+          {modalData[0]?.allergies_name?.length > 0 && (
+            <>
+              <Typography fontSize="14px" fontWeight="500" mt="5px">
+                {t("Allergic Ingredients")}
+              </Typography>
+
+              <Stack direction="row" spacing={0.5}>
+                {modalData[0]?.allergies_name?.map((item, index) => (
+                  <Typography fontSize="12px" key={index}>
+                    {item}
+                    {index !== modalData[0]?.allergies_name.length - 1
+                      ? ","
+                      : "."}
+                  </Typography>
+                ))}
+              </Stack>
+            </>
+          )}
+        </Stack>
+      </Grid>
+    </Grid>
+  );
+};
+
+FoodDetailsManager.propTypes = {};
+
+export default FoodDetailsManager;

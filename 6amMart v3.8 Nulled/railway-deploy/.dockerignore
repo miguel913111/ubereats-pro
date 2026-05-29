@@ -1,0 +1,17 @@
+.idea
+vendor
+node_modules
+storage/app/public/*
+storage/framework/cache/*
+storage/framework/sessions/*
+storage/framework/views/*
+storage/logs/*
+bootstrap/cache/*.php
+.env
+.phpunit.result.cache
+*.log
+translate_cache*.json
+translate_*.txt
+translate_*.php
+server.log
+composer.phar

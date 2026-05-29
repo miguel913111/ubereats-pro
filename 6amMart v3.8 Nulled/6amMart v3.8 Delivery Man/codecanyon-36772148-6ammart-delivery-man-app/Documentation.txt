@@ -1,0 +1,4 @@
+If you need only the changed files for delivery man app in V3.8 check the delivery man app changed files from V3.7 to V3.8 folder
+otherwise please use "Delivery man app" folder.
+
+ Online Documentation Link - https://jiourl.com/fSBadQ

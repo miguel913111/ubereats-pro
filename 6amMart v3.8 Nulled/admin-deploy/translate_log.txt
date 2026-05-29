@@ -1,0 +1,6 @@
+2026-05-23 21:35:35 Starting translation...
+2026-05-23 21:35:35 Resuming from cache: 1300 already processed
+2026-05-23 21:35:59 Progress: 1350/11073 (translated: 1321, skipped: 0, failed: 0)
+2026-05-23 21:36:35 Progress: 1400/11073 (translated: 1371, skipped: 0, failed: 0)
+2026-05-23 21:37:17 Progress: 1450/11073 (translated: 1421, skipped: 0, failed: 0)
+2026-05-23 21:37:50 Progress: 1500/11073 (translated: 1471, skipped: 0, failed: 0)

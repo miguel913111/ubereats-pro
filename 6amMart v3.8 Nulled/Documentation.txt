@@ -1,0 +1,10 @@
+1. If you are newly installing the admin please only use the "Admin Panel New Install" zip file, 
+	You don't need to use the Admin Update to version-x zip file. 
+	The Admin Panel Update zip file is only for update the older version.
+2. As the app and web are developed using flutter, use the "User App and Web" folder for both App and Web code build. 
+Must follow the documentation.
+3. If you need only the changed files for mobile apps in V3.8 check the User app and web changes from V3.7 to V3.8 folder
+otherwise please use "User app and web" folder.
+
+
+ Online Documentation Link - https://jiourl.com/ebBfAs
