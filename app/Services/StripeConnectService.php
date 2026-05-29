@@ -127,6 +127,28 @@ class StripeConnectService
     }
 
     /**
+     * Criar PaymentIntent com parâmetros avançados (customer, payment_method, etc.)
+     */
+    public function createPaymentIntentAdvanced(array $params): ?array
+    {
+        if (!$this->stripe) {
+            return null;
+        }
+
+        try {
+            $paymentIntent = $this->stripe->paymentIntents->create($params);
+
+            return [
+                'id' => $paymentIntent->id,
+                'client_secret' => $paymentIntent->client_secret,
+            ];
+        } catch (\Exception $e) {
+            info('Stripe Connect PaymentIntent advanced error: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    /**
      * Transferir fundos para uma connected account
      */
     public function createTransfer(int $amountCents, string $currency, string $destinationAccountId, string $transferGroup, string $description = ''): bool
@@ -184,6 +206,103 @@ class StripeConnectService
             return true;
         } catch (\Exception $e) {
             info('Stripe Connect email error: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Criar Stripe Customer para um utilizador
+     */
+    public function createCustomer(string $email, string $name = '', ?string $phone = null): ?string
+    {
+        if (!$this->stripe) {
+            return null;
+        }
+
+        try {
+            $customer = $this->stripe->customers->create([
+                'email' => $email,
+                'name' => $name,
+                'phone' => $phone,
+            ]);
+            return $customer->id;
+        } catch (\Exception $e) {
+            info('Stripe create customer error: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Criar SetupIntent para salvar cartão
+     */
+    public function createSetupIntent(string $customerId): ?array
+    {
+        if (!$this->stripe) {
+            return null;
+        }
+
+        try {
+            $setupIntent = $this->stripe->setupIntents->create([
+                'customer' => $customerId,
+                'payment_method_types' => ['card'],
+            ]);
+
+            return [
+                'id' => $setupIntent->id,
+                'client_secret' => $setupIntent->client_secret,
+            ];
+        } catch (\Exception $e) {
+            info('Stripe create SetupIntent error: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Listar cartões salvos de um Customer
+     */
+    public function listPaymentMethods(string $customerId): array
+    {
+        if (!$this->stripe) {
+            return [];
+        }
+
+        try {
+            $methods = $this->stripe->customers->allPaymentMethods(
+                $customerId,
+                ['type' => 'card']
+            );
+
+            $cards = [];
+            foreach ($methods->data as $method) {
+                $cards[] = [
+                    'id' => $method->id,
+                    'brand' => $method->card->brand,
+                    'last4' => $method->card->last4,
+                    'exp_month' => $method->card->exp_month,
+                    'exp_year' => $method->card->exp_year,
+                ];
+            }
+            return $cards;
+        } catch (\Exception $e) {
+            info('Stripe list payment methods error: ' . $e->getMessage());
+            return [];
+        }
+    }
+
+    /**
+     * Detach (remover) cartão de um Customer
+     */
+    public function detachPaymentMethod(string $paymentMethodId): bool
+    {
+        if (!$this->stripe) {
+            return false;
+        }
+
+        try {
+            $this->stripe->paymentMethods->detach($paymentMethodId);
+            return true;
+        } catch (\Exception $e) {
+            info('Stripe detach payment method error: ' . $e->getMessage());
             return false;
         }
     }

@@ -647,6 +647,14 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
     Route::group(['prefix' => 'stripe-connect'], function () {
         Route::post('payment-intent', [StripeConnectController::class, 'createPaymentIntent']);
         Route::get('account-status', [StripeConnectController::class, 'checkAccountStatus']);
+
+        // APIs autenticadas (cartões salvos)
+        Route::group(['middleware' => 'auth:api'], function () {
+            Route::get('customer', [StripeConnectController::class, 'getOrCreateCustomer']);
+            Route::post('setup-intent', [StripeConnectController::class, 'createSetupIntent']);
+            Route::get('payment-methods', [StripeConnectController::class, 'listPaymentMethods']);
+            Route::delete('payment-methods/{paymentMethodId}', [StripeConnectController::class, 'detachPaymentMethod']);
+        });
     });
 });
 

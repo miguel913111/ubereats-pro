@@ -23,85 +23,6 @@ class StripeConnectController extends Controller
     }
 
     /**
-     * Criar PaymentIntent quando o cliente faz checkout
-     */
-    public function createPaymentIntent(Request $request): JsonResponse
-    {
-        $validator = validator()->make($request->all(), [
-            'order_id' => 'required|integer',
-        ]);
-
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
-        }
-
-        $order = Order::with(['store', 'delivery_man'])->find($request->order_id);
-
-        if (!$order) {
-            return response()->json(['error' => 'Pedido não encontrado'], 404);
-        }
-
-        $store = $order->store;
-        $deliveryMan = $order->delivery_man;
-
-        // Verificar se o restaurante tem conta Stripe ativa (log apenas, não bloquear)
-        if (!$store?->stripe_account_id || !$store?->stripe_onboarding_complete) {
-            \Log::warning('Stripe Connect: Restaurante sem onboarding completo', ['store_id' => $store?->id, 'order_id' => $order->id]);
-        }
-
-        // Se for delivery, verificar entregador também (log apenas, não bloquear)
-        if ($order->order_type === 'delivery' && $deliveryMan) {
-            if (!$deliveryMan->stripe_account_id || !$deliveryMan->stripe_onboarding_complete) {
-                \Log::warning('Stripe Connect: Entregador sem onboarding completo', ['dm_id' => $deliveryMan->id, 'order_id' => $order->id]);
-            }
-        }
-
-        // Calcular valores em cêntimos
-        $totalCents = (int) round($order->order_amount * 100);
-        
-        // Fee da plataforma: 0,60€ em delivery, 1,00€ em take away
-        $platformFeeCents = $order->order_type === 'take_away' ? 100 : 60;
-        
-        // Restaurante recebe: total - delivery_charge - dm_tips - fee
-        $restaurantCents = (int) round(($order->order_amount - $order->delivery_charge - ($order->dm_tips ?? 0)) * 100) - $platformFeeCents;
-        
-        // Entregador recebe: delivery_charge + dm_tips
-        $deliveryManCents = (int) round(($order->delivery_charge + ($order->dm_tips ?? 0)) * 100);
-
-        // Garantir que não há valores negativos
-        $restaurantCents = max(0, $restaurantCents);
-        $deliveryManCents = max(0, $deliveryManCents);
-
-        $transferGroup = 'order_' . $order->id;
-
-        $metadata = [
-            'order_id' => (string) $order->id,
-            'store_id' => (string) $store->id,
-            'delivery_man_id' => $deliveryMan ? (string) $deliveryMan->id : null,
-            'platform_fee_cents' => (string) $platformFeeCents,
-            'restaurant_cents' => (string) $restaurantCents,
-            'delivery_man_cents' => (string) $deliveryManCents,
-            'transfer_group' => $transferGroup,
-            'order_type' => $order->order_type,
-        ];
-
-        $result = $this->stripeService->createPaymentIntent($totalCents, 'eur', $metadata);
-
-        if (!$result) {
-            return response()->json(['error' => 'Erro ao criar pagamento. Tente novamente.'], 500);
-        }
-
-        // Guardar PaymentIntent ID no pedido para referência
-        $order->transaction_reference = $result['id'];
-        $order->save();
-
-        return response()->json([
-            'client_secret' => $result['client_secret'],
-            'payment_intent_id' => $result['id'],
-        ]);
-    }
-
-    /**
      * Webhook do Stripe — executa split automático
      */
     public function webhook(Request $request)
@@ -368,5 +289,191 @@ class StripeConnectController extends Controller
         }
 
         return response()->json(['error' => 'store_id ou delivery_man_id necessário'], 400);
+    }
+
+    /**
+     * Criar ou obter Stripe Customer para o utilizador autenticado
+     */
+    public function getOrCreateCustomer(Request $request): JsonResponse
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json(['error' => 'Não autenticado'], 401);
+        }
+
+        // Se já tem customer_id, retornar
+        if ($user->stripe_customer_id) {
+            return response()->json(['customer_id' => $user->stripe_customer_id]);
+        }
+
+        // Criar novo customer
+        $customerId = $this->stripeService->createCustomer(
+            $user->email ?? '',
+            $user->f_name . ' ' . ($user->l_name ?? ''),
+            $user->phone
+        );
+
+        if (!$customerId) {
+            return response()->json(['error' => 'Erro ao criar customer Stripe'], 500);
+        }
+
+        $user->stripe_customer_id = $customerId;
+        $user->save();
+
+        return response()->json(['customer_id' => $customerId]);
+    }
+
+    /**
+     * Criar SetupIntent para salvar cartão
+     */
+    public function createSetupIntent(Request $request): JsonResponse
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json(['error' => 'Não autenticado'], 401);
+        }
+
+        // Garantir que o customer existe
+        if (!$user->stripe_customer_id) {
+            $customerResponse = $this->getOrCreateCustomer($request);
+            if ($customerResponse->getStatusCode() !== 200) {
+                return $customerResponse;
+            }
+            $user->refresh();
+        }
+
+        $result = $this->stripeService->createSetupIntent($user->stripe_customer_id);
+
+        if (!$result) {
+            return response()->json(['error' => 'Erro ao criar SetupIntent'], 500);
+        }
+
+        return response()->json($result);
+    }
+
+    /**
+     * Listar cartões salvos do utilizador
+     */
+    public function listPaymentMethods(Request $request): JsonResponse
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json(['error' => 'Não autenticado'], 401);
+        }
+
+        if (!$user->stripe_customer_id) {
+            return response()->json(['cards' => []]);
+        }
+
+        $cards = $this->stripeService->listPaymentMethods($user->stripe_customer_id);
+
+        return response()->json(['cards' => $cards]);
+    }
+
+    /**
+     * Remover cartão salvo
+     */
+    public function detachPaymentMethod(Request $request, string $paymentMethodId): JsonResponse
+    {
+        $user = $request->user();
+        if (!$user) {
+            return response()->json(['error' => 'Não autenticado'], 401);
+        }
+
+        $success = $this->stripeService->detachPaymentMethod($paymentMethodId);
+
+        if (!$success) {
+            return response()->json(['error' => 'Erro ao remover cartão'], 500);
+        }
+
+        return response()->json(['message' => 'Cartão removido com sucesso']);
+    }
+
+    /**
+     * Modificar PaymentIntent para aceitar payment_method e customer
+     */
+    public function createPaymentIntent(Request $request): JsonResponse
+    {
+        $validator = validator()->make($request->all(), [
+            'order_id' => 'required|integer',
+            'payment_method' => 'nullable|string',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+
+        $order = Order::with(['store', 'delivery_man'])->find($request->order_id);
+
+        if (!$order) {
+            return response()->json(['error' => 'Pedido não encontrado'], 404);
+        }
+
+        $store = $order->store;
+        $deliveryMan = $order->delivery_man;
+
+        if (!$store?->stripe_account_id || !$store?->stripe_onboarding_complete) {
+            \Log::warning('Stripe Connect: Restaurante sem onboarding completo', ['store_id' => $store?->id, 'order_id' => $order->id]);
+        }
+
+        if ($order->order_type === 'delivery' && $deliveryMan) {
+            if (!$deliveryMan->stripe_account_id || !$deliveryMan->stripe_onboarding_complete) {
+                \Log::warning('Stripe Connect: Entregador sem onboarding completo', ['dm_id' => $deliveryMan->id, 'order_id' => $order->id]);
+            }
+        }
+
+        $totalCents = (int) round($order->order_amount * 100);
+        $platformFeeCents = $order->order_type === 'take_away' ? 100 : 60;
+        $restaurantCents = (int) round(($order->order_amount - $order->delivery_charge - ($order->dm_tips ?? 0)) * 100) - $platformFeeCents;
+        $deliveryManCents = (int) round(($order->delivery_charge + ($order->dm_tips ?? 0)) * 100);
+
+        $restaurantCents = max(0, $restaurantCents);
+        $deliveryManCents = max(0, $deliveryManCents);
+
+        $transferGroup = 'order_' . $order->id;
+
+        $metadata = [
+            'order_id' => (string) $order->id,
+            'store_id' => (string) $store->id,
+            'delivery_man_id' => $deliveryMan ? (string) $deliveryMan->id : null,
+            'platform_fee_cents' => (string) $platformFeeCents,
+            'restaurant_cents' => (string) $restaurantCents,
+            'delivery_man_cents' => (string) $deliveryManCents,
+            'transfer_group' => $transferGroup,
+            'order_type' => $order->order_type,
+        ];
+
+        $params = [
+            'amount' => $totalCents,
+            'currency' => 'eur',
+            'automatic_payment_methods' => ['enabled' => true],
+            'transfer_group' => $transferGroup,
+            'metadata' => $metadata,
+        ];
+
+        // Se tem customer autenticado, associar ao PaymentIntent
+        $user = $request->user();
+        if ($user && $user->stripe_customer_id) {
+            $params['customer'] = $user->stripe_customer_id;
+        }
+
+        // Se enviou payment_method específico, usar esse
+        if ($request->payment_method) {
+            $params['payment_method'] = $request->payment_method;
+        }
+
+        $result = $this->stripeService->createPaymentIntentAdvanced($params);
+
+        if (!$result) {
+            return response()->json(['error' => 'Erro ao criar pagamento. Tente novamente.'], 500);
+        }
+
+        $order->transaction_reference = $result['id'];
+        $order->save();
+
+        return response()->json([
+            'client_secret' => $result['client_secret'],
+            'payment_intent_id' => $result['id'],
+        ]);
     }
 }
