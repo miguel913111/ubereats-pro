@@ -12,6 +12,10 @@ use Illuminate\Routing\Controller;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Validator;
 use App\Models\PaymentRequest;
+use App\Models\Order;
+use App\Models\Store;
+use App\Models\DeliveryMan;
+use App\Services\StripeConnectService;
 use App\Traits\Processor;
 use Stripe\Checkout\Session;
 use Stripe\Stripe;
@@ -22,8 +26,9 @@ class StripePaymentController extends Controller
 
     private $config_values;
     private PaymentRequest $payment;
+    private StripeConnectService $stripeService;
 
-    public function __construct(PaymentRequest $payment)
+    public function __construct(PaymentRequest $payment, StripeConnectService $stripeService)
     {
         $config = $this->payment_config('stripe', 'payment_config');
         if (!is_null($config) && $config->mode == 'live') {
@@ -32,6 +37,7 @@ class StripePaymentController extends Controller
             $this->config_values = json_decode($config->test_values);
         }
         $this->payment = $payment;
+        $this->stripeService = $stripeService;
     }
 
     public function index(Request $request): View|Factory|JsonResponse|Application
@@ -78,8 +84,8 @@ class StripePaymentController extends Controller
         }
 
         $currencies_not_supported_cents = ['BIF', 'CLP', 'DJF', 'GNF', 'JPY', 'KMF', 'KRW', 'MGA', 'PYG', 'RWF', 'UGX', 'VND', 'VUV', 'XAF', 'XOF', 'XPF'];
-        $checkout_session = Session::create([
-            // 'payment_method_types' => ['card'],
+        
+        $sessionParams = [
             'line_items' => [[
                 'price_data' => [
                     'currency' => $currency_code ?? 'usd',
@@ -94,7 +100,43 @@ class StripePaymentController extends Controller
             'mode' => 'payment',
             'success_url' => url('/') . '/payment/stripe/success?session_id={CHECKOUT_SESSION_ID}&payment_id=' . $data->id,
             'cancel_url' => url('/') . '/payment/stripe/canceled?payment_id=' . $data->id,
-        ]);
+        ];
+
+        // Se for pagamento de pedido, adicionar metadata para split automático no webhook
+        if ($data->attribute === 'order' && $data->attribute_id) {
+            $order = Order::with(['store', 'delivery_man'])->find($data->attribute_id);
+            
+            if ($order) {
+                $store = $order->store;
+                $deliveryMan = $order->delivery_man;
+                
+                $totalCents = (int) round($order->order_amount * 100);
+                $platformFeeCents = $order->order_type === 'take_away' ? 100 : 60;
+                $restaurantCents = (int) round(($order->order_amount - $order->delivery_charge - ($order->dm_tips ?? 0)) * 100) - $platformFeeCents;
+                $deliveryManCents = (int) round(($order->delivery_charge + ($order->dm_tips ?? 0)) * 100);
+                $restaurantCents = max(0, $restaurantCents);
+                $deliveryManCents = max(0, $deliveryManCents);
+                
+                $transferGroup = 'order_' . $order->id;
+                
+                $sessionParams['payment_intent_data'] = [
+                    'metadata' => [
+                        'order_id' => (string) $order->id,
+                        'store_id' => $store ? (string) $store->id : null,
+                        'delivery_man_id' => $deliveryMan ? (string) $deliveryMan->id : null,
+                        'platform_fee_cents' => (string) $platformFeeCents,
+                        'restaurant_cents' => (string) $restaurantCents,
+                        'delivery_man_cents' => (string) $deliveryManCents,
+                        'transfer_group' => $transferGroup,
+                        'order_type' => $order->order_type,
+                        'payment_request_id' => (string) $data->id,
+                    ],
+                    'transfer_group' => $transferGroup,
+                ];
+            }
+        }
+
+        $checkout_session = Session::create($sessionParams);
 
         return response()->json(['id' => $checkout_session->id]);
     }

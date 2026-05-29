@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\V1\ConfigController;
+use App\Http\Controllers\StripeConnectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -641,5 +642,11 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
     Route::get('get-parcel-cancellation-reasons', 'ConfigController@parcel_cancellation_reason');
 
     Route::get('get-page-meta-data', [ConfigController::class, 'getPageMetaData']);
+
+    // Stripe Connect — Split Payments
+    Route::group(['prefix' => 'stripe-connect'], function () {
+        Route::post('payment-intent', [StripeConnectController::class, 'createPaymentIntent']);
+        Route::get('account-status', [StripeConnectController::class, 'checkAccountStatus']);
+    });
 });
 

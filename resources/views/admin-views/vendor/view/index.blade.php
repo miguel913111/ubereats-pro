@@ -273,6 +273,67 @@
                 </div>
             </div>
 
+            {{-- Stripe Connect Section --}}
+            <div class="row pt-3 g-3">
+                <div class="col-12">
+                    <div class="card h-100">
+                        <div class="card-header">
+                            <h5 class="card-title m-0 d-flex align-items-center">
+                                <span class="card-header-icon mr-2">
+                                    <i class="tio-credit-card"></i>
+                                </span>
+                                <span class="ml-1">Stripe Connect — Pagamentos</span>
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="resturant--info-address">
+                                <ul class="address-info address-info-2 list-unstyled list-unstyled-py-3 text-dark">
+                                    <li>
+                                        <span><strong>Conta Stripe</strong></span>
+                                        <span>:</span> &nbsp;
+                                        @if ($store->stripe_account_id)
+                                            <span class="badge badge-success">Criada</span>
+                                        @else
+                                            <span class="badge badge-secondary">Não criada</span>
+                                        @endif
+                                    </li>
+                                    <li>
+                                        <span><strong>Onboarding</strong></span>
+                                        <span>:</span> &nbsp;
+                                        @if ($store->stripe_onboarding_complete)
+                                            <span class="badge badge-success">Completo</span>
+                                        @else
+                                            <span class="badge badge-warning">Pendente</span>
+                                        @endif
+                                    </li>
+                                    @if ($store->stripe_account_id && !$store->stripe_onboarding_complete)
+                                        @php
+                                            $stripeService = new \App\Services\StripeConnectService();
+                                            $onboardingUrl = $stripeService->generateOnboardingLink($store->stripe_account_id);
+                                        @endphp
+                                        @if ($onboardingUrl)
+                                            <li>
+                                                <span><strong>Link de Registo</strong></span>
+                                                <span>:</span> &nbsp;
+                                                <a href="{{ $onboardingUrl }}" target="_blank" class="btn btn-sm btn-primary">
+                                                    <i class="tio-link"></i> Abrir Link
+                                                </a>
+                                                <button class="btn btn-sm btn-info" onclick="copy_text('{{ $onboardingUrl }}')">
+                                                    <i class="tio-copy"></i> Copiar
+                                                </button>
+                                            </li>
+                                            <li class="text-muted" style="font-size: 12px;">
+                                                Envie este link ao vendor para completar o registo de pagamentos.
+                                            </li>
+                                        @endif
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             @if ($store->tin)
                 <div class="row pt-3 g-3">
                     <div class="col-12">

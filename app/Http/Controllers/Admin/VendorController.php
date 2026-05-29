@@ -35,6 +35,7 @@ use App\Models\Vendor;
 use App\Models\WithdrawRequest;
 use App\Models\Zone;
 use App\Scopes\StoreScope;
+use App\Services\StripeConnectService;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -148,6 +149,29 @@ class VendorController extends Controller
 
             Helpers::add_or_update_translations(request: $request, key_data: 'name', name_field: 'name', model_name: 'Store', data_id: $store->id, data_value: $store->name);
             Helpers::add_or_update_translations(request: $request, key_data: 'address', name_field: 'address', model_name: 'Store', data_id: $store->id, data_value: $store->address);
+
+            // Criar conta Stripe Connect para o vendor
+            try {
+                $stripeService = new StripeConnectService();
+                if ($stripeService->isConfigured()) {
+                    $stripeData = $stripeService->createExpressAccount($store->email, 'PT');
+                    if ($stripeData) {
+                        $store->stripe_account_id = $stripeData['account_id'];
+                        $store->save();
+                        info('Stripe Connect account created for store ' . $store->id . ': ' . $stripeData['account_id']);
+                        
+                        // Enviar email de onboarding
+                        $stripeService->sendOnboardingEmail(
+                            $store->email,
+                            $store->name,
+                            $stripeData['onboarding_url'],
+                            'vendor'
+                        );
+                    }
+                }
+            } catch (\Exception $stripeEx) {
+                info('Stripe Connect creation failed for store ' . $store->id . ': ' . $stripeEx->getMessage());
+            }
 
         } catch (\Exception $ex) {
             info($ex->getMessage());

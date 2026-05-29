@@ -17,6 +17,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Models\DisbursementDetails;
 use App\Services\DeliveryManService;
+use App\Services\StripeConnectService;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
@@ -149,7 +150,32 @@ class DeliveryManController extends BaseController
 
     public function add(DeliveryManAddRequest $request): JsonResponse
     {
-        $this->deliveryManRepo->add(data: $this->deliveryManService->getAddData(request: $request));
+        $deliveryManData = $this->deliveryManService->getAddData(request: $request);
+        $deliveryMan = $this->deliveryManRepo->add(data: $deliveryManData);
+        
+        // Criar conta Stripe Connect para o entregador
+        try {
+            $stripeService = new StripeConnectService();
+            if ($stripeService->isConfigured() && $deliveryMan) {
+                $stripeData = $stripeService->createExpressAccount($deliveryMan->email, 'PT');
+                if ($stripeData) {
+                    $deliveryMan->stripe_account_id = $stripeData['account_id'];
+                    $deliveryMan->save();
+                    info('Stripe Connect account created for deliveryman ' . $deliveryMan->id . ': ' . $stripeData['account_id']);
+                    
+                    // Enviar email de onboarding
+                    $stripeService->sendOnboardingEmail(
+                        $deliveryMan->email,
+                        $deliveryMan->f_name . ' ' . $deliveryMan->l_name,
+                        $stripeData['onboarding_url'],
+                        'deliveryman'
+                    );
+                }
+            }
+        } catch (\Exception $stripeEx) {
+            info('Stripe Connect creation failed for deliveryman ' . ($deliveryMan->id ?? 'unknown') . ': ' . $stripeEx->getMessage());
+        }
+        
         Toastr::success(translate('messages.deliveryman_added_successfully'));
         return response()->json([
             'message' => translate('messages.deliveryman_added_successfully'),

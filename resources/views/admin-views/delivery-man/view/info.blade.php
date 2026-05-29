@@ -130,6 +130,42 @@
                                 </div>
                             </div>
 
+                            {{-- Stripe Connect --}}
+                            <div class="text-muted line-30"></div>
+                            <div class="d-flex justify-content-center justify-content-md-start gap-3">
+                                <div class="">
+                                    <h6 class="fs-13 mb-1 font-weight-normal text-dark">Stripe Connect</h6>
+                                    <p class="mb-0 fs-14 font-weight-bold text-dark">
+                                        @if ($deliveryMan->stripe_account_id)
+                                            @if ($deliveryMan->stripe_onboarding_complete)
+                                                <span class="badge badge-success">Ativo</span>
+                                            @else
+                                                <span class="badge badge-warning">Pendente</span>
+                                            @endif
+                                        @else
+                                            <span class="badge badge-secondary">Não criada</span>
+                                        @endif
+                                    </p>
+                                </div>
+                            </div>
+                            @if ($deliveryMan->stripe_account_id && !$deliveryMan->stripe_onboarding_complete)
+                                @php
+                                    $stripeService = new \App\Services\StripeConnectService();
+                                    $dmOnboardingUrl = $stripeService->generateOnboardingLink($deliveryMan->stripe_account_id);
+                                @endphp
+                                @if ($dmOnboardingUrl)
+                                    <div class="text-muted line-30"></div>
+                                    <div class="d-flex justify-content-center justify-content-md-start gap-2 align-items-center">
+                                        <a href="{{ $dmOnboardingUrl }}" target="_blank" class="btn btn-xs btn-primary">
+                                            <i class="tio-link"></i> Link
+                                        </a>
+                                        <button class="btn btn-xs btn-info" onclick="copy_text('{{ $dmOnboardingUrl }}')">
+                                            <i class="tio-copy"></i> Copiar
+                                        </button>
+                                    </div>
+                                @endif
+                            @endif
+
                         </div>
                     </div>
                     @if ($deliveryMan->application_status == 'approved')

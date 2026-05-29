@@ -14,6 +14,7 @@ use App\Http\Controllers\BkashPaymentController;
 use App\Http\Controllers\FlutterwaveV3Controller;
 use App\Http\Controllers\PaypalPaymentController;
 use App\Http\Controllers\StripePaymentController;
+use App\Http\Controllers\StripeConnectController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\RiderRegistrationController;
@@ -103,6 +104,26 @@ if (!$is_published) {
             Route::get('success', [StripePaymentController::class, 'success'])->name('success');
             Route::get('canceled', [StripePaymentController::class, 'canceled'])
                 ->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
+        });
+
+        //STRIPE CONNECT (Marketplace / Split Payments)
+        Route::group(['prefix' => 'stripe-connect', 'as' => 'stripe-connect.'], function () {
+            // Webhook — SEM CSRF e SEM AUTH (Stripe chama diretamente)
+            Route::post('webhook', [StripeConnectController::class, 'webhook'])
+                ->name('webhook')
+                ->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
+            
+            // Onboarding pages
+            Route::get('onboarding/success', [StripeConnectController::class, 'onboardingSuccess'])
+                ->name('onboarding.success');
+            Route::get('onboarding/refresh', [StripeConnectController::class, 'onboardingRefresh'])
+                ->name('onboarding.refresh');
+            
+            // API endpoints (para app/web)
+            Route::post('payment-intent', [StripeConnectController::class, 'createPaymentIntent'])
+                ->name('payment-intent');
+            Route::get('account-status', [StripeConnectController::class, 'checkAccountStatus'])
+                ->name('account-status');
         });
 
       //RAZOR-PAY
