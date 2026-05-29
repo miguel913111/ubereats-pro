@@ -213,15 +213,31 @@ class Item extends Model
     public function getImageFullUrlAttribute()
     {
         $value = $this->image;
-        if (count($this->storage) > 0) {
-            foreach ($this->storage as $storage) {
-                if ($storage['key'] == 'image') {
-                    return Helpers::get_full_url('product', $value, $storage['value'],'default');
+        $result = null;
+
+        if ($value) {
+            if (count($this->storage) > 0) {
+                foreach ($this->storage as $storage) {
+                    if ($storage['key'] == 'image') {
+                        $result = Helpers::get_full_url('product', $value, $storage['value'],'default');
+                        break;
+                    }
                 }
+            }
+            if (!$result) {
+                $result = Helpers::get_full_url('product', $value, 'public');
             }
         }
 
-        return Helpers::get_full_url('product', $value, 'public');
+        // Fallback to first image in images array when single image is missing
+        if (!$result) {
+            $images = $this->imagesFullUrl;
+            if (!empty($images)) {
+                $result = $images[0];
+            }
+        }
+
+        return $result;
     }
     public function getImagesFullUrlAttribute()
     {

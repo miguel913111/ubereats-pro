@@ -233,15 +233,26 @@ Route::group(['prefix' => 'deliveryman', 'as' => 'deliveryman.'], function () {
 
 Route::get('/image-proxy', function () {
     $url = request('url');
-    if (!$url) {
-        abort(400, 'Missing url parameter');
+    $corsHeaders = ['Access-Control-Allow-Origin' => '*', 'Access-Control-Allow-Methods' => 'GET, OPTIONS', 'Access-Control-Allow-Headers' => '*'];
+
+    // Handle preflight
+    if (request()->getMethod() === 'OPTIONS') {
+        return response('', 204)->withHeaders($corsHeaders);
     }
 
-    $response = Http::withHeaders([
-        'User-Agent' => 'Laravel-Image-Proxy'
-    ])->get($url);
+    if (!$url || $url === 'null' || $url === 'undefined') {
+        return response('', 204)->withHeaders($corsHeaders);
+    }
 
-    return response($response->body(), $response->status())
-        ->header('Content-Type', $response->header('Content-Type'))
-        ->header('Access-Control-Allow-Origin', '*');
+    try {
+        $response = Http::withHeaders([
+            'User-Agent' => 'Laravel-Image-Proxy'
+        ])->get($url);
+
+        return response($response->body(), $response->status())
+            ->header('Content-Type', $response->header('Content-Type') ?: 'application/octet-stream')
+            ->withHeaders($corsHeaders);
+    } catch (\Exception $e) {
+        return response('', 502)->withHeaders($corsHeaders);
+    }
 });
