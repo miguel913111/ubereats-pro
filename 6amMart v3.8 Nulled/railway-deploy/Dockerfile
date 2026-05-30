@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# Instalar dependencias do sistema
+# Instalar dependencias do sistema + Node.js (SEM tocar em MPMs aqui)
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
@@ -12,10 +12,17 @@ RUN apt-get update && apt-get install -y \
     libssl-dev \
     unzip \
     git \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql mbstring zip exif pcntl bcmath opensearch xml curl \
-    && a2enmod rewrite headers \
+    && docker-php-ext-install -j$(nproc) gd pdo pdo_mysql mbstring zip exif pcntl bcmath opcache xml curl \
     && rm -rf /var/lib/apt/lists/*
+
+# Fix Apache MPM conflict - disable event/worker and ensure only prefork is active
+RUN rm -f /etc/apache2/mods-enabled/mpm_event.load /etc/apache2/mods-enabled/mpm_event.conf \
+    /etc/apache2/mods-enabled/mpm_worker.load /etc/apache2/mods-enabled/mpm_worker.conf \
+    && a2enmod mpm_prefork rewrite headers || true
 
 # Instalar Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -29,10 +36,20 @@ WORKDIR /var/www/html
 
 # Copiar composer files primeiro (cache de camadas)
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
+RUN composer install --no-dev --no-interaction --prefer-dist --no-scripts --no-autoloader
 
 # Copiar resto do codigo
 COPY . .
+
+# Compilar assets frontend (CSS/JS)
+RUN npm install --no-audit --no-fund && npm run production 2>/dev/null || true
+
+# Criar diretorios necessarios antes do autoloader
+RUN mkdir -p bootstrap/cache storage/framework/cache storage/framework/sessions storage/framework/views \
+    && chmod -R 777 bootstrap/cache storage
+
+# Gerar autoloader depois de ter todo o codigo
+RUN composer dump-autoload --optimize --no-scripts
 
 # Permissoes
 RUN chown -R www-data:www-data /var/www/html \
@@ -47,6 +64,10 @@ RUN if [ ! -f .env ]; then cp .env.example .env; fi \
     && php artisan route:cache || true \
     && php artisan view:cache || true
 
+# Copiar e configurar entrypoint que resolve o conflito MPM em runtime
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
