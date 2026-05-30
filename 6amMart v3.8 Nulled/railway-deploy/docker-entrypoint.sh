@@ -26,8 +26,12 @@ ln -s /app/storage/app/public /var/www/html/storage/app/public
 rm -f /var/www/html/public/storage
 php artisan storage:link 2>/dev/null || true
 
+# Clear route cache so new routes are available
+php artisan route:clear 2>/dev/null || true
+
 # Cache config with correct env vars (optional but improves performance)
 php artisan config:cache 2>/dev/null || true
+php artisan route:cache 2>/dev/null || true
 php artisan view:cache 2>/dev/null || true
 
 # Start Apache
