@@ -29,12 +29,16 @@ class StripeConnectController extends Controller
     {
         $token = $request->bearerToken();
         if (!$token) {
+            \Log::info('[StripeAuth] No bearer token provided');
             return null;
         }
 
-        $hashed = hash('sha256', $token);
+        \Log::info('[StripeAuth] Token received: ' . substr($token, 0, 15) . '...');
 
-        // Passport
+        $hashed = hash('sha256', $token);
+        \Log::info('[StripeAuth] SHA256 hash: ' . substr($hashed, 0, 15) . '...');
+
+        // Passport - try hashed token
         $passportToken = \DB::table('oauth_access_tokens')
             ->where('id', $hashed)
             ->where('revoked', false)
@@ -42,17 +46,50 @@ class StripeConnectController extends Controller
             ->first();
 
         if ($passportToken) {
+            \Log::info('[StripeAuth] Found via oauth_access_tokens (hashed)');
             return \App\Models\User::find($passportToken->user_id);
+        }
+
+        // Passport - try plain token
+        $passportTokenPlain = \DB::table('oauth_access_tokens')
+            ->where('id', $token)
+            ->where('revoked', false)
+            ->where('expires_at', '>', now())
+            ->first();
+
+        if ($passportTokenPlain) {
+            \Log::info('[StripeAuth] Found via oauth_access_tokens (plain)');
+            return \App\Models\User::find($passportTokenPlain->user_id);
+        }
+
+        // Check table exists and count tokens
+        try {
+            $tokenCount = \DB::table('oauth_access_tokens')->count();
+            \Log::info('[StripeAuth] oauth_access_tokens count: ' . $tokenCount);
+        } catch (\Exception $e) {
+            \Log::info('[StripeAuth] oauth_access_tokens table error: ' . $e->getMessage());
         }
 
         // Sanctum fallback
         if (class_exists(\Laravel\Sanctum\PersonalAccessToken::class)) {
             $sanctumToken = \Laravel\Sanctum\PersonalAccessToken::findToken($token);
             if ($sanctumToken) {
+                \Log::info('[StripeAuth] Found via Sanctum');
                 return $sanctumToken->tokenable;
             }
         }
 
+        // Check personal_access_tokens (Sanctum table)
+        $personalToken = \DB::table('personal_access_tokens')
+            ->where('token', $hashed)
+            ->first();
+
+        if ($personalToken) {
+            \Log::info('[StripeAuth] Found via personal_access_tokens');
+            return \App\Models\User::find($personalToken->tokenable_id);
+        }
+
+        \Log::info('[StripeAuth] Token not found in any table');
         return null;
     }
 
