@@ -59,6 +59,7 @@ import 'package:nexofood_user/features/payment/screens/offline_payment_screen.da
 import 'package:nexofood_user/features/checkout/screens/order_successful_screen.dart';
 import 'package:nexofood_user/features/payment/screens/payment_screen.dart';
 import 'package:nexofood_user/features/payment/screens/payment_webview_screen.dart';
+import 'package:nexofood_user/features/payment/screens/stripe_native_payment_screen.dart';
 import 'package:nexofood_user/features/coupon/screens/coupon_screen.dart';
 import 'package:nexofood_user/features/dashboard/screens/dashboard_screen.dart';
 import 'package:nexofood_user/features/favourite/screens/favourite_screen.dart';
@@ -552,6 +553,18 @@ class RouteHelper {
       bool createAccount = Get.parameters['create_account'] == 'true';
       int? createUserId = Get.parameters['create_user_id'] != null && Get.parameters['create_user_id'] != 'null' ? int
           .parse(Get.parameters['create_user_id']!) : null;
+      // Se for Stripe, usar pagamento nativo (CardField)
+      if (paymentMethod.toLowerCase() == 'stripe') {
+        return getRoute(StripeNativePaymentScreen(
+          orderModel: order,
+          addFundUrl: addFundUrl,
+          subscriptionUrl: subscriptionUrl,
+          guestId: guestId,
+          contactNumber: number,
+          createAccount: createAccount,
+        ));
+      }
+
       return getRoute(AppConstants.payInWevView ? PaymentWebViewScreen(
         orderModel: order,
         isCashOnDelivery: isCodActive,

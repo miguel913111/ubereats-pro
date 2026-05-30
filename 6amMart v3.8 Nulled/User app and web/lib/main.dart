@@ -27,6 +27,7 @@ import 'package:nexofood_user/features/home/widgets/cookies_view.dart';
 import 'helper/get_di.dart' as di;
 import 'package:flutter/foundation.dart' show kIsWeb, kDebugMode;
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
 
@@ -68,6 +69,12 @@ Future<void> main() async {
     );
   } else {
     await Firebase.initializeApp();
+  }
+
+  // Inicializar Stripe para pagamento nativo
+  if (!kIsWeb) {
+    Stripe.publishableKey = AppConstants.stripePublishableKey;
+    await Stripe.instance.applySettings();
   }
 
   Map<String, Map<String, String>> languages = await di.init();

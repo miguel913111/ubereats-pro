@@ -17,6 +17,7 @@ class AppConstants {
   static const String pusherBroadcustUrl = '/api/v1/broadcasting/user-auth';
 
   static const String baseUrl = 'https://admin-web-production-7dba.up.railway.app';
+  static const String stripePublishableKey = 'pk_test_51TGRP517Fni5LFERwoPmYbYiyySesgZHN9NrXwXrgCk2K9rBAKhSQrvN1c8zlzIMmp5yAr7IN62JMyKgPfNCGrOm00elWd35O3';
   static const String categoryUri = '/api/v1/categories';
   static const String bannerUri = '/api/v1/banners';
   static const String storeItemUri = '/api/v1/items/latest';
