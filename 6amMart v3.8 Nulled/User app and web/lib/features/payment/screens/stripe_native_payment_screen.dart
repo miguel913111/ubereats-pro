@@ -124,8 +124,9 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
 
                   // CardField (apenas se não usar cartão salvo)
                   if (!_useSavedCard) ...[
-                    Container(
-                      padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeDefault),
+                    const SizedBox(height: Dimensions.paddingSizeDefault),
+                    SizedBox(
+                      height: 60,
                       child: CardField(
                         onCardChanged: (card) {
                           setState(() {
@@ -137,6 +138,12 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
                             borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
                           ),
                           labelText: 'número_do_cartão'.tr,
+                          filled: true,
+                          fillColor: Colors.grey.shade50,
+                        ),
+                        style: TextStyle(
+                          color: Theme.of(context).textTheme.bodyLarge?.color,
+                          fontSize: 16,
                         ),
                       ),
                     ),

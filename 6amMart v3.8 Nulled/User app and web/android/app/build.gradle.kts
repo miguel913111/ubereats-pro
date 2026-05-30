@@ -83,4 +83,5 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
     implementation("com.google.firebase:firebase-messaging:23.4.1")
     implementation("com.facebook.android:facebook-android-sdk:latest.release")
+    implementation("com.google.android.material:material:1.12.0")
 }
