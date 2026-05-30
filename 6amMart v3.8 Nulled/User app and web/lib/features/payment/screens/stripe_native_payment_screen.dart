@@ -34,8 +34,6 @@ class StripeNativePaymentScreen extends StatefulWidget {
 
 class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
   final StripePaymentController _stripeController = Get.put(StripePaymentController());
-  CardFieldInputDetails? _cardDetails;
-  bool _isProcessing = false;
   String? _selectedPaymentMethodId;
   bool _useSavedCard = false;
 
@@ -117,50 +115,7 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
                       }),
                     ),
                     const SizedBox(height: Dimensions.paddingSizeLarge),
-                  ] else ...[
-                    Text('dados_do_cartão'.tr, style: robotoBold.copyWith(fontSize: Dimensions.fontSizeLarge)),
-                    const SizedBox(height: Dimensions.paddingSizeSmall),
                   ],
-
-                  // CardFormField (apenas se não usar cartão salvo)
-                  // Usar CardFormField em vez de CardField — muito mais estável no Android
-                  if (!_useSavedCard) ...[
-                    const SizedBox(height: Dimensions.paddingSizeDefault),
-                    CardFormField(
-                      style: CardFormStyle(
-                        borderColor: Colors.grey,
-                        borderWidth: 1,
-                        borderRadius: 8,
-                        textColor: Theme.of(context).textTheme.bodyLarge?.color,
-                        fontSize: 16,
-                        placeholderColor: Colors.grey,
-                      ),
-                      onCardChanged: (card) {
-                        setState(() {
-                          _cardDetails = card;
-                        });
-                      },
-                    ),
-                    const SizedBox(height: Dimensions.paddingSizeLarge),
-                  ],
-
-                  // Salvar cartão (novo) — sempre salva quando é novo
-                  if (!_useSavedCard)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: Dimensions.paddingSizeSmall),
-                      child: Row(
-                        children: [
-                          Icon(Icons.check_circle, color: Theme.of(context).primaryColor, size: 20),
-                          const SizedBox(width: Dimensions.paddingSizeSmall),
-                          Expanded(
-                            child: Text(
-                              'salvar_cartão_para_futuro'.tr,
-                              style: robotoRegular.copyWith(fontSize: Dimensions.fontSizeSmall),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
 
                   const Spacer(),
 
@@ -177,13 +132,11 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
 
                   // Botão pagar
                   CustomButton(
-                    buttonText: _isProcessing
+                    buttonText: controller.isLoading
                         ? 'processando...'.tr
                         : '${'pagar_€'.tr}${widget.orderModel.orderAmount?.toStringAsFixed(2) ?? '0.00'}',
-                    isLoading: controller.isLoading || _isProcessing,
-                    onPressed: _isProcessing || (_useSavedCard && _selectedPaymentMethodId == null)
-                        ? null
-                        : () => _pay(),
+                    isLoading: controller.isLoading,
+                    onPressed: controller.isLoading ? null : () => _pay(),
                   ),
                   const SizedBox(height: Dimensions.paddingSizeDefault),
 
@@ -203,83 +156,64 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
   }
 
   Future<void> _pay() async {
-    setState(() => _isProcessing = true);
     _stripeController.clearError();
 
+    if (_useSavedCard && _selectedPaymentMethodId != null) {
+      // Pagar com cartão salvo usando PaymentSheet
+      await _payWithPaymentSheet(paymentMethodId: _selectedPaymentMethodId);
+    } else {
+      // Pagar com novo cartão usando PaymentSheet
+      await _payWithPaymentSheet();
+    }
+  }
+
+  Future<void> _payWithPaymentSheet({String? paymentMethodId}) async {
     try {
-      if (_useSavedCard && _selectedPaymentMethodId != null) {
-        await _payWithSavedCard(_selectedPaymentMethodId!);
-      } else {
-        await _payWithNewCard();
+      // 1. Criar PaymentIntent no backend
+      final result = await _stripeController.createPaymentIntent(
+        orderId: widget.orderModel.id!,
+        paymentMethodId: paymentMethodId,
+      );
+
+      if (result == null || result['client_secret'] == null) {
+        return; // erro já setado no controller
       }
-    } finally {
-      if (mounted) setState(() => _isProcessing = false);
-    }
-  }
 
-  Future<void> _payWithSavedCard(String paymentMethodId) async {
-    final result = await _stripeController.createPaymentIntent(
-      orderId: widget.orderModel.id!,
-      paymentMethodId: paymentMethodId,
-    );
+      final clientSecret = result['client_secret']!;
+      final customerId = result['customer_id'];
+      final ephemeralKey = result['ephemeral_key']; // se o backend retornar
 
-    if (result == null || result['client_secret'] == null) {
-      return;
-    }
-
-    // PaymentIntent já tem payment_method definido pelo backend
-    final paymentIntentResult = await Stripe.instance.confirmPayment(
-      paymentIntentClientSecret: result['client_secret']!,
-    );
-
-    if (paymentIntentResult.status == PaymentIntentsStatus.Succeeded) {
-      _onPaymentSuccess();
-    } else {
-      _stripeController.setError('Pagamento não confirmado: ${paymentIntentResult.status}');
-    }
-  }
-
-  Future<void> _payWithNewCard() async {
-    // 1. Criar SetupIntent para salvar o cartão
-    final setupOk = await _stripeController.createSetupIntent();
-    if (!setupOk || _stripeController.setupIntentClientSecret == null) {
-      return;
-    }
-
-    // 2. Confirmar SetupIntent (salva o cartão no Stripe)
-    final setupResult = await Stripe.instance.confirmSetupIntent(
-      paymentIntentClientSecret: _stripeController.setupIntentClientSecret!,
-      params: PaymentMethodParams.card(
-        paymentMethodData: PaymentMethodData(
-          billingDetails: BillingDetails(),
+      // 2. Inicializar PaymentSheet
+      await Stripe.instance.initPaymentSheet(
+        paymentSheetParameters: SetupPaymentSheetParameters(
+          paymentIntentClientSecret: clientSecret,
+          merchantDisplayName: 'Nexo Food',
+          customerId: customerId,
+          customerEphemeralKeySecret: ephemeralKey,
+          style: ThemeMode.system,
+          appearance: PaymentSheetAppearance(
+            colors: PaymentSheetAppearanceColors(
+              primary: Theme.of(Get.context!).primaryColor,
+            ),
+          ),
+          billingDetails: const BillingDetails(),
         ),
-      ),
-    );
+      );
 
-    if (setupResult.status != 'Succeeded' || setupResult.paymentMethodId == null) {
-      _stripeController.setError('Erro ao salvar cartão: ${setupResult.status}');
-      return;
-    }
+      // 3. Apresentar PaymentSheet
+      await Stripe.instance.presentPaymentSheet();
 
-    // 3. Criar PaymentIntent para cobrar
-    final paymentResult = await _stripeController.createPaymentIntent(
-      orderId: widget.orderModel.id!,
-      paymentMethodId: setupResult.paymentMethodId,
-    );
-
-    if (paymentResult == null || paymentResult['client_secret'] == null) {
-      return;
-    }
-
-    // 4. Confirmar pagamento (PaymentIntent já tem payment_method)
-    final paymentIntentResult = await Stripe.instance.confirmPayment(
-      paymentIntentClientSecret: paymentResult['client_secret']!,
-    );
-
-    if (paymentIntentResult.status == PaymentIntentsStatus.Succeeded) {
+      // 4. Pagamento confirmado!
       _onPaymentSuccess();
-    } else {
-      _stripeController.setError('Pagamento não confirmado: ${paymentIntentResult.status}');
+
+    } on StripeException catch (e) {
+      if (e.error.code == FailureCode.Canceled) {
+        // Usuário cancelou — não é erro
+        return;
+      }
+      _stripeController.setError('Erro no pagamento: ${e.error.localizedMessage}');
+    } catch (e) {
+      _stripeController.setError('Erro inesperado: $e');
     }
   }
 
