@@ -643,6 +643,30 @@ Route::group(['namespace' => 'Api\V1', 'middleware'=>'localization'], function (
 
     Route::get('get-page-meta-data', [ConfigController::class, 'getPageMetaData']);
 
+    // Debug endpoint
+    Route::get('debug', function() {
+        $storageLink = base_path('public/storage');
+        $storageTarget = base_path('storage/app/public');
+        $railwayVolume = '/app/storage/app/public';
+        
+        $oauthCount = 0;
+        $personalCount = 0;
+        try { $oauthCount = \DB::table('oauth_access_tokens')->count(); } catch(\Exception $e) { $oauthCount = 'error: ' . $e->getMessage(); }
+        try { $personalCount = \DB::table('personal_access_tokens')->count(); } catch(\Exception $e) { $personalCount = 'error: ' . $e->getMessage(); }
+        
+        return response()->json([
+            'storage_link_exists' => file_exists($storageLink),
+            'storage_link_target' => @readlink($storageLink),
+            'storage_target_exists' => file_exists($storageTarget),
+            'storage_target_is_link' => is_link($storageTarget),
+            'railway_volume_exists' => file_exists($railwayVolume),
+            'railway_volume_is_dir' => is_dir($railwayVolume),
+            'oauth_tokens_count' => $oauthCount,
+            'personal_tokens_count' => $personalCount,
+            'app_url' => env('APP_URL'),
+        ]);
+    });
+
     // Stripe Connect — Split Payments
     Route::group(['prefix' => 'stripe-connect'], function () {
         Route::post('payment-intent', [StripeConnectController::class, 'createPaymentIntent']);
