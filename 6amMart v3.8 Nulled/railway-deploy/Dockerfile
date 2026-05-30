@@ -39,7 +39,7 @@ COPY composer.json composer.lock ./
 RUN composer install --no-dev --no-interaction --prefer-dist --no-scripts --no-autoloader
 
 # Invalidar cache Docker para garantir código novo
-ARG CACHE_BUST=2
+ARG CACHE_BUST=3
 
 # Copiar resto do codigo
 COPY . .

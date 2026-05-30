@@ -21,6 +21,13 @@ class StripeConnectService
 
     public function getSecretKey(): ?string
     {
+        // 1. Try env first (Railway config)
+        $envKey = env('STRIPE_SECRET_KEY');
+        if ($envKey) {
+            return $envKey;
+        }
+
+        // 2. Fallback to database BusinessSetting
         try {
             $payment = BusinessSetting::where('key', 'stripe')->first();
             if ($payment) {
@@ -238,7 +245,7 @@ class StripeConnectService
     public function createSetupIntent(string $customerId): ?array
     {
         if (!$this->stripe) {
-            return null;
+            return ['_service_error' => 'Stripe not configured — check STRIPE_SECRET_KEY'];
         }
 
         try {
@@ -253,7 +260,7 @@ class StripeConnectService
             ];
         } catch (\Exception $e) {
             info('Stripe create SetupIntent error: ' . $e->getMessage());
-            return null;
+            return ['_service_error' => $e->getMessage()];
         }
     }
 

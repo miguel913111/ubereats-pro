@@ -378,44 +378,60 @@ class StripeConnectController extends Controller
      */
     public function createSetupIntent(Request $request): JsonResponse
     {
-        $user = $this->getAuthUser($request);
-        if (!$user) {
-            $token = $request->bearerToken();
-            $hashed = $token ? hash('sha256', $token) : 'none';
-            
-            $oauthCount = 0;
-            $personalCount = 0;
-            try { $oauthCount = \DB::table('oauth_access_tokens')->count(); } catch(\Exception $e) { $oauthCount = -1; }
-            try { $personalCount = \DB::table('personal_access_tokens')->count(); } catch(\Exception $e) { $personalCount = -1; }
-            
-            return response()->json([
-                'error' => 'Não autenticado',
-                'debug' => [
-                    'token_present' => !empty($token),
-                    'token_prefix' => $token ? substr($token, 0, 10) . '...' : null,
-                    'hashed_prefix' => substr($hashed, 0, 10) . '...',
-                    'oauth_tokens_count' => $oauthCount,
-                    'personal_tokens_count' => $personalCount,
-                ]
-            ], 401);
-        }
-
-        // Garantir que o customer existe
-        if (!$user->stripe_customer_id) {
-            $customerResponse = $this->getOrCreateCustomer($request);
-            if ($customerResponse->getStatusCode() !== 200) {
-                return $customerResponse;
+        try {
+            $user = $this->getAuthUser($request);
+            if (!$user) {
+                $token = $request->bearerToken();
+                $hashed = $token ? hash('sha256', $token) : 'none';
+                
+                $oauthCount = 0;
+                $personalCount = 0;
+                try { $oauthCount = \DB::table('oauth_access_tokens')->count(); } catch(\Exception $e) { $oauthCount = -1; }
+                try { $personalCount = \DB::table('personal_access_tokens')->count(); } catch(\Exception $e) { $personalCount = -1; }
+                
+                return response()->json([
+                    'error' => 'Não autenticado',
+                    'debug' => [
+                        'token_present' => !empty($token),
+                        'token_prefix' => $token ? substr($token, 0, 10) . '...' : null,
+                        'hashed_prefix' => substr($hashed, 0, 10) . '...',
+                        'oauth_tokens_count' => $oauthCount,
+                        'personal_tokens_count' => $personalCount,
+                    ]
+                ], 401);
             }
-            $user->refresh();
+
+            // Garantir que o customer existe
+            if (!$user->stripe_customer_id) {
+                $customerResponse = $this->getOrCreateCustomer($request);
+                if ($customerResponse->getStatusCode() !== 200) {
+                    return $customerResponse;
+                }
+                $user->refresh();
+            }
+
+            $result = $this->stripeService->createSetupIntent($user->stripe_customer_id);
+
+            if (!$result) {
+                return response()->json(['error' => 'Erro ao criar SetupIntent — serviço Stripe retornou nulo'], 500);
+            }
+
+            if (isset($result['_service_error'])) {
+                return response()->json([
+                    'error' => 'Erro ao criar SetupIntent',
+                    'stripe_error' => $result['_service_error'],
+                ], 500);
+            }
+
+            return response()->json($result);
+        } catch (\Exception $e) {
+            return response()->json([
+                'error' => 'Erro interno ao criar SetupIntent',
+                'message' => $e->getMessage(),
+                'file' => basename($e->getFile()),
+                'line' => $e->getLine(),
+            ], 500);
         }
-
-        $result = $this->stripeService->createSetupIntent($user->stripe_customer_id);
-
-        if (!$result) {
-            return response()->json(['error' => 'Erro ao criar SetupIntent'], 500);
-        }
-
-        return response()->json($result);
     }
 
     /**
