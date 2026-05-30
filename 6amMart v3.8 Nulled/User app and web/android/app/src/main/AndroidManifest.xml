@@ -104,20 +104,6 @@
         <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
         <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
 
-        <!-- Stripe Payment Activity -->
-        <activity
-            android:name="com.stripe.android.payments.StripeBrowserLauncherActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-            tools:replace="android:theme">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="stripesdk" />
-            </intent-filter>
-        </activity>
-
         <activity
             android:name="com.nexofood.user.sign_in_with_apple.SignInWithAppleCallback"
             android:exported="true"
