@@ -401,7 +401,24 @@ class StripeConnectController extends Controller
     {
         $user = $this->getAuthUser($request);
         if (!$user) {
-            return response()->json(['error' => 'Não autenticado'], 401);
+            $token = $request->bearerToken();
+            $hashed = $token ? hash('sha256', $token) : 'none';
+            
+            $oauthCount = 0;
+            $personalCount = 0;
+            try { $oauthCount = \DB::table('oauth_access_tokens')->count(); } catch(\Exception $e) { $oauthCount = -1; }
+            try { $personalCount = \DB::table('personal_access_tokens')->count(); } catch(\Exception $e) { $personalCount = -1; }
+            
+            return response()->json([
+                'error' => 'Não autenticado',
+                'debug' => [
+                    'token_present' => !empty($token),
+                    'token_prefix' => $token ? substr($token, 0, 10) . '...' : null,
+                    'hashed_prefix' => substr($hashed, 0, 10) . '...',
+                    'oauth_tokens_count' => $oauthCount,
+                    'personal_tokens_count' => $personalCount,
+                ]
+            ], 401);
         }
 
         // Garantir que o customer existe
