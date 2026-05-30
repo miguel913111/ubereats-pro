@@ -122,30 +122,24 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
                     const SizedBox(height: Dimensions.paddingSizeSmall),
                   ],
 
-                  // CardField (apenas se não usar cartão salvo)
+                  // CardFormField (apenas se não usar cartão salvo)
+                  // Usar CardFormField em vez de CardField — muito mais estável no Android
                   if (!_useSavedCard) ...[
                     const SizedBox(height: Dimensions.paddingSizeDefault),
-                    SizedBox(
-                      height: 60,
-                      child: CardField(
-                        onCardChanged: (card) {
-                          setState(() {
-                            _cardDetails = card;
-                          });
-                        },
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(Dimensions.radiusDefault),
-                          ),
-                          labelText: 'número_do_cartão'.tr,
-                          filled: true,
-                          fillColor: Colors.grey.shade50,
-                        ),
-                        style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyLarge?.color,
-                          fontSize: 16,
-                        ),
+                    CardFormField(
+                      style: CardFormStyle(
+                        borderColor: Colors.grey,
+                        borderWidth: 1,
+                        borderRadius: 8,
+                        textColor: Theme.of(context).textTheme.bodyLarge?.color,
+                        fontSize: 16,
+                        placeholderColor: Colors.grey,
                       ),
+                      onCardChanged: (card) {
+                        setState(() {
+                          _cardDetails = card;
+                        });
+                      },
                     ),
                     const SizedBox(height: Dimensions.paddingSizeLarge),
                   ],
