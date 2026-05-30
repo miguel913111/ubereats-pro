@@ -93,7 +93,7 @@ class StripePaymentController extends GetxController implements GetxService {
         _setLoading(false);
         return data;
       }
-      _errorMessage = data['error'] ?? 'Erro ao criar PaymentIntent';
+      _errorMessage = data['stripe_error'] ?? data['error'] ?? 'Erro ao criar PaymentIntent';
       _setLoading(false);
       return null;
     } catch (e) {

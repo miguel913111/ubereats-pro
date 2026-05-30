@@ -139,7 +139,7 @@ class StripeConnectService
     public function createPaymentIntentAdvanced(array $params): ?array
     {
         if (!$this->stripe) {
-            return null;
+            return ['_error' => 'Stripe not configured — check STRIPE_SECRET_KEY'];
         }
 
         try {
@@ -151,7 +151,7 @@ class StripeConnectService
             ];
         } catch (\Exception $e) {
             info('Stripe Connect PaymentIntent advanced error: ' . $e->getMessage());
-            return null;
+            return ['_error' => $e->getMessage()];
         }
     }
 

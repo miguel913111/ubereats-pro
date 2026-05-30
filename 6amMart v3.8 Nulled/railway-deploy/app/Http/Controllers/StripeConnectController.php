@@ -551,6 +551,13 @@ class StripeConnectController extends Controller
             return response()->json(['error' => 'Erro ao criar pagamento. Tente novamente.'], 500);
         }
 
+        if (isset($result['_error'])) {
+            return response()->json([
+                'error' => 'Erro ao criar pagamento',
+                'stripe_error' => $result['_error'],
+            ], 500);
+        }
+
         $order->transaction_reference = $result['id'];
         $order->save();
 
