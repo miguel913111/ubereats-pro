@@ -231,7 +231,7 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
       paymentIntentClientSecret: result['client_secret']!,
     );
 
-    if (paymentIntentResult.status == 'Succeeded') {
+    if (paymentIntentResult.status == PaymentIntentsStatus.Succeeded) {
       _onPaymentSuccess();
     } else {
       _stripeController.setError('Pagamento não confirmado: ${paymentIntentResult.status}');
@@ -275,7 +275,7 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
       paymentIntentClientSecret: paymentResult['client_secret']!,
     );
 
-    if (paymentIntentResult.status == 'Succeeded') {
+    if (paymentIntentResult.status == PaymentIntentsStatus.Succeeded) {
       _onPaymentSuccess();
     } else {
       _stripeController.setError('Pagamento não confirmado: ${paymentIntentResult.status}');
