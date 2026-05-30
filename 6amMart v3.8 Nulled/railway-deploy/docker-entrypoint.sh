@@ -19,6 +19,7 @@ fi
 # Fix storage path: Railway volume is mounted at /app/storage/app/public
 # but Laravel is at /var/www/html — create symlink so images persist
 mkdir -p /app/storage/app/public
+mkdir -p /var/www/html/storage/app
 rm -rf /var/www/html/storage/app/public
 ln -s /app/storage/app/public /var/www/html/storage/app/public
 
