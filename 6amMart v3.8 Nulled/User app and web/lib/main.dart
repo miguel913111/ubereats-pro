@@ -73,8 +73,12 @@ Future<void> main() async {
 
   // Inicializar Stripe para pagamento nativo
   if (!kIsWeb) {
-    Stripe.publishableKey = AppConstants.stripePublishableKey;
-    await Stripe.instance.applySettings();
+    try {
+      Stripe.publishableKey = AppConstants.stripePublishableKey;
+      await Stripe.instance.applySettings();
+    } catch (e) {
+      debugPrint('Stripe initialization error: $e');
+    }
   }
 
   Map<String, Map<String, String>> languages = await di.init();
