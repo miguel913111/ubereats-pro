@@ -16,7 +16,14 @@ if [ -z "$APP_KEY" ]; then
     php artisan key:generate --force 2>/dev/null || true
 fi
 
-# Create storage symlink if missing (fixes missing images)
+# Fix storage path: Railway volume is mounted at /app/storage/app/public
+# but Laravel is at /var/www/html — create symlink so images persist
+mkdir -p /app/storage/app/public
+rm -rf /var/www/html/storage/app/public
+ln -s /app/storage/app/public /var/www/html/storage/app/public
+
+# Create public/storage symlink
+rm -f /var/www/html/public/storage
 php artisan storage:link 2>/dev/null || true
 
 # Cache config with correct env vars (optional but improves performance)
