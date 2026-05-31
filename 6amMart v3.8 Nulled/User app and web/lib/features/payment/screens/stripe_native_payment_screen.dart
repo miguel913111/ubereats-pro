@@ -169,19 +169,25 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
 
   Future<void> _payWithPaymentSheet({String? paymentMethodId}) async {
     try {
+      debugPrint('🟡 STEP 1: Criando PaymentIntent... orderId=${widget.orderModel.id}');
+      
       // 1. Criar PaymentIntent no backend
       final result = await _stripeController.createPaymentIntent(
         orderId: widget.orderModel.id!,
         paymentMethodId: paymentMethodId,
       );
 
+      debugPrint('🟡 STEP 2: Resultado do backend: $result');
+
       if (result == null || result['client_secret'] == null) {
+        debugPrint('🔴 STEP 2 FAILED: result=null ou sem client_secret');
         return; // erro já setado no controller
       }
 
       final clientSecret = result['client_secret']!;
       final customerId = result['customer_id'];
-      final ephemeralKey = result['ephemeral_key']; // se o backend retornar
+      
+      debugPrint('🟡 STEP 3: Init PaymentSheet... clientSecret=${clientSecret.substring(0, 20)}...');
 
       // 2. Inicializar PaymentSheet
       await Stripe.instance.initPaymentSheet(
@@ -189,30 +195,30 @@ class _StripeNativePaymentScreenState extends State<StripeNativePaymentScreen> {
           paymentIntentClientSecret: clientSecret,
           merchantDisplayName: 'Nexo Food',
           customerId: customerId,
-          customerEphemeralKeySecret: ephemeralKey,
           style: ThemeMode.system,
-          appearance: PaymentSheetAppearance(
-            colors: PaymentSheetAppearanceColors(
-              primary: Theme.of(Get.context!).primaryColor,
-            ),
-          ),
           billingDetails: const BillingDetails(),
         ),
       );
 
+      debugPrint('🟡 STEP 4: Present PaymentSheet...');
+
       // 3. Apresentar PaymentSheet
       await Stripe.instance.presentPaymentSheet();
+
+      debugPrint('🟢 STEP 5: Pagamento confirmado!');
 
       // 4. Pagamento confirmado!
       _onPaymentSuccess();
 
     } on StripeException catch (e) {
+      debugPrint('🔴 StripeException: code=${e.error.code}, message=${e.error.localizedMessage}');
       if (e.error.code == FailureCode.Canceled) {
-        // Usuário cancelou — não é erro
         return;
       }
       _stripeController.setError('Erro no pagamento: ${e.error.localizedMessage}');
-    } catch (e) {
+    } catch (e, stack) {
+      debugPrint('🔴 Erro inesperado: $e');
+      debugPrint('🔴 Stack: $stack');
       _stripeController.setError('Erro inesperado: $e');
     }
   }
